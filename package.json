@@ -1,0 +1,8 @@
+{
+  "name": "we-connect-server",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/Mich-moon/CAPSTONE-project.git",
+  "author": "Joel Henry <joel.henry.023@gmail.com>",
+  "license": "MIT"
+}
