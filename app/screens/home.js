@@ -1,22 +1,15 @@
 import React from 'react'
 
-import { StyleSheet } from 'react-native'
-import { Layout, Text } from '@ui-kitten/components'
+import { View, Text } from 'react-native-ui-lib'
 
 
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center'
-    }
-})
+
 
 
 export default function HomeScreen() {
     return (
-        <Layout style={styles.container}>
-            <Text category={'h1'}>Home Screen</Text>
-        </Layout>
+        <View flx paddingH-20 paddingT-120>
+            <Text blue50 text20>Home Screen</Text>
+        </View>
     )
 }
