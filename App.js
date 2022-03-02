@@ -1,21 +1,16 @@
-import { StatusBar } from 'expo-status-bar';
+
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import * as eva from '@eva-design/eva'
+import { ApplicationProvider } from '@ui-kitten/components'
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>We Connect</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
-}
+import AuthNavigator from './app/navigations/auth-navigator';
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+
+export default () => (
+    <ApplicationProvider {...eva} theme={eva.light}>
+        <AuthNavigator />
+    </ApplicationProvider>
+)
+
+
+
