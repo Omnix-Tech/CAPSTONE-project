@@ -1,24 +1,15 @@
-# CAPSTONE-project
+> Why do I have a folder named ".expo" in my project?
 
-A subtitle that describes your project  
+The ".expo" folder is created when an Expo project is started using "expo start" command.
 
+> What do the files contain?
 
-## Mission
+- "devices.json": contains information about devices that have recently opened this project. This is used to populate the "Development sessions" list in your development builds.
+- "packager-info.json": contains port numbers and process PIDs that are used to serve the application to the mobile device/simulator.
+- "settings.json": contains the server configuration that is used to serve the application manifest.
 
-This should contain a brief (3-5 sentences) description of the mission of your project. 
-The goal is to state what you are planning to work on and help external contributors understand roughly which types of features will likely be welcome for this project.
+> Should I commit the ".expo" folder?
 
+No, you should not share the ".expo" folder. It does not contain any information that is relevant for other developers working on the project, it is specific to your machine.
 
-## Running instructions
-
-Explain to potential users how to run/replicate your workflow. If necessary, touch upon the required input data, which secret credentials are required (and how to obtain them), which software tools are needed to run the workflow (including links to the installation instructions), and how to run the workflow.
-
-
-## More resources
-
-Point interested users to any related literature and/or documentation.
-
-
-## About
-
-Explain who has contributed to the repository. You can say it has been part of a class you've taken at Tilburg University.
+Upon project creation, the ".expo" folder is already added to your ".gitignore" file.
