@@ -7,8 +7,8 @@ export default function Home({ navigation }) {
 
     const stylePressable = {
         padding: 5,
-        height: 70, 
-        bg: 'lightBlue.700', 
+        height: 70,
+        bg: 'lightBlue.700',
         borderRadius: 15
     }
 
@@ -38,13 +38,13 @@ export default function Home({ navigation }) {
                 <Box width={'full'}>
                     <HStack padding={2} width={'100vw'} justifyContent={'space-between'}>
                         <Box padding={2} width={'1/2'}>
-                            <Pressable {... stylePressable} onPress={() => alert("Public Forum")}>
+                            <Pressable {...stylePressable} onPress={() => alert("Public Forum")}>
                                 <Heading color={'white'} size={'sm'} >Public Forum</Heading>
                             </Pressable>
                         </Box>
 
                         <Box padding={2} width={'1/2'}>
-                            <Pressable {... stylePressable} onPress={() => alert("Alerts")}>
+                            <Pressable {...stylePressable} onPress={() => alert("Alerts")}>
                                 <Heading color={'white'} size={'sm'} >Alerts</Heading>
                             </Pressable>
                         </Box>
