@@ -1,7 +1,7 @@
 import React from 'react'
-import Landing from '../Screens/landing'
-import Login from '../Screens/login'
-import Register from '../Screens/register'
+import Landing from '../Screens/Landing'
+import Login from '../Screens/Login'
+import Register from '../Screens/Register'
 import { createStackNavigator } from '@react-navigation/stack'
 
 

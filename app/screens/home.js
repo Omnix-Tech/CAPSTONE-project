@@ -2,9 +2,11 @@ import { Container, Box, Text, IconButton, HStack, Stack, Heading, Pressable, Sc
 
 import React from 'react'
 import { Icon } from 'react-native-elements'
+import { UserContext } from '../Auth/context'
 
 export default function Home({ navigation }) {
 
+    const { user, location } = React.useContext(UserContext)
     const stylePressable = {
         padding: 5,
         height: 70,
@@ -25,11 +27,11 @@ export default function Home({ navigation }) {
 
                     <Stack paddingY={'6'} paddingX={'10'} >
 
-                        <Heading color={'info.100'}>Hi, Joel Henry</Heading>
+                        <Heading color={'info.100'}>Hi, {user?.displayName} </Heading>
 
                         <HStack alignItems={'center'} marginTop='0.5'>
                             <Icon style={{ marginRight: 5 }} type='feather' name='map-pin' color='#22c55e' size={'sm'} />
-                            <Text color={'info.200'} >Portmore Connect</Text>
+                            <Text color={'info.200'} >{`${location?.area ? location.area : '...'} Connect`}</Text>
                         </HStack>
 
                     </Stack>

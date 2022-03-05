@@ -1,18 +1,24 @@
 import React from 'react'
 
 
-import Home from '../screens/Home'
+import Home from '../Screens/Home'
 import Profile from '../Screens/Profile'
 import Alerts from '../Screens/Alerts'
 import Search from '../Screens/Search'
 
 import { Icon } from 'react-native-elements'
-import { Box, useDisclose, Stagger, IconButton, HStack } from 'native-base'
-
-
 
 import { createStackNavigator } from '@react-navigation/stack'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
+// import { createDrawerNavigator } from '@react-navigation/drawer'
+import NewMenuButton from '../components/elements/NewMenuButton'
+
+
+import { UserContext, AuthContext } from '../Auth/context'
+
+import Permissions from '../utils/Permissions'
+import apiClient from '../utils/apiClient'
+
 
 const Tabs = createBottomTabNavigator()
 
@@ -48,76 +54,42 @@ const AlertsStackScreen = () => (
     </AlertsStack.Navigator>
 )
 
+// const DrawerStack = createDrawerNavigator()
+// const DrawerMenu = () => (
+//     <DrawerStack.Navigator>
+//         <DrawerStack.Screen name='Settings' component={Box} />
+//     </DrawerStack.Navigator>
+// )
 
-
-
-function PostButtonActive() {
-    return <></>
-}
-
-
-function NewMenuButton() {
-    const { isOpen, onToggle } = useDisclose()
-    const boxStyle = {
-        position: 'absolute',
-        bottom: 78,
-        right: 2,
-
-
-    }
-    return (
-        <Box {... boxStyle}>
-        <Stagger visible={isOpen} initial={{
-                opacity: 0,
-                scale: 0,
-                translateY: 34
-            }} animate={{
-                translateY: 0,
-                scale: 1,
-                opacity: 1,
-
-                transition: {
-                    type: "spring",
-                    mass: 0.8,
-                    stagger: {
-                        offset: 30,
-                        reverse: true
-                    }
-                }
-            }} exit={{
-                translateY: 34,
-                scale: 0.5,
-                opacity: 0,
-                transition: {
-                    duration: 100,
-                    stagger: {
-                        offset: 30,
-                        reverse: true
-                    }
-                }
-            }}>
-                <IconButton mb={5} variant='ghost' colorScheme='info.200' borderRadius={'full'} icon={<Icon type='feather' name='plus' />} />
-                <IconButton mb={5} variant='ghost' colorScheme='info.200' borderRadius={'full'} icon={<Icon type='feather' name='message-circle' />} />
-            </Stagger>
-
-            <HStack alignItems={'center'}>
-                <IconButton variant={'solid'} borderRadius='full' size={'lg'} onPress={onToggle} bg='info.800' color={'white'} icon={<Icon type='feather' name='more-vertical' color={'white'} />} />
-            </HStack>
-        </Box>
-            
-    )
-}
-
-
-
-export default function AppNavigator() {
+export default function AppNavigator({ route }) {
     const activeColor = '#06b6d4'
     const inActiveColor = '#dbf4ff'
 
+    const [location, setLocation] = React.useState(null)
+
+    const userContext = React.useMemo(() => {
+        return { user: route.params?.user, location }
+    }, [location])
+
+    const { location: locationPermission } = Permissions()
+
+    React.useEffect(async () => {
+        const currentLocation = await locationPermission().catch(error => alert(error.message))
+        if (currentLocation) {
+            const response = await apiClient()
+                .post('/get/location', {
+                    currentLocation
+                })
+                .catch(error => console.log(error))
+
+            const location = response.data
+            setLocation(location)
+        }
+    }, [])
+
 
     return (
-        <>
-
+        <UserContext.Provider value={userContext}>
             <Tabs.Navigator screenOptions={{
                 headerShown: false,
                 tabBarStyle: {
@@ -140,8 +112,8 @@ export default function AppNavigator() {
                     tabBarIcon: ({ focused }) => (<Icon color={focused ? activeColor : inActiveColor} type='feather' name='search' />)
                 }} />
 
-                <Tabs.Screen name='post' component={PostButtonActive} options={{
-                    tabBarButton: (props) => (<NewMenuButton {... props} />)
+                <Tabs.Screen name='post' component={NewMenuButton} options={{
+                    tabBarButton: (props) => (<NewMenuButton {...props} />)
                 }} />
 
                 <Tabs.Screen name="alerts" component={AlertsStackScreen} options={{
@@ -156,7 +128,7 @@ export default function AppNavigator() {
                 }} />
 
             </Tabs.Navigator>
-        </>
-
+            {/* <DrawerMenu/> */}
+        </UserContext.Provider>
     )
 }

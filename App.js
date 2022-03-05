@@ -6,16 +6,18 @@ import { AuthContext } from './app/Auth/context';
 import { NavigationContainer } from '@react-navigation/native';
 import { NativeBaseProvider } from 'native-base';
 import { createStackNavigator } from '@react-navigation/stack';
-import Splash from './app/screens/Splash';
+import Splash from './app/Screens/Splash';
+
+import * as Authenticate from './app/Auth/Authentication'
 
 
 
 
 const RootStack = createStackNavigator()
-const RootStackScreen = ({ userToken }) => (
+const RootStackScreen = ({ user }) => (
     <RootStack.Navigator headerMode='none'>
-        {userToken ? (
-            <RootStack.Screen name='app' component={AppNavigator} />
+        {user ? (
+            <RootStack.Screen name='app' component={AppNavigator} initialParams={{ user }} />
         ) : (
             <RootStack.Screen name='auth' component={AuthNavigator} />
         )}
@@ -24,29 +26,43 @@ const RootStackScreen = ({ userToken }) => (
 
 
 export default () => {
-    const [isLoading, setIsLoading] = React.useState(false)
-    const [userToken, setUserToken] = React.useState('null')
+    const [isLoading, setIsLoading] = React.useState(true)
+    const [user, setUser] = React.useState(null)
 
     const authContext = React.useMemo(() => {
         return {
-            signIn: () => {
+
+            signIn: (email, password) => {
                 setIsLoading(true)
-                setUserToken("Banana")
+                Authenticate.signIn(email, password)
+                    .then(user => {
+                        setUser(user)
+                        setIsLoading(false)
+                    })
+                    .catch(err => {
+                        alert(err.message)
+                        setIsLoading(false)
+                    })
             },
-            register: () => {
-                setIsLoading(true),
-                    setUserToken("Band")
+
+            register: (firstName, lastName, email, password) => {
+                // setIsLoading(true),
+                Authenticate.register(firstName, lastName, email, password)
+                    .then(credential => console.log(credential))
+                    .catch(err => alert(err.message))
             },
+
             signOut: () => {
-                setIsLoading(true),
-                    setUserToken(null)
+                Authenticate.logout()
+                setUser(null)
             }
         }
     }, [])
 
     React.useEffect(() => {
-        setTimeout(() => setIsLoading(false), 3000)
-    }, [userToken])
+        setUser(Authenticate.auth.currentUser)
+        setIsLoading(false)
+    }, [user])
 
 
 
@@ -57,7 +73,7 @@ export default () => {
                     <Splash />
                 ) : (
                     <NavigationContainer>
-                        <RootStackScreen userToken={userToken} />
+                        <RootStackScreen user={user} />
                     </NavigationContainer>
                 )}
 
