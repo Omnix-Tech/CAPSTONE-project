@@ -1,0 +1,3743 @@
+[
+  {
+    "area": "Norman Gardens",
+    "parish": "KINGSTON",
+    "councillors": [
+      {
+        "name": "Jacqueline Lewis",
+        "email": "lewisjacqueline@yahoo.com",
+        "area": "Norman Gardens",
+        "parish": "KINGSTON",
+        "constituence": "KINGSTON EAST AND PORT ROYAL",
+        "party": "PNP"
+      },
+      {
+        "name": "Angela R. Brown-Burke (now MP)",
+        "email": "",
+        "area": "Norman Gardens",
+        "parish": "KINGSTON",
+        "constituence": "KINGSTON EAST AND PORT ROYAL",
+        "party": "PNP"
+      }
+    ],
+    "address": "Norman Gardens, Kingston, Jamaica",
+    "place_id": "ChIJ3fs2GWg_244R3sq8qdXerxQ",
+    "location": { "lat": 17.9797019, "lng": -76.7581794 }
+  },
+  {
+    "area": "Rose Hall",
+    "parish": "ST. JAMES",
+    "councillors": [
+      {
+        "name": "Anthony Murray",
+        "email": "murrybe@yahoo.com",
+        "area": "Rose Hall",
+        "parish": "ST. JAMES",
+        "constituence": "ST. JAMES EAST CENTRAL",
+        "party": "JLP"
+      },
+      {
+        "name": "Donald Simpson",
+        "email": "Donaldsimpson86@gmail.com",
+        "area": "Rose Hall",
+        "parish": "ST. JAMES",
+        "constituence": "ST. JAMES EAST CENTRAL",
+        "party": "JLP"
+      }
+    ],
+    "address": "Rose Hall Road, Montego Bay, Jamaica",
+    "place_id": "ChIJL2dFYaMu2o4RTqiY7RidEns",
+    "location": { "lat": 18.5163517, "lng": -77.818874 }
+  },
+  {
+    "area": "Montego Bay",
+    "parish": "ST. JAMES",
+    "councillors": [
+      {
+        "name": "Arthur Lynch",
+        "email": "alynch_jnr@hotmail.com",
+        "area": "Montego Bay South East",
+        "parish": "ST. JAMES",
+        "constituence": "ST. JAMES CENTRAL",
+        "party": "JLP"
+      },
+      {
+        "name": "David Brown",
+        "email": "david_brownjnr@hotmail.com",
+        "area": "Montego Bay West",
+        "parish": "ST. JAMES",
+        "constituence": "ST. JAMES NORTH WESTERN",
+        "party": "JLP"
+      },
+      {
+        "name": "Charles Sinclair (Senator)",
+        "email": "sinclair277@yahoo.com",
+        "area": "Montego Bay North East",
+        "parish": "ST. JAMES",
+        "constituence": "ST. JAMES NORTH WESTERN",
+        "party": "JLP"
+      },
+      {
+        "name": "Leeroy Williams",
+        "email": "",
+        "area": "Montego Bay North",
+        "parish": "ST. JAMES",
+        "constituence": "ST. JAMES NORTH WESTERN",
+        "party": "JLP"
+      },
+      {
+        "name": "Joshua Cummings",
+        "email": "joshua.stjamesfa@yahoo.com",
+        "area": "Montego Bay Central",
+        "parish": "ST. JAMES",
+        "constituence": "ST. JAMES NORTH WESTERN",
+        "party": "JLP"
+      },
+      {
+        "name": "Authur Lynch",
+        "email": "",
+        "area": "Montego Bay South East",
+        "parish": "ST. JAMES",
+        "constituence": "ST. JAMES CENTRAL",
+        "party": "JLP"
+      },
+      {
+        "name": "Richard Vernon",
+        "email": "",
+        "area": "Montego Bay South",
+        "parish": "ST. JAMES",
+        "constituence": "ST. JAMES CENTRAL",
+        "party": "JLP"
+      }
+    ],
+    "address": "Montego Bay, Jamaica",
+    "place_id": "ChIJseJ3_V0q2o4RZlfMWtua1vw",
+    "location": { "lat": 18.4762228, "lng": -77.8938895 }
+  },
+  {
+    "area": "Llandewey",
+    "parish": "ST. THOMAS",
+    "councillors": [
+      {
+        "name": "Edwin Marr",
+        "email": "edwin_marr@yahoo.com",
+        "area": "Llandewey",
+        "parish": "ST. THOMAS",
+        "constituence": "ST. THOMAS WESTERN",
+        "party": "PNP"
+      }
+    ],
+    "address": "Llandewey, Jamaica",
+    "place_id": "ChIJzwubfNg3244R10qmN-gAbM0",
+    "location": { "lat": 17.9621167, "lng": -76.6094997 }
+  },
+  {
+    "area": "Dalvey",
+    "parish": "ST. THOMAS",
+    "councillors": [
+      {
+        "name": "Michael McLeod",
+        "email": "michaelmcleod@cwjamaica.com",
+        "area": "Dalvey",
+        "parish": "ST. THOMAS",
+        "constituence": "ST. THOMAS EASTERN",
+        "party": "JLP"
+      },
+      {
+        "name": "Micheal Mcleod",
+        "email": "",
+        "area": "Dalvey",
+        "parish": "ST. THOMAS",
+        "constituence": "ST. THOMAS EASTERN",
+        "party": "JLP"
+      }
+    ],
+    "address": "WQ52+WWP, Golden Grove, Jamaica",
+    "place_id": "ChIJtw1EBkC4xI4RJOWXWiXwHuk",
+    "location": { "lat": 17.9098286, "lng": -76.2476863 }
+  },
+  {
+    "area": "Yallahs",
+    "parish": "ST. THOMAS",
+    "councillors": [
+      {
+        "name": "John Lee",
+        "email": "",
+        "area": "Yallahs",
+        "parish": "ST. THOMAS",
+        "constituence": "ST. THOMAS WESTERN",
+        "party": "JLP"
+      },
+      {
+        "name": "Dean Jones",
+        "email": "",
+        "area": "Yallahs",
+        "parish": "ST. THOMAS",
+        "constituence": "ST. THOMAS WESTERN",
+        "party": "JLP"
+      }
+    ],
+    "address": "Yallahs, Jamaica",
+    "place_id": "ChIJbUgRfjdJ244RPdsSNTeEQjw",
+    "location": { "lat": 17.8768385, "lng": -76.5517132 }
+  },
+  {
+    "area": "York Town",
+    "parish": "CLARENDON",
+    "councillors": [
+      {
+        "name": "Upel Purcell",
+        "email": "uspurcell@yahoo.com",
+        "area": "York Town",
+        "parish": "CLARENDON",
+        "constituence": "CLARENDON CENTRAL",
+        "party": "PNP"
+      },
+      {
+        "name": "Uphell Purcell",
+        "email": "",
+        "area": "York Town",
+        "parish": "CLARENDON",
+        "constituence": "CLARENDON SOUTH WESTERN",
+        "party": "PNP"
+      }
+    ],
+    "address": "York Town, Jamaica",
+    "place_id": "ChIJ6ecYJFuZ244RlMwD0rr7Ky0",
+    "location": { "lat": 17.9246291, "lng": -77.2979782 }
+  },
+  {
+    "area": "May Pen",
+    "parish": "CLARENDON",
+    "councillors": [
+      {
+        "name": "Tanya-Lee Williams",
+        "email": "",
+        "area": "May Pen North",
+        "parish": "CLARENDON",
+        "constituence": "CLARENDON NORTH CENTRAL",
+        "party": "JLP"
+      },
+      {
+        "name": "Melvin Jones",
+        "email": "",
+        "area": "May Pen North",
+        "parish": "CLARENDON",
+        "constituence": "CLARENDON CENTRAL",
+        "party": "JLP"
+      },
+      {
+        "name": "Kenneth Davis",
+        "email": "Ainsworth_davis@outlook.com",
+        "area": "May Pen East",
+        "parish": "CLARENDON",
+        "constituence": "CLARENDON CENTRAL",
+        "party": "JLP"
+      }
+    ],
+    "address": "May Pen, Jamaica",
+    "place_id": "ChIJOaRAXwif244RltGBb1z4kBM",
+    "location": { "lat": 17.9646325, "lng": -77.2433891 }
+  },
+  {
+    "area": "Portmore City Municipality",
+    "parish": "ST. CATHERINE",
+    "councillors": [
+      {
+        "name": "Leon Thomas (Mayor)",
+        "email": "pmc.mayor@gmail.com",
+        "area": "Portmore City Municipality",
+        "parish": "ST. CATHERINE",
+        "constituence": "ST. CATHERINE SOUTH EASTERN",
+        "party": "PNP"
+      }
+    ],
+    "address": "Portmore, Jamaica",
+    "place_id": "ChIJh142zDtr244RtrOfBl5TN3o",
+    "location": { "lat": 17.9611269, "lng": -76.88939069999999 }
+  },
+  {
+    "area": "Homestead",
+    "parish": "ST. CATHERINE",
+    "councillors": [
+      {
+        "name": "Mark McLean",
+        "email": "",
+        "area": "Homestead",
+        "parish": "ST. CATHERINE",
+        "constituence": "ST. CATHERINE CENTRAL",
+        "party": "JLP"
+      },
+      {
+        "name": "OWEN PALMER",
+        "email": "",
+        "area": "Homestead",
+        "parish": "ST. CATHERINE",
+        "constituence": "ST. CATHERINE SOUTH CENTRAL",
+        "party": "JLP"
+      }
+    ],
+    "address": "Homestead, Spanish Town, Jamaica",
+    "place_id": "ChIJ21hrTNAS244Rb4Mrh4KDClU",
+    "location": { "lat": 17.9937435, "lng": -76.9736672 }
+  },
+  {
+    "area": "Sheffield",
+    "parish": "WESTMORELAND",
+    "councillors": [
+      {
+        "name": "Garfield James",
+        "email": "Gar_james2003@yahoo.com",
+        "area": "Sheffield",
+        "parish": "WESTMORELAND",
+        "constituence": "WESTMORELAND WESTERN",
+        "party": "PNP"
+      }
+    ],
+    "address": "7MHW+25M, Negril, Jamaica",
+    "place_id": "ChIJkXCG1UcN2Y4RV49kCQkXD2M",
+    "location": { "lat": 18.2775801, "lng": -78.30457679999999 }
+  },
+  {
+    "area": "Negril",
+    "parish": "WESTMORELAND",
+    "councillors": [
+      {
+        "name": "Bertel Moore (Mayor)",
+        "email": "Burt.moore@hotmail.com",
+        "area": "Negril",
+        "parish": "WESTMORELAND",
+        "constituence": "WESTMORELAND WESTERN",
+        "party": "PNP"
+      }
+    ],
+    "address": "Negril, Jamaica",
+    "place_id": "ChIJhSwwEoUN2Y4RE1k13jbxwHs",
+    "location": { "lat": 18.2683058, "lng": -78.3472424 }
+  },
+  {
+    "area": "Little London",
+    "parish": "WESTMORELAND",
+    "councillors": [
+      {
+        "name": "Ian Myles",
+        "email": "myleslinkzsport@yahoo.com",
+        "area": "Little London",
+        "parish": "WESTMORELAND",
+        "constituence": "WESTMORELAND WESTERN",
+        "party": "PNP"
+      }
+    ],
+    "address": "Little London, Jamaica",
+    "place_id": "ChIJIRb-Cfxt2Y4RBqbz2V4GYEI",
+    "location": { "lat": 18.24402, "lng": -78.20773299999999 }
+  },
+  {
+    "area": "Grange Hill",
+    "parish": "WESTMORELAND",
+    "councillors": [
+      {
+        "name": "Lawton Mckenzie",
+        "email": "",
+        "area": "Grange Hill",
+        "parish": "WESTMORELAND",
+        "constituence": "WESTMORELAND WESTERN",
+        "party": "PNP"
+      }
+    ],
+    "address": "Grange Hill, Jamaica",
+    "place_id": "ChIJ-3B1kmtx2Y4RNtHobvSNB3M",
+    "location": { "lat": 18.3109894, "lng": -78.18779219999999 }
+  },
+  {
+    "area": "Friendship",
+    "parish": "WESTMORELAND",
+    "councillors": [
+      {
+        "name": "Kevin Murray",
+        "email": "",
+        "area": "Friendship",
+        "parish": "WESTMORELAND",
+        "constituence": "WESTMORELAND WESTERN",
+        "party": "JLP"
+      }
+    ],
+    "address": "Westmoreland Parish, Jamaica",
+    "place_id": "ChIJfWSP0I5t2Y4ReL6eOyyzkvk",
+    "location": { "lat": 18.2944378, "lng": -78.1564432 }
+  },
+  {
+    "area": "Whitehouse",
+    "parish": "WESTMORELAND",
+    "councillors": [
+      {
+        "name": "Valdence Gifford",
+        "email": "valdenceg@yahoo.com",
+        "area": "Whitehouse",
+        "parish": "WESTMORELAND",
+        "constituence": "WESTMORELAND EASTERN",
+        "party": "PNP"
+      }
+    ],
+    "address": "White House, Jamaica",
+    "place_id": "ChIJQ0p2p1Rg2Y4RfcGH5BQPP3I",
+    "location": { "lat": 18.0943972, "lng": -77.9667267 }
+  },
+  {
+    "area": "Darliston",
+    "parish": "WESTMORELAND",
+    "councillors": [
+      {
+        "name": "Jerome Bacchas",
+        "email": "jbacchas@yahoo.com",
+        "area": "Darliston",
+        "parish": "WESTMORELAND",
+        "constituence": "WESTMORELAND EASTERN",
+        "party": "PNP"
+      }
+    ],
+    "address": "Darliston, Jamaica",
+    "place_id": "ChIJp_rY2ipj2Y4REsKtFEyewEM",
+    "location": { "lat": 18.2349018, "lng": -77.9752926 }
+  },
+  {
+    "area": "Bethel Town",
+    "parish": "WESTMORELAND",
+    "councillors": [
+      {
+        "name": "Danree Delancy (Deputy Mayor)",
+        "email": "dmdelancy@gmail.com",
+        "area": "Bethel Town",
+        "parish": "WESTMORELAND",
+        "constituence": "WESTMORELAND EASTERN",
+        "party": "PNP"
+      }
+    ],
+    "address": "Bethel Town, Jamaica",
+    "place_id": "ChIJq3Vger192Y4R6vxIkqNMaoE",
+    "location": { "lat": 18.2955723, "lng": -77.9516462 }
+  },
+  {
+    "area": "Savanna-la-Mar",
+    "parish": "WESTMORELAND",
+    "councillors": [
+      {
+        "name": "Devon Thomas",
+        "email": "",
+        "area": "Savanna-la-Mar North",
+        "parish": "WESTMORELAND",
+        "constituence": "WESTMORELAND CENTRAL",
+        "party": "PNP"
+      },
+      {
+        "name": "Lee Simpson",
+        "email": "Kimmielee3333@gmail.com",
+        "area": "Savanna-la-Mar",
+        "parish": "WESTMORELAND",
+        "constituence": "WESTMORELAND CENTRAL",
+        "party": "JLP"
+      }
+    ],
+    "address": "Savanna la Mar, Jamaica",
+    "place_id": "ChIJFRwjH9tv2Y4R9fGrIie4704",
+    "location": { "lat": 18.2291677, "lng": -78.1393397 }
+  },
+  {
+    "area": "Petersfield",
+    "parish": "WESTMORELAND",
+    "councillors": [
+      {
+        "name": "George Wright (now MP)",
+        "email": "",
+        "area": "Petersfield",
+        "parish": "WESTMORELAND",
+        "constituence": "WESTMORELAND CENTRAL",
+        "party": "JLP"
+      }
+    ],
+    "address": "Petersfield, Jamaica",
+    "place_id": "ChIJDZ6TINx62Y4R2bmP6sEXZGM",
+    "location": { "lat": 18.2616156, "lng": -78.0712516 }
+  },
+  {
+    "area": "Leamington",
+    "parish": "WESTMORELAND",
+    "councillors": [
+      {
+        "name": "Cebert McFarlane",
+        "email": "",
+        "area": "Leamington",
+        "parish": "WESTMORELAND",
+        "constituence": "WESTMORELAND CENTRAL",
+        "party": "PNP"
+      }
+    ],
+    "address": "Leamington, Jamaica",
+    "place_id": "ChIJLTfRwpti2Y4RF46K55fgwhM",
+    "location": { "lat": 18.2032053, "lng": -77.9353127 }
+  },
+  {
+    "area": "Frome",
+    "parish": "WESTMORELAND",
+    "councillors": [
+      {
+        "name": "Rudolph Uter",
+        "email": "rudolphuter@yahoo.com",
+        "area": "Frome",
+        "parish": "WESTMORELAND",
+        "constituence": "WESTMORELAND CENTRAL",
+        "party": "JLP"
+      }
+    ],
+    "address": "Frome, Jamaica",
+    "place_id": "ChIJeXIG5lVw2Y4Rje9ud9fGUPs",
+    "location": { "lat": 18.2927112, "lng": -78.1521676 }
+  },
+  {
+    "area": "Cornwall Mountain",
+    "parish": "WESTMORELAND",
+    "councillors": [
+      {
+        "name": "Dawnette Foster",
+        "email": "Dawn4reall@outlook.com",
+        "area": "Cornwall Mountain",
+        "parish": "WESTMORELAND",
+        "constituence": "WESTMORELAND CENTRAL",
+        "party": "JLP"
+      }
+    ],
+    "address": "Cornwall Mountain Rd, Jamaica",
+    "place_id": "ChIJGSGqI_982Y4R5NmBeRS8Afg",
+    "location": { "lat": 18.2914145, "lng": -77.9888917 }
+  },
+  {
+    "area": "Warsop",
+    "parish": "TRELAWNY",
+    "councillors": [
+      {
+        "name": "Collen Gager (Mayor)",
+        "email": "cgager@trelawnypc.org",
+        "area": "Warsop",
+        "parish": "TRELAWNY",
+        "constituence": "TRELAWNY SOUTHERN",
+        "party": "JLP"
+      }
+    ],
+    "address": "Warsop, Trelawney, Jamaica",
+    "place_id": "ChIJVVQ14c_J244RUXNaQKn3DQ8",
+    "location": { "lat": 18.267604, "lng": -77.5737215 }
+  },
+  {
+    "area": "Ulster Spring",
+    "parish": "TRELAWNY",
+    "councillors": [
+      {
+        "name": "Pauline Foster-Grant",
+        "email": "paulinef@trelawnypc.org",
+        "area": "Ulster Spring",
+        "parish": "TRELAWNY",
+        "constituence": "TRELAWNY SOUTHERN",
+        "party": "PNP"
+      }
+    ],
+    "address": "Ulster Spring, Jamaica",
+    "place_id": "ChIJO3YVsNG1244RD21NIKMXJeo",
+    "location": { "lat": 18.3092599, "lng": -77.52467949999999 }
+  },
+  {
+    "area": "Lorrimers",
+    "parish": "TRELAWNY",
+    "councillors": [
+      {
+        "name": "Desmond Smith",
+        "email": "desmonds@trelawnypc.org",
+        "area": "Lorrimers",
+        "parish": "TRELAWNY",
+        "constituence": "TRELAWNY SOUTHERN",
+        "party": "JLP"
+      }
+    ],
+    "address": "Lorrimers, Jamaica",
+    "place_id": "ChIJFV3bw0O3244Rz2f56Q4uNyg",
+    "location": { "lat": 18.2209618, "lng": -77.4888388 }
+  },
+  {
+    "area": "Albert Town",
+    "parish": "TRELAWNY",
+    "councillors": [
+      {
+        "name": "Nicole Nugent",
+        "email": "nicolen@trelawnypc.org",
+        "area": "Albert Town",
+        "parish": "TRELAWNY",
+        "constituence": "TRELAWNY SOUTHERN",
+        "party": "JLP"
+      }
+    ],
+    "address": "Albert Town, Jamaica",
+    "place_id": "ChIJfWUOChK2244RloyaptOSUrI",
+    "location": { "lat": 18.2929119, "lng": -77.5418791 }
+  },
+  {
+    "area": "Wakefield",
+    "parish": "TRELAWNY",
+    "councillors": [
+      {
+        "name": "Jonathan Bartley",
+        "email": "jonathanb@trelawnypc.org",
+        "area": "Wakefield",
+        "parish": "TRELAWNY",
+        "constituence": "TRELAWNY NORTHERN",
+        "party": "JLP"
+      }
+    ],
+    "address": "Wakefield, Jamaica",
+    "place_id": "ChIJu4MYGLYy2o4ROKdDNBptOF0",
+    "location": { "lat": 18.416479, "lng": -77.723747 }
+  },
+  {
+    "area": "Sherwood Content",
+    "parish": "TRELAWNY",
+    "councillors": [
+      {
+        "name": "Dunstan Harper",
+        "email": "dunstanh@trelawnypc.org",
+        "area": "Sherwood Content",
+        "parish": "TRELAWNY",
+        "constituence": "TRELAWNY NORTHERN",
+        "party": "JLP"
+      }
+    ],
+    "address": "Sherwood Content, Jamaica",
+    "place_id": "ChIJteBHETfL244RBkUHzOqWWhs",
+    "location": { "lat": 18.3907938, "lng": -77.62701799999999 }
+  },
+  {
+    "area": "Martha Brae",
+    "parish": "TRELAWNY",
+    "councillors": [
+      {
+        "name": "Phillip Service",
+        "email": "Phillips@trelawnypc.org",
+        "area": "Martha Brae",
+        "parish": "TRELAWNY",
+        "constituence": "TRELAWNY NORTHERN",
+        "party": "PNP"
+      }
+    ],
+    "address": "Martha Brae, Jamaica",
+    "place_id": "ChIJhbQQpIwz2o4RVFMtcYDpf_k",
+    "location": { "lat": 18.4704799, "lng": -77.6600552 }
+  },
+  {
+    "area": "Falmouth",
+    "parish": "TRELAWNY",
+    "councillors": [
+      {
+        "name": "Garth Wilkinson",
+        "email": "garthw@trelawnypc.org",
+        "area": "Falmouth",
+        "parish": "TRELAWNY",
+        "constituence": "TRELAWNY NORTHERN",
+        "party": "PNP"
+      }
+    ],
+    "address": "Falmouth, Jamaica",
+    "place_id": "ChIJa6vPw_gz2o4RNiV9z_h1cZQ",
+    "location": { "lat": 18.4928457, "lng": -77.656476 }
+  },
+  {
+    "area": "Duncans",
+    "parish": "TRELAWNY",
+    "councillors": [
+      {
+        "name": "Donovan White",
+        "email": "donovanw@trelawnypc.org",
+        "area": "Duncans",
+        "parish": "TRELAWNY",
+        "constituence": "TRELAWNY NORTHERN",
+        "party": "JLP"
+      }
+    ],
+    "address": "Duncans, Jamaica",
+    "place_id": "ChIJde_4gxVK2o4RY8sc4LVyQdY",
+    "location": { "lat": 18.4691383, "lng": -77.5404459 }
+  },
+  {
+    "area": "White Horses",
+    "parish": "ST. THOMAS",
+    "councillors": [
+      {
+        "name": "Hubert Williams Snr.",
+        "email": "rohan825@msn.com",
+        "area": "White Horses",
+        "parish": "ST. THOMAS",
+        "constituence": "ST. THOMAS WESTERN",
+        "party": "PNP"
+      }
+    ],
+    "address": "White Horses, Jamaica",
+    "place_id": "ChIJKfSUcsq0xI4RahwBEzVTwbc",
+    "location": { "lat": 17.881546, "lng": -76.4534165 }
+  },
+  {
+    "area": "Trinityville",
+    "parish": "ST. THOMAS",
+    "councillors": [
+      {
+        "name": "Lenworth Rawle (Deputy Mayor)",
+        "email": "lennyrawle@gmail.com",
+        "area": "Trinityville",
+        "parish": "ST. THOMAS",
+        "constituence": "ST. THOMAS WESTERN",
+        "party": "JLP"
+      }
+    ],
+    "address": "Trinity Ville, Jamaica",
+    "place_id": "ChIJbRP8gI41244RvrvBgpK0qts",
+    "location": { "lat": 17.9618459, "lng": -76.5228101 }
+  },
+  {
+    "area": "Seaforth",
+    "parish": "ST. THOMAS",
+    "councillors": [
+      {
+        "name": "Joan Spencer",
+        "email": "joanspencer06@gmail.com",
+        "area": "Seaforth",
+        "parish": "ST. THOMAS",
+        "constituence": "ST. THOMAS WESTERN",
+        "party": "JLP"
+      }
+    ],
+    "address": "Seaforth, Jamaica",
+    "place_id": "ChIJVf_SxKpK244R0_zhdQH1hyc",
+    "location": { "lat": 17.9453521, "lng": -76.4534165 }
+  },
+  {
+    "area": "Cedar Valley",
+    "parish": "ST. THOMAS",
+    "councillors": [
+      {
+        "name": "Marsha Francis",
+        "email": "call-mona@hotmail.com",
+        "area": "Cedar Valley",
+        "parish": "ST. THOMAS",
+        "constituence": "ST. THOMAS WESTERN",
+        "party": "PNP"
+      }
+    ],
+    "address": "Cedar Valley, Jamaica",
+    "place_id": "ChIJhVXAx082244RLP3OLwNjGRk",
+    "location": { "lat": 17.9910194, "lng": -76.5855861 }
+  },
+  {
+    "area": "Port Morant",
+    "parish": "ST. THOMAS",
+    "councillors": [
+      {
+        "name": "Michael Hue (Mayor)",
+        "email": "michaelhue557@yahoo.com",
+        "area": "Port Morant",
+        "parish": "ST. THOMAS",
+        "constituence": "ST. THOMAS EASTERN",
+        "party": "JLP"
+      }
+    ],
+    "address": "Port Morant, Jamaica",
+    "place_id": "ChIJNbJCife2xI4RD-0f5-NqwUU",
+    "location": { "lat": 17.8961425, "lng": -76.33188899999999 }
+  },
+  {
+    "area": "Morant Bay",
+    "parish": "ST. THOMAS",
+    "councillors": [
+      {
+        "name": "Rohan Bryan",
+        "email": "washyrohanbryan@gmail.com",
+        "area": "Morant Bay",
+        "parish": "ST. THOMAS",
+        "constituence": "ST. THOMAS EASTERN",
+        "party": "PNP"
+      }
+    ],
+    "address": "Morant Bay, Jamaica",
+    "place_id": "ChIJPVplbEa0xI4R0WnB927lG7Q",
+    "location": { "lat": 17.8886522, "lng": -76.3897733 }
+  },
+  {
+    "area": "Bath",
+    "parish": "ST. THOMAS",
+    "councillors": [
+      {
+        "name": "Ludlow Mathison",
+        "email": "ludlowmathison2k7@gmail.com",
+        "area": "Bath",
+        "parish": "ST. THOMAS",
+        "constituence": "ST. THOMAS EASTERN",
+        "party": "PNP"
+      }
+    ],
+    "address": "Bath, Jamaica",
+    "place_id": "ChIJM8-bifDJxI4RVvemLntux8M",
+    "location": { "lat": 17.9557781, "lng": -76.35504569999999 }
+  },
+  {
+    "area": "Retreat",
+    "parish": "ST. MARY",
+    "councillors": [
+      {
+        "name": "Krystal Lee (now MP)",
+        "email": "Krystallee16@yahoo.com",
+        "area": "Retreat",
+        "parish": "ST. MARY",
+        "constituence": "ST. MARY WESTERN",
+        "party": "JLP"
+      }
+    ],
+    "address": "Retreat, Tower Isle, Jamaica",
+    "place_id": "ChIJj4tepTz92o4Rvn9bUxwOn5M",
+    "location": { "lat": 18.3944305, "lng": -77.0283798 }
+  },
+  {
+    "area": "Oracabessa",
+    "parish": "ST. MARY",
+    "councillors": [
+      {
+        "name": "Sheldon Kidd",
+        "email": "jah_kidd01@yahoo.com",
+        "area": "Oracabessa",
+        "parish": "ST. MARY",
+        "constituence": "ST. MARY WESTERN",
+        "party": "JLP"
+      }
+    ],
+    "address": "Oracabessa, Jamaica",
+    "place_id": "ChIJ5eGtusrj2o4RZciLJvwZykA",
+    "location": { "lat": 18.4034755, "lng": -76.938379 }
+  },
+  {
+    "area": "Gayle",
+    "parish": "ST. MARY",
+    "councillors": [
+      {
+        "name": "Jason James (Deputy Mayor)",
+        "email": "jason.andrew.james12@gmail.com",
+        "area": "Gayle",
+        "parish": "ST. MARY",
+        "constituence": "ST. MARY WESTERN",
+        "party": "JLP"
+      }
+    ],
+    "address": "Gayle, Jamaica",
+    "place_id": "ChIJizKiIjId244R0hzmCUdGuhg",
+    "location": { "lat": 18.3267954, "lng": -77.0075055 }
+  },
+  {
+    "area": "Carron Hall",
+    "parish": "ST. MARY",
+    "councillors": [
+      {
+        "name": "Doreen Thomas-Hutchinson",
+        "email": "olga_doreen@yahoo.com",
+        "area": "Carron Hall",
+        "parish": "ST. MARY",
+        "constituence": "ST. MARY WESTERN",
+        "party": "JLP"
+      }
+    ],
+    "address": "Carron Hall Main Rd, Jamaica",
+    "place_id": "ChIJK0J38G0c244RgfvQwdNtz9k",
+    "location": { "lat": 18.2736331, "lng": -76.9457531 }
+  },
+  {
+    "area": "Boscobel",
+    "parish": "ST. MARY",
+    "councillors": [
+      {
+        "name": "Leroy Sewell",
+        "email": "sewellleroy@yahoo.com",
+        "area": "Boscobel",
+        "parish": "ST. MARY",
+        "constituence": "ST. MARY WESTERN",
+        "party": "JLP"
+      }
+    ],
+    "address": "Boscobel, Jamaica",
+    "place_id": "ChIJd6_1R_7i2o4RKY0nDMFp8yI",
+    "location": { "lat": 18.399656, "lng": -76.9671865 }
+  },
+  {
+    "area": "Belfield",
+    "parish": "ST. MARY",
+    "councillors": [
+      {
+        "name": "Levan Freeman",
+        "email": "levanfreeman@yahoo.com",
+        "area": "Belfield",
+        "parish": "ST. MARY",
+        "constituence": "ST. MARY SOUTH WESTERN",
+        "party": "PNP"
+      }
+    ],
+    "address": "St. Mary Parish, Jamaica",
+    "place_id": "ChIJ-51miJTh2o4RjUo8l1lKaRw",
+    "location": { "lat": 18.3092711, "lng": -76.964306 }
+  },
+  {
+    "area": "Richmond",
+    "parish": "ST. MARY",
+    "councillors": [
+      {
+        "name": "Richard Creary (Mayor)",
+        "email": "rcrearyjlp@gmail.com",
+        "area": "Richmond",
+        "parish": "ST. MARY",
+        "constituence": "ST. MARY SOUTH EASTERN",
+        "party": "JLP"
+      }
+    ],
+    "address": "Richmond, Jamaica",
+    "place_id": "ChIJjSUR2jIZ244R3RnWDUMFO1M",
+    "location": { "lat": 18.2544504, "lng": -76.88650849999999 }
+  },
+  {
+    "area": "Castleton",
+    "parish": "ST. MARY",
+    "councillors": [
+      {
+        "name": "Lenford Danvers",
+        "email": "lenfordlee@gmail.com",
+        "area": "Castleton",
+        "parish": "ST. MARY",
+        "constituence": "ST. MARY SOUTH EASTERN",
+        "party": "JLP"
+      }
+    ],
+    "address": "Castleton, Jamaica",
+    "place_id": "ChIJKz8c9oEi244RmqYD7Q6iksY",
+    "location": { "lat": 18.2015068, "lng": -76.8252443 }
+  },
+  {
+    "area": "Annotto Bay",
+    "parish": "ST. MARY",
+    "councillors": [
+      {
+        "name": "Hugh Bryan",
+        "email": "Hughbryan52@gmail.com",
+        "area": "Annotto Bay",
+        "parish": "ST. MARY",
+        "constituence": "ST. MARY SOUTH EASTERN",
+        "party": "JLP"
+      }
+    ],
+    "address": "Annotto Bay, Jamaica",
+    "place_id": "ChIJZ11wdG8h244RzegS04CJuMc",
+    "location": { "lat": 18.2703512, "lng": -76.7704413 }
+  },
+  {
+    "area": "Port Maria",
+    "parish": "ST. MARY",
+    "councillors": [
+      {
+        "name": "Germaine Smiley",
+        "email": "",
+        "area": "Port Maria",
+        "parish": "ST. MARY",
+        "constituence": "ST. MARY CENTRAL",
+        "party": "JLP"
+      }
+    ],
+    "address": "Port Maria, Jamaica",
+    "place_id": "ChIJ-51miJTh2o4R8vPghd2EoHc",
+    "location": { "lat": 18.3653596, "lng": -76.8922729 }
+  },
+  {
+    "area": "Islington",
+    "parish": "ST. MARY",
+    "councillors": [
+      {
+        "name": "Lincoln Dixon",
+        "email": "Lincolndixon50@yahoo.com",
+        "area": "Islington",
+        "parish": "ST. MARY",
+        "constituence": "ST. MARY CENTRAL",
+        "party": "PNP"
+      }
+    ],
+    "address": "Islington, Jamaica",
+    "place_id": "ChIJb4lcnaUf244RqY5jEeUJsdc",
+    "location": { "lat": 18.3107128, "lng": -76.8597727 }
+  },
+  {
+    "area": "Highgate",
+    "parish": "ST. MARY",
+    "councillors": [
+      {
+        "name": "Paul Fyffe",
+        "email": "fyffe.paul@hotmail.com",
+        "area": "Highgate",
+        "parish": "ST. MARY",
+        "constituence": "ST. MARY CENTRAL",
+        "party": "PNP"
+      }
+    ],
+    "address": "Highgate, Jamaica",
+    "place_id": "ChIJZYZtscce244RomtVPsgF_yg",
+    "location": { "lat": 18.2722961, "lng": -76.8922729 }
+  },
+  {
+    "area": "Hampstead",
+    "parish": "ST. MARY",
+    "councillors": [
+      {
+        "name": "Mitsy Hudson",
+        "email": "mitsyh28@gmail.com",
+        "area": "Hampstead",
+        "parish": "ST. MARY",
+        "constituence": "ST. MARY CENTRAL",
+        "party": "JLP"
+      }
+    ],
+    "address": "835M+MC7, Whitehall, Jamaica",
+    "place_id": "ChIJi7Y17wcf244RiiETKKYGB0k",
+    "location": { "lat": 18.3091599, "lng": -76.91644339999999 }
+  },
+  {
+    "area": "Spring Garden",
+    "parish": "ST. JAMES",
+    "councillors": [
+      {
+        "name": "Dwight Crawford",
+        "email": "docrawford876@gmail.com",
+        "area": "Spring Garden",
+        "parish": "ST. JAMES",
+        "constituence": "ST. JAMES WEST CENTRAL",
+        "party": "JLP"
+      }
+    ],
+    "address": "Spring Garden, 13 St Peters Ave, Montego Bay, Jamaica",
+    "place_id": "ChIJKf7g2z4r2o4RGTJQKdTCfX0",
+    "location": { "lat": 18.4865818, "lng": -77.9111175 }
+  },
+  {
+    "area": "Mount Salem",
+    "parish": "ST. JAMES",
+    "councillors": [
+      {
+        "name": "Kerry Thomas",
+        "email": "kerryost@gmail.com",
+        "area": "Mount Salem",
+        "parish": "ST. JAMES",
+        "constituence": "ST. JAMES WEST CENTRAL",
+        "party": "PNP"
+      }
+    ],
+    "address": "Mount Salem, Montego Bay, Jamaica",
+    "place_id": "ChIJSW71T2Aq2o4RiVa2K3J6zIY",
+    "location": { "lat": 18.4668374, "lng": -77.9067467 }
+  },
+  {
+    "area": "Granville",
+    "parish": "ST. JAMES",
+    "councillors": [
+      {
+        "name": "Michael Troupe",
+        "email": "troupe101@gmail.com",
+        "area": "Granville",
+        "parish": "ST. JAMES",
+        "constituence": "ST. JAMES WEST CENTRAL",
+        "party": "PNP"
+      }
+    ],
+    "address": "Granville, Montego Bay, Jamaica",
+    "place_id": "ChIJ8ZmEcekq2o4R4MAtt4avRCA",
+    "location": { "lat": 18.4458592, "lng": -77.8981754 }
+  },
+  {
+    "area": "Welcome Hall",
+    "parish": "ST. JAMES",
+    "councillors": [
+      {
+        "name": "Gregory Wint",
+        "email": "gregorywint@yahoo.com",
+        "area": "Welcome Hall",
+        "parish": "ST. JAMES",
+        "constituence": "ST. JAMES SOUTHERN",
+        "party": "JLP"
+      }
+    ],
+    "address": "Welcome Hall, Jamaica",
+    "place_id": "ChIJPwCsl4XU244Rmo6-jjo0KXI",
+    "location": { "lat": 18.3760256, "lng": -77.8468895 }
+  },
+  {
+    "area": "Maroon Town",
+    "parish": "ST. JAMES",
+    "councillors": [
+      {
+        "name": "Everes Coke",
+        "email": "everescoke@yahoo.com",
+        "area": "Maroon Town",
+        "parish": "ST. JAMES",
+        "constituence": "ST. JAMES SOUTHERN",
+        "party": "JLP"
+      }
+    ],
+    "address": "Maroon Town, Jamaica",
+    "place_id": "ChIJSewj5eXT244Rb_9qzjAIm4A",
+    "location": { "lat": 18.3458766, "lng": -77.7952675 }
+  },
+  {
+    "area": "Catadupa",
+    "parish": "ST. JAMES",
+    "councillors": [
+      {
+        "name": "Gladston Bent (expelled)",
+        "email": "cllrgbent@stjamespc.gov.com",
+        "area": "Catadupa",
+        "parish": "ST. JAMES",
+        "constituence": "ST. JAMES SOUTHERN",
+        "party": "PNP"
+      }
+    ],
+    "address": "Catadupa, Jamaica",
+    "place_id": "ChIJP75UZvzW244Rnx8Y8pazj7I",
+    "location": { "lat": 18.279485, "lng": -77.8738864 }
+  },
+  {
+    "area": "Cambridge",
+    "parish": "ST. JAMES",
+    "councillors": [
+      {
+        "name": "Homer Davis (now MP)",
+        "email": "effi_hardware_haulage@yahoo.com",
+        "area": "Cambridge",
+        "parish": "ST. JAMES",
+        "constituence": "ST. JAMES SOUTHERN",
+        "party": "JLP"
+      }
+    ],
+    "address": "Cambridge, Jamaica",
+    "place_id": "ChIJHYEjyG3W244RRLQRld_yd4k",
+    "location": { "lat": 18.3098699, "lng": -77.901428 }
+  },
+  {
+    "area": "Spring Mount",
+    "parish": "ST. JAMES",
+    "councillors": [
+      {
+        "name": "Uvel Graham",
+        "email": "graham.uvel@yahoo.com",
+        "area": "Spring Mount",
+        "parish": "ST. JAMES",
+        "constituence": "ST. JAMES EAST CENTRAL",
+        "party": "JLP"
+      }
+    ],
+    "address": "Spring Mount, Jamaica",
+    "place_id": "ChIJIb7O5LrU244RydxQDg4xXLk",
+    "location": { "lat": 18.4005172, "lng": -77.8510213 }
+  },
+  {
+    "area": "Somerton",
+    "parish": "ST. JAMES",
+    "councillors": [
+      {
+        "name": "Mark Mcgann",
+        "email": "mcgann.mark@gmail.com",
+        "area": "Somerton",
+        "parish": "ST. JAMES",
+        "constituence": "ST. JAMES EAST CENTRAL",
+        "party": "JLP"
+      }
+    ],
+    "address": "Somerton, Montego Bay, Jamaica",
+    "place_id": "ChIJWy4X6JYr2o4R7XzfBtjEQrw",
+    "location": { "lat": 18.4762228, "lng": -77.8938895 }
+  },
+  {
+    "area": "Salt Spring",
+    "parish": "ST. JAMES",
+    "councillors": [
+      {
+        "name": "Sylvan Reid (expelled)",
+        "email": "garth.reid16@yahoo.com",
+        "area": "Salt Spring",
+        "parish": "ST. JAMES",
+        "constituence": "ST. JAMES CENTRAL",
+        "party": "PNP"
+      }
+    ],
+    "address": "Salt Spring Rd, Montego Bay, Jamaica",
+    "place_id": "ChIJXeRdaUQq2o4RZ9SCBJvA694",
+    "location": { "lat": 18.4792783, "lng": -77.8989565 }
+  },
+  {
+    "area": "Pedro Plains",
+    "parish": "ST. ELIZABETH",
+    "councillors": [
+      {
+        "name": "Jeremy Palmer",
+        "email": "Palmer.jeremyco@yahoo.com",
+        "area": "Pedro Plains",
+        "parish": "ST. ELIZABETH",
+        "constituence": "ST. ELIZABETH SOUTH WESTERN",
+        "party": "JLP"
+      }
+    ],
+    "address": "Pedro Plains, Jamaica",
+    "place_id": "ChIJG4fP2dHl244RgBTXD24bZwE",
+    "location": { "lat": 17.9329747, "lng": -77.78316629999999 }
+  },
+  {
+    "area": "Mountain Side",
+    "parish": "ST. ELIZABETH",
+    "councillors": [
+      {
+        "name": "Derrick Sangster (Mayor)",
+        "email": "Derrick.sangster@gmail.com",
+        "area": "Mountain Side",
+        "parish": "ST. ELIZABETH",
+        "constituence": "ST. ELIZABETH SOUTH WESTERN",
+        "party": "JLP"
+      }
+    ],
+    "address": "Mountainside, Jamaica",
+    "place_id": "ChIJqy5IMp3o244R6cFJlf9p_Jc",
+    "location": { "lat": 17.9738332, "lng": -77.7423469 }
+  },
+  {
+    "area": "Brompton",
+    "parish": "ST. ELIZABETH",
+    "councillors": [
+      {
+        "name": "Withney Smith",
+        "email": "nighyota@gmail.com",
+        "area": "Brompton",
+        "parish": "ST. ELIZABETH",
+        "constituence": "ST. ELIZABETH SOUTH WESTERN",
+        "party": "JLP"
+      }
+    ],
+    "address": "Brompton, Jamaica",
+    "place_id": "ChIJrd6Jdsrf244R0JyHWPJYtmU",
+    "location": { "lat": 18.0667157, "lng": -77.8860316 }
+  },
+  {
+    "area": "Black River",
+    "parish": "ST. ELIZABETH",
+    "councillors": [
+      {
+        "name": "D’wight Salmon",
+        "email": "Jah_sonja@hotmail.com",
+        "area": "Black River",
+        "parish": "ST. ELIZABETH",
+        "constituence": "ST. ELIZABETH SOUTH WESTERN",
+        "party": "PNP"
+      }
+    ],
+    "address": "Black River, Jamaica",
+    "place_id": "ChIJDdHmcaLg244RWmnEhOvjv6Q",
+    "location": { "lat": 18.0335359, "lng": -77.85673799999999 }
+  },
+  {
+    "area": "Southfield",
+    "parish": "ST. ELIZABETH",
+    "councillors": [
+      {
+        "name": "Albert Williams (Deputy Mayor)",
+        "email": "Abertwilliams5494@gmail.com",
+        "area": "Southfield",
+        "parish": "ST. ELIZABETH",
+        "constituence": "ST. ELIZABETH SOUTH EASTERN",
+        "party": "JLP"
+      }
+    ],
+    "address": "Southfield, Jamaica",
+    "place_id": "ChIJH9bysGju244ROb3pZ0gv5YI",
+    "location": { "lat": 17.878111, "lng": -77.67141699999999 }
+  },
+  {
+    "area": "Myersville",
+    "parish": "ST. ELIZABETH",
+    "councillors": [
+      {
+        "name": "Layton Smith",
+        "email": "Laytonsmith25@yahoo.com",
+        "area": "Myersville",
+        "parish": "ST. ELIZABETH",
+        "constituence": "ST. ELIZABETH SOUTH EASTERN",
+        "party": "PNP"
+      }
+    ],
+    "address": "X9F7+4X, Nain, Jamaica",
+    "place_id": "ChIJ32jjEDDr244RCReGhlB8G9I",
+    "location": { "lat": 17.972833, "lng": -77.635043 }
+  },
+  {
+    "area": "Malvern",
+    "parish": "ST. ELIZABETH",
+    "councillors": [
+      {
+        "name": "Daren Powell",
+        "email": "",
+        "area": "Malvern",
+        "parish": "ST. ELIZABETH",
+        "constituence": "ST. ELIZABETH SOUTH EASTERN",
+        "party": "PNP"
+      }
+    ],
+    "address": "Malvern, Jamaica",
+    "place_id": "ChIJl-UGbBzp244RiFexftjxKY4",
+    "location": { "lat": 17.9678128, "lng": -77.6936948 }
+  },
+  {
+    "area": "Junction",
+    "parish": "ST. ELIZABETH",
+    "councillors": [
+      {
+        "name": "Cetany Holness",
+        "email": "Cetany.holness@gmail.com",
+        "area": "Junction",
+        "parish": "ST. ELIZABETH",
+        "constituence": "ST. ELIZABETH SOUTH EASTERN",
+        "party": "JLP"
+      }
+    ],
+    "address": "W94R+FX3, May Hill, Jamaica",
+    "place_id": "ChIJGcvhd1_s244RbPoFqlknW-Q",
+    "location": { "lat": 17.9061485, "lng": -77.607565 }
+  },
+  {
+    "area": "New Market",
+    "parish": "ST. ELIZABETH",
+    "councillors": [
+      {
+        "name": "Richard Solomon",
+        "email": "rsolomon13@yahoo.com",
+        "area": "New Market",
+        "parish": "ST. ELIZABETH",
+        "constituence": "ST. ELIZABETH NORTH WESTERN",
+        "party": "JLP"
+      }
+    ],
+    "address": "New Market, Jamaica",
+    "place_id": "ChIJB9moDMjY244RwxzY06RYry8",
+    "location": { "lat": 18.1495053, "lng": -77.9046039 }
+  },
+  {
+    "area": "Lacovia",
+    "parish": "ST. ELIZABETH",
+    "councillors": [
+      {
+        "name": "George Powell",
+        "email": "Georgepowell5830@gmail.com",
+        "area": "Lacovia",
+        "parish": "ST. ELIZABETH",
+        "constituence": "ST. ELIZABETH NORTH WESTERN",
+        "party": "JLP"
+      }
+    ],
+    "address": "Lacovia, Jamaica",
+    "place_id": "ChIJJ1Tivy3d244R0UZ3csyx8QM",
+    "location": { "lat": 18.071871, "lng": -77.749443 }
+  },
+  {
+    "area": "Ipswich",
+    "parish": "ST. ELIZABETH",
+    "councillors": [
+      {
+        "name": "Prince Waite (renamed Mugabe Kilimanjaro)",
+        "email": "muggymugs@yahoo.com",
+        "area": "Ipswich",
+        "parish": "ST. ELIZABETH",
+        "constituence": "ST. ELIZABETH NORTH WESTERN",
+        "party": "PNP"
+      }
+    ],
+    "address": "Ipswitch, Jamaica",
+    "place_id": "ChIJrYYG2Tva244RxhPfb-_H-Xk",
+    "location": { "lat": 18.1959208, "lng": -77.8210036 }
+  },
+  {
+    "area": "Siloah",
+    "parish": "ST. ELIZABETH",
+    "councillors": [
+      {
+        "name": "Audie Myers",
+        "email": "Jack_ashlei@yahoo.com",
+        "area": "Siloah",
+        "parish": "ST. ELIZABETH",
+        "constituence": "ST. ELIZABETH NORTH EASTERN",
+        "party": "PNP"
+      }
+    ],
+    "address": "Santa Cruz, Jamaica",
+    "place_id": "ChIJfdYQOovC244RP__tv44woZc",
+    "location": { "lat": 18.0549722, "lng": -77.70326589999999 }
+  },
+  {
+    "area": "Santa Cruz",
+    "parish": "ST. ELIZABETH",
+    "councillors": [
+      {
+        "name": "Christopher Williams",
+        "email": "Williamchristopher677@yahoo.com",
+        "area": "Santa Cruz",
+        "parish": "ST. ELIZABETH",
+        "constituence": "ST. ELIZABETH NORTH EASTERN",
+        "party": "JLP"
+      }
+    ],
+    "address": "Santa Cruz, Jamaica",
+    "place_id": "ChIJY3TLFIrC244RLigskHR8gQs",
+    "location": { "lat": 18.0500867, "lng": -77.7051443 }
+  },
+  {
+    "area": "Braes River",
+    "parish": "ST. ELIZABETH",
+    "councillors": [
+      {
+        "name": "Donovan Pagon",
+        "email": "donovanpagon@yahoo.com",
+        "area": "Braes River",
+        "parish": "ST. ELIZABETH",
+        "constituence": "ST. ELIZABETH NORTH EASTERN",
+        "party": "PNP"
+      }
+    ],
+    "address": "Well in Braes River, Jamaica",
+    "place_id": "ChIJMfvZTnnB244RYKhGil2Ez9I",
+    "location": { "lat": 18.0802709, "lng": -77.647368 }
+  },
+  {
+    "area": "Balaclava",
+    "parish": "ST. ELIZABETH",
+    "councillors": [
+      {
+        "name": "Everton Fisher",
+        "email": "",
+        "area": "Balaclava",
+        "parish": "ST. ELIZABETH",
+        "constituence": "ST. ELIZABETH NORTH EASTERN",
+        "party": "PNP"
+      }
+    ],
+    "address": "Balaclava, Jamaica",
+    "place_id": "ChIJ-btBFX7G244RJJLkfQjOIOk",
+    "location": { "lat": 18.1718343, "lng": -77.65074890000001 }
+  },
+  {
+    "area": "Red Hills",
+    "parish": "ST. CATHERINE",
+    "councillors": [
+      {
+        "name": "Keith McCook",
+        "email": "",
+        "area": "Reds Hill",
+        "parish": "ST. CATHERINE",
+        "constituence": "ST. CATHERINE WEST CENTRAL",
+        "party": "JLP"
+      },
+      {
+        "name": "Rohan Hall",
+        "email": "max_rohan@hotmail.com",
+        "area": "Red Hills",
+        "parish": "ST. ANDREW",
+        "constituence": "ST. ANDREW WEST RURAL",
+        "party": "JLP"
+      }
+    ],
+    "address": "Red Hills Rd, Jamaica",
+    "place_id": "ChIJ-X230CQ-244R_pYynhbf4vg",
+    "location": { "lat": 18.0580405, "lng": -76.8536555 }
+  },
+  {
+    "area": "Point Hill",
+    "parish": "ST. CATHERINE",
+    "councillors": [
+      {
+        "name": "Wesley Suckoo (deceased)",
+        "email": "Suckoo_shereece@yahoo.com",
+        "area": "Point Hill",
+        "parish": "ST. CATHERINE",
+        "constituence": "ST. CATHERINE WEST CENTRAL",
+        "party": "JLP"
+      }
+    ],
+    "address": "Point Hill Main Rd, Jamaica",
+    "place_id": "ChIJMwEFX_sM244RNi7IRauPD54",
+    "location": { "lat": 18.0253024, "lng": -77.0647359 }
+  },
+  {
+    "area": "Ginger Ridge",
+    "parish": "ST. CATHERINE",
+    "councillors": [
+      {
+        "name": "Ralston Wilson (Deputy Mayor)",
+        "email": "",
+        "area": "Ginger Ridge",
+        "parish": "ST. CATHERINE",
+        "constituence": "ST. CATHERINE WEST CENTRAL",
+        "party": "PNP"
+      }
+    ],
+    "address": "3RFP+2WQ, Lluidas Vale, Jamaica",
+    "place_id": "ChIJs9uQgDkK244RU13Rasmgodw",
+    "location": { "lat": 18.0725963, "lng": -77.16265229999999 }
+  },
+  {
+    "area": "De La Vega",
+    "parish": "ST. CATHERINE",
+    "councillors": [
+      {
+        "name": "Alphanso Johnson",
+        "email": "jhonjohzme@yahoo.com",
+        "area": "Bellevue",
+        "parish": "ST. CATHERINE",
+        "constituence": "ST. CATHERINE WEST CENTRAL",
+        "party": "JLP"
+      },
+      {
+        "name": "Sydney Rose",
+        "email": "ssrose_66@yahoo.com",
+        "area": "Treadways",
+        "parish": "ST. CATHERINE",
+        "constituence": "ST. CATHERINE NORTH WESTERN",
+        "party": "PNP"
+      },
+      {
+        "name": "Keisha Lewis",
+        "email": "",
+        "area": "Lauriston",
+        "parish": "ST. CATHERINE",
+        "constituence": "ST. CATHERINE EASTERN",
+        "party": "PNP"
+      },
+      {
+        "name": "Enos Lawrence",
+        "email": "janlaw96@yahoo.com",
+        "area": "De La Vega",
+        "parish": "ST. CATHERINE",
+        "constituence": "ST. CATHERINE EASTERN",
+        "party": "PNP"
+      }
+    ],
+    "address": "St. Catherine Parish, Jamaica",
+    "place_id": "ChIJm81moToT244Rgj0-MWwire4",
+    "location": { "lat": 18.0364134, "lng": -77.0564464 }
+  },
+  {
+    "area": "Hellshire",
+    "parish": "ST. CATHERINE",
+    "councillors": [
+      {
+        "name": "Vanrick Preddie",
+        "email": "vanpreds@yahoo.com",
+        "area": "Hellshire",
+        "parish": "ST. CATHERINE",
+        "constituence": "ST. CATHERINE SOUTHERN",
+        "party": "PNP"
+      }
+    ],
+    "address": "Hellshire, Jamaica",
+    "place_id": "ChIJkVuX7Sps244RhQAzmMOnZ1o",
+    "location": { "lat": 17.9015381, "lng": -76.9527836 }
+  },
+  {
+    "area": "Greater Portmore North (Naggo head)",
+    "parish": "ST. CATHERINE",
+    "councillors": [
+      {
+        "name": "Michael Edwards",
+        "email": "fisha_gpn@yahoo.com",
+        "area": "Greater Portmore North (Naggo head)",
+        "parish": "ST. CATHERINE",
+        "constituence": "ST. CATHERINE SOUTHERN",
+        "party": "PNP"
+      }
+    ],
+    "address": "Naggo Head, Portmore, Jamaica",
+    "place_id": "ChIJ8wCnSjlr244RWr6fFlsrQB0",
+    "location": { "lat": 17.9680932, "lng": -76.8850673 }
+  },
+  {
+    "area": "Greater Portmore East",
+    "parish": "ST. CATHERINE",
+    "councillors": [
+      {
+        "name": "Yvonne McCormack (deceased)",
+        "email": "yvonnmcc@yahoo.com",
+        "area": "Greater Portmore East",
+        "parish": "ST. CATHERINE",
+        "constituence": "ST. CATHERINE SOUTHERN",
+        "party": "PNP"
+      }
+    ],
+    "address": "Greater Portmore, Portmore, Jamaica",
+    "place_id": "ChIJn4Chc29r244RH4qXV7Cl97Y",
+    "location": { "lat": 17.94798, "lng": -76.90956469999999 }
+  },
+  {
+    "area": "Braeton",
+    "parish": "ST. CATHERINE",
+    "councillors": [
+      {
+        "name": "Anthony Wint",
+        "email": "anthonywintbraeton@gmail.com",
+        "area": "Braeton",
+        "parish": "ST. CATHERINE",
+        "constituence": "ST. CATHERINE SOUTHERN",
+        "party": "PNP"
+      }
+    ],
+    "address": "Braeton, Portmore, Jamaica",
+    "place_id": "ChIJJ5aTNQ5r244RswGJD1X91DE",
+    "location": { "lat": 17.9495083, "lng": -76.88939069999999 }
+  },
+  {
+    "area": "Old Harbour",
+    "parish": "ST. CATHERINE",
+    "councillors": [
+      {
+        "name": "Lloyd Grant",
+        "email": "Grantlloyd67@gmail.com",
+        "area": "Old Harbour South",
+        "parish": "ST. CATHERINE",
+        "constituence": "ST. CATHERINE SOUTH WESTERN",
+        "party": "JLP"
+      },
+      {
+        "name": "Keith Knight",
+        "email": "",
+        "area": "Old Harbour North",
+        "parish": "ST. CATHERINE",
+        "constituence": "ST. CATHERINE SOUTH WESTERN",
+        "party": "JLP"
+      },
+      {
+        "name": "Steve Graham",
+        "email": "Cllrsteve16@gmail.com",
+        "area": "Old Harbour Central",
+        "parish": "ST. CATHERINE",
+        "constituence": "ST. CATHERINE SOUTH WESTERN",
+        "party": "JLP"
+      }
+    ],
+    "address": "Old Harbour, Jamaica",
+    "place_id": "ChIJyYpK_Xl0244RNtg93kR5nBI",
+    "location": { "lat": 17.941076, "lng": -77.10824439999999 }
+  },
+  {
+    "area": "Church Pen",
+    "parish": "ST. CATHERINE",
+    "councillors": [
+      {
+        "name": "Mark O’Connor",
+        "email": "",
+        "area": "Church Pen",
+        "parish": "ST. CATHERINE",
+        "constituence": "ST. CATHERINE SOUTH WESTERN",
+        "party": "JLP"
+      }
+    ],
+    "address": "Church Pen, Old Harbour, Jamaica",
+    "place_id": "ChIJd7y7vpxz244R_isFQuWSHoQ",
+    "location": { "lat": 17.9412738, "lng": -77.0895421 }
+  },
+  {
+    "area": "Borobridge",
+    "parish": "ST. ANN",
+    "councillors": [
+      {
+        "name": "Winston Brown",
+        "email": "winston.brown9@yahoo.com",
+        "area": "Borobridge",
+        "parish": "ST. ANN",
+        "constituence": "ST. ANN SOUTH WESTERN",
+        "party": "PNP"
+      }
+    ],
+    "address": "6JC3+8XP, Clarkson Ville, Jamaica",
+    "place_id": "ChIJieO1DRaw244RQxgECqgPmzQ",
+    "location": { "lat": 18.2208495, "lng": -77.3950412 }
+  },
+  {
+    "area": "Westchester",
+    "parish": "ST. CATHERINE",
+    "councillors": [
+      {
+        "name": "Renair Benjamin",
+        "email": "renair_benjamin@hotmail.com",
+        "area": "Westchester",
+        "parish": "ST. CATHERINE",
+        "constituence": "ST. CATHERINE SOUTH EASTERN",
+        "party": "PNP"
+      }
+    ],
+    "address": "Westchester, Portmore, Jamaica",
+    "place_id": "ChIJhyDoWCpr244RM2yEMXpHS8k",
+    "location": { "lat": 17.9753417, "lng": -76.874258 }
+  },
+  {
+    "area": "Waterford",
+    "parish": "ST. CATHERINE",
+    "councillors": [
+      {
+        "name": "Fenley Douglas",
+        "email": "fenley.douglas@yahoo.com",
+        "area": "Waterford",
+        "parish": "ST. CATHERINE",
+        "constituence": "ST. CATHERINE SOUTH EASTERN",
+        "party": "PNP"
+      }
+    ],
+    "address": "Waterford, Jamaica",
+    "place_id": "ChIJ0XGpbSgV244R2hVUlf8HIKc",
+    "location": { "lat": 17.9874402, "lng": -76.8706548 }
+  },
+  {
+    "area": "Independence City",
+    "parish": "ST. CATHERINE",
+    "councillors": [
+      {
+        "name": "Courtney Edwards",
+        "email": "courtneyedwardsj@gmail.com",
+        "area": "Independence City",
+        "parish": "ST. CATHERINE",
+        "constituence": "ST. CATHERINE SOUTH EASTERN",
+        "party": "JLP"
+      }
+    ],
+    "address": "10 Tampa Ave, Portmore, Jamaica",
+    "place_id": "ChIJP4QTpNYU244RNK-QjcbZAqY",
+    "location": { "lat": 17.9840595, "lng": -76.8769604 }
+  },
+  {
+    "area": "Edgewater",
+    "parish": "ST. CATHERINE",
+    "councillors": [
+      {
+        "name": "Alric Campbell (Deputy Mayor)",
+        "email": "campbell.ar@hotmail.com",
+        "area": "Edgewater",
+        "parish": "ST. CATHERINE",
+        "constituence": "ST. CATHERINE SOUTH EASTERN",
+        "party": "PNP"
+      }
+    ],
+    "address": "Edgewater, Portmore, Jamaica",
+    "place_id": "ChIJSc5Zpdlq244Rxfa4AMtg3Us",
+    "location": { "lat": 17.9642027, "lng": -76.8706548 }
+  },
+  {
+    "area": "Bridgeport",
+    "parish": "ST. CATHERINE",
+    "councillors": [
+      {
+        "name": "Kenord Grant",
+        "email": "kenord_g@hotmail.com",
+        "area": "Bridgeport",
+        "parish": "ST. CATHERINE",
+        "constituence": "ST. CATHERINE SOUTH EASTERN",
+        "party": "PNP"
+      }
+    ],
+    "address": "Bridgeport, Portmore, Jamaica",
+    "place_id": "ChIJw9zPSiRr244RmGnRVgIZCNQ",
+    "location": { "lat": 17.9618897, "lng": -76.8793025 }
+  },
+  {
+    "area": "Sydenham",
+    "parish": "ST. CATHERINE",
+    "councillors": [
+      {
+        "name": "Hawthorne Thompson",
+        "email": "Sydenhamdiv@hotmail.com",
+        "area": "Sydenham",
+        "parish": "ST. CATHERINE",
+        "constituence": "ST. CATHERINE SOUTH CENTRAL",
+        "party": "JLP"
+      }
+    ],
+    "address": "Sydenham, Spanish Town, Jamaica",
+    "place_id": "ChIJozWCX8wS244Rr9ISDiFyLdg",
+    "location": { "lat": 17.9884211, "lng": -76.98086769999999 }
+  },
+  {
+    "area": "Horizon Park",
+    "parish": "ST. CATHERINE",
+    "councillors": [
+      {
+        "name": "Jennifer Hull",
+        "email": "",
+        "area": "Horizon Park",
+        "parish": "ST. CATHERINE",
+        "constituence": "ST. CATHERINE SOUTH CENTRAL",
+        "party": "JLP"
+      }
+    ],
+    "address": "Horizon Park, Spanish Town, Jamaica",
+    "place_id": "ChIJv_LZxjJt244ROSRbQXneurE",
+    "location": { "lat": 17.9838669, "lng": -76.9779875 }
+  },
+  {
+    "area": "Linstead",
+    "parish": "ST. CATHERINE",
+    "councillors": [
+      {
+        "name": "Herbert Garriques",
+        "email": "lwgarriques@yahoo.com",
+        "area": "Linstead",
+        "parish": "ST. CATHERINE",
+        "constituence": "ST. CATHERINE NORTH WESTERN",
+        "party": "PNP"
+      }
+    ],
+    "address": "Linstead, Jamaica",
+    "place_id": "ChIJvxau3ZEP244R1lITIYUMYcc",
+    "location": { "lat": 18.1402987, "lng": -77.04493269999999 }
+  },
+  {
+    "area": "Ewarton",
+    "parish": "ST. CATHERINE",
+    "councillors": [
+      {
+        "name": "Beverly Jobson-Grant",
+        "email": "bevjobson1@hotmail.com",
+        "area": "Ewarton",
+        "parish": "ST. CATHERINE",
+        "constituence": "ST. CATHERINE NORTH WESTERN",
+        "party": "PNP"
+      }
+    ],
+    "address": "Ewarton, Jamaica",
+    "place_id": "ChIJi3g2Y1gP244Rb-ZN61TS4FI",
+    "location": { "lat": 18.1752248, "lng": -77.0881034 }
+  },
+  {
+    "area": "Troja",
+    "parish": "ST. CATHERINE",
+    "councillors": [
+      {
+        "name": "William Cytall",
+        "email": "Cytallwilliam25@gmail.com",
+        "area": "Troja",
+        "parish": "ST. CATHERINE",
+        "constituence": "ST. CATHERINE NORTH EASTERN",
+        "party": "JLP"
+      }
+    ],
+    "address": "Troja, Jamaica",
+    "place_id": "ChIJl-qi_isa244RpIlEhHO1b-k",
+    "location": { "lat": 18.2089665, "lng": -76.92253199999999 }
+  },
+  {
+    "area": "Mount Industry",
+    "parish": "ST. CATHERINE",
+    "councillors": [
+      {
+        "name": "Roojae Kirlew",
+        "email": "rgaelew@yahoo.com",
+        "area": "Mount Industry",
+        "parish": "ST. CATHERINE",
+        "constituence": "ST. CATHERINE NORTH EASTERN",
+        "party": "PNP"
+      }
+    ],
+    "address": "Mt. Industry, Jamaica",
+    "place_id": "ChIJf43i9ksX244RR9R99VS2mcU",
+    "location": { "lat": 18.1473215, "lng": -76.91388730000001 }
+  },
+  {
+    "area": "Guys Hill",
+    "parish": "ST. CATHERINE",
+    "councillors": [
+      {
+        "name": "Leroy Dunn",
+        "email": "Guys_hilldiv@yahoo.com",
+        "area": "Guys Hill",
+        "parish": "ST. CATHERINE",
+        "constituence": "ST. CATHERINE NORTH EASTERN",
+        "party": "JLP"
+      }
+    ],
+    "address": "Guys Hill, Jamaica",
+    "place_id": "ChIJ-foyA0Qb244RJvkKEPnJAEw",
+    "location": { "lat": 18.2499757, "lng": -76.9902276 }
+  },
+  {
+    "area": "Sligoville",
+    "parish": "ST. CATHERINE",
+    "councillors": [
+      {
+        "name": "Dwight Burke",
+        "email": "burke-dwight@yahoo.com1",
+        "area": "Sligoville",
+        "parish": "ST. CATHERINE",
+        "constituence": "ST. CATHERINE NORTH CENTRAL",
+        "party": "PNP"
+      }
+    ],
+    "address": "Sligoville, Jamaica",
+    "place_id": "ChIJWX6pnmsR244RPtG1SKaOCOE",
+    "location": { "lat": 18.0961122, "lng": -76.94369979999999 }
+  },
+  {
+    "area": "Bog Walk",
+    "parish": "ST. CATHERINE",
+    "councillors": [
+      {
+        "name": "Peter Abrahams",
+        "email": "",
+        "area": "Bog Walk",
+        "parish": "ST. CATHERINE",
+        "constituence": "ST. CATHERINE NORTH CENTRAL",
+        "party": "JLP"
+      }
+    ],
+    "address": "Bog Walk, Jamaica",
+    "place_id": "ChIJm0TCp-AR244Rx3-QSjEQeoY",
+    "location": { "lat": 18.1057667, "lng": -77.0075055 }
+  },
+  {
+    "area": "Angels",
+    "parish": "ST. CATHERINE",
+    "councillors": [
+      {
+        "name": "Patricia Harris",
+        "email": "patzena469@yahoo.com",
+        "area": "Angels",
+        "parish": "ST. CATHERINE",
+        "constituence": "ST. CATHERINE NORTH CENTRAL",
+        "party": "PNP"
+      }
+    ],
+    "address": "Angels, Jamaica",
+    "place_id": "ChIJ17LzYEES244R8TnCUp4aZL0",
+    "location": { "lat": 18.0503229, "lng": -76.9830277 }
+  },
+  {
+    "area": "Above Rocks",
+    "parish": "ST. CATHERINE",
+    "councillors": [
+      {
+        "name": "Neil Powell",
+        "email": "Nfpowell50@gmail.com",
+        "area": "Above Rocks",
+        "parish": "ST. CATHERINE",
+        "constituence": "ST. CATHERINE NORTH CENTRAL",
+        "party": "JLP"
+      },
+      {
+        "name": "Kim Brown Lawrence",
+        "email": "kblawrencesapc@gmail.com",
+        "area": "Above Rocks",
+        "parish": "ST. ANN",
+        "constituence": "ST. ANN SOUTH EASTERN",
+        "party": "JLP"
+      },
+      {
+        "name": "Dalas Dickenson",
+        "email": "dalasdickenson@yahoo.com",
+        "area": "Above Rocks",
+        "parish": "ST. ANN",
+        "constituence": "ST. ANN NORTH EASTERN",
+        "party": "JLP"
+      }
+    ],
+    "address": "Above Rocks, Jamaica",
+    "place_id": "ChIJgyqcAfIW244RFn-EAfRvhvU",
+    "location": { "lat": 18.109865, "lng": -76.87642 }
+  },
+  {
+    "area": "Twickenham Park",
+    "parish": "ST. CATHERINE",
+    "councillors": [
+      {
+        "name": "Donovan Guy",
+        "email": "",
+        "area": "Twickenham Park",
+        "parish": "ST. CATHERINE",
+        "constituence": "ST. CATHERINE EASTERN",
+        "party": "JLP"
+      }
+    ],
+    "address": "Twickenham Dr, Spanish Town, Jamaica",
+    "place_id": "ChIJtaeiMT8T244RvEhB2t1_VLQ",
+    "location": { "lat": 18.0000301, "lng": -76.9435531 }
+  },
+  {
+    "area": "Greendale",
+    "parish": "ST. CATHERINE",
+    "councillors": [
+      {
+        "name": "Norman Scott (Mayor)",
+        "email": "nscotto759@yahoo.com",
+        "area": "Greendale",
+        "parish": "ST. CATHERINE",
+        "constituence": "ST. CATHERINE EASTERN",
+        "party": "PNP"
+      }
+    ],
+    "address": "Greendale, Spanish Town, Jamaica",
+    "place_id": "ChIJkcC8pDkT244RtqHFTBMLT6w",
+    "location": { "lat": 17.9962367, "lng": -76.9451717 }
+  },
+  {
+    "area": "Southboro",
+    "parish": "ST. CATHERINE",
+    "councillors": [
+      {
+        "name": "Ainsley Parkins",
+        "email": "bullterriermaster@yahoo.com",
+        "area": "Southboro",
+        "parish": "ST. CATHERINE",
+        "constituence": "ST. CATHERINE EAST CENTRAL",
+        "party": "PNP"
+      }
+    ],
+    "address": "Southboro Dr, Portmore, Jamaica",
+    "place_id": "ChIJM7n5wjpr244RoNUdL1RrJ5s",
+    "location": { "lat": 17.9647633, "lng": -76.8857629 }
+  },
+  {
+    "area": "Portmore Pines",
+    "parish": "ST. CATHERINE",
+    "councillors": [
+      {
+        "name": "Claude Hamilton",
+        "email": "massop3rd@gmail.com",
+        "area": "Portmore Pines",
+        "parish": "ST. CATHERINE",
+        "constituence": "ST. CATHERINE EAST CENTRAL",
+        "party": "PNP"
+      }
+    ],
+    "address": "Portmore Pines, Masded, Jamaica",
+    "place_id": "ChIJcb68wjdr244RG2s0nTopKao",
+    "location": { "lat": 17.9680071, "lng": -76.8944345 }
+  },
+  {
+    "area": "Gregory Park",
+    "parish": "ST. CATHERINE",
+    "councillors": [
+      {
+        "name": "Joy Brown",
+        "email": "joybellabrown@yahoo.com",
+        "area": "Gregory Park",
+        "parish": "ST. CATHERINE",
+        "constituence": "ST. CATHERINE EAST CENTRAL",
+        "party": "JLP"
+      }
+    ],
+    "address": "Gregory Park, Portmore, Jamaica",
+    "place_id": "ChIJXdYmWtoU244RdmhN9Eh5C3k",
+    "location": { "lat": 17.9986932, "lng": -76.88650849999999 }
+  },
+  {
+    "area": "Spanish Town",
+    "parish": "ST. CATHERINE",
+    "councillors": [
+      {
+        "name": "Kenisha Allen",
+        "email": "makeachangekenisha@yahoo.com",
+        "area": "Spanish Town",
+        "parish": "ST. CATHERINE",
+        "constituence": "ST. CATHERINE CENTRAL",
+        "party": "JLP"
+      }
+    ],
+    "address": "Spanish Town, Jamaica",
+    "place_id": "ChIJ3QY9zeES244R3fC8Jl81uX4",
+    "location": { "lat": 18.0166835, "lng": -76.9748123 }
+  },
+  {
+    "area": "Lluidas Vale",
+    "parish": "ST. CATHERINE",
+    "councillors": [
+      {
+        "name": "Hugh Graham (now MP)",
+        "email": "",
+        "area": "Lluidas Vale",
+        "parish": "ST. CATHERINE",
+        "constituence": "ST. CATHERINE CENTRAL",
+        "party": "PNP"
+      }
+    ],
+    "address": "Lluidas Vale, Jamaica",
+    "place_id": "ChIJfYrq-QYJ244Rlzk98EXAbPM",
+    "location": { "lat": 18.1254083, "lng": -77.14707829999999 }
+  },
+  {
+    "area": "Hampton Green",
+    "parish": "ST. CATHERINE",
+    "councillors": [
+      {
+        "name": "Theresa Turner",
+        "email": "theresafaithfulturner3@yahoo.com",
+        "area": "Hampton Green",
+        "parish": "ST. CATHERINE",
+        "constituence": "ST. CATHERINE CENTRAL",
+        "party": "JLP"
+      }
+    ],
+    "address": "Hampton Green, Spanish Town, Jamaica",
+    "place_id": "ChIJw55_Ed8S244RfVi4rxGjQm4",
+    "location": { "lat": 18.0028446, "lng": -76.9686267 }
+  },
+  {
+    "area": "Ensom City",
+    "parish": "ST. CATHERINE",
+    "councillors": [
+      {
+        "name": "George Moodie",
+        "email": "Moodie.george@yahoo.com",
+        "area": "Ensom City",
+        "parish": "ST. CATHERINE",
+        "constituence": "ST. CATHERINE CENTRAL",
+        "party": "JLP"
+      }
+    ],
+    "address": "Ensom City, Spanish Town, Jamaica",
+    "place_id": "ChIJcy6nfuIS244RtRa22Jw_-mY",
+    "location": { "lat": 18.0119455, "lng": -76.9635859 }
+  },
+  {
+    "area": "Gibraltar",
+    "parish": "ST. ANN",
+    "councillors": [
+      {
+        "name": "Cardell Wickham",
+        "email": "cwickhamsapc@gmail.com",
+        "area": "Gibraltar",
+        "parish": "ST. ANN",
+        "constituence": "ST. ANN SOUTH WESTERN",
+        "party": "JLP"
+      }
+    ],
+    "address": "Gibraltar, Jamaica",
+    "place_id": "ChIJH3l2CQSz244RxZJZialLpbI",
+    "location": { "lat": 18.3480465, "lng": -77.4286011 }
+  },
+  {
+    "area": "Calderwood",
+    "parish": "ST. ANN",
+    "councillors": [
+      {
+        "name": "Paul McFarlane",
+        "email": "pmcfarlanesapc@gmail.com",
+        "area": "Calderwood",
+        "parish": "ST. ANN",
+        "constituence": "ST. ANN SOUTH WESTERN",
+        "party": "PNP"
+      }
+    ],
+    "address": "St. Ann Parish, Jamaica",
+    "place_id": "ChIJe9l9kzVS2o4RllOWGihszuE",
+    "location": { "lat": 18.3281428, "lng": -77.2405153 }
+  },
+  {
+    "area": "Alexandria",
+    "parish": "ST. ANN",
+    "councillors": [
+      {
+        "name": "Rohan Davidson",
+        "email": "rdavidsonsapc@gmail.com",
+        "area": "Alexandria",
+        "parish": "ST. ANN",
+        "constituence": "ST. ANN SOUTH WESTERN",
+        "party": "JLP"
+      }
+    ],
+    "address": "Alexandria, Jamaica",
+    "place_id": "ChIJE7Kb_5Ot244RKRsBv2ZmROQ",
+    "location": { "lat": 18.3051999, "lng": -77.35397739999999 }
+  },
+  {
+    "area": "Moneague",
+    "parish": "ST. ANN",
+    "councillors": [
+      {
+        "name": "Delroy Kelly",
+        "email": "dkellysapc@gmail.com",
+        "area": "Moneague",
+        "parish": "ST. ANN",
+        "constituence": "ST. ANN SOUTH EASTERN",
+        "party": "JLP"
+      }
+    ],
+    "address": "Moneague, Jamaica",
+    "place_id": "ChIJH7j8eVIB244R-mcpN2cjH7k",
+    "location": { "lat": 18.2760947, "lng": -77.11687529999999 }
+  },
+  {
+    "area": "Claremont",
+    "parish": "ST. ANN",
+    "councillors": [
+      {
+        "name": "Lambert Weir",
+        "email": "lambertweir@gmail.com",
+        "area": "Claremont",
+        "parish": "ST. ANN",
+        "constituence": "ST. ANN SOUTH EASTERN",
+        "party": "PNP"
+      }
+    ],
+    "address": "Claremont, Jamaica",
+    "place_id": "ChIJDfbBfmEA244RtTDfcUZguv8",
+    "location": { "lat": 18.3271999, "lng": -77.176712 }
+  },
+  {
+    "area": "Bensonton",
+    "parish": "ST. ANN",
+    "councillors": [
+      {
+        "name": "Lydia Richards",
+        "email": "Lydiar27@hotmail.com",
+        "area": "Bensonton",
+        "parish": "ST. ANN",
+        "constituence": "ST. ANN SOUTH EASTERN",
+        "party": "PNP"
+      }
+    ],
+    "address": "Unnamed Road, Jamaica",
+    "place_id": "ChIJSXWRFtWp244RmeFsocZEOxU",
+    "location": { "lat": 18.2399686, "lng": -77.2133368 }
+  },
+  {
+    "area": "Beecher Town",
+    "parish": "ST. ANN",
+    "councillors": [
+      {
+        "name": "Ian Bell",
+        "email": "trumpetbell07@yahoo.com",
+        "area": "Beecher Town",
+        "parish": "ST. ANN",
+        "constituence": "ST. ANN SOUTH EASTERN",
+        "party": "PNP"
+      }
+    ],
+    "address": "9V9M+2R7, Ocho Rios, Jamaica",
+    "place_id": "ChIJz2Sdah3-2o4RAz3RRSkINCo",
+    "location": { "lat": 18.3675407, "lng": -77.1154387 }
+  },
+  {
+    "area": "Sturge Town",
+    "parish": "ST. ANN",
+    "councillors": [
+      {
+        "name": "Winston Lawrence",
+        "email": "wlawrencesapc@gmail.com",
+        "area": "Sturge Town",
+        "parish": "ST. ANN",
+        "constituence": "ST. ANN NORTH WESTERN",
+        "party": "JLP"
+      }
+    ],
+    "address": "Sturge Town, Jamaica",
+    "place_id": "ChIJl6YXxQ5T2o4RTVLEmk79cSw",
+    "location": { "lat": 18.4196773, "lng": -77.3130576 }
+  },
+  {
+    "area": "Dry Harbour",
+    "parish": "ST. ANN",
+    "councillors": [
+      {
+        "name": "Carlton Ricketts",
+        "email": "crickettssapc@gmail.com",
+        "area": "Dry Harbour",
+        "parish": "ST. ANN",
+        "constituence": "ST. ANN NORTH WESTERN",
+        "party": "JLP"
+      }
+    ],
+    "address": "Dry Harbour Mountains, Jamaica",
+    "place_id": "ChIJYeg1v2qy244RfNVXRmVMc2I",
+    "location": { "lat": 18.3166667, "lng": -77.39999999999999 }
+  },
+  {
+    "area": "Bamboo",
+    "parish": "ST. ANN",
+    "councillors": [
+      {
+        "name": "Sydney Stewart (Mayor)",
+        "email": "sydneystewart111@gmail.com",
+        "area": "Bamboo",
+        "parish": "ST. ANN",
+        "constituence": "ST. ANN NORTH WESTERN",
+        "party": "JLP"
+      }
+    ],
+    "address": "Bamboo, Jamaica",
+    "place_id": "ChIJU3GzXLhU2o4ROeLeRjmgkU4",
+    "location": { "lat": 18.3852144, "lng": -77.2663771 }
+  },
+  {
+    "area": "Ocho Rios",
+    "parish": "ST. ANN",
+    "councillors": [
+      {
+        "name": "Michael Belnavis",
+        "email": "mbelnavis@gmail.com",
+        "area": "Ocho Rios",
+        "parish": "ST. ANN",
+        "constituence": "ST. ANN NORTH EASTERN",
+        "party": "JLP"
+      }
+    ],
+    "address": "Ocho Rios, Jamaica",
+    "place_id": "ChIJ1YH7Hcn92o4RdyzObcG6ziQ",
+    "location": { "lat": 18.4073894, "lng": -77.1031345 }
+  },
+  {
+    "area": "Lime Hall",
+    "parish": "ST. ANDREW",
+    "councillors": [
+      {
+        "name": "Genevor Gordon-Bailey",
+        "email": "ggbaileysapc@yahoo.com",
+        "area": "Lime Hall",
+        "parish": "ST. ANDREW",
+        "constituence": "ST. ANDREW NORTH EASTERN",
+        "party": "JLP"
+      }
+    ],
+    "address": "Lime Hall Rd, Jamaica",
+    "place_id": "ChIJ6zXPGXFV2o4RQZK7w7hLihw",
+    "location": { "lat": 18.4130987, "lng": -77.2084308 }
+  },
+  {
+    "area": "Dallas",
+    "parish": "ST. ANDREW",
+    "councillors": [
+      {
+        "name": "Ian Isaacs",
+        "email": "iancisaacs@live.com",
+        "area": "Exchange",
+        "parish": "ST. ANDREW",
+        "constituence": "ST. ANDREW NORTH EASTERN",
+        "party": "JLP"
+      },
+      {
+        "name": "Delroy Williams (Mayor)",
+        "email": "kingstonmayorja@gmail.com",
+        "area": "Seivright Gardens",
+        "parish": "ST. ANDREW",
+        "constituence": "ST. ANDREW WEST CENTRAL",
+        "party": "JLP"
+      },
+      {
+        "name": "Marcia Neita",
+        "email": "marcianeita@yahoo.com",
+        "area": "Admiral Town",
+        "parish": "ST. ANDREW",
+        "constituence": "ST. ANDREW SOUTHERN",
+        "party": "PNP"
+      },
+      {
+        "name": "Kari Douglas",
+        "email": "councillorkari@gmail.com",
+        "area": "Trafalgar",
+        "parish": "ST. ANDREW",
+        "constituence": "ST. ANDREW SOUTH EASTERN",
+        "party": "PNP"
+      },
+      {
+        "name": "Lee Clarke",
+        "email": "leetris@yahoo.com",
+        "area": "Whitehouse",
+        "parish": "ST. ANDREW",
+        "constituence": "ST. ANDREW NORTH CENTRAL",
+        "party": "JLP"
+      },
+      {
+        "name": "Celia James",
+        "email": "cjamesdallasjlp@gmail.com",
+        "area": "Dallas",
+        "parish": "ST. ANDREW",
+        "constituence": "ST. ANDREW EAST RURAL",
+        "party": "JLP"
+      }
+    ],
+    "address": "St. Andrew Parish, Jamaica",
+    "place_id": "ChIJyfSroZE-244RvCjo_JQDBdA",
+    "location": { "lat": 18.0391345, "lng": -76.7567368 }
+  },
+  {
+    "area": "Waterhouse",
+    "parish": "ST. ANDREW",
+    "councillors": [
+      {
+        "name": "Byron Clarke",
+        "email": "byronlclarkecme@yahoo.com",
+        "area": "Waterhouse",
+        "parish": "ST. ANDREW",
+        "constituence": "ST. ANDREW WESTERN",
+        "party": "PNP"
+      }
+    ],
+    "address": "Waterhouse Dr, Kingston, Jamaica",
+    "place_id": "ChIJRSKwWpkV244RiKqdPTy-5mU",
+    "location": { "lat": 18.0287171, "lng": -76.8437247 }
+  },
+  {
+    "area": "Seaview Gardens",
+    "parish": "ST. ANDREW",
+    "councillors": [
+      {
+        "name": "Hazel Anderson",
+        "email": "misshazelanderson@yahoo.com",
+        "area": "Seaview Gardens",
+        "parish": "ST. ANDREW",
+        "constituence": "ST. ANDREW WESTERN",
+        "party": "PNP"
+      }
+    ],
+    "address": "Seaview Gardens, Kingston, Jamaica",
+    "place_id": "ChIJe4hExW4V244R-dJL-EiMSWY",
+    "location": { "lat": 18.0028906, "lng": -76.8418246 }
+  },
+  {
+    "area": "Duhaney Park",
+    "parish": "ST. ANDREW",
+    "councillors": [
+      {
+        "name": "Norman Perry",
+        "email": "missicyboy@hotmail.com",
+        "area": "Duhaney Park",
+        "parish": "ST. ANDREW",
+        "constituence": "ST. ANDREW WESTERN",
+        "party": "PNP"
+      }
+    ],
+    "address": "Duhaney Park, Kingston, Jamaica",
+    "place_id": "ChIJm7mxCpoV244RvAMQ3LotPvE",
+    "location": { "lat": 18.0296291, "lng": -76.8504744 }
+  },
+  {
+    "area": "Stony Hill",
+    "parish": "ST. ANDREW",
+    "councillors": [
+      {
+        "name": "Tosha Schwapp",
+        "email": "t.schwapp@gmail.com",
+        "area": "Stony Hill",
+        "parish": "ST. ANDREW",
+        "constituence": "ST. ANDREW WEST RURAL",
+        "party": "JLP"
+      }
+    ],
+    "address": "Stony Hill, Jamaica",
+    "place_id": "ChIJSf-Gf9w9244RcpNKczstkKw",
+    "location": { "lat": 18.0736829, "lng": -76.7942403 }
+  },
+  {
+    "area": "Lawrence Tavern",
+    "parish": "ST. ANDREW",
+    "councillors": [
+      {
+        "name": "John Myers",
+        "email": "dctf@cwjamaica.com",
+        "area": "Lawrence Tavern",
+        "parish": "ST. ANDREW",
+        "constituence": "ST. ANDREW WEST RURAL",
+        "party": "JLP"
+      }
+    ],
+    "address": "45G3+CQ5, Noland Hill, Jamaica",
+    "place_id": "ChIJlawVhcgX244RYCzttGU3zrM",
+    "location": { "lat": 18.1260005, "lng": -76.8455297 }
+  },
+  {
+    "area": "Chancery Hall",
+    "parish": "ST. ANDREW",
+    "councillors": [
+      {
+        "name": "Duane Smith",
+        "email": "duanecesmith@yahoo.com",
+        "area": "Chancery Hall",
+        "parish": "ST. ANDREW",
+        "constituence": "ST. ANDREW WEST RURAL",
+        "party": "PNP"
+      }
+    ],
+    "address": "Chancery Hall Dr, Kingston, Jamaica",
+    "place_id": "ChIJw5iZ5wQ-244RlOU-jl4VpVQ",
+    "location": { "lat": 18.0551322, "lng": -76.8180819 }
+  },
+  {
+    "area": "Brandon Hill",
+    "parish": "ST. ANDREW",
+    "councillors": [
+      {
+        "name": "Gareth Walker",
+        "email": "garethwalker96@gmail.com",
+        "area": "Brandon Hill",
+        "parish": "ST. ANDREW",
+        "constituence": "ST. ANDREW WEST RURAL",
+        "party": "PNP"
+      }
+    ],
+    "address": "4578+XVV, Noland Hill, Jamaica",
+    "place_id": "ChIJM3x3RtMX244RKknG1oauxVk",
+    "location": { "lat": 18.1149835, "lng": -76.8328267 }
+  },
+  {
+    "area": "Olympic Gardens",
+    "parish": "ST. ANDREW",
+    "councillors": [
+      {
+        "name": "Christopher Townsend",
+        "email": "chriscouncilt@gmail.com",
+        "area": "Olympic Gardens",
+        "parish": "ST. ANDREW",
+        "constituence": "ST. ANDREW WEST CENTRAL",
+        "party": "JLP"
+      }
+    ],
+    "address": "Olympic Gardens, Kingston, Jamaica",
+    "place_id": "ChIJMwmN7nsV244R4sJKpNNNVnk",
+    "location": { "lat": 18.0183711, "lng": -76.83461609999999 }
+  },
+  {
+    "area": "Molynes Gardens",
+    "parish": "ST. ANDREW",
+    "councillors": [
+      {
+        "name": "Patrick Roberts",
+        "email": "patrick.roberts@shockingvibes.com",
+        "area": "Molynes Gardens",
+        "parish": "ST. ANDREW",
+        "constituence": "ST. ANDREW WEST CENTRAL",
+        "party": "PNP"
+      }
+    ],
+    "address": "Molynes Gardens, Kingston, Jamaica",
+    "place_id": "ChIJ429hzSQ-244RljK6T7Kliug",
+    "location": { "lat": 18.0346081, "lng": -76.8173138 }
+  },
+  {
+    "area": "Trench Town",
+    "parish": "ST. ANDREW",
+    "councillors": [
+      {
+        "name": "Neville Wright",
+        "email": "nevillewright56@yahoo.com",
+        "area": "Trench Town",
+        "parish": "ST. ANDREW",
+        "constituence": "ST. ANDREW SOUTHERN",
+        "party": "PNP"
+      }
+    ],
+    "address": "Trench Town, Kingston, Jamaica",
+    "place_id": "ChIJSZhdYZI_244RxNlLEr6SvhE",
+    "location": { "lat": 17.9857896, "lng": -76.8043355 }
+  },
+  {
+    "area": "Whitfield Town",
+    "parish": "ST. ANDREW",
+    "councillors": [
+      {
+        "name": "Eugene Kelly",
+        "email": "eugenekelly876@gmail.com",
+        "area": "Whitfield Town",
+        "parish": "ST. ANDREW",
+        "constituence": "ST. ANDREW SOUTH WESTERN",
+        "party": "PNP"
+      }
+    ],
+    "address": "Whitfield Town, Kingston, Jamaica",
+    "place_id": "ChIJIzbRROk_244RmF8RVEfUd5k",
+    "location": { "lat": 17.9947009, "lng": -76.8072196 }
+  },
+  {
+    "area": "Payne Lands",
+    "parish": "ST. ANDREW",
+    "councillors": [
+      {
+        "name": "Audrey Smith-Facey",
+        "email": "",
+        "area": "Payne Lands",
+        "parish": "ST. ANDREW",
+        "constituence": "ST. ANDREW SOUTH WESTERN",
+        "party": "PNP"
+      }
+    ],
+    "address": "Payneland, Kingston, Jamaica",
+    "place_id": "ChIJrSb_sOA_244R_B3AyjR5_-8",
+    "location": { "lat": 17.9961762, "lng": -76.8207384 }
+  },
+  {
+    "area": "Greenwich Town",
+    "parish": "ST. ANDREW",
+    "councillors": [
+      {
+        "name": "Karl Blake",
+        "email": "greenwichtowndivision@gmail.com",
+        "area": "Greenwich Town",
+        "parish": "ST. ANDREW",
+        "constituence": "ST. ANDREW SOUTH WESTERN",
+        "party": "PNP"
+      }
+    ],
+    "address": "Greenwich Town, Kingston, Jamaica",
+    "place_id": "ChIJMVO99vo_244Rysdsos9pU1o",
+    "location": { "lat": 17.9815507, "lng": -76.8165928 }
+  },
+  {
+    "area": "Vineyard Town",
+    "parish": "ST. ANDREW",
+    "councillors": [
+      {
+        "name": "Andrew Swaby",
+        "email": "andrewaswaby@gmail.com",
+        "area": "Vineyard Town",
+        "parish": "ST. ANDREW",
+        "constituence": "ST. ANDREW SOUTH EASTERN",
+        "party": "PNP"
+      }
+    ],
+    "address": "Vineyard, Kingston, Jamaica",
+    "place_id": "ChIJ4bAjb3Y_244Ri98IkU0KKMs",
+    "location": { "lat": 17.9898081, "lng": -76.7783748 }
+  },
+  {
+    "area": "Hughenden",
+    "parish": "ST. ANDREW",
+    "councillors": [
+      {
+        "name": "Andrew Harris",
+        "email": "andrewcharrisjp@gmail.com",
+        "area": "Hughenden",
+        "parish": "ST. ANDREW",
+        "constituence": "ST. ANDREW NORTH WESTERN",
+        "party": "JLP"
+      }
+    ],
+    "address": "Hughenden, Kingston, Jamaica",
+    "place_id": "ChIJ4cMHZy8-244R5vdSlhydUsY",
+    "location": { "lat": 18.0314148, "lng": -76.8183952 }
+  },
+  {
+    "area": "Havendale",
+    "parish": "ST. ANDREW",
+    "councillors": [
+      {
+        "name": "Vernon Mcleod",
+        "email": "vernon.mcleod@gmail.com",
+        "area": "Havendale",
+        "parish": "ST. ANDREW",
+        "constituence": "ST. ANDREW NORTH WESTERN",
+        "party": "JLP"
+      }
+    ],
+    "address": "Havendale, Kingston, Jamaica",
+    "place_id": "ChIJ061nwRM-244RiBb8s4WGAuU",
+    "location": { "lat": 18.0516394, "lng": -76.81154579999999 }
+  },
+  {
+    "area": "Waterloo",
+    "parish": "ST. ANDREW",
+    "councillors": [
+      {
+        "name": "Winston Ennis (Deputy Mayor)",
+        "email": "deputymayorja@gmail.com",
+        "area": "Waterloo",
+        "parish": "ST. ANDREW",
+        "constituence": "ST. ANDREW NORTH EASTERN",
+        "party": "JLP"
+      }
+    ],
+    "address": "Waterloo Rd, Kingston, Jamaica",
+    "place_id": "ChIJW4xjjU0-244RZWZo4gLcQ_4",
+    "location": { "lat": 18.0173136, "lng": -76.7920127 }
+  },
+  {
+    "area": "Barbican",
+    "parish": "ST. ANDREW",
+    "councillors": [
+      {
+        "name": "Joy Cotterel",
+        "email": "",
+        "area": "Barbican",
+        "parish": "ST. ANDREW",
+        "constituence": "ST. ANDREW NORTH EASTERN",
+        "party": "JLP"
+      }
+    ],
+    "address": "Barbican, Kingston, Jamaica",
+    "place_id": "ChIJzdBbyPs-244RNrTA6iR2LbA",
+    "location": { "lat": 18.0256117, "lng": -76.7711626 }
+  },
+  {
+    "area": "Norbrook",
+    "parish": "ST. ANDREW",
+    "councillors": [
+      {
+        "name": "Susan Senior",
+        "email": "susansenior16@yahoo.com",
+        "area": "Norbrook",
+        "parish": "ST. ANDREW",
+        "constituence": "ST. ANDREW NORTH CENTRAL",
+        "party": "JLP"
+      }
+    ],
+    "address": "Norbrook, Kingston, Jamaica",
+    "place_id": "ChIJDdHKwXw-244R03rULupJCdc",
+    "location": { "lat": 18.0554552, "lng": -76.782702 }
+  },
+  {
+    "area": "Papine",
+    "parish": "ST. ANDREW",
+    "councillors": [
+      {
+        "name": "Venesha Phillips",
+        "email": "veneshaphillips@hotmail.com",
+        "area": "Papine",
+        "parish": "ST. ANDREW",
+        "constituence": "ST. ANDREW EASTERN",
+        "party": "PNP"
+      }
+    ],
+    "address": "Papine, Kingston, Jamaica",
+    "place_id": "ChIJHYcSSyo_244Rg_2srQNjZHA",
+    "location": { "lat": 18.0115978, "lng": -76.736538 }
+  },
+  {
+    "area": "Mona",
+    "parish": "ST. ANDREW",
+    "councillors": [
+      {
+        "name": "Andrew Bellamy",
+        "email": "abellamyjlp@gmail.com",
+        "area": "Mona",
+        "parish": "ST. ANDREW",
+        "constituence": "ST. ANDREW EASTERN",
+        "party": "JLP"
+      }
+    ],
+    "address": "Mona, Kingston, Jamaica",
+    "place_id": "ChIJV-0khSM_244RTig-AcmhHW0",
+    "location": { "lat": 18.0123976, "lng": -76.7480805 }
+  },
+  {
+    "area": "Mavis Bank",
+    "parish": "ST. ANDREW",
+    "councillors": [
+      {
+        "name": "Alvin Francis",
+        "email": "",
+        "area": "Mavis Bank",
+        "parish": "ST. ANDREW",
+        "constituence": "ST. ANDREW EAST RURAL",
+        "party": "JLP"
+      }
+    ],
+    "address": "6th St, Kingston, Jamaica",
+    "place_id": "ChIJi1VYocc5244RiVLNQ42q4TE",
+    "location": { "lat": 18.0235272, "lng": -76.66262449999999 }
+  },
+  {
+    "area": "Kintyre",
+    "parish": "ST. ANDREW",
+    "councillors": [
+      {
+        "name": "Kelvin Clarke",
+        "email": "kkclarke_7@hotmail.com",
+        "area": "Kintyre",
+        "parish": "ST. ANDREW",
+        "constituence": "ST. ANDREW EAST RURAL",
+        "party": "JLP"
+      }
+    ],
+    "address": "Kintyre Rd, Kingston, Jamaica",
+    "place_id": "ChIJTaICxSs_244RREY6DZhlpuY",
+    "location": { "lat": 18.0123464, "lng": -76.7372819 }
+  },
+  {
+    "area": "Harbour View",
+    "parish": "ST. ANDREW",
+    "councillors": [
+      {
+        "name": "Horace Clue",
+        "email": "crystal.gailclue@yahoo.com",
+        "area": "Harbour View",
+        "parish": "ST. ANDREW",
+        "constituence": "ST. ANDREW EAST RURAL",
+        "party": "PNP"
+      }
+    ],
+    "address": "Harbour View, Jamaica",
+    "place_id": "ChIJn3YbrlxH244RAF3sMSLkQJE",
+    "location": { "lat": 17.9523291, "lng": -76.7192221 }
+  },
+  {
+    "area": "Gordon Town",
+    "parish": "ST. ANDREW",
+    "councillors": [
+      {
+        "name": "Neville Whittaker",
+        "email": "whittakerneville@yahoo.com",
+        "area": "Gordon Town",
+        "parish": "ST. ANDREW",
+        "constituence": "ST. ANDREW EAST RURAL",
+        "party": "JLP"
+      }
+    ],
+    "address": "Gordon Town, Jamaica",
+    "place_id": "ChIJVU-TYjg5244RdYvdc81QctQ",
+    "location": { "lat": 18.0354673, "lng": -76.7195828 }
+  },
+  {
+    "area": "Maxfield Park",
+    "parish": "ST. ANDREW",
+    "councillors": [
+      {
+        "name": "Dennis Gordon",
+        "email": "",
+        "area": "Maxfield Park",
+        "parish": "ST. ANDREW",
+        "constituence": "ST. ANDREW EAST CENTRAL",
+        "party": "PNP"
+      }
+    ],
+    "address": "Maxfield Pk, Kingston, Jamaica",
+    "place_id": "ChIJvSL_B8E_244RXflvrg19K28",
+    "location": { "lat": 17.9989131, "lng": -76.806544 }
+  },
+  {
+    "area": "Hagley Park",
+    "parish": "ST. ANDREW",
+    "councillors": [
+      {
+        "name": "Nenna Wilson",
+        "email": "frannen49@yahoo.com",
+        "area": "Hagley Park",
+        "parish": "ST. ANDREW",
+        "constituence": "ST. ANDREW EAST CENTRAL",
+        "party": "PNP"
+      }
+    ],
+    "address": "Hagley Park Rd, Kingston, Jamaica",
+    "place_id": "ChIJ0RdUWMQ_244RP1Q3M3qZZ4k",
+    "location": { "lat": 18.0064354, "lng": -76.8137467 }
+  },
+  {
+    "area": "Cassia Park",
+    "parish": "ST. ANDREW",
+    "councillors": [
+      {
+        "name": "Beverley Prince",
+        "email": "princeanmariez@hotmail.com",
+        "area": "Cassia Park",
+        "parish": "ST. ANDREW",
+        "constituence": "ST. ANDREW EAST CENTRAL",
+        "party": "JLP"
+      }
+    ],
+    "address": "Cassia Park Rd, Kingston, Jamaica",
+    "place_id": "ChIJS-U6pDQ-244Rw7Vq8upN4Yg",
+    "location": { "lat": 18.021521, "lng": -76.8072149 }
+  },
+  {
+    "area": "St. Margaret's Bay",
+    "parish": "PORTLAND",
+    "councillors": [
+      {
+        "name": "Stephen Williams",
+        "email": "sr_williams11@yahoo.com",
+        "area": "St. Margaret's Bay",
+        "parish": "PORTLAND",
+        "constituence": "PORTLAND WESTERN",
+        "party": "JLP"
+      }
+    ],
+    "address": "St Margarets Bay, Jamaica",
+    "place_id": "ChIJneND4lgs244RgiZQ7o5fX7A",
+    "location": { "lat": 18.1917654, "lng": -76.5314817 }
+  },
+  {
+    "area": "Hope Bay",
+    "parish": "PORTLAND",
+    "councillors": [
+      {
+        "name": "Herman Henry",
+        "email": "",
+        "area": "Hope Bay",
+        "parish": "PORTLAND",
+        "constituence": "PORTLAND WESTERN",
+        "party": "JLP"
+      }
+    ],
+    "address": "Hope Bay, Jamaica",
+    "place_id": "ChIJiSReiY4u244R_c3XL0WFjro",
+    "location": { "lat": 18.1984796, "lng": -76.56471739999999 }
+  },
+  {
+    "area": "Buff Bay",
+    "parish": "PORTLAND",
+    "councillors": [
+      {
+        "name": "Dionne Hunter",
+        "email": "diana_hunter@live.com",
+        "area": "Buff Bay",
+        "parish": "PORTLAND",
+        "constituence": "PORTLAND WESTERN",
+        "party": "JLP"
+      }
+    ],
+    "address": "Buff Bay, Jamaica",
+    "place_id": "ChIJrXI9t-Yl244R57ZdZHiSK1o",
+    "location": { "lat": 18.2342641, "lng": -76.66004149999999 }
+  },
+  {
+    "area": "Fellowship",
+    "parish": "PORTLAND",
+    "councillors": [
+      {
+        "name": "Rohan Vassell (Deputy Mayor)",
+        "email": "Heartbeatdiamond@yahoo.com",
+        "area": "Balcarres",
+        "parish": "PORTLAND",
+        "constituence": "PORTLAND WESTERN",
+        "party": "JLP"
+      },
+      {
+        "name": "Wayne McKenzie",
+        "email": "wgmckenziefresh66@gmail.com",
+        "area": "Prospect",
+        "parish": "PORTLAND",
+        "constituence": "PORTLAND EASTERN",
+        "party": "PNP"
+      },
+      {
+        "name": "Irvin Brown (deceased)",
+        "email": "Irvinbrown55@gmail.com",
+        "area": "Fellowship",
+        "parish": "PORTLAND",
+        "constituence": "PORTLAND EASTERN",
+        "party": "JLP"
+      }
+    ],
+    "address": "Portland Parish, Jamaica",
+    "place_id": "ChIJvyh0wjvSxI4R5sp3IWhqbU4",
+    "location": { "lat": 18.0844274, "lng": -76.4100267 }
+  },
+  {
+    "area": "Port Antonio",
+    "parish": "PORTLAND",
+    "councillors": [
+      {
+        "name": "Dexter Rowland",
+        "email": "dexterrowland@yahoo.com",
+        "area": "Port Antonio",
+        "parish": "PORTLAND",
+        "constituence": "PORTLAND EASTERN",
+        "party": "PNP"
+      }
+    ],
+    "address": "Port Antonio, Jamaica",
+    "place_id": "ChIJvyh0wjvSxI4RR08sJxJWxTU",
+    "location": { "lat": 18.1712764, "lng": -76.44763209999999 }
+  },
+  {
+    "area": "Manchioneal",
+    "parish": "PORTLAND",
+    "councillors": [
+      {
+        "name": "Paul Thompson (Mayor)",
+        "email": "mayor.portantonio@gmail.com",
+        "area": "Manchioneal",
+        "parish": "PORTLAND",
+        "constituence": "PORTLAND EASTERN",
+        "party": "JLP"
+      }
+    ],
+    "address": "Manchioneal, Jamaica",
+    "place_id": "ChIJK57vV13PxI4RViHGgb_yqVM",
+    "location": { "lat": 18.0443274, "lng": -76.27542749999999 }
+  },
+  {
+    "area": "Fairy Hill",
+    "parish": "PORTLAND",
+    "councillors": [
+      {
+        "name": "Derron Wood (deceased)",
+        "email": "derronwoodjlp@yahoo.com",
+        "area": "Fairy Hill",
+        "parish": "PORTLAND",
+        "constituence": "PORTLAND EASTERN",
+        "party": "JLP"
+      }
+    ],
+    "address": "Fairy Hill, Jamaica",
+    "place_id": "ChIJEzYZeCbSxI4RLw2twLm570E",
+    "location": { "lat": 18.1641262, "lng": -76.36806960000001 }
+  },
+  {
+    "area": "Porus",
+    "parish": "MANCHESTER",
+    "councillors": [
+      {
+        "name": "Claudia Vivine Morant-Baker",
+        "email": "Cb11775@gmail.com",
+        "area": "Porus",
+        "parish": "MANCHESTER",
+        "constituence": "MANCHESTER SOUTHERN",
+        "party": "JLP"
+      }
+    ],
+    "address": "Porus, Jamaica",
+    "place_id": "ChIJD9JNEG29244RCt7-I5YxOi8",
+    "location": { "lat": 18.0345922, "lng": -77.4106671 }
+  },
+  {
+    "area": "Newport",
+    "parish": "MANCHESTER",
+    "councillors": [
+      {
+        "name": "Anthony Altimon Bryce",
+        "email": "councilloraabryce@yahoo.com",
+        "area": "Newport",
+        "parish": "MANCHESTER",
+        "constituence": "MANCHESTER SOUTHERN",
+        "party": "PNP"
+      }
+    ],
+    "address": "Newport, Jamaica",
+    "place_id": "ChIJN7g9C4CU244RWx2R0IlEYz8",
+    "location": { "lat": 17.92865, "lng": -77.516319 }
+  },
+  {
+    "area": "Grove Town",
+    "parish": "MANCHESTER",
+    "councillors": [
+      {
+        "name": "Iceval Corona Brown",
+        "email": "Iceval.brownmpc@gmail.com",
+        "area": "Grove Town",
+        "parish": "MANCHESTER",
+        "constituence": "MANCHESTER SOUTHERN",
+        "party": "JLP"
+      }
+    ],
+    "address": "A2, Jamaica",
+    "place_id": "ChIJeYjOfWCR244RMowBM6kLYWk",
+    "location": { "lat": 17.9004105, "lng": -77.467483 }
+  },
+  {
+    "area": "Alligator Pond",
+    "parish": "MANCHESTER",
+    "councillors": [
+      {
+        "name": "Darlton Brown",
+        "email": "dalchie@hotmail.com",
+        "area": "Alligator Pond",
+        "parish": "MANCHESTER",
+        "constituence": "MANCHESTER SOUTHERN",
+        "party": "PNP"
+      }
+    ],
+    "address": "Alligator Pond, Jamaica",
+    "place_id": "ChIJl2LPLS3t244Rm6fd3lzMZnM",
+    "location": { "lat": 17.874371, "lng": -77.562241 }
+  },
+  {
+    "area": "Spur Tree",
+    "parish": "MANCHESTER",
+    "councillors": [
+      {
+        "name": "Ervin Eustace Facey (Deputy Mayor)",
+        "email": "ervinfacey@yahoo.com",
+        "area": "Spur Tree",
+        "parish": "MANCHESTER",
+        "constituence": "MANCHESTER NORTH WESTERN",
+        "party": "PNP"
+      }
+    ],
+    "address": "Spur Tree, Jamaica",
+    "place_id": "ChIJsaMbkzSV244RXPsVofd5n-I",
+    "location": { "lat": 17.9956245, "lng": -77.560509 }
+  },
+  {
+    "area": "New Green",
+    "parish": "MANCHESTER",
+    "councillors": [
+      {
+        "name": "McArthur Collins",
+        "email": "mcarthur.collins@yahool.com",
+        "area": "New Green",
+        "parish": "MANCHESTER",
+        "constituence": "MANCHESTER NORTH WESTERN",
+        "party": "PNP"
+      }
+    ],
+    "address": "New Green Rd, Jamaica",
+    "place_id": "ChIJY-PRlE2-244RSnm-Qt4vU3c",
+    "location": { "lat": 18.05352, "lng": -77.5107955 }
+  },
+  {
+    "area": "Mile Gully",
+    "parish": "MANCHESTER",
+    "councillors": [
+      {
+        "name": "Rohan Anthony Kennedy",
+        "email": "rkennedy101@gmail.com",
+        "area": "Mile Gully",
+        "parish": "MANCHESTER",
+        "constituence": "MANCHESTER NORTH WESTERN",
+        "party": "PNP"
+      }
+    ],
+    "address": "Mile Gully, Jamaica",
+    "place_id": "ChIJydUUdbm4244RWNTgJXPNOQM",
+    "location": { "lat": 18.1239702, "lng": -77.5418791 }
+  },
+  {
+    "area": "Craighead",
+    "parish": "MANCHESTER",
+    "councillors": [
+      {
+        "name": "Faith Sampson-Nickle",
+        "email": "faithsamsonnickle@yahoo.com",
+        "area": "John's Hall",
+        "parish": "MANCHESTER",
+        "constituence": "MANCHESTER NORTH WESTERN",
+        "party": "PNP"
+      },
+      {
+        "name": "Omar Nakia Miller",
+        "email": "Omarmiller85@yahoo.com",
+        "area": "Craighead",
+        "parish": "MANCHESTER",
+        "constituence": "MANCHESTER NORTH EASTERN",
+        "party": "JLP"
+      }
+    ],
+    "address": "Manchester Parish, Jamaica",
+    "place_id": "ChIJ2WhaWlm4244RRc0ndo73kdY",
+    "location": { "lat": 18.0669654, "lng": -77.5160788 }
+  },
+  {
+    "area": "Walderston",
+    "parish": "MANCHESTER",
+    "councillors": [
+      {
+        "name": "Leroy Anthony Mitchell",
+        "email": "",
+        "area": "Walderston",
+        "parish": "MANCHESTER",
+        "constituence": "MANCHESTER NORTH EASTERN",
+        "party": "JLP"
+      }
+    ],
+    "address": "Walderston, Jamaica",
+    "place_id": "ChIJmbYU5kO5244RvKfe9wbpXLc",
+    "location": { "lat": 18.1297257, "lng": -77.4852541 }
+  },
+  {
+    "area": "Christiana",
+    "parish": "MANCHESTER",
+    "councillors": [
+      {
+        "name": "Desmond Harrison",
+        "email": "desharie@hotmail.com",
+        "area": "Christiana",
+        "parish": "MANCHESTER",
+        "constituence": "MANCHESTER NORTH EASTERN",
+        "party": "JLP"
+      }
+    ],
+    "address": "Christiana, Jamaica",
+    "place_id": "ChIJKQIoOpa5244RQ80wAo3HVF4",
+    "location": { "lat": 18.1730042, "lng": -77.4902726 }
+  },
+  {
+    "area": "Royal Flat",
+    "parish": "MANCHESTER",
+    "councillors": [
+      {
+        "name": "Donovan Anthony Mitchell (Mayor)",
+        "email": "mitchyad@yahoo.com",
+        "area": "Royal Flat",
+        "parish": "MANCHESTER",
+        "constituence": "MANCHESTER CENTRAL",
+        "party": "PNP"
+      }
+    ],
+    "address": "Royal Flat, Jamaica",
+    "place_id": "ChIJpbOH0Sq8244RNvF4WonL12s",
+    "location": { "lat": 18.056782, "lng": -77.4716313 }
+  },
+  {
+    "area": "Mandeville",
+    "parish": "MANCHESTER",
+    "councillors": [
+      {
+        "name": "Jones Oliphant",
+        "email": "jonesoliphant@gmail.com",
+        "area": "Mandeville",
+        "parish": "MANCHESTER",
+        "constituence": "MANCHESTER CENTRAL",
+        "party": "PNP"
+      }
+    ],
+    "address": "Mandeville, Jamaica",
+    "place_id": "ChIJt_eI1DC-244R7dSl7GBNWPo",
+    "location": { "lat": 18.0312855, "lng": -77.5046101 }
+  },
+  {
+    "area": "Knockpatrick",
+    "parish": "MANCHESTER",
+    "councillors": [
+      {
+        "name": "Cleon Jeffrey Francis",
+        "email": "Cleonf211@yahoo.com",
+        "area": "Knockpatrick",
+        "parish": "MANCHESTER",
+        "constituence": "MANCHESTER CENTRAL",
+        "party": "JLP"
+      }
+    ],
+    "address": "Knockpatrick, Jamaica",
+    "place_id": "ChIJzQG07KKV244R4dCNrNIHzVI",
+    "location": { "lat": 17.9936351, "lng": -77.5074774 }
+  },
+  {
+    "area": "Bellefield",
+    "parish": "MANCHESTER",
+    "councillors": [
+      {
+        "name": "Mario Dayon Mitchell",
+        "email": "Mario.d.mitchell@gmail.com",
+        "area": "Bellefield",
+        "parish": "MANCHESTER",
+        "constituence": "MANCHESTER CENTRAL",
+        "party": "PNP"
+      }
+    ],
+    "address": "Ward Ave, Mandeville, Jamaica",
+    "place_id": "ChIJk-iLix2_244RvAUoW0YM7EQ",
+    "location": { "lat": 18.0389161, "lng": -77.5127724 }
+  },
+  {
+    "area": "Tivoli Gardens",
+    "parish": "KINGSTON",
+    "councillors": [
+      {
+        "name": "Donovan Samuels",
+        "email": "donnsamm@hotmail.com",
+        "area": "Tivoli Gardens",
+        "parish": "KINGSTON",
+        "constituence": "KINGSTON WESTERN",
+        "party": "JLP"
+      }
+    ],
+    "address": "Tivoli Gardens, Kingston, Jamaica",
+    "place_id": "ChIJm_KWwIo_244RbT_Hun8s6z8",
+    "location": { "lat": 17.9746509, "lng": -76.80073010000001 }
+  },
+  {
+    "area": "Denham Town",
+    "parish": "HANOVER",
+    "councillors": [
+      {
+        "name": "Jermaine Hyatt",
+        "email": "westkingstonmp@hotmail.com",
+        "area": "Denham Town",
+        "parish": "HANOVER",
+        "constituence": "HANOVER WESTERN",
+        "party": "JLP"
+      }
+    ],
+    "address": "Denham Town, Kingston, Jamaica",
+    "place_id": "ChIJ21SiTYs_244RLTxSnHjyHWs",
+    "location": { "lat": 17.9775873, "lng": -76.8026801 }
+  },
+  {
+    "area": "Race Course",
+    "parish": "KINGSTON",
+    "councillors": [
+      {
+        "name": "Lorraine Dobson",
+        "email": "dobsonlorraine@yahoo.com",
+        "area": "Springfield",
+        "parish": "KINGSTON",
+        "constituence": "KINGSTON EAST AND PORT ROYAL",
+        "party": "PNP"
+      },
+      {
+        "name": "Rosalie Hamilton",
+        "email": "rosieham12@gmail.com",
+        "area": "Race Course",
+        "parish": "KINGSTON",
+        "constituence": "KINGSTON CENTRAL",
+        "party": "JLP"
+      }
+    ],
+    "address": "Kingston, Jamaica",
+    "place_id": "ChIJodLehJc_244RQK-3q78h8yQ",
+    "location": { "lat": 18.0178743, "lng": -76.8099041 }
+  },
+  {
+    "area": "Allman Town",
+    "parish": "KINGSTON",
+    "councillors": [
+      {
+        "name": "Charmaine Daniels",
+        "email": "",
+        "area": "Allman Town",
+        "parish": "KINGSTON",
+        "constituence": "KINGSTON CENTRAL",
+        "party": "PNP"
+      }
+    ],
+    "address": "Allman Town, Kingston, Jamaica",
+    "place_id": "ChIJ_TP5Q5s_244Rq5rxFkXwOfE",
+    "location": { "lat": 17.984597, "lng": -76.78702899999999 }
+  },
+  {
+    "area": "Lucea",
+    "parish": "HANOVER",
+    "councillors": [
+      {
+        "name": "Easton Edwards",
+        "email": "",
+        "area": "Lucea",
+        "parish": "HANOVER",
+        "constituence": "HANOVER WESTERN",
+        "party": "JLP"
+      }
+    ],
+    "address": "Lucea, Jamaica",
+    "place_id": "ChIJcTIKYZqd2Y4RHVcjKHiETjk",
+    "location": { "lat": 18.4504186, "lng": -78.17639369999999 }
+  },
+  {
+    "area": "Green Island",
+    "parish": "HANOVER",
+    "councillors": [
+      {
+        "name": "Marvel Sewell",
+        "email": "",
+        "area": "Green Island",
+        "parish": "HANOVER",
+        "constituence": "HANOVER WESTERN",
+        "party": "PNP"
+      }
+    ],
+    "address": "Green Island, Jamaica",
+    "place_id": "ChIJ-wvLuN902Y4RwxfqMw-Jd4A",
+    "location": { "lat": 18.3897236, "lng": -78.2682596 }
+  },
+  {
+    "area": "Cauldwell",
+    "parish": "HANOVER",
+    "councillors": [
+      {
+        "name": "Sheridan Samuels (Mayor)",
+        "email": "",
+        "area": "Cauldwell",
+        "parish": "HANOVER",
+        "constituence": "HANOVER WESTERN",
+        "party": "PNP"
+      }
+    ],
+    "address": "9QQ4+R27, Green Island, Jamaica",
+    "place_id": "ChIJ846ps1V02Y4RjgJ67QeOt1o",
+    "location": { "lat": 18.389526, "lng": -78.244952 }
+  },
+  {
+    "area": "Sandy Bay",
+    "parish": "HANOVER",
+    "councillors": [
+      {
+        "name": "Andria Dehaney-Dinham (Deputy Mayor)",
+        "email": "",
+        "area": "Sandy Bay",
+        "parish": "HANOVER",
+        "constituence": "HANOVER EASTERN",
+        "party": "PNP"
+      }
+    ],
+    "address": "Sandy Bay, Jamaica",
+    "place_id": "ChIJf6CyIpKC2Y4Rnraum2s-G8w",
+    "location": { "lat": 18.4484094, "lng": -78.0751774 }
+  },
+  {
+    "area": "Riverside",
+    "parish": "HANOVER",
+    "councillors": [
+      {
+        "name": "Daren Barnes",
+        "email": "",
+        "area": "Riverside",
+        "parish": "HANOVER",
+        "constituence": "HANOVER EASTERN",
+        "party": "PNP"
+      }
+    ],
+    "address": "Hanover Parish, Jamaica",
+    "place_id": "ChIJQ2aPH3Z32Y4R6t2-SvAH4yM",
+    "location": { "lat": 18.4097707, "lng": -78.13363799999999 }
+  },
+  {
+    "area": "Hopewell",
+    "parish": "HANOVER",
+    "councillors": [
+      {
+        "name": "Devon Brown",
+        "email": "",
+        "area": "Hopewell",
+        "parish": "HANOVER",
+        "constituence": "HANOVER EASTERN",
+        "party": "JLP"
+      }
+    ],
+    "address": "Hopewell, Jamaica",
+    "place_id": "ChIJeYIVPPWB2Y4RLkblTgykHyk",
+    "location": { "lat": 18.4461517, "lng": -78.0166847 }
+  },
+  {
+    "area": "Chester Castle",
+    "parish": "HANOVER",
+    "councillors": [
+      {
+        "name": "Fearon Decarish",
+        "email": "",
+        "area": "Chester Castle",
+        "parish": "HANOVER",
+        "constituence": "HANOVER EASTERN",
+        "party": "JLP"
+      }
+    ],
+    "address": "Chester Castle, Jamaica",
+    "place_id": "ChIJZ7FvpNN92Y4Ra9VBsdCXUDk",
+    "location": { "lat": 18.321366, "lng": -77.9702959 }
+  },
+  {
+    "area": "Toll Gate",
+    "parish": "CLARENDON",
+    "councillors": [
+      {
+        "name": "Radcliffe McDonald",
+        "email": "petermissile@yahoo.com",
+        "area": "Toll Gate",
+        "parish": "CLARENDON",
+        "constituence": "CLARENDON SOUTH WESTERN",
+        "party": "JLP"
+      }
+    ],
+    "address": "Toll Gate, Jamaica",
+    "place_id": "ChIJKRkz7c2Z244R9L_jna8mPqw",
+    "location": { "lat": 17.9757058, "lng": -77.3668965 }
+  },
+  {
+    "area": "Race Course",
+    "parish": "CLARENDON",
+    "councillors": [
+      {
+        "name": "Pauline Reynolds",
+        "email": "Reynolds.pauline@ymail.com",
+        "area": "Race Course",
+        "parish": "CLARENDON",
+        "constituence": "CLARENDON SOUTH WESTERN",
+        "party": "JLP"
+      }
+    ],
+    "address": "Race Course, Jamaica",
+    "place_id": "ChIJiUB0jF-b244Rrg-rSFAlYc4",
+    "location": { "lat": 17.8479002, "lng": -77.2807423 }
+  },
+  {
+    "area": "Milk River",
+    "parish": "CLARENDON",
+    "councillors": [
+      {
+        "name": "Carlton Bailey",
+        "email": "Bailey1961@gmail.com",
+        "area": "Milk River",
+        "parish": "CLARENDON",
+        "constituence": "CLARENDON SOUTH WESTERN",
+        "party": "PNP"
+      }
+    ],
+    "address": "Milk River, Jamaica",
+    "place_id": "ChIJs8kigmCa244RWNCOxjJaq4Y",
+    "location": { "lat": 17.8756885, "lng": -77.3496708 }
+  },
+  {
+    "area": "Rocky Point",
+    "parish": "CLARENDON",
+    "councillors": [
+      {
+        "name": "Winston Maragh (Mayor)",
+        "email": "wmaragh@hotmail.com",
+        "area": "Rocky Point",
+        "parish": "CLARENDON",
+        "constituence": "CLARENDON SOUTH EASTERN",
+        "party": "JLP"
+      }
+    ],
+    "address": "Rocky Point, Jamaica",
+    "place_id": "ChIJExMFwQiD244RD_3T_0iiOXM",
+    "location": { "lat": 17.7735381, "lng": -77.2548837 }
+  },
+  {
+    "area": "Palmers Cross",
+    "parish": "CLARENDON",
+    "councillors": [
+      {
+        "name": "Carlene Benjamin",
+        "email": "Sydonillb64@yahoo.com",
+        "area": "Palmers Cross",
+        "parish": "CLARENDON",
+        "constituence": "CLARENDON SOUTH EASTERN",
+        "party": "INDEPENDENT"
+      }
+    ],
+    "address": "Palmers Cross, Jamaica",
+    "place_id": "ChIJvTdhezOe244RxkwcV1EXFIM",
+    "location": { "lat": 17.9514942, "lng": -77.21139389999999 }
+  },
+  {
+    "area": "Mineral Heights",
+    "parish": "CLARENDON",
+    "councillors": [
+      {
+        "name": "Milton Brown (deceased)",
+        "email": "brownmilton@yahoo.com",
+        "area": "Mineral Heights",
+        "parish": "CLARENDON",
+        "constituence": "CLARENDON SOUTH EASTERN",
+        "party": "JLP"
+      }
+    ],
+    "address": "1st Street, Top, Halse Hall, May Pen, Jamaica",
+    "place_id": "ChIJfdjY0T-f244ReRv7fLBQOEA",
+    "location": { "lat": 17.9387988, "lng": -77.23989859999999 }
+  },
+  {
+    "area": "Hayes",
+    "parish": "CLARENDON",
+    "councillors": [
+      {
+        "name": "Sean Barnswell",
+        "email": "councillorbarnswell@gmail.com",
+        "area": "Hayes",
+        "parish": "CLARENDON",
+        "constituence": "CLARENDON SOUTH EASTERN",
+        "party": "PNP"
+      }
+    ],
+    "address": "Hayes, Jamaica",
+    "place_id": "ChIJBTaQM7Od244Rs-7E0_W3koE",
+    "location": { "lat": 17.8735534, "lng": -77.22901929999999 }
+  },
+  {
+    "area": "Kellits",
+    "parish": "CLARENDON",
+    "councillors": [
+      {
+        "name": "Noel Nembhard",
+        "email": "dv.nembhard@yahoo.com",
+        "area": "Kellits",
+        "parish": "CLARENDON",
+        "constituence": "CLARENDON NORTHERN",
+        "party": "JLP"
+      }
+    ],
+    "address": "Kellits, Jamaica",
+    "place_id": "ChIJl6WDBMan244R5c5ksQh_yxY",
+    "location": { "lat": 18.1829949, "lng": -77.2462628 }
+  },
+  {
+    "area": "Crofts Hill",
+    "parish": "CLARENDON",
+    "councillors": [
+      {
+        "name": "Anthony O’Connor",
+        "email": "Anthonyoconner40@yahoo.com",
+        "area": "Crofts Hill",
+        "parish": "CLARENDON",
+        "constituence": "CLARENDON NORTHERN",
+        "party": "PNP"
+      }
+    ],
+    "address": "Crofts Hill, Jamaica",
+    "place_id": "ChIJy-gLMXKn244RM0B6ZR8N4O0",
+    "location": { "lat": 18.1279212, "lng": -77.2060241 }
+  },
+  {
+    "area": "Aenon Town",
+    "parish": "CLARENDON",
+    "councillors": [
+      {
+        "name": "Delroy Dawson",
+        "email": "Dwl_dawson@yahoo.com",
+        "area": "Aenon Town",
+        "parish": "CLARENDON",
+        "constituence": "CLARENDON NORTHERN",
+        "party": "PNP"
+      }
+    ],
+    "address": "Aenon Town, Jamaica",
+    "place_id": "ChIJq8nyYBKw244RxlBulRZ5d3A",
+    "location": { "lat": 18.2046037, "lng": -77.39560039999999 }
+  },
+  {
+    "area": "Thompson Town",
+    "parish": "CLARENDON",
+    "councillors": [
+      {
+        "name": "Collin Henry",
+        "email": "Collin-3@hotmail.com",
+        "area": "Thompson Town",
+        "parish": "CLARENDON",
+        "constituence": "CLARENDON NORTH WESTERN",
+        "party": "JLP"
+      }
+    ],
+    "address": "Thompson Town, Jamaica",
+    "place_id": "ChIJx_DWtb6i244RTSaFYVZmaBk",
+    "location": { "lat": 18.0866489, "lng": -77.3726379 }
+  },
+  {
+    "area": "Spaulding",
+    "parish": "CLARENDON",
+    "councillors": [
+      {
+        "name": "Trevor Gordon",
+        "email": "Gordontrevor62@yahoo.com",
+        "area": "Spaulding",
+        "parish": "CLARENDON",
+        "constituence": "CLARENDON NORTH WESTERN",
+        "party": "PNP"
+      }
+    ],
+    "address": "Spalding, Jamaica",
+    "place_id": "ChIJCxa-NM27244R-PLMimyWVEo",
+    "location": { "lat": 18.1577304, "lng": -77.45728969999999 }
+  },
+  {
+    "area": "Ritchies",
+    "parish": "CLARENDON",
+    "councillors": [
+      {
+        "name": "Elvis Marshall",
+        "email": "Elvis.marshall@yahoo.com",
+        "area": "Ritchies",
+        "parish": "CLARENDON",
+        "constituence": "CLARENDON NORTH WESTERN",
+        "party": "PNP"
+      }
+    ],
+    "address": "RItchies, Jamaica",
+    "place_id": "ChIJF5CeF3G7244Rs6P570E0jxM",
+    "location": { "lat": 18.1091076, "lng": -77.4042102 }
+  },
+  {
+    "area": "Frankfield",
+    "parish": "CLARENDON",
+    "councillors": [
+      {
+        "name": "Clive Mundle",
+        "email": "",
+        "area": "Frankfield",
+        "parish": "CLARENDON",
+        "constituence": "CLARENDON NORTH WESTERN",
+        "party": "JLP"
+      }
+    ],
+    "address": "Frankfield, Jamaica",
+    "place_id": "ChIJ1034WNSk244RkFWhH_mwPZQ",
+    "location": { "lat": 18.144858, "lng": -77.3726379 }
+  },
+  {
+    "area": "Rock River",
+    "parish": "CLARENDON",
+    "councillors": [
+      {
+        "name": "Uriah Mitchell",
+        "email": "Uamitchell1@gmail.com",
+        "area": "Rock River",
+        "parish": "CLARENDON",
+        "constituence": "CLARENDON NORTH CENTRAL",
+        "party": "JLP"
+      }
+    ],
+    "address": "Rock River, Jamaica",
+    "place_id": "ChIJz-RRaJmg244RL8FzqlEJfxc",
+    "location": { "lat": 18.0635419, "lng": -77.20027449999999 }
+  },
+  {
+    "area": "Mocho",
+    "parish": "CLARENDON",
+    "councillors": [
+      {
+        "name": "Romaine Morris",
+        "email": "romainekmorris@gmail.com",
+        "area": "Mocho",
+        "parish": "CLARENDON",
+        "constituence": "CLARENDON NORTH CENTRAL",
+        "party": "JLP"
+      }
+    ],
+    "address": "Mocho P.O., Dawkins, Jamaica",
+    "place_id": "ChIJeRIKlvmi244ROWtdbk6nv0s",
+    "location": { "lat": 18.045364, "lng": -77.33682189999999 }
+  },
+  {
+    "area": "Chapleton",
+    "parish": "CLARENDON",
+    "councillors": [
+      {
+        "name": "Hershel Brown",
+        "email": "brownher@msn.com",
+        "area": "Chapleton",
+        "parish": "CLARENDON",
+        "constituence": "CLARENDON NORTH CENTRAL",
+        "party": "JLP"
+      }
+    ],
+    "address": "Chapelton, Jamaica",
+    "place_id": "ChIJAQyE4zih244RF3ktHOpmNIY",
+    "location": { "lat": 18.0797857, "lng": -77.2692503 }
+  },
+  {
+    "area": "Cannan Heights",
+    "parish": "CLARENDON",
+    "councillors": [
+      {
+        "name": "Carla Watts",
+        "email": "Carla_british@yahoo.com",
+        "area": "Cannan Heights",
+        "parish": "CLARENDON",
+        "constituence": "CLARENDON CENTRAL",
+        "party": "PNP"
+      }
+    ],
+    "address": "XQ74+VJ5, May Pen, Jamaica",
+    "place_id": "ChIJ17Yz_Pef244RichzgyX20kg",
+    "location": { "lat": 17.9646325, "lng": -77.2433891 }
+  },
+  {
+    "area": "Denbigh",
+    "parish": "CLARENDON",
+    "councillors": [
+      {
+        "name": "Joel Williams",
+        "email": "j.williams.78@hotmail.com",
+        "area": "Denbigh",
+        "parish": "CLARENDON",
+        "constituence": "CLARENDON CENTRAL",
+        "party": "JLP"
+      }
+    ],
+    "address": "Denbigh, Jamaica",
+    "place_id": "ChIJyfHrADyf244RMWJbvEdiJnM",
+    "location": { "lat": 17.9661581, "lng": -77.2663771 }
+  }
+]
