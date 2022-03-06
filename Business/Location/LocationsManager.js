@@ -1,5 +1,5 @@
 
-const { firestore } = require('../Database/FirestoreDB')
+const { firestore } = require('../../Database/FirestoreDB')
 const geolocations = require('./__update.locations')
 const fs = require('fs')
 
@@ -34,18 +34,19 @@ class LocationsManager {
     }
 
     async getClosestLocation(coords) {
-        const docs = await this.db.select('location').catch( error => console.log(error))
-        const locations = docs.map( doc => { return { ref : doc.ref, ... doc.data() } })
-        
+        // const docs = await this.db.select('location').catch( error => console.log(error))
+        // const locations = docs.map( doc => { return { ref : doc.ref, ... doc.data() } })
+        const locations = require('./locations.json')
 
         const coordinates = locations.map( (location, index) => {
             return { location: location.location, index: index}
         })
 
-        const currentLocation = require('./__currentLocation')
+        const currentLocation = require('./__current.location')
         const indexOfLocation = currentLocation(coords, coordinates)
 
-        const location = await this.db.getRefDoc(locations[indexOfLocation].ref).catch( error => console.log(error))
+        // const location = await this.db.getRefDoc(locations[indexOfLocation].ref).catch( error => console.log(error))
+        const location =  locations[indexOfLocation]
         return location
     }
 }

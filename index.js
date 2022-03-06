@@ -27,8 +27,9 @@ app.get('/', async (req, res) => {
 
 app.post('/get/location', async (req, res) => {
     const { currentLocation } = req.body
+    
     const coords = { lat: currentLocation.coords.latitude, lng: currentLocation.coords.longitude }
-
+    console.log(coords)
     const location = await locationManager.getClosestLocation(coords)
         .catch(error => console.log(error))
     res.json(location)

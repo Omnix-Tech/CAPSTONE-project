@@ -26,6 +26,6 @@ module.exports = (currentCoordinates, coordinates) => {
     coordinates_with_distance.sort((firstElement, secondElement) => {
         return firstElement.distance - secondElement.distance
     })
-
+    
     return coordinates_with_distance[0].index
 }
