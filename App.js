@@ -1,87 +1,69 @@
+import React from 'react'
 
-import React from 'react';
-import AuthNavigator from './app/Navigation/AuthNavigator';
-import AppNavigator from './app/Navigation/AppNavigator';
-import { AuthContext } from './app/Auth/context';
-import { NavigationContainer } from '@react-navigation/native';
-import { NativeBaseProvider } from 'native-base';
-import { createStackNavigator } from '@react-navigation/stack';
-import Splash from './app/Screens/Splash';
-
-import * as Authenticate from './app/Auth/Authentication'
+import { NavigationContainer } from '@react-navigation/native'
+import { createStackNavigator } from '@react-navigation/stack'
 
 
+
+import { AuthContext } from './app/app.context'
+import { NativeBaseProvider } from 'native-base'
+
+
+import AuthNavigation from './app/Navigation/AuthNavigation'
+import AppNavigation from './app/Navigation/AppNavigation'
+
+import * as Authenticate from './app/Services/Auth/Authentication'
+
+import { Text } from 'native-base'
 
 
 const RootStack = createStackNavigator()
-const RootStackScreen = ({ user }) => (
-    <RootStack.Navigator headerMode='none'>
-        {user ? (
-            <RootStack.Screen name='app' component={AppNavigator} initialParams={{ user }} />
-        ) : (
-            <RootStack.Screen name='auth' component={AuthNavigator} />
-        )}
-    </RootStack.Navigator>
+const RootStackNavigator = ({ user }) => (
+  <RootStack.Navigator>
+    {user ? (
+      <RootStack.Screen name='app' component={AppNavigation} initialParams={{ user }} options={{ headerShown: false }} />
+    ) : (
+      <RootStack.Screen name='auth' component={AuthNavigation} options={{ headerShown: false }} />
+    )}
+  </RootStack.Navigator>
 )
 
 
+
 export default () => {
-    const [isLoading, setIsLoading] = React.useState(true)
-    const [user, setUser] = React.useState(null)
+  const [isLoading, setIsLoading] = React.useState(true)
+  const [user, setUser] = React.useState(null)
+  const authContext = React.useMemo(() => {
+    return {
+      signIn: async (email, password) => {
+        const user = await Authenticate.signIn(email, password)
+          .catch(err => {
+            throw err
+          })
 
-    const authContext = React.useMemo(() => {
-        return {
-
-            signIn: (email, password) => {
-                setIsLoading(true)
-                Authenticate.signIn(email, password)
-                    .then(user => {
-                        setUser(user)
-                        setIsLoading(false)
-                    })
-                    .catch(err => {
-                        alert(err.message)
-                        setIsLoading(false)
-                    })
-            },
-
-            register: (firstName, lastName, email, password) => {
-                // setIsLoading(true),
-                Authenticate.register(firstName, lastName, email, password)
-                    .then(credential => console.log(credential))
-                    .catch(err => alert(err.message))
-            },
-
-            signOut: () => {
-                Authenticate.logout()
-                setUser(null)
-            }
-        }
-    }, [])
-
-    React.useEffect(() => {
-        setUser(Authenticate.auth.currentUser)
-        setIsLoading(false)
-    }, [user])
+        setUser(user)
+      }
+    }
+  }, [])
 
 
+  React.useEffect(() => {
+    setUser(Authenticate.auth.currentUser)
+    setIsLoading(false)
+  }, [user])
 
-    return (
-        <AuthContext.Provider value={authContext}>
-            <NativeBaseProvider>
-                {isLoading ? (
-                    <Splash />
-                ) : (
-                    <NavigationContainer>
-                        <RootStackScreen user={user} />
-                    </NavigationContainer>
-                )}
 
-            </NativeBaseProvider>
-        </AuthContext.Provider>
-
-    )
+  return (
+    <AuthContext.Provider value={authContext}>
+      <NativeBaseProvider>
+        {isLoading ? (
+          <Text>loading...</Text>
+        ) : (
+          <NavigationContainer>
+            <RootStackNavigator user={user} />
+          </NavigationContainer>
+        )}
+      </NativeBaseProvider>
+    </AuthContext.Provider>
+  )
 }
-
-
-

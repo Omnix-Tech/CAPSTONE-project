@@ -1,0 +1,61 @@
+import { Container, Box, Text, IconButton, HStack, Stack, Heading, Pressable, ScrollView, Image } from 'native-base'
+
+import React from 'react'
+import { ImageBackground } from 'react-native'
+import { Icon } from 'react-native-elements'
+import { UserContext } from '../Auth/context'
+
+export default function Home({ navigation }) {
+
+    const { user, location } = React.useContext(UserContext)
+    const stylePressable = {
+        padding: 5,
+        height: 70,
+        bg: 'coolGray.300',
+        borderRadius: 5
+    }
+
+
+
+    return (
+        <ScrollView>
+
+            <ImageBackground source={'https://images.unsplash.com/photo-1643068485255-15bb6c3727da?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=869&q=80'}>
+                <Box height='200' width='full' bgColor={'rgba(0,0,0, 0.7)'}>
+                    <HStack justifyContent={'space-between'} padding={'1.5'}>
+                        <IconButton icon={<Icon type='feather' name='menu' color='white' />} />
+                        <IconButton icon={<Icon type='feather' name='user' color='white' />} />
+                    </HStack>
+
+                    <Stack paddingY={6} paddingX={10} >
+
+                        <Heading color={'white'}>Hi, {user?.displayName} </Heading>
+
+                        <HStack alignItems={'center'} marginTop='0.5'>
+                            <Icon style={{ marginRight: 5 }} type='feather' name='map-pin' color='#22c55e' size={'sm'} />
+                            <Text color={'white'} >{`${location?.area ? location.area : '...'} Connect`}</Text>
+                        </HStack>
+
+                    </Stack>
+                </Box>
+            </ImageBackground>
+
+
+            <Box width={'full'}>
+                <HStack padding={1} width={'full'} justifyContent={'space-between'}>
+                    <Box padding={1} width={'1/2'}>
+                        <Pressable {...stylePressable} onPress={() => navigation.navigate('forum')}>
+                            <Heading color={'coolGray.800'} size={'sm'} >Public Forum</Heading>
+                        </Pressable>
+                    </Box>
+
+                    <Box padding={1} width={'1/2'}>
+                        <Pressable {...stylePressable} onPress={() => alert("Alerts")}>
+                            <Heading color={'coolGray.800'} size={'sm'} >Alerts</Heading>
+                        </Pressable>
+                    </Box>
+                </HStack>
+            </Box>
+        </ScrollView>
+    )
+}

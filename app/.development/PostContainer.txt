@@ -1,0 +1,60 @@
+import React from 'react'
+
+import { Box, Avatar, HStack, Stack, VStack, Heading, Text, IconButton, Image } from 'native-base'
+import { Icon } from 'react-native-elements'
+import { ImageBackground } from 'react-native'
+
+
+
+export default function PostContainer() {
+
+    const media = ['https://images.pexels.com/photos/235986/pexels-photo-235986.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500', 'https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg']
+    return (
+        <Box bgColor={'coolGray.200'} width={'full'} marginBottom={5} padding={2} borderRadius={5} >
+            <HStack justifyContent={'space-between'} alignItems={'center'}>
+                <HStack space={3} alignItems={'center'}>
+                    <Avatar size={'sm'} />
+                    <VStack>
+                        <Heading size={'sm'}>John Doe</Heading>
+                        <Text color={'muted.400'} >10 mins ago</Text>
+                    </VStack>
+                </HStack>
+
+                <IconButton icon={<Icon type={'feather'} name={'more-horizontal'} />} />
+            </HStack>
+
+            <Box>
+                <Text>
+                    Lorem ipsum dolor sit amet. Vel autem laudantium ex architecto quos aut dolore nemo ea itaque quae ut optio
+                </Text>
+            </Box>
+
+            <HStack marginY={2} space={2}>
+                {media.map((source, index) => (
+                    <Box key={index} w={60} h={60} borderRadius={10} overflow='hidden'>
+                        <Image height={'full'} w={'full'} source={source} />
+                    </Box>
+                ))}
+            </HStack>
+
+            <HStack justifyContent={'space-between'} alignItems={'center'}>
+                <HStack>
+                    <IconButton size={'sm'} icon={
+                        <HStack alignItems={'center'}>
+                            <Icon type='feather' name='thumbs-up' />
+                            <Text marginX={2} >0 Like</Text>
+                        </HStack>
+                    } />
+                </HStack>
+                <HStack>
+                    <IconButton size={'sm'} icon={
+                        <HStack alignItems={'center'}>
+                            <Icon type='feather' name='message-circle' />
+                            <Text marginX={2} >10 Responses</Text>
+                        </HStack>
+                    } />
+                </HStack>
+            </HStack>
+        </Box>
+    )
+}

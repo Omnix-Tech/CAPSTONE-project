@@ -1,66 +1,50 @@
-import { Container, Box, Text, IconButton, HStack, Stack, Heading, Pressable, ScrollView } from 'native-base'
+import { Box, Text, IconButton, HStack, Stack, Heading, Button, Pressable, ScrollView, Image } from 'native-base'
+import { ImageBackground } from 'react-native'
+import { Icon } from 'react-native-elements'
+
 
 import React from 'react'
-import { Icon } from 'react-native-elements'
-import { UserContext } from '../Auth/context'
+
+
+import { Container } from '../Components/components'
+import { UserContext } from '../app.context'
+
+
 
 export default function Home({ navigation }) {
-
     const { user, location } = React.useContext(UserContext)
-    const stylePressable = {
-        padding: 5,
-        height: 70,
-        bg: 'lightBlue.700',
-        borderRadius: 15
-    }
-
-
-
     return (
-        <Container>
-            <ScrollView>
-                <Box height='200' width='100vw' bgImage={'https://images.unsplash.com/photo-1646237355337-c6fe828db242?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80'} bg={'info.900'}>
-                    <HStack justifyContent={'space-between'} padding={'1.5'}>
+        <Box>
+            <ImageBackground style={{ width: '100%' }} source={{ uri: 'https://images.unsplash.com/photo-1643068485255-15bb6c3727da?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=869&q=80' }}>
+                <Box height={200} width='full' bgColor={'rgba(0, 0, 0, 0.7)'}>
+                    <HStack justifyContent={'space-between'} padding={1.5}>
                         <IconButton icon={<Icon type='feather' name='menu' color='white' />} />
-                        <IconButton icon={<Icon type='feather' name='user' color='white' />} />
+                        <IconButton onPress={() => navigation.navigate('profile')} icon={<Icon type='feather' name='user' color='white' />} />
                     </HStack>
 
-                    <Stack paddingY={'6'} paddingX={'10'} >
+                    <Stack paddingY={6} paddingX={10} >
 
-                        <Heading color={'info.100'}>Hi, {user?.displayName} </Heading>
+                        <Heading color={'white'}>Hi, { user ? user.displayName ? user.displayName : 'No Name' : 'No User' } </Heading>
 
-                        <HStack alignItems={'center'} marginTop='0.5'>
-                            <Icon style={{ marginRight: 5 }} type='feather' name='map-pin' color='#22c55e' size={'sm'} />
-                            <Text color={'info.200'} >{`${location?.area ? location.area : '...'} Connect`}</Text>
+                        <HStack space={1} alignItems={'center'} marginTop={0.5}>
+                            <Icon type='feather' name='map-pin' color='#22c55e' size={14} />
+                            <Text color={'white'} >{ location ? location.area : 'No Location' } Connect</Text>
                         </HStack>
 
                     </Stack>
                 </Box>
+            </ImageBackground>
 
-                <Box width={'full'}>
-                    <HStack padding={2} width={'100vw'} justifyContent={'space-between'}>
-                        <Box padding={2} width={'1/2'}>
-                            <Pressable {...stylePressable} onPress={() => alert("Public Forum")}>
-                                <Heading color={'white'} size={'sm'} >Public Forum</Heading>
-                            </Pressable>
-                        </Box>
-
-                        <Box padding={2} width={'1/2'}>
-                            <Pressable {...stylePressable} onPress={() => alert("Alerts")}>
-                                <Heading color={'white'} size={'sm'} >Alerts</Heading>
-                            </Pressable>
-                        </Box>
-                    </HStack>
-                </Box>
-            </ScrollView>
+            <Container>
+            <Heading>Home</Heading>
+            <Button onPress={() => navigation.navigate('forum') } >Forum</Button>
+            <Button onPress={() => navigation.navigate('forums') } >Forum List</Button>
+            <Button onPress={() => navigation.navigate('alertStack') } >Alert List</Button>
+            <Button onPress={() => navigation.navigate('alertComp') } >Alert</Button>
+            <Button onPress={() => navigation.navigate('searchStack') } >Search</Button>
         </Container>
+        </Box>
+        
+
     )
-}
-
-
-const styles = {
-    container: {
-        backgroundColor: "#d954d7",
-        height: 200
-    }
 }

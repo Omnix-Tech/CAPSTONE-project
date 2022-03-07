@@ -1,0 +1,49 @@
+import React from "react";
+
+import { HStack, IconButton, Box, Input, Text, ScrollView, Heading } from "native-base";
+import { Icon } from "react-native-elements";
+import { UserContext } from "../Auth/context";
+
+
+import PostContainer from "../components/PostContainer";
+
+
+export default function Forum({ navigation }) {
+    const { user, location } = React.useContext(UserContext)
+    const [forumTitle, setForumTitle] = React.useState('Public Forum')
+
+
+    const [posts, setPosts] = React.useState([1, 2, 3, 4, 5, 6, 8, 9, 11, 12, 13, 14, 15, 16, 17, 18, 19, 21, 22, 23, 24])
+    return (
+        <>
+            <Box padding={2} bgColor={'cyan.900'}>
+                <HStack justifyContent={'space-between'} >
+                    <IconButton icon={<Icon type='feather' name='menu' color='white' />} />
+                    <IconButton icon={<Icon type='feather' name='user' color='white' />} />
+                </HStack>
+
+                <Box paddingX={3} marginY={3} width={'full'}>
+                    <Input
+                        size={'lg'}
+                        variant={'filled'}
+                        InputRightElement={
+                            <IconButton icon={<Icon padding={3} size={'lg'} type="feather" name={'search'} />} />
+                        } />
+
+                    <HStack alignItems={'center'} marginTop='2'>
+                        <Icon style={{ marginRight: 5 }} type='feather' name='map-pin' color='#22c55e' size={'sm'} />
+                        <Text fontSize={'xs'} bold color={'darkBlue.200'} >{`${location?.area ? location.area : ''} Connect`}</Text>
+                        <Text marginX={2} fontSize={'xs'} color={'darkBlue.100'} >{forumTitle}</Text>
+                    </HStack>
+                </Box>
+
+            </Box>
+            <ScrollView maxW={'full'} h={'full'} _contentContainerStyle={{
+                px: "3",
+                mt: "5"
+            }} >
+                {posts.map(post => <PostContainer key={post} />)}
+            </ScrollView>
+        </>
+    )
+}
