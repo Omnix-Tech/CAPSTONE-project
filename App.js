@@ -42,6 +42,10 @@ export default () => {
           })
 
         setUser(user)
+      },
+      logOut: async () => {
+        await Authenticate.logout()
+        setUser(null)
       }
     }
   }, [])

@@ -1,97 +1,44 @@
 import React from 'react'
-
-import { createStackNavigator } from '@react-navigation/stack'
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
-import { Icon } from 'react-native-elements'
-
-import { UserContext } from '../app.context'
-
-// import { PostStack } from '../Components/elements'
-import Home from '../Screens/Home'
+import { AuthContext, AppContext } from '../app.context'
 
 import Permission from '../Services/Permissions/location.permission'
 import axios from '../api.client'
 
 
-const BoxDom = () => <></>
-
-
-const HomeStack = createStackNavigator()
-const HomeStackNavigator = () => (
-    <HomeStack.Navigator >
-        <HomeStack.Screen name='home' component={Home} options={{headerShown: false}}/>
-        <HomeStack.Screen name='forum' component={BoxDom} options={{headerShown: false}}/>
-        <HomeStack.Screen name='forums' component={BoxDom} options={{headerShown: false}}/>
-        <HomeStack.Screen name='alertComp' component={BoxDom} options={{headerShown: false}}/>
-    </HomeStack.Navigator>
-)
-
-
-const SearchStack = createStackNavigator()
-const SearchStackNavigator = () => (
-    <SearchStack.Navigator>
-        <SearchStack.Screen name='search' component={BoxDom} options={{headerShown: false}}/>
-        <SearchStack.Screen name='results' component={BoxDom} options={{headerShown: false}}/>
-    </SearchStack.Navigator>
-)
-
-
-const ProfileStack = createStackNavigator()
-const ProfileStackNavigator = () => (
-    <ProfileStack.Navigator>
-        <ProfileStack.Screen name='profile' component={BoxDom} options={{headerShown: false}}/>
-    </ProfileStack.Navigator>
-)
-
-
-const NotificationStack = createStackNavigator()
-const NotificationStackNavigator = () => (
-    <NotificationStack.Navigator>
-        <NotificationStack.Screen name='notification' component={BoxDom} options={{headerShown: false}}/>
-    </NotificationStack.Navigator>
-)
+import DrawerNavigation from './DrawerNavigation'
+import TabNavigation from './TabNavigation'
+import { createStackNavigator } from '@react-navigation/stack'
+import { HStack, IconButton } from 'native-base'
+import { Icon } from 'react-native-elements'
 
 
 
-const AlertStack = createStackNavigator()
-const AlertStackNavigator = () => (
-    <AlertStack.Navigator>
-        <AlertStack.Screen name='alerts' component={BoxDom} options={{headerShown: false}}/>
-        <AlertStack.Screen name='alert' component={BoxDom} options={{headerShown: false}}/>
-    </AlertStack.Navigator>
-)
+const AppRootStack = createStackNavigator()
 
 
-const Tabs = createBottomTabNavigator()
-const screenOptions = {
-    labeled: false,
-    tabBarStyle: {
-        height: 60,
-        backgroundColor: '#164e63',
-        position: 'absolute',
-        bottom: 5,
-        right: 5,
-        left: 5,
-        borderRadius: 8
-    }
+
+const AppHeader = ({ navigation }) => {
+    return (
+        <HStack justifyContent={'space-between'} bgColor={'light.100'} width={'full'} alignItems={'center'} paddingTop={35} paddingX={2} >
+            <IconButton onPress={ () => navigation.navigate('drawer') } icon={<Icon type='feather' name='menu' />} />
+        </HStack>
+    )
 }
 
-const tabOptions = (icon) => {
-    const activeColor = '#06b6d4'
-    const inActiveColor = '#dbf4ff'
-    return {
-        tabBarLabel: () => null,
-        headerShown: false,
-        tabBarIcon: ({ focused }) => (<Icon color={focused ? activeColor : inActiveColor} type='feather' name={icon} />)
-    }
+const DrawerHeader = ({ navigation }) => {
+    return (
+        <HStack bgColor={'light.100'} width={'full'} alignItems={'center'} paddingTop={35} paddingX={2} >
+            <IconButton onPress={ () => navigation.navigate('tabs') } icon={<Icon type='feather' name='chevron-left' />} />
+        </HStack>
+    )
 }
 
 
 
-
-export default function AppNavigation({ route }) {
+export default function AppNavigation() {
     const [location, setLocation] = React.useState(null)
-    const userContext = React.useMemo(() => { return { user: route.params?.user, location }}, [location])
+    const { user } = React.useContext(AuthContext)
+    const appContext = React.useMemo(() => { return { user, location }}, [location])
     
 
     React.useEffect( async () => {
@@ -101,23 +48,19 @@ export default function AppNavigation({ route }) {
         if (currentLocation) {
             const response = await axios()
             .post('/get/location', { currentLocation })
-            .catch(error => console.log(error?.message))
+            .catch(error => alert(error?.message))
 
             if (response) setLocation(response.data)
         }
     }, [])
 
+
     return (
-        <UserContext.Provider value={userContext}>
-            <Tabs.Navigator screenOptions={screenOptions}>
-                <Tabs.Screen name='homeStack' component={HomeStackNavigator} options={tabOptions('home')} />
-                <Tabs.Screen name='searchStack' component={SearchStackNavigator} options={tabOptions('search')} />
-                {/* <Tabs.Screen name='postStack' component={Box} options={{
-                    tabBarButton: (props) => (<PostStack {...props} />)
-                }} /> */}
-                <Tabs.Screen name='alertStack' component={AlertStackNavigator} options={tabOptions('hexagon')}/>
-                <Tabs.Screen name='notificationStack' component={NotificationStackNavigator} options={tabOptions('bell')} />
-            </Tabs.Navigator>
-        </UserContext.Provider>
+        <AppContext.Provider value={appContext}>
+            <AppRootStack.Navigator>
+                <AppRootStack.Screen name='tabs' component={TabNavigation} options={{ title: '', header: (props) => <AppHeader {...props}/>}} />
+                <AppRootStack.Screen name='drawer' component={DrawerNavigation} options={{ title: '', header: (props) => <DrawerHeader {...props}/>}} />
+            </AppRootStack.Navigator>
+        </AppContext.Provider>
     )
 }
