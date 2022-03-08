@@ -15,20 +15,10 @@ import { Icon } from 'react-native-elements'
 
 const AppRootStack = createStackNavigator()
 
-
-
-const AppHeader = ({ navigation }) => {
-    return (
-        <HStack justifyContent={'space-between'} bgColor={'light.100'} width={'full'} alignItems={'center'} paddingTop={35} paddingX={2} >
-            <IconButton onPress={ () => navigation.navigate('drawer') } icon={<Icon type='feather' name='menu' />} />
-        </HStack>
-    )
-}
-
 const DrawerHeader = ({ navigation }) => {
     return (
         <HStack bgColor={'light.100'} width={'full'} alignItems={'center'} paddingTop={35} paddingX={2} >
-            <IconButton onPress={ () => navigation.navigate('tabs') } icon={<Icon type='feather' name='chevron-left' />} />
+            <IconButton onPress={ () => navigation.pop() } icon={<Icon type='feather' name='chevron-left' />} />
         </HStack>
     )
 }
@@ -58,7 +48,7 @@ export default function AppNavigation() {
     return (
         <AppContext.Provider value={appContext}>
             <AppRootStack.Navigator>
-                <AppRootStack.Screen name='tabs' component={TabNavigation} options={{ title: '', header: (props) => <AppHeader {...props}/>}} />
+                <AppRootStack.Screen name='tabs' component={TabNavigation} options={{ headerShown: false }} />
                 <AppRootStack.Screen name='drawer' component={DrawerNavigation} options={{ title: '', header: (props) => <DrawerHeader {...props}/>}} />
             </AppRootStack.Navigator>
         </AppContext.Provider>

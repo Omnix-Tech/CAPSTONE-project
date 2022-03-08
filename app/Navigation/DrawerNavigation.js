@@ -24,18 +24,18 @@ const DrawerContainer = ({ navigation }) => {
                 <Button variant={'ghost'}>Profile</Button>
             </VStack>
             <ScrollView>
-            <Container height={'70%'} >
-                <Heading marginBottom={5} size={'md'} >Notifications</Heading>
-                {notifications.length === 0 ? (
-                    <Box justifyContent={'center'} alignItems={'center'} maxHeight={50} paddingTop={30}>
-                        <Text color={'muted.400'} bold >No Notifications</Text>
-                    </Box>) : (
-                    <>{notifications.map((notification, key) => {
-                        return (<Box key={key}>{notification}</Box>)
-                    })}</>
-                )}
-                
-            </Container>
+                <Container height={'70%'} >
+                    <Heading marginBottom={5} size={'md'} >Notifications</Heading>
+                    {notifications.length === 0 ? (
+                        <Box justifyContent={'center'} alignItems={'center'} maxHeight={50} paddingTop={30}>
+                            <Text color={'muted.400'} bold >No Notifications</Text>
+                        </Box>) : (
+                        <>{notifications.map((notification, key) => {
+                            return (<Box key={key}>{notification}</Box>)
+                        })}</>
+                    )}
+
+                </Container>
             </ScrollView>
             <HStack bgColor={'light.200'} justifyContent={'space-between'} paddingX={5} paddingY={3}>
                 <IconButton onPress={() => logOut()} icon={<Icon type='feather' name='log-out' />} />
