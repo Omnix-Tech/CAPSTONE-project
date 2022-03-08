@@ -7,16 +7,19 @@ import { Icon } from 'react-native-elements'
 import { PostStack } from '../Components/elements'
 import Home from '../Screens/Home'
 import Forum from '../Screens/Forum'
+import Alerts from '../Screens/Alerts'
+import Search from '../Screens/Search'
 
-import { Box, HStack, IconButton } from 'native-base'
+import { Box, HStack, IconButton, Text } from 'native-base'
 
 
 const BoxDom = () => <Box>Placeholder</Box>
 
-const AppHeader = ({ navigation }) => {
+const AppHeader = ({ navigation, options}) => {
     return (
         <HStack justifyContent={'space-between'} bgColor={'light.100'} width={'full'} alignItems={'center'} paddingTop={35} paddingX={2} >
             <IconButton onPress={ () => navigation.navigate('drawer') } icon={<Icon type='feather' name='menu' />} />
+            
         </HStack>
     )
 }
@@ -33,7 +36,7 @@ const HomeStack = createStackNavigator()
 const HomeStackNavigator = () => (
     <HomeStack.Navigator >
         <HomeStack.Screen name='home' component={Home} options={{ title: '', header: (props) => <AppHeader {...props}/> }} />
-        <HomeStack.Screen name='forum' component={Forum} options={{ title: '', header: (props) => <BackHeader {...props}/> }} />
+        <HomeStack.Screen name='forum' component={Forum} options={{ title: 'Forum', header: (props) => <BackHeader {...props}/> }} />
         <HomeStack.Screen name='forums' component={BoxDom} options={{ title: '', header: (props) => <BackHeader {...props}/> }} />
         <HomeStack.Screen name='alertComp' component={BoxDom} options={{ title: '', header: (props) => <BackHeader {...props}/> }} />
     </HomeStack.Navigator>
@@ -43,7 +46,7 @@ const HomeStackNavigator = () => (
 const SearchStack = createStackNavigator()
 const SearchStackNavigator = () => (
     <SearchStack.Navigator>
-        <SearchStack.Screen name='search' component={BoxDom} options={{ title: '', header: (props) => <AppHeader {...props}/> }} />
+        <SearchStack.Screen name='search' component={Search} options={{ title: '', header: (props) => <AppHeader {...props}/> }} />
         <SearchStack.Screen name='results' component={BoxDom} options={{ title: '', header: (props) => <BackHeader {...props}/> }} />
     </SearchStack.Navigator>
 )
@@ -61,7 +64,7 @@ const ConnectStackNavigator = () => (
 const AlertStack = createStackNavigator()
 const AlertStackNavigator = () => (
     <AlertStack.Navigator>
-        <AlertStack.Screen name='alerts' component={BoxDom} options={{ title: '', header: (props) => <AppHeader {...props}/> }} />
+        <AlertStack.Screen name='alerts' component={Alerts} options={{ title: '', header: (props) => <AppHeader {...props}/> }} />
         <AlertStack.Screen name='alert' component={BoxDom} options={{ title: '', header: (props) => <BackHeader {...props}/> }} />
     </AlertStack.Navigator>
 )
@@ -74,7 +77,9 @@ const screenOptions = {
         height: 60,
         backgroundColor: '#0e7490',
         borderTopRightRadius: 20,
-        borderTopLeftRadius: 20
+        borderTopLeftRadius: 20,
+        position: 'absolute',
+        bottom: 0
     }
 }
 

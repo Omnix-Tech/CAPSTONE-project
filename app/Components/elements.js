@@ -11,7 +11,7 @@ export function PostStack() {
     const { isOpen, onToggle } = useDisclose()
     const boxStyle = {
         position: 'absolute',
-        bottom: 20,
+        bottom: 40,
         right: 5
     }
     return (

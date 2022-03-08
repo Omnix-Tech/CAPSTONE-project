@@ -12,26 +12,28 @@ import { Icon } from 'react-native-elements'
 const BoxDom = () => <Box></Box>
 
 
-const Drawer = createDrawerNavigator()
+const Drawer = createStackNavigator()
 const DrawerContainer = ({ navigation }) => {
     const { logOut } = React.useContext(AuthContext)
     const [notifications, setNotifications] = React.useState([])
     return (
         <Box height={'full'}>
-            <VStack space={5} justifyContent={'center'} alignItems={'center'}>
+            <VStack space={5} marginY={15} justifyContent={'center'} alignItems={'center'}>
                 <Avatar />
                 <Heading>Joel Henry</Heading>
                 <Button variant={'ghost'}>Profile</Button>
             </VStack>
+            <Heading marginX={3} size={'md'} >Notifications</Heading>
             <ScrollView>
+                
                 <Container height={'70%'} >
-                    <Heading marginBottom={5} size={'md'} >Notifications</Heading>
+                    
                     {notifications.length === 0 ? (
-                        <Box justifyContent={'center'} alignItems={'center'} maxHeight={50} paddingTop={30}>
+                        <VStack justifyContent={'center'} alignItems={'center'} height={40} paddingTop={30}>
                             <Text color={'muted.400'} bold >No Notifications</Text>
-                        </Box>) : (
+                        </VStack>) : (
                         <>{notifications.map((notification, key) => {
-                            return (<Box key={key}>{notification}</Box>)
+                            return (<Box height={70} key={key}>{notification}</Box>)
                         })}</>
                     )}
 

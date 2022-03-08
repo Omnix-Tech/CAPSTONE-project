@@ -26,8 +26,8 @@ export function Post() {
 
             <HStack space={2} m={2}>
                 {media.map((source, index) => (
-                    <Box key={index} w={50} h={50} borderRadius={10} overflow='hidden'>
-                        <Image height={'full'} w={'full'} source={{uri: source}} alt='' />
+                    <Box key={index} w={50} h={50} borderRadius={5} overflow='hidden'>
+                        <Image height={'full'} w={'full'} source={{uri: source}} _alt='' />
                     </Box>
                 ))}
             </HStack>
