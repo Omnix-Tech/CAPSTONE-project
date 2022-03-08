@@ -4,7 +4,7 @@ import { createStackNavigator } from '@react-navigation/stack'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import { Icon } from 'react-native-elements'
 
-// import { PostStack } from '../Components/elements'
+import { PostStack } from '../Components/elements'
 import Home from '../Screens/Home'
 import Forum from '../Screens/Forum'
 
@@ -72,12 +72,9 @@ const screenOptions = {
     labeled: false,
     tabBarStyle: {
         height: 60,
-        backgroundColor: '#164e63',
-        position: 'absolute',
-        bottom: 5,
-        right: 5,
-        left: 5,
-        borderRadius: 8
+        backgroundColor: '#0e7490',
+        borderTopRightRadius: 20,
+        borderTopLeftRadius: 20
     }
 }
 
@@ -98,9 +95,6 @@ export default function TabNavigation() {
         <Tabs.Navigator screenOptions={screenOptions}>
             <Tabs.Screen name='homeStack' component={HomeStackNavigator} options={tabOptions('home')} />
             <Tabs.Screen name='searchStack' component={SearchStackNavigator} options={tabOptions('search')} />
-            {/* <Tabs.Screen name='postStack' component={Box} options={{
-                    tabBarButton: (props) => (<PostStack {...props} />)
-                }} /> */}
             <Tabs.Screen name='alertStack' component={AlertStackNavigator} options={tabOptions('hexagon')} />
             <Tabs.Screen name='connectStack' component={ConnectStackNavigator} options={tabOptions('map-pin')} />
         </Tabs.Navigator>

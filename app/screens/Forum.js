@@ -2,8 +2,9 @@ import { Box, Heading, HStack } from 'native-base'
 import React from 'react'
 import { ScrollView } from 'react-native-gesture-handler'
 import { AppContext } from '../app.context'
-import { Container } from '../Components/components'
 import { Post } from '../Components/post.container'
+
+import { PostStack } from '../Components/elements'
 
 
 
@@ -14,7 +15,7 @@ export default function Forum({ navigation }) {
         <Box>
             <HStack space={2} justifyContent={'flex-end'} paddingX={6} paddingY={3} bgColor={'light.100'}>
                 <Heading size={'sm'} >{location?.area} Connect</Heading>
-                <Heading size={'sm'} color={'muted.400'} >Public Forum</Heading>
+                <Heading size={'sm'} color={'muted.400'} isTruncated >Public Forum</Heading>
             </HStack>
             <Box bgColor={'coolGray.100'}>
                 <ScrollView >
@@ -25,10 +26,11 @@ export default function Forum({ navigation }) {
                             )
                         })}
                     </Box>
-                    <Box bgColor={'coolGray.200'} height={40} paddingY={10}></Box>
+                    <Box bgColor={'coolGray.200'} height={20} paddingY={10}></Box>
                 </ScrollView>
             </Box>
             
+            <PostStack />
         </Box>
     )
 }

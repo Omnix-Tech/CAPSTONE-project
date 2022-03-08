@@ -97,7 +97,6 @@ export default function Home({ navigation }) {
                             })}
                         </Container>
                     </Box>
-                    <Box bgColor={'coolGray.200'} height={25} paddingY={10}></Box>
                 </Box>
             </ScrollView>
         </Box>

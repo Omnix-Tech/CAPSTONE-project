@@ -2,12 +2,17 @@
 import { Box, useDisclose, Stagger, IconButton, HStack } from 'native-base'
 import { Icon } from 'react-native-elements'
 
+
+const elevation = {
+    elevation: 2
+}
+
 export function PostStack() {
     const { isOpen, onToggle } = useDisclose()
     const boxStyle = {
-        // position: 'absolute',
-        // bottom: 78,
-        // right: 2
+        position: 'absolute',
+        bottom: 20,
+        right: 5
     }
     return (
         <Box {...boxStyle}>
@@ -21,7 +26,7 @@ export function PostStack() {
                 opacity: 1,
 
                 transition: {
-                    type: "spring",
+                    type: 'spring',
                     mass: 0.8,
                     stagger: {
                         offset: 30,
@@ -40,19 +45,21 @@ export function PostStack() {
                     }
                 }
             }}>
-                <IconButton mb={5} variant='solid' borderRadius={'full'} icon={<Icon type='feather' name='plus' />} />
-                <IconButton mb={5} variant='solid' borderRadius={'full'} icon={<Icon type='feather' name='message-circle' />} />
+                <IconButton {... elevation} bgColor={'coolGray.200'} size={'lg'} mb={5} variant='ghost' borderRadius={100} icon={<Icon type='feather' name='plus' />} />
+                <IconButton {... elevation} bgColor={'coolGray.200'} size={'lg'} mb={5} variant='ghost' borderRadius={100} icon={<Icon type='feather' name='message-circle' />} />
             </Stagger>
 
             <HStack alignItems={'center'}>
                 <IconButton
-                    variant={'solid'}
-                    borderRadius={'full'}
                     size={'lg'}
+                    borderRadius={100}
                     onPress={onToggle}
-                    icon={ <Icon type='feather' name='more-vertical' /> } />
+                    bgColor={'coolGray.800'}
+                    {... elevation}
+                    icon={ <Icon color={'#fff'} type='feather' name='more-vertical' /> } />
             </HStack>
         </Box>
 
     )
 }
+

@@ -8,7 +8,7 @@ export function JoinForumContainer({ navigation }) {
         elevation: 1
     }
     return (
-        <Box {...style} borderRadius={10} bgColor={'light.50'} marginBottom={2}>
+        <Box {...style} borderRadius={5} bgColor={'light.50'} marginBottom={2}>
             <Container paddingX={4} >
                 <HStack space={3} justifyContent={'space-between'}>
                     <VStack>
@@ -18,7 +18,7 @@ export function JoinForumContainer({ navigation }) {
                     <Button onPress={() => alert('Join Forum')} variant='ghost'>{('Join').toUpperCase()}</Button>
                 </HStack>
                 <Divider my="2" />
-                <HStack justifyContent={'space-evenly'}>
+                <HStack justifyContent={'space-between'}>
                     <HStack space={1} alignItems={'center'}>
                         <Icon size={12} type='feather' name='map-pin' />
                         <Text fontSize={12}>10 Connects</Text>
