@@ -1,6 +1,5 @@
 import React from 'react'
 
-import { createDrawerNavigator } from '@react-navigation/drawer'
 import { createStackNavigator } from '@react-navigation/stack'
 
 
@@ -8,6 +7,7 @@ import { Button, VStack, Box, HStack, Avatar, Heading, IconButton, Text, ScrollV
 import { AuthContext } from '../app.context'
 import { Container } from '../Components/components'
 import { Icon } from 'react-native-elements'
+import { FlatList } from 'react-native'
 
 const BoxDom = () => <Box></Box>
 
@@ -15,7 +15,7 @@ const BoxDom = () => <Box></Box>
 const Drawer = createStackNavigator()
 const DrawerContainer = ({ navigation }) => {
     const { logOut } = React.useContext(AuthContext)
-    const [notifications, setNotifications] = React.useState([])
+    const [notifications, setNotifications] = React.useState(['this', 'is', 'for', 'notifications'])
     return (
         <Box height={'full'}>
             <VStack space={5} marginY={15} justifyContent={'center'} alignItems={'center'}>
@@ -24,21 +24,24 @@ const DrawerContainer = ({ navigation }) => {
                 <Button variant={'ghost'}>Profile</Button>
             </VStack>
             <Heading marginX={3} size={'md'} >Notifications</Heading>
-            <ScrollView>
-                
-                <Container height={'70%'} >
-                    
-                    {notifications.length === 0 ? (
-                        <VStack justifyContent={'center'} alignItems={'center'} height={40} paddingTop={30}>
-                            <Text color={'muted.400'} bold >No Notifications</Text>
-                        </VStack>) : (
-                        <>{notifications.map((notification, key) => {
-                            return (<Box height={70} key={key}>{notification}</Box>)
-                        })}</>
-                    )}
 
-                </Container>
-            </ScrollView>
+            <Container height={'62%'} >
+
+                {notifications.length === 0 ? (
+                    <VStack justifyContent={'center'} alignItems={'center'} height={40} paddingTop={30}>
+                        <Text color={'muted.400'} bold >No Notifications</Text>
+                    </VStack>) : (
+                        <FlatList
+                            data={notifications}
+                            renderItem={({ item }) => (<Box height={70}>{item}</Box>)}
+                            maxToRenderPerBatch={8}
+                            bounces={true}
+                            bouncesZoom={true}
+                            keyExtractor={(item, index) => index}
+                        />
+                )}
+
+            </Container>
             <HStack bgColor={'light.200'} justifyContent={'space-between'} paddingX={5} paddingY={3}>
                 <IconButton onPress={() => logOut()} icon={<Icon type='feather' name='log-out' />} />
                 <IconButton onPress={() => navigation.navigate('accountStack')} icon={<Icon type='feather' name='settings' />} />
@@ -71,8 +74,8 @@ export default function DrawerNavigation() {
     return (
         <Drawer.Navigator>
             <Drawer.Screen name='drawer' component={DrawerContainer} options={{ headerShown: false }} />
-            <Drawer.Screen name='accountStack' component={AccountStackNavigator} />
-            <Drawer.Screen name='profileStack' component={ProfileStackNavigator} />
+            <Drawer.Screen name='accountStack' component={AccountStackNavigator} options={{ headerShown: false }} />
+            <Drawer.Screen name='profileStack' component={ProfileStackNavigator} options={{ headerShown: false }} />
         </Drawer.Navigator>
     )
 }

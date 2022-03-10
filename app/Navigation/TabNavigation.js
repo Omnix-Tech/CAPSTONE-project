@@ -9,6 +9,7 @@ import Home from '../Screens/Home'
 import Forum from '../Screens/Forum'
 import Alerts from '../Screens/Alerts'
 import Search from '../Screens/Search'
+import SearchResults from '../Screens/SearchResults'
 
 import { Box, HStack, IconButton, Text } from 'native-base'
 
@@ -18,8 +19,7 @@ const BoxDom = () => <Box>Placeholder</Box>
 const AppHeader = ({ navigation, options}) => {
     return (
         <HStack justifyContent={'space-between'} bgColor={'light.100'} width={'full'} alignItems={'center'} paddingTop={35} paddingX={2} >
-            <IconButton onPress={ () => navigation.navigate('drawer') } icon={<Icon type='feather' name='menu' />} />
-            
+            <IconButton onPress={ () => navigation.navigate('drawer') } icon={<Icon type='feather' name='menu' />} />      
         </HStack>
     )
 }
@@ -47,7 +47,7 @@ const SearchStack = createStackNavigator()
 const SearchStackNavigator = () => (
     <SearchStack.Navigator>
         <SearchStack.Screen name='search' component={Search} options={{ title: '', header: (props) => <AppHeader {...props}/> }} />
-        <SearchStack.Screen name='results' component={BoxDom} options={{ title: '', header: (props) => <BackHeader {...props}/> }} />
+        <SearchStack.Screen name='results' component={SearchResults} options={{ title: '', header: (props) => <BackHeader {...props}/> }} />
     </SearchStack.Navigator>
 )
 

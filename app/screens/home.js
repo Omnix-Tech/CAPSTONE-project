@@ -47,15 +47,21 @@ export default function Home({ navigation }) {
                         <Box borderTopLeftRadius={20} borderTopRightRadius={20} bgColor={'coolGray.100'}>
                             <Box marginTop={3}>
                                 <HStack justifyContent='space-between'>
-                                    <Box width={'1/2'} padding={2}>
+                                    <Box width={'1/3'} padding={2}>
                                         <PressableContainer onPress={() => navigation.navigate('forum')} color={'coolGray.200'} paddingX={3} paddingY={5} borderRadius={10} >
                                             <Heading size='sm' >Public Forum</Heading>
                                         </PressableContainer>
                                     </Box>
 
-                                    <Box width={'1/2'} padding={2}>
+                                    <Box width={'1/3'} padding={2}>
                                         <PressableContainer onPress={() => navigation.navigate('alertStack')} color={'coolGray.200'} paddingX={3} paddingY={5} borderRadius={10} >
-                                            <Heading size='sm' >Alerts</Heading>
+                                            <Heading size='sm' >Connect Alerts</Heading>
+                                        </PressableContainer>
+                                    </Box>
+
+                                    <Box width={'1/3'} padding={2}>
+                                        <PressableContainer onPress={() => navigation.navigate('forums')} color={'coolGray.200'} paddingX={3} paddingY={5} borderRadius={10} >
+                                            <Heading size='sm' >Connect Forums</Heading>
                                         </PressableContainer>
                                     </Box>
                                 </HStack>
@@ -98,6 +104,7 @@ export default function Home({ navigation }) {
                         </Container>
                     </Box>
                 </Box>
+                <Box height={39}></Box>
             </ScrollView>
         </Box>
 

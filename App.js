@@ -1,5 +1,5 @@
 import React from 'react'
-import { SafeAreaView } from 'react-native-safe-area-context'
+import { LogBox } from 'react-native'
 import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
 
@@ -17,6 +17,9 @@ import * as Authenticate from './app/Services/Auth/Authentication'
 import { Text } from 'native-base'
 
 
+LogBox.ignoreAllLogs(true)
+
+
 const RootStack = createStackNavigator()
 const RootStackNavigator = ({ user }) => (
   <RootStack.Navigator>
@@ -32,7 +35,7 @@ const RootStackNavigator = ({ user }) => (
 
 export default () => {
   const [isLoading, setIsLoading] = React.useState(true)
-  const [user, setUser] = React.useState(null)
+  const [user, setUser] = React.useState({})
   const authContext = React.useMemo(() => {
     return {
       signIn: async (email, password) => {
@@ -52,7 +55,7 @@ export default () => {
 
 
   React.useEffect(() => {
-    setUser(Authenticate.auth.currentUser)
+    // setUser(Authenticate.auth.currentUser)
     setIsLoading(false)
   }, [user])
 

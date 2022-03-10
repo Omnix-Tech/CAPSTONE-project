@@ -4,7 +4,8 @@ import { Box, Avatar, HStack, Stack, VStack, Heading, Text, IconButton, Image, D
 import { Icon } from 'react-native-elements'
 
 export function Post() {
-    const media = ['https://images.unsplash.com/photo-1515757026668-f01a7685f66e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80', 'https://images.pexels.com/photos/235986/pexels-photo-235986.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500', 'https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg']
+    // const media = ['https://images.unsplash.com/photo-1515757026668-f01a7685f66e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80', 'https://images.pexels.com/photos/235986/pexels-photo-235986.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500', 'https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg']
+    const media =[]
     return (
         <Box style={{ elevation: 1 }} bgColor={'light.100'} width={'full'} marginBottom={2} padding={2} borderRadius={0} >
             <HStack justifyContent={'space-between'} alignItems={'center'}>
@@ -27,7 +28,7 @@ export function Post() {
             <HStack space={2} m={2}>
                 {media.map((source, index) => (
                     <Box key={index} w={50} h={50} borderRadius={5} overflow='hidden'>
-                        <Image height={'full'} w={'full'} source={{uri: source}} _alt='' />
+                        <Image height={'full'} w={'full'} source={{uri: source}} alt='' />
                     </Box>
                 ))}
             </HStack>

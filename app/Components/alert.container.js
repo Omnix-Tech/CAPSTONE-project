@@ -6,7 +6,7 @@ import { PressableContainer } from "./components";
 export function AlertSliderContainer({ navigation, item, index }) {
     return (
         <PressableContainer onPress={() => navigation.navigate('alertComp')}>
-            <Box style={{ elevation: 1 }} height={250} borderRadius={20} overflow={'hidden'} >
+            <Box height={250} borderRadius={20} overflow={'hidden'} >
                 <ImageBackground style={{ width: '100%', overflow: 'hidden' }} source={{ uri: 'https://images.unsplash.com/photo-1515757026668-f01a7685f66e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80' }} >
                     <VStack bgColor={'rgba(0, 0, 0, 0.8)'} padding={5} >
                         <Box height={'92%'}>
@@ -44,7 +44,7 @@ export function AlertContainer({ navigation, item, index }) {
 
                         </VStack>
                     </Box>
-                    <Image _alt={''} style={{ elevation: 2 }} borderRadius={10} height={100} width={100} source={{ uri: 'https://images.unsplash.com/photo-1515757026668-f01a7685f66e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80' }} />
+                    <Image _alt={''} borderRadius={10} height={100} width={100} source={{ uri: 'https://images.unsplash.com/photo-1515757026668-f01a7685f66e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80' }} />
                 </HStack>
                 <Divider my={5} bgColor={'muted.300'} />
             </PressableContainer>
