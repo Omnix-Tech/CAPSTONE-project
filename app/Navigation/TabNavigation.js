@@ -12,14 +12,15 @@ import Search from '../Screens/Search'
 import SearchResults from '../Screens/SearchResults'
 
 import { Box, HStack, IconButton, Text } from 'native-base'
+import NewPost from '../Screens/NewPost'
 
 
 const BoxDom = () => <Box>Placeholder</Box>
 
-const AppHeader = ({ navigation, options}) => {
+const AppHeader = ({ navigation, options }) => {
     return (
         <HStack justifyContent={'space-between'} bgColor={'light.100'} width={'full'} alignItems={'center'} paddingTop={35} paddingX={2} >
-            <IconButton onPress={ () => navigation.navigate('drawer') } icon={<Icon type='feather' name='menu' />} />      
+            <IconButton onPress={() => navigation.navigate('drawer')} icon={<Icon type='feather' name='menu' />} />
         </HStack>
     )
 }
@@ -27,27 +28,36 @@ const AppHeader = ({ navigation, options}) => {
 const BackHeader = ({ navigation }) => {
     return (
         <HStack bgColor={'light.100'} width={'full'} alignItems={'center'} paddingTop={35} paddingX={2} >
-            <IconButton onPress={ () => navigation.pop() } icon={<Icon type='feather' name='chevron-left' />} />
+            <IconButton onPress={() => navigation.pop()} icon={<Icon type='feather' name='chevron-left' />} />
         </HStack>
     )
 }
 
 const HomeStack = createStackNavigator()
-const HomeStackNavigator = () => (
-    <HomeStack.Navigator >
-        <HomeStack.Screen name='home' component={Home} options={{ title: '', header: (props) => <AppHeader {...props}/> }} />
-        <HomeStack.Screen name='forum' component={Forum} options={{ title: 'Forum', header: (props) => <BackHeader {...props}/> }} />
-        <HomeStack.Screen name='forums' component={BoxDom} options={{ title: '', header: (props) => <BackHeader {...props}/> }} />
-        <HomeStack.Screen name='alertComp' component={BoxDom} options={{ title: '', header: (props) => <BackHeader {...props}/> }} />
-    </HomeStack.Navigator>
-)
+const HomeStackNavigator = (props) => {
+    const [modalVisible, setModalVisible] = React.useState(false)
+
+    return (
+        <>
+            <NewPost modalOpen={modalVisible} setModalVisible={setModalVisible} />
+            <PostStack {...props} setNewPost={setModalVisible} />
+            <HomeStack.Navigator >
+                <HomeStack.Screen name='home' component={Home} options={{ title: '', header: (props) => <AppHeader {...props} /> }} />
+                <HomeStack.Screen name='forum' component={Forum} options={{ title: 'Forum', header: (props) => <BackHeader {...props} /> }} />
+                <HomeStack.Screen name='forums' component={BoxDom} options={{ title: '', header: (props) => <BackHeader {...props} /> }} />
+                <HomeStack.Screen name='newpost' component={BoxDom} options={{ title: '', header: (props) => <BackHeader {...props} /> }} />
+                <HomeStack.Screen name='alertComp' component={BoxDom} options={{ title: '', header: (props) => <BackHeader {...props} /> }} />
+            </HomeStack.Navigator>
+        </>
+    )
+}
 
 
 const SearchStack = createStackNavigator()
 const SearchStackNavigator = () => (
     <SearchStack.Navigator>
-        <SearchStack.Screen name='search' component={Search} options={{ title: '', header: (props) => <AppHeader {...props}/> }} />
-        <SearchStack.Screen name='results' component={SearchResults} options={{ title: '', header: (props) => <BackHeader {...props}/> }} />
+        <SearchStack.Screen name='search' component={Search} options={{ title: '', header: (props) => <AppHeader {...props} /> }} />
+        <SearchStack.Screen name='results' component={SearchResults} options={{ title: '', header: (props) => <BackHeader {...props} /> }} />
     </SearchStack.Navigator>
 )
 
@@ -55,7 +65,7 @@ const SearchStackNavigator = () => (
 const ConnectStack = createStackNavigator()
 const ConnectStackNavigator = () => (
     <ConnectStack.Navigator>
-        <ConnectStack.Screen name='connect' component={BoxDom} options={{ title: '', header: (props) => <AppHeader {...props}/> }} />
+        <ConnectStack.Screen name='connect' component={BoxDom} options={{ title: '', header: (props) => <AppHeader {...props} /> }} />
     </ConnectStack.Navigator>
 )
 
@@ -64,8 +74,8 @@ const ConnectStackNavigator = () => (
 const AlertStack = createStackNavigator()
 const AlertStackNavigator = () => (
     <AlertStack.Navigator>
-        <AlertStack.Screen name='alerts' component={Alerts} options={{ title: '', header: (props) => <AppHeader {...props}/> }} />
-        <AlertStack.Screen name='alert' component={BoxDom} options={{ title: '', header: (props) => <BackHeader {...props}/> }} />
+        <AlertStack.Screen name='alerts' component={Alerts} options={{ title: '', header: (props) => <AppHeader {...props} /> }} />
+        <AlertStack.Screen name='alert' component={BoxDom} options={{ title: '', header: (props) => <BackHeader {...props} /> }} />
     </AlertStack.Navigator>
 )
 
@@ -76,8 +86,7 @@ const screenOptions = {
     tabBarStyle: {
         height: 60,
         backgroundColor: '#0e7490',
-        borderTopRightRadius: 20,
-        borderTopLeftRadius: 20,
+        borderTopRadius: 20,
         position: 'absolute',
         bottom: 0
     }

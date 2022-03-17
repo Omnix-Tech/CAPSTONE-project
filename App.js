@@ -1,5 +1,4 @@
 import React from 'react'
-import { LogBox } from 'react-native'
 import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
 
@@ -14,10 +13,7 @@ import AppNavigation from './app/Navigation/AppNavigation'
 
 import * as Authenticate from './app/Services/Auth/Authentication'
 
-import { Text } from 'native-base'
-
-
-LogBox.ignoreAllLogs(true)
+import { VStack, Spinner } from 'native-base'
 
 
 const RootStack = createStackNavigator()
@@ -35,7 +31,7 @@ const RootStackNavigator = ({ user }) => (
 
 export default () => {
   const [isLoading, setIsLoading] = React.useState(true)
-  const [user, setUser] = React.useState({})
+  const [user, setUser] = React.useState(null)
   const authContext = React.useMemo(() => {
     return {
       signIn: async (email, password) => {
@@ -55,22 +51,24 @@ export default () => {
 
 
   React.useEffect(() => {
-    // setUser(Authenticate.auth.currentUser)
+    setUser(Authenticate.auth.currentUser)
     setIsLoading(false)
   }, [user])
 
 
   return (
-    <AuthContext.Provider value={authContext}>
-      <NativeBaseProvider>
-        {isLoading ? (
-          <Text>loading...</Text>
-        ) : (
-          <NavigationContainer>
-            <RootStackNavigator user={user} />
-          </NavigationContainer>
-        )}
-      </NativeBaseProvider>
-    </AuthContext.Provider>
+      <AuthContext.Provider value={authContext}>
+        <NativeBaseProvider>
+          {isLoading ? (
+            <VStack height={'60%'} justifyContent={'center'} alignItems={'center'}>
+              <Spinner size="lg" />
+            </VStack>
+          ) : (
+            <NavigationContainer>
+              <RootStackNavigator user={user} />
+            </NavigationContainer>
+          )}
+        </NativeBaseProvider>
+      </AuthContext.Provider>
   )
 }

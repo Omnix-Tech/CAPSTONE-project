@@ -73,7 +73,7 @@ const ProfileStackNavigator = () => {
 export default function DrawerNavigation() {
     return (
         <Drawer.Navigator>
-            <Drawer.Screen name='drawer' component={DrawerContainer} options={{ headerShown: false }} />
+            <Drawer.Screen name='drawer' component={DrawerContainer} options={{ headerShown: false, animationEnabled: true, animationTypeForReplace: 'push' }} />
             <Drawer.Screen name='accountStack' component={AccountStackNavigator} options={{ headerShown: false }} />
             <Drawer.Screen name='profileStack' component={ProfileStackNavigator} options={{ headerShown: false }} />
         </Drawer.Navigator>

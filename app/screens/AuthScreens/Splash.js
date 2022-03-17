@@ -1,15 +1,20 @@
-import { Button, Heading, Box } from 'native-base'
+import { Button, Heading, Box, VStack } from 'native-base'
 import React from 'react'
+import { Container } from '../../Components/components'
 
 
 
-export default function Splash({ navigation })  {
+export default function Splash({ navigation }) {
     return (
-        <Box>
-            <Heading>Splash</Heading>
-            <Button onPress={() => navigation.navigate('login') } >Login</Button>
-            <Button onPress={() => navigation.navigate('register') } >Register</Button>
-        </Box>
+        <Container>
+            <VStack height={'full'} justifyContent={'center'}>
+                <Heading textAlign={'center'} mb={10} >We Connect</Heading>
+                <Box paddingX={10}>
+                    <Button size={'lg'} my={2} onPress={() => navigation.navigate('login')} >Login</Button>
+                    <Button size={'lg'} my={2} onPress={() => navigation.navigate('register')} >Register</Button>
+                </Box>
+            </VStack>
+        </Container>
 
     )
 }

@@ -14,10 +14,8 @@ import { Box, HStack, IconButton, Input, Text, VStack, Spinner, Divider } from '
 export default function Search({ navigation }) {
     const [isLoading, setIsLoading] = React.useState(true)
     const [searchParam, setSearchParam] = React.useState('')
-
-
     const suggestions = ['loyalty in the maing', 'popcorn']
-
+    console.log(searchParam)
     const handleSubmitSearch = ({ item: suggestion }) => {
         if (suggestion) {
             setSearchParam(suggestion)

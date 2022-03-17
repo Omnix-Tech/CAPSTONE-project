@@ -10,6 +10,7 @@
     "eject": "expo eject"
   },
   "dependencies": {
+    "@miblanchard/react-native-slider": "^2.1.0",
     "@react-native-async-storage/async-storage": "~1.15.0",
     "@react-navigation/bottom-tabs": "^6.2.0",
     "@react-navigation/drawer": "^6.3.1",
@@ -17,6 +18,7 @@
     "@react-navigation/stack": "^6.1.1",
     "axios": "^0.26.0",
     "expo": "~44.0.0",
+    "expo-camera": "~12.1.2",
     "expo-linear-gradient": "~11.0.3",
     "expo-location": "~14.0.1",
     "expo-status-bar": "~1.2.0",
@@ -25,7 +27,9 @@
     "react": "17.0.1",
     "react-dom": "17.0.1",
     "react-native": "0.64.3",
+    "react-native-app-intro-slider": "^4.0.4",
     "react-native-elements": "^3.4.2",
+    "react-native-fs": "^2.19.0",
     "react-native-gesture-handler": "~2.1.0",
     "react-native-pager-view": "5.4.9",
     "react-native-reanimated": "~2.3.1",

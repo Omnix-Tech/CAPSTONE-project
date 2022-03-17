@@ -7,15 +7,15 @@ const elevation = {
     elevation: 2
 }
 
-export function PostStack() {
+export function PostStack({ navigation, setNewPost }) {
     const { isOpen, onToggle } = useDisclose()
     const boxStyle = {
         position: 'absolute',
-        bottom: 40,
+        bottom: 90,
         right: 5
     }
     return (
-        <Box {...boxStyle}>
+        <Box zIndex={'1'} {...boxStyle}>
             <Stagger visible={isOpen} initial={{
                 opacity: 0,
                 scale: 0,
@@ -45,7 +45,7 @@ export function PostStack() {
                     }
                 }
             }}>
-                <IconButton {... elevation} bgColor={'coolGray.200'} size={'lg'} mb={5} variant='ghost' borderRadius={100} icon={<Icon type='feather' name='plus' />} />
+                <IconButton {... elevation} bgColor={'coolGray.200'} onPress={() => setNewPost(true)} size={'lg'} mb={5} variant='ghost' borderRadius={100} icon={<Icon type='feather' name='plus' />} />
                 <IconButton {... elevation} bgColor={'coolGray.200'} size={'lg'} mb={5} variant='ghost' borderRadius={100} icon={<Icon type='feather' name='message-circle' />} />
             </Stagger>
 
