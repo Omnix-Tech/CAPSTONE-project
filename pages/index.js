@@ -9,6 +9,7 @@ import FeatherIcon from 'feather-icons-react'
 import AlertContainer from '../components/home/AlertsContainer'
 import PublicForumContiner from '../components/home/PublicForumContainer'
 import SearchContainer from '../components/home/SearchContainer'
+import NewButton from '../components/New'
 
 const { firestore } = require('../config/firebase.config')
 
@@ -50,8 +51,9 @@ export default function Home({ user, ...props }) {
   return (
     <>
       <Layout user={user} currentTab={'home'} >
+        <NewButton />
         <Grid w={'full'} templateColumns={'repeat(12,1fr)'}>
-          <GridItem p={2} colSpan={{ base: 12, md: 5, lg: 4 }} top={{base: 'unset', lg: 70}} position={{base: 'unset', lg: 'sticky'}} h={'fit-content'} >
+          <GridItem p={2} colSpan={{ base: 12, md: 5, lg: 4 }} top={{ base: 'unset', lg: 70 }} position={{ base: 'unset', lg: 'sticky' }} h={'fit-content'} >
 
 
             <Box >
@@ -104,12 +106,10 @@ export default function Home({ user, ...props }) {
             <PublicForumContiner location={location} my={5} />
           </GridItem>
 
-          <GridItem px={2} top={70} position={'sticky'} height={'fit-content'} minH={'90vh'} display={{base: 'none', md: 'none', lg: 'unset'}} colSpan={{ base: 0, md: 0, lg: 3 }}>
+          <GridItem px={2} top={70} position={'sticky'} height={'fit-content'} minH={'90vh'} display={{ base: 'none', md: 'none', lg: 'unset' }} colSpan={{ base: 0, md: 0, lg: 3 }}>
             <SearchContainer overflow={'scroll'} />
           </GridItem>
         </Grid>
-
-
       </Layout>
     </>
   )

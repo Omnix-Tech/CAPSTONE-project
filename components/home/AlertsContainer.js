@@ -10,14 +10,14 @@ function Alert() {
   return (
     <Box p={5} mb={5} >
       <HStack boxShadow={'-2px -3px 16px -1px rgba(0,0,0,0.14)'} pr={5} overflow={'hidden'} bgColor={'white'} borderRadius={10} h={150} justifyContent={'flex-start'} >
-        <Box overflow={'hidden'} borderRightRadius={10} w={'45%'}>
-          <Image objectFit={'cover'} w={'full'} src={'/images/bg.jpg'} />
+        <Box overflow={'hidden'} borderRightRadius={10} w={'40%'}>
+          <Image w={'full'} objectFit={'cover'} src={'/images/bg.jpg'} />
         </Box>
-        <Box w={'55%'} >
-          <Heading size={'md'} isTruncated >Power Outage in your area</Heading>
+        <Box w={'60%'} >
+          <Heading size={'sm'} isTruncated >Power Outage in your area</Heading>
           <HStack alignItems={'center'}>
             <FeatherIcon size={'12px'} icon={'arrow-up-right'} />
-            <Text fontSize={'xs'} fontWeight={'medium'}>Source</Text>
+            <Text fontSize={'x-small'} fontWeight={'medium'}>Source</Text>
           </HStack>
 
           <Button variant={'ghost'} colorScheme={'messenger'} size={'sm'} my={2} w={'full'}>
