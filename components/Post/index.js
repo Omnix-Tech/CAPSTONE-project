@@ -31,8 +31,6 @@ export default function Post() {
                         />
                         <MenuList>
                             <MenuItem>Report Post</MenuItem>
-                            <Divider my={2} /> 
-                            <MenuItem>Don't Show</MenuItem>
                         </MenuList>
                     </Menu>
                 </HStack>
@@ -41,11 +39,11 @@ export default function Post() {
                 <HStack paddingX={2} justifyContent={'space-between'}>
                     <HStack alignItems={'center'}>
                         <IconButton size={'sm'} variant={'ghost'} icon={<FeatherIcon size={18} icon='thumbs-up' />} />
-                        <Text>0 Like</Text>
+                        <Text>0</Text>
                     </HStack>
                     <HStack alignItems={'center'}>
                         <IconButton size={'sm'} variant={'ghost'} icon={<FeatherIcon size={18} icon='message-circle' />} />
-                        <Text>0 Responses</Text>
+                        <Text>0</Text>
                     </HStack>
                 </HStack>
 
