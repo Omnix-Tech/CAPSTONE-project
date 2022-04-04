@@ -29,8 +29,9 @@ export default function Post({ postRef, currentUser }) {
 
     const { isOpen, onOpen, onClose, onToggle } = useDisclosure()
     const postModalToggle = React.useRef()
-
     const modalOptions = { isOpen, onClose, finalFocusRef: postModalToggle }
+
+    
     return (
         <>
             <PostCard

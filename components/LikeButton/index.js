@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { IconButton, Text } from '@chakra-ui/react';
+import { HStack, IconButton, Text } from '@chakra-ui/react';
 import FeatherIcon from 'feather-icons-react'
 
 
@@ -82,15 +82,15 @@ export default function LikeButton({ postRef: ref, currentUser }) {
 
     return (
 
-        <> {ref
+        <HStack> {ref
             ?
             <>
-                <IconButton onClick={handleLikeClickEvent} borderRadius={'full'} size={'sm'} variant={'ghost'} icon={<FeatherIcon color={liked ? 'blue' : 'unset'} size={18} icon='thumbs-up' />} />
-                <Text>{likesCount}</Text>
+                <IconButton colorScheme={ liked ? 'green' : 'blackAlpha'} onClick={handleLikeClickEvent} borderRadius={'full'} size={'xs'} variant={ liked ? 'solid' : 'ghost'} icon={<FeatherIcon size={14} icon='thumbs-up' />} />
+                <Text fontSize={'xs'} >{likesCount}</Text>
             </>
             :
             <></>}
 
-        </>
+        </HStack>
     );
 }

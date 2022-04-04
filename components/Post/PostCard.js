@@ -8,6 +8,7 @@ import { useDownloadURL } from 'react-firebase-hooks/storage'
 import { ref as storageRef } from 'firebase/storage'
 import { storage } from '../../config/firebase.config'
 import LikeButton from '../LikeButton';
+import ResponseInput from '../Responses/ResponseInput'
 
 
 TimeAgo.addLocale(en)
@@ -58,7 +59,7 @@ function File({ file, isMore, currentIndex, noMore }) {
     )
 }
 
-export default function PostCard({ files, post, user, currentUser, loading, fileLoading, postRef: ref, onOpen  }) {
+export default function PostCard({ files, post, user, currentUser, loading, fileLoading, postRef: ref, onOpen }) {
     const timeago = new TimeAgo('en-US')
 
 
@@ -120,14 +121,9 @@ export default function PostCard({ files, post, user, currentUser, loading, file
                 </HStack>
 
                 <Divider my="1" />
-                <HStack paddingX={2} justifyContent={'flex-end'}>
-                    <HStack alignItems={'center'}>
-                        <LikeButton postRef={ref} currentUser={currentUser} />
-                    </HStack>
-                    <HStack alignItems={'center'}>
-                        <IconButton size={'sm'} variant={'ghost'} icon={<FeatherIcon size={18} icon='message-circle' />} />
-                        <Text>0</Text>
-                    </HStack>
+                <HStack paddingX={2} justifyContent={'space-between'} alignItems={'flex-start'} >
+                    <ResponseInput />
+                    <LikeButton postRef={ref} currentUser={currentUser} />
                 </HStack>
             </Box>
         </Box>

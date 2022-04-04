@@ -2,13 +2,24 @@ import '../styles/globals.css'
 
 import React from 'react'
 import { useAuthState } from 'react-firebase-hooks/auth'
-import { ChakraProvider, VStack, Spinner } from '@chakra-ui/react'
+import { ChakraProvider, VStack, Spinner, extendTheme } from '@chakra-ui/react'
 import { useRouter } from 'next/router'
 
 
 const { auth } = require('../config/firebase.config')
 
-
+const extendedThemeO = extendTheme({
+  components: {
+    Button: {
+      baseStyle: {
+          _focus: {
+              outline: 'none',
+              boxShadow: 'none'
+          }
+      }
+  }
+  }
+})
 
 function MyApp({ Component, pageProps, ...props }) {
 
@@ -34,7 +45,7 @@ function MyApp({ Component, pageProps, ...props }) {
 
 
   return (
-    <ChakraProvider>
+    <ChakraProvider resetCSS theme={extendedThemeO}>
       {loading
         ? <VStack w={'100vw'} h={'100vh'} justifyContent={'center'} alignItems={'center'} ><Spinner /></VStack>
         : <Component {...pageProps} user={user} />}
