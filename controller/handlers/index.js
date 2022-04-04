@@ -11,6 +11,7 @@ const registerUser = async (data) => {
         const data = response.data
         return data
     }
+
     throw new Error('Network Error')
 }
 
@@ -30,7 +31,10 @@ const getLocations = async (location) => {
     const response = await server().post('/api/getLocations', {
         latitude: coordinates.latitude,
         longitude: coordinates.longitude
-    }).catch(error => { throw error })
+    })
+
+        .catch(error => { throw error })
+
     if (response) {
         const data = response.data
         return data
@@ -45,6 +49,19 @@ const registerUserLocation = async (data) => {
 
     if (response) {
         const data = response.data
+        console.log(data)
+        return data
+    }
+    throw new Error('Network Error')
+}
+
+
+const createPost = async (data) => {
+
+    const response = await server().post('/api/createPost', data).catch(error => { throw error })
+
+    if (response) {
+        const data = await response.data
         return data
     }
     throw new Error('Network Error')
@@ -59,5 +76,5 @@ const registerUserLocation = async (data) => {
 
 
 module.exports = {
-    registerUser, verifyUser, getLocations, registerUserLocation
+    registerUser, verifyUser, getLocations, registerUserLocation, createPost
 }

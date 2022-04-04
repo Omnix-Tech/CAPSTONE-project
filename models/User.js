@@ -1,5 +1,5 @@
 
-const { admin } = require('../config')
+const { admin } = require('../config/admin.config')
 const { Database } = require('.')
 const USER_COLLECTION = 'Users'
 

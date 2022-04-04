@@ -1,5 +1,6 @@
 const firebase = require('firebase/app')
 const { getFirestore } = require('firebase/firestore')
+const { getStorage } = require('firebase/storage')
 const { getAuth } = require('firebase/auth')
 
 const firebaseConfig = {
@@ -20,6 +21,7 @@ if (!firebase.getApps().length) {
 
 module.exports = {
     firestore: getFirestore(firebase.getApp()),
-    auth: getAuth(firebase.getApp())
+    auth: getAuth(firebase.getApp()),
+    storage: getStorage(firebase.getApp())
 }
 

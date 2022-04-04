@@ -38,9 +38,7 @@ function DrawerContainer({ isOpen, onClose, toggleRef, user }) {
 
           <Box maxHeight={'full'} >
             {notifications.map((_, key) => (
-              <>
-                <Box>1</Box>
-              </>
+              <Box key={key}>1</Box>
             ))}
           </Box>
 
@@ -75,9 +73,9 @@ export default function Layout({ currentTab, children, user }) {
       </Box>
 
       <Box position={'relative'} pl={{ base: 0, lg: 30 }} >
-        <Box w={'full'}>{children}</Box>
+        <Box mb={{base: 90, lg: 0}} w={'full'}>{children}</Box>
       </Box>
-      <Box zIndex={{base: 'docked', lg: 'popover'}} boxShadow={{base: '-2px -3px 16px -1px rgba(0,0,0,0.34)', lg: 'unset'}} bgColor={'white'} borderTopRadius={{ base: 0, lg: 0 }} position={'fixed'} bottom={0} left={0} right={{ base: 0, lg: 'unset' }} top={{ base: 'unset', lg: 0 }} paddingY={{ base: 3, lg: 'unset' }} paddingX={{ base: 'unset', lg: 2 }}>
+      <Box zIndex={{ base: 'docked', lg: 'popover' }} boxShadow={{ base: '-2px -3px 16px -1px rgba(0,0,0,0.34)', lg: 'unset' }} bgColor={'white'} borderTopRadius={{ base: 0, lg: 0 }} position={'fixed'} bottom={0} left={0} right={{ base: 0, lg: 'unset' }} top={{ base: 'unset', lg: 0 }} paddingY={{ base: 3, lg: 'unset' }} paddingX={{ base: 'unset', lg: 2 }}>
         <Stack direction={{ base: 'row', lg: 'column' }} width={{ base: 'full', lg: 'unset' }} h={{ base: 'unset', lg: 'full' }} justifyContent={'space-evenly'} >
           <Box>
             <IconButton color={currentTab === 'home' ? 'teal.400' : 'unset'} variant={'ghost'} icon={<FeatherIcon icon={'home'} />} />

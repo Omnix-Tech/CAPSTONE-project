@@ -2,7 +2,7 @@ import '../styles/globals.css'
 
 import React from 'react'
 import { useAuthState } from 'react-firebase-hooks/auth'
-import { ChakraProvider } from '@chakra-ui/react'
+import { ChakraProvider, VStack, Spinner } from '@chakra-ui/react'
 import { useRouter } from 'next/router'
 
 
@@ -36,7 +36,7 @@ function MyApp({ Component, pageProps, ...props }) {
   return (
     <ChakraProvider>
       {loading
-        ? <>Loading</>
+        ? <VStack w={'100vw'} h={'100vh'} justifyContent={'center'} alignItems={'center'} ><Spinner /></VStack>
         : <Component {...pageProps} user={user} />}
     </ChakraProvider>
   )

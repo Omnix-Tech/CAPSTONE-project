@@ -1,19 +1,18 @@
 import React from 'react';
 
-import { Box, Text, Tooltip, IconButton, Modal, ModalOverlay, ModalContent, useDisclosure, ModalHeader, ModalCloseButton, ModalBody, ModalFooter, Tabs, TabList, Tab, TabPanels, TabPanel, HStack } from '@chakra-ui/react';
+import { Box, Text, Tooltip, IconButton, Modal, ModalOverlay, ModalContent, useDisclosure, ModalHeader, ModalCloseButton, ModalBody, Tabs, TabList, Tab, TabPanels, TabPanel, HStack } from '@chakra-ui/react';
 import FeatherIcon from 'feather-icons-react'
+import NewPost from './NewPost';
 
 
-function NewPost({ isOpen, onClose, modalToggle }) {
+function NewModal({ location, user, ...props }) {
     return (
         <Modal
-            isOpen={isOpen}
-            onClose={onClose}
-            finalFocusRef={modalToggle}
+            {... props}
             size={'2xl'}
         >
             <ModalOverlay />
-            <ModalContent>
+            <ModalContent overflowY={'scroll'} borderRadius={0} maxH={'80vh'}>
 
                 <ModalCloseButton />
 
@@ -38,7 +37,7 @@ function NewPost({ isOpen, onClose, modalToggle }) {
                     <ModalBody>
                         <TabPanels>
                             <TabPanel>
-                                New Post
+                                <NewPost location={location} user={user} closeModal={props.onClose} />
                             </TabPanel>
                             <TabPanel>
                                 Create Forum
@@ -47,19 +46,13 @@ function NewPost({ isOpen, onClose, modalToggle }) {
 
                     </ModalBody>
                 </Tabs>
-
-
-                <ModalFooter>
-
-                </ModalFooter>
-
             </ModalContent>
         </Modal>
     )
 }
 
 
-export default function NewButton() {
+export default function NewButton({ user, location }) {
 
     const { isOpen, onOpen, onClose } = useDisclosure()
     const modalToggle = React.useRef()
@@ -67,7 +60,7 @@ export default function NewButton() {
     return (
         <>
 
-            <NewPost isOpen={isOpen} onClose={onClose} modalToggle={modalToggle} />
+            <NewModal user={user} location={location} isOpen={isOpen} onClose={onClose} finalFocusRef={modalToggle} />
 
 
             <Box zIndex={'modal'} position={'fixed'} bottom={{ base: 90, lg: 10 }} right={5}>

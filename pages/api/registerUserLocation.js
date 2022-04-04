@@ -5,14 +5,14 @@ const { UserLocationCollection } = require('../../models/Location');
 export default async function handler(req, res) {
     const { locationId, uid, location } = req.body
 
-
     try {
-
-        UserLocationCollection.create({ uid, location_id: locationId }).catch(error => { throw error })
-        res.status(200).json({ })
+        console.log(uid, locationId)
+        await UserLocationCollection.create({ uid, location_id: locationId }).catch(error => { throw error })
+        
+        res.status(200).json({})
 
     } catch (error) {
-
+        console.log(error)
         res.status(200).json({ error: error.message })
     }
 }

@@ -1,8 +1,7 @@
 import React from 'react';
-import { Box, Grid, GridItem, Heading, VStack, Text, Button, Divider, HStack, FormLabel, Input } from '@chakra-ui/react';
-import Link from 'next/link';
+import { Box, Grid, GridItem, Heading, VStack, Button, Divider, HStack, FormLabel, Input } from '@chakra-ui/react';
 import { useRouter } from 'next/dist/client/router';
-import { setCookies } from 'cookies-next';
+import Link from 'next/link';
 
 
 import { useForm, Controller } from 'react-hook-form'
@@ -63,11 +62,13 @@ export default function Register() {
 
     const handleFormSubmit = async (data) => {
         const res = await registerUser(data).catch(error => alert(error.message))
-        if (!res.token) {
+        if (!res?.token) {
             alert(res?.error)
         } else {
-            setCookies('token', res.token)
-            router.replace('/setup')
+            router.replace({
+                pathname: '/setup',
+                query: { token: res?.token }
+            }, '/initialize' )
         }
 
 

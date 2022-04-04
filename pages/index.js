@@ -1,10 +1,10 @@
-import Head from 'next/head'
+
 import React from 'react'
 import Layout from '../components/layout'
 import { useCollectionDataOnce } from 'react-firebase-hooks/firestore'
 import { query, where, collection, doc, getDoc } from 'firebase/firestore'
 
-import { Text, Box, Heading, HStack, Grid, GridItem, Button, IconButton, Tooltip } from '@chakra-ui/react'
+import { Text, Box, Heading, HStack, Grid, GridItem, IconButton, Tooltip, SkeletonText } from '@chakra-ui/react'
 import FeatherIcon from 'feather-icons-react'
 import AlertContainer from '../components/home/AlertsContainer'
 import PublicForumContiner from '../components/home/PublicForumContainer'
@@ -32,26 +32,33 @@ const ButtonStyle = {
 }
 
 export default function Home({ user, ...props }) {
-  const [values, loading, error, snapshot] = useCollectionDataOnce(
-    query(
-      collection(firestore, 'User_Location'),
-      where('user', '==', doc(firestore, `Users/${user?.uid}`))
-    )
+  const queryContent = query(
+    collection(firestore, 'User_Location'),
+    where('user', '==', doc(firestore, `Users/${user?.uid}`))
   )
-  const [location, setLocation] = React.useState(null)
 
   const handleSetLocation = async () => {
-    if (values && values.length > 0) {
-      setLocation((await getDoc(values[0].location)).data())
+    if (connects && connects.length > 0) {
+      setLocation((await getDoc(connects[0].location)).data())
     }
   }
+
+
+  const [location, setLocation] = React.useState(null)
+  const [connects, loading, error, snapshot] = useCollectionDataOnce(queryContent)
+
+
+
   React.useEffect(() => {
     handleSetLocation()
-  }, [values])
+  }, [connects])
+
+
+
   return (
     <>
       <Layout user={user} currentTab={'home'} >
-        <NewButton />
+        <NewButton user={user} location={location} />
         <Grid w={'full'} templateColumns={'repeat(12,1fr)'}>
           <GridItem p={2} colSpan={{ base: 12, md: 5, lg: 4 }} top={{ base: 'unset', lg: 70 }} position={{ base: 'unset', lg: 'sticky' }} h={'fit-content'} >
 
@@ -61,7 +68,7 @@ export default function Home({ user, ...props }) {
                 <Heading mb={2} size={'md'}>Hello, {user?.displayName}</Heading>
                 <HStack spacing={'5px'} fontWeight={'medium'} fontSize={'sm'} alignItems={'center'} >
                   <FeatherIcon size={'16px'} icon={'map-pin'} />
-                  <Text>{location ? `${location.area} Connect` : ``}</Text>
+                  { loading ? <SkeletonText noOfLines={1} /> : <Text>{location ? `${location.area} Connect` : ``}</Text> }
 
                   <Tooltip label={'More Connects'} >
                     <IconButton variant={'ghost'} size={'xs'} icon={<FeatherIcon icon={'more-horizontal'} />} />
@@ -103,7 +110,7 @@ export default function Home({ user, ...props }) {
 
           <GridItem px={2} colSpan={{ base: 12, md: 7, lg: 5 }} >
             <AlertContainer my={5} />
-            <PublicForumContiner location={location} my={5} />
+            { location ? <PublicForumContiner location={location} my={5} user={user} /> : <></> }
           </GridItem>
 
           <GridItem px={2} top={70} position={'sticky'} height={'fit-content'} minH={'90vh'} display={{ base: 'none', md: 'none', lg: 'unset' }} colSpan={{ base: 0, md: 0, lg: 3 }}>
@@ -114,3 +121,6 @@ export default function Home({ user, ...props }) {
     </>
   )
 }
+
+
+

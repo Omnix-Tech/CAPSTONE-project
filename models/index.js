@@ -1,10 +1,8 @@
 
-const { admin } = require('../config')
+const { admin } = require('../config/admin.config')
 
 
 const firestore = admin.firestore()
-
-
 class Database {
     constructor(collection) {
         this.collection = firestore.collection(collection)
@@ -17,8 +15,6 @@ class Database {
      * @returns 
      */
     async create({ data, id }, transaction = null) {
-        this.collection.add(data)
-
         if (id) {
             const ref = this.collection.doc(id)
             const res = transaction ? transaction.create(ref, data) : await ref.create(data).catch(error => {

@@ -1,5 +1,4 @@
 import React from 'react';
-import { getCookie } from 'cookies-next';
 import { signInWithCustomToken } from '../../auth/auth.client';
 import { Grid, GridItem, Heading, VStack, Input, Box, Button, HStack, Image, Center, SimpleGrid, Text, Spinner } from '@chakra-ui/react';
 
@@ -70,7 +69,7 @@ function SelectLocation({ locations, setlocationId, locationId }) {
 }
 
 
-function Complete({ locationId, community, uid, setCurrentStep, setIsDone }) {
+function Complete({ locationId, community, uid, setCurrentStep, setIsDone, isDone }) {
     const [isLoading, setIsLoading] = React.useState(true)
 
     const handleSetUserLocation = async () => {
@@ -86,8 +85,10 @@ function Complete({ locationId, community, uid, setCurrentStep, setIsDone }) {
 
 
     React.useEffect(() => {
-        handleSetUserLocation()
-    })
+        if (!isDone) handleSetUserLocation()
+    }, [])
+
+    
     return (
         <Box paddingX={{ base: 5, md: 40 }}>
 
@@ -109,19 +110,21 @@ function Complete({ locationId, community, uid, setCurrentStep, setIsDone }) {
 }
 
 
-export default function Setup({ token, user }) {
+export default function Setup({ user, query }) {
     const router = useRouter()
+    const { token } = query
     const [locations, setLocations] = React.useState([])
     const [currentStep, setCurrentStep] = React.useState(0)
     const [location, setLocation] = React.useState(null)
     const [community, setCommunity] = React.useState('')
     const [locationId, setlocationId] = React.useState(null)
     const [isDone, setIsDone] = React.useState(false)
-
+   
+   
     const handleInitialization = async () => {
         await signInWithCustomToken(token)
             .catch(error => {
-                alert('Invalid Token')
+                console.log(error)
                 router.replace('/')
             })
     }
@@ -155,7 +158,7 @@ export default function Setup({ token, user }) {
 
                         {currentStep === 0 ? <CommunityNameComponent community={community} setCommunity={setCommunity} /> : <></>}
                         {currentStep === 1 ? <SelectLocation locations={locations} setlocationId={setlocationId} locationId={locationId} /> : <></>}
-                        {currentStep === 2 ? <Complete setIsDone={setIsDone} uid={user?.uid} locationId={locationId} community={community} setCurrentStep={setCurrentStep} /> : <></>}
+                        {currentStep === 2 ? <Complete isDone={isDone} setIsDone={setIsDone} uid={user?.uid} locationId={locationId} community={community} setCurrentStep={setCurrentStep} /> : <></>}
 
                         <Box w={'60%'} pt={5}>
                             {currentStep === 0 ?
@@ -207,8 +210,7 @@ export default function Setup({ token, user }) {
 }
 
 
-
-export async function getServerSideProps({ req, res }) {
-    const token = getCookie('token', { req, res })
-    return { props: { token } }
+Setup.getInitialProps = ({ query }) => {
+    return { query }
 }
+

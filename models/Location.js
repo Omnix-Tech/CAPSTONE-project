@@ -2,6 +2,7 @@ const { Database } = require('.')
 const { UserCollection } = require('./User')
 
 const { v4: uuidv4 } = require('uuid');
+const { admin } = require('../config/admin.config');
 
 
 
@@ -23,21 +24,20 @@ class Location {
     getReference(id) {
         return this.db.getReference(id)
     }
-
-
 }
 
 
-class UserLocation extends Location {
+class UserLocation {
     constructor() {
         this.db = new Database(USER_LOCATION_COLLECTION)
+        this.locations = new Location()
     }
 
     async create({ uid, location_id }) {
         const response = await this.db.create({
             data: {
                 user: UserCollection.getReference(uid),
-                location: this.getReference(location_id)
+                location: this.locations.getReference(location_id)
             },
             id: `${uid}-${location_id}`
         }).catch(error => { throw error })
@@ -48,18 +48,25 @@ class UserLocation extends Location {
 
 
 
-class PostLocation extends Location {
+class PostLocation {
     constructor() {
         this.db = new Database(POST_LOCATION_COLLECTION)
+        this.locations = new Location()
     }
 
-    async create({ post, location_id }, transaction = null) {
+    async create({ post, location_id, isPublic }, transaction = null) {
+
+
         const response = await this.db.create({
             data: {
                 post,
-                location: this.getReference(location_id)
-            }, id: uuidv4()
+                isPublic,
+                timeStamp: admin.firestore.Timestamp.now(),
+                location: this.locations.getReference(location_id)
+            },
+            id: uuidv4()
         }, transaction).catch(error => { throw error })
+
 
         return response
     }
