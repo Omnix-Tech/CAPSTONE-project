@@ -69,6 +69,28 @@ const createPost = async (data) => {
 
 
 
+const likePost = async (data) => {
+    const response = await server().post('/api/likePost', data).catch( error => { throw error })
+    if (response) {
+        const data = await response.data
+        return data
+    }
+
+    throw new Error('Network Error')
+}
+
+const unlikePost = async (data) => {
+    const response = await server().post('/api/unlikePost', data).catch( error => { throw error })
+    if (response) {
+        const data = await response.data
+        return data
+    }
+
+    throw new Error('Network Error')
+}
+
+
+
 
 
 
@@ -76,5 +98,5 @@ const createPost = async (data) => {
 
 
 module.exports = {
-    registerUser, verifyUser, getLocations, registerUserLocation, createPost
+    registerUser, verifyUser, getLocations, registerUserLocation, createPost, likePost, unlikePost
 }

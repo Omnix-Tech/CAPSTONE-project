@@ -3,6 +3,7 @@ import React from 'react';
 import { Box, Text, Tooltip, IconButton, Modal, ModalOverlay, ModalContent, useDisclosure, ModalHeader, ModalCloseButton, ModalBody, Tabs, TabList, Tab, TabPanels, TabPanel, HStack } from '@chakra-ui/react';
 import FeatherIcon from 'feather-icons-react'
 import NewPost from './NewPost';
+import NewFourm from './NewFourm';
 
 
 function NewModal({ location, user, ...props }) {
@@ -40,7 +41,7 @@ function NewModal({ location, user, ...props }) {
                                 <NewPost location={location} user={user} closeModal={props.onClose} />
                             </TabPanel>
                             <TabPanel>
-                                Create Forum
+                                <NewFourm />
                             </TabPanel>
                         </TabPanels>
 

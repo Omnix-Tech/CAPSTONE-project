@@ -45,6 +45,14 @@ class Database {
         }
     }
 
+
+    async remove(id) {
+        const docRef = this.collection.doc(id)
+        const writeResult = await docRef.delete().catch(error => { throw error })
+
+        return writeResult
+    }
+
     getReference(id) {
         return this.collection.doc(id)
     }
