@@ -1,7 +1,7 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 
-const { UserCollection } = require('../../models/User');
-const { Auth } = require('../../auth/auth.server')
+const { UserCollection } = require('../../app/models/User');
+const { Auth } = require('../../app/auth/auth.server')
 
 
 

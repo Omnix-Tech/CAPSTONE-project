@@ -10,8 +10,7 @@ import AlertContainer from '../components/home/AlertsContainer'
 import PublicForumContiner from '../components/home/PublicForumContainer'
 import SearchContainer from '../components/home/SearchContainer'
 import NewButton from '../components/New'
-
-const { firestore } = require('../config/firebase.config')
+import { firestore } from '../app/config/firebase.config'
 
 
 const ButtonStyle = {
@@ -52,7 +51,6 @@ export default function Home({ user, ...props }) {
   React.useEffect(() => {
     handleSetLocation()
   }, [connects])
-
 
 
   return (

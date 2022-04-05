@@ -6,7 +6,7 @@ import FeatherIcon from 'feather-icons-react'
 
 import { likePost, unlikePost } from '../../controller/handlers'
 import { doc, query, where, limit, collection, getDocs, onSnapshot } from 'firebase/firestore';
-import { firestore } from '../../config/firebase.config';
+import { firestore } from '../../app/config/firebase.config';
 import { useCollectionDataOnce } from 'react-firebase-hooks/firestore';
 
 

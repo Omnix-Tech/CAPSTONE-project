@@ -1,4 +1,4 @@
-import { LikesCollection } from "../../models/Post"
+import { LikesCollection } from "../../app/models/Likes"
 
 
 

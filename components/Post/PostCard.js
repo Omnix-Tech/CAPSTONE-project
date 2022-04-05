@@ -6,7 +6,7 @@ import React from 'react';
 
 import { useDownloadURL } from 'react-firebase-hooks/storage'
 import { ref as storageRef } from 'firebase/storage'
-import { storage } from '../../config/firebase.config'
+import { storage } from '../../app/config/firebase.config'
 import LikeButton from '../LikeButton';
 import ResponseInput from '../Responses/ResponseInput'
 
@@ -122,7 +122,7 @@ export default function PostCard({ files, post, user, currentUser, loading, file
 
                 <Divider my="1" />
                 <HStack paddingX={2} justifyContent={'space-between'} alignItems={'flex-start'} >
-                    <ResponseInput />
+                    <ResponseInput post={ref} currentUser={currentUser} />
                     <LikeButton postRef={ref} currentUser={currentUser} />
                 </HStack>
             </Box>

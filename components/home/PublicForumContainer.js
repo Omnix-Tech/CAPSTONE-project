@@ -2,7 +2,7 @@ import React from 'react';
 import { Box, Divider, Text, VStack, Spinner, HStack } from '@chakra-ui/react';
 import Post from '../Post';
 import { collection, doc, query, where, orderBy, onSnapshot, limit, startAfter, getDocs } from 'firebase/firestore';
-import { firestore } from '../../config/firebase.config';
+import { firestore } from '../../app/config/firebase.config';
 import InfiniteScroll from 'react-infinite-scroll-component';
 
 
@@ -12,17 +12,22 @@ export default function PublicForumContiner({ location, user: currentUser, ...pr
 
     const locationRef = doc(firestore, `Locations/${location?.place_id}`)
     const collectionRef = collection(firestore, 'Post_Location')
-    const [queryContent, setQuery] = React.useState(query(
+    const postsQuery = query(
         collectionRef,
         where('location', '==', locationRef),
         where('isPublic', '==', true),
         orderBy('timeStamp', 'desc'),
         limit(MAX_GRAB)
-    ))
+    )
 
+
+
+    const [queryContent, setQuery] = React.useState(postsQuery)
     const [snapshot, setSnapshot] = React.useState(null)
     const [posts, setPosts] = React.useState(null)
     const [lastPost, setLastPost] = React.useState(null)
+
+
 
     const getThresholdPosts = async () => {
         const moreQuery = lastPost ? query(
@@ -55,12 +60,11 @@ export default function PublicForumContiner({ location, user: currentUser, ...pr
                 : docs.map(doc => doc.data()))
         })
     }
-
     const getInitialPosts = async () => {
 
         try {
-            const querySnapshot = await getDocs(queryContent).catch(error => { throw error })
-            const docs = querySnapshot.docs
+            const querySnapshot = await getDocs(queryContent).catch(error => { console.log(error.message) })
+            const docs = querySnapshot ? querySnapshot.docs : []
 
 
             if (docs.length > 0) setSnapshot(querySnapshot)
@@ -72,15 +76,20 @@ export default function PublicForumContiner({ location, user: currentUser, ...pr
 
     }
 
-    React.useState(() => {
+    React.useEffect(() => {
         if (posts) {
-            setQuery(query(
+            const postQuery = posts.length > 0 ? query(
                 collectionRef,
                 where('location', '==', locationRef),
                 where('isPublic', '==', true),
                 orderBy('timeStamp', 'desc'),
                 limit(posts.length)
-            ))
+            ) : query(
+                collectionRef,
+                where('location', '==', locationRef),
+                where('isPublic', '==', true),
+                orderBy('timeStamp', 'desc'))
+            setQuery(postQuery)
         }
     }, [posts])
 
@@ -104,7 +113,6 @@ export default function PublicForumContiner({ location, user: currentUser, ...pr
         }
 
     })
-
     return (
         <Box {...props}>
 

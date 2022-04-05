@@ -1,5 +1,5 @@
 
-const { PostCollection } = require('../../models/Post')
+const { PostCollection } = require('../../app/models/Post')
 
 
 export default async function handler(req, res) {

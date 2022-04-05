@@ -6,7 +6,7 @@ const { PostLocationCollection } = require('./Location')
 const { v4: uuidv4 } = require('uuid');
 const POST_COLLECTION = 'Posts'
 const FILE_COLLECTION = 'Files'
-const LIKES_COLLECTION = 'Likes'
+
 
 class Posts {
     constructor() {
@@ -80,33 +80,9 @@ class Files {
 
 
 
-class Likes {
-    constructor() {
-        this.db = new Database(LIKES_COLLECTION)
-        this.PostCollection = new Posts()
-    }
-
-    async create({ uid, postId }) {
-        const response = await this.db.create({
-            data: {
-                post: this.PostCollection.getReference(postId),
-                user: UserCollection.getReference(uid)
-            }
-        }).catch(error => { throw error })
-
-
-        return response
-    }
-
-
-    async remove(id) {
-        return await this.db.remove(id)
-    }
-}
 
 
 module.exports = {
     PostCollection: new Posts(),
-    FileCollection: new Files(),
-    LikesCollection: new Likes()
+    FileCollection: new Files()
 }

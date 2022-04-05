@@ -41,7 +41,7 @@ export default function Register() {
 
     const router = useRouter()
     const { signInForm } = require('../../forms')
-    const { signInWithEmailAndPassword } = require('../../auth/auth.client')
+    const { signInWithEmailAndPassword } = require('../../app/auth/auth.client')
 
     const {
         handleSubmit,

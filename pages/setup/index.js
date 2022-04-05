@@ -1,5 +1,5 @@
 import React from 'react';
-import { signInWithCustomToken } from '../../auth/auth.client';
+import { signInWithCustomToken } from '../../app/auth/auth.client';
 import { Grid, GridItem, Heading, VStack, Input, Box, Button, HStack, Image, Center, SimpleGrid, Text, Spinner } from '@chakra-ui/react';
 
 

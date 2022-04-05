@@ -9,7 +9,7 @@ import FeatherIcon from 'feather-icons-react'
 
 import { useDownloadURL } from 'react-firebase-hooks/storage';
 import { ref as storageRef } from 'firebase/storage'
-import { storage } from '../../config/firebase.config'
+import { storage } from '../../app/config/firebase.config'
 import LikeButton from '../LikeButton';
 import Response from '../Responses';
 
@@ -39,8 +39,8 @@ export default function PostContainer({ post, user, files, currentUser, loading,
     >
       <ModalOverlay />
 
-      <ModalContent py={0} pl={{base: 'unset', md: 50}} h={'100vh'} borderRadius={0} bgRepeat={'no-repeat !important'} bgPosition={'unset'} bgSize={'cover !important'} bg={`url('/images/bg.jpg')`}>
-        <Box h={'full'} bg={'rgba(255,255,255,0.4)'} backdropFilter={'blur(20px)'}  overflowY={'scroll'}>
+      <ModalContent py={0} pl={{ base: 'unset', md: 50 }} h={'100vh'} borderRadius={0} bgRepeat={'no-repeat !important'} bgPosition={'unset'} bgSize={'cover !important'} bg={`url('/images/bg.jpg')`}>
+        <Box h={'full'} bg={'rgba(255,255,255,0.4)'} backdropFilter={'blur(20px)'} overflowY={'scroll'}>
           <ModalCloseButton />
           <ModalBody pt={50}>
             <Grid templateColumns={'repeat(12,1fr)'} >
@@ -82,13 +82,13 @@ export default function PostContainer({ post, user, files, currentUser, loading,
                 </HStack>
 
 
-                <Response display={{ base: 'none', md: 'unset' }} />
+                {ref && currentUser ? <Response post={ref} currentUser={currentUser} display={{ base: 'none', md: 'unset' }} /> : <></>}
               </GridItem>
 
 
               <GridItem colSpan={{ base: 12, md: 8 }} >
 
-                <Box position={{base: 'unset', md: 'sticky'}} top={10} px={{ base: 0, md: 10 }} mt={5} >
+                <Box position={{ base: 'unset', md: 'sticky' }} top={10} px={{ base: 0, md: 10 }} mt={5} >
                   {fileLoading ? <></> :
 
                     <>
@@ -103,7 +103,7 @@ export default function PostContainer({ post, user, files, currentUser, loading,
                   }
                 </Box>
 
-                <Response display={{ base: 'unset', md: 'none' }} />
+                {ref && currentUser ? <Response post={ref} currentUser={currentUser} display={{ base: 'unset', md: 'none' }} /> : <></>}
               </GridItem>
             </Grid>
           </ModalBody>

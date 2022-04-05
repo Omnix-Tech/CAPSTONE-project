@@ -3,7 +3,7 @@ import React from 'react'
 
 import FeatherIcon from 'feather-icons-react'
 
-const { auth } = require('../../config/firebase.config')
+const { auth } = require('../../app/config/firebase.config')
 
 
 function DrawerContainer({ isOpen, onClose, toggleRef, user }) {

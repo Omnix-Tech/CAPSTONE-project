@@ -1,12 +1,20 @@
-import { Avatar, Box, Button, Divider, HStack, Text, VStack } from '@chakra-ui/react';
+import { SkeletonText, Avatar, Box, Button, Divider, HStack, Text } from '@chakra-ui/react';
+import { doc, getDoc } from '@firebase/firestore';
+import TimeAgo from 'javascript-time-ago';
+
+import en from 'javascript-time-ago/locale/en.json'
 import React from 'react';
+import { firestore } from '../../app/config/firebase.config';
+
+
+TimeAgo.setDefaultLocale(en)
 
 const CardStyle = {
     alignItems: 'flex-start',
     color: 'gray.700',
     fontSize: 'sm',
     p: 15,
-    w: 'fit-content',
+    w: 'full',
     transition: '0.25s',
     _hover: {
         bg: 'rgba(0,0,0,0.1)',
@@ -14,7 +22,20 @@ const CardStyle = {
     }
 }
 
-export default function ReponseCard({ self }) {
+export default function ReponseCard({ self, response: data }) {
+    const timeago = new TimeAgo('en-US')
+
+
+
+    const [response, setResponse] = React.useState(data)
+    const [user, setUser] = React.useState(null)
+    
+
+
+    React.useEffect(() => {
+        getDoc(doc(firestore, `Users/${response.data.user.id}`)).then( snapshot => setUser(snapshot.data()))
+    }, [response])
+    
     return (
         <>
             <Box
@@ -24,18 +45,16 @@ export default function ReponseCard({ self }) {
                     <Avatar size={'sm'} />
                     <Box>
                         <HStack>
-                            <Text lineHeight={0} color={self ? 'green.600' : 'blue.600'} fontWeight={'medium'} mb={2}>{self ? 'Johnny Brown' : 'You'}</Text>
-                            <Text lineHeight={0} fontSize={'xs'} >10 mins ago</Text>
+                            <Text lineHeight={0} color={self ? 'blue.600' : 'green.600'} fontWeight={'medium'} mb={2}>{self ? 'You' : user ? `${user.firstName} ${user.lastName}` : <SkeletonText />}</Text>
+                            <Text lineHeight={5} fontSize={'x-small'} >{timeago.format(response.data.timeStamp.toDate())}</Text>
                         </HStack>
 
-                        {self ? <></> : <Button p={0} size={'xs'} variant={'link'}>Delete</Button>}
+                        {self ? <Button p={0} size={'xs'} variant={'link'}>Delete</Button> : <></>}
                     </Box>
                 </HStack>
                 <Divider my={2} />
 
-                <Text>
-                    Hello World this is a testamet to teh eja erfnna  wefj wefinfwf wfiwnfweifnw fw fw fjad ad jwe ewd jwnwnk
-                </Text>
+                <Text> {response.data.content} </Text>
             </Box>
         </>
 

@@ -3,7 +3,7 @@ import { Box, Text, HStack, Image, Avatar, Textarea, Divider, IconButton, Toolti
 import FeatherIcon from 'feather-icons-react'
 import React from 'react';
 
-import { storage } from '../../config/firebase.config';
+import { storage } from '../../app/config/firebase.config';
 import { deleteObject, ref as storageRef } from 'firebase/storage';
 import { useUploadFile, useDownloadURL } from 'react-firebase-hooks/storage'
 
