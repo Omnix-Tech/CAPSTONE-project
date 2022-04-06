@@ -4,7 +4,8 @@ import { Grid, GridItem, Heading, VStack, Input, Box, Button, HStack, Image, Cen
 
 
 import { useRouter } from 'next/dist/client/router';
-import { getLocations, registerUserLocation } from '../../controller/handlers';
+import { registerUserLocation } from '../../controller/handlers';
+
 
 
 const MainContainerStyle = {
@@ -110,17 +111,19 @@ function Complete({ locationId, community, uid, setCurrentStep, setIsDone, isDon
 }
 
 
-export default function Setup({ user, query }) {
+export default function Setup({ user, query, locations }) {
     const router = useRouter()
+    
+    
     const { token } = query
-    const [locations, setLocations] = React.useState([])
     const [currentStep, setCurrentStep] = React.useState(0)
-    const [location, setLocation] = React.useState(null)
     const [community, setCommunity] = React.useState('')
-    const [locationId, setlocationId] = React.useState(null)
     const [isDone, setIsDone] = React.useState(false)
-   
-   
+
+    
+    const [locationId, setlocationId] = React.useState(null)
+
+
     const handleInitialization = async () => {
         await signInWithCustomToken(token)
             .catch(error => {
@@ -129,24 +132,12 @@ export default function Setup({ user, query }) {
             })
     }
 
-    const handleLocations = async () => {
-        if (!location) return
-        const response = await getLocations(location).catch(error => alert(error.message))
-        if (response.locations) {
-            setLocations(response.locations)
-        }
-    }
-
     React.useEffect(() => {
-        navigator.geolocation.getCurrentPosition(location => setLocation(location))
         handleInitialization()
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
-    React.useEffect(() => {
-        handleLocations()
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [location])
+    console.log(locations)
 
     return (
         <Box bgRepeat={'no-repeat !important'} bgPosition={'unset'} bgSize={'cover !important'} bg={`url('/images/bg.jpg')`} >

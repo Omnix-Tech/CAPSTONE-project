@@ -109,9 +109,10 @@ export default function PublicForumContiner({ location, user: currentUser, ...pr
         if (snapshot) {
             const docs = querySnapshot.docs
             if (docs.length > 0) {
-                if (snapshot?.docs[0].id !== docs[0].id) {
+                if ((snapshot?.docs[0].id !== docs[0].id) && !allowRefresh) {
                     setAllowRefresh(true)
                     setSnapshot(querySnapshot)
+                    console.log('Changing')
                 }
             }
 
