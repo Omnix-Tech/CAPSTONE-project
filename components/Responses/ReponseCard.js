@@ -45,8 +45,8 @@ export default function ReponseCard({ self, response: data }) {
                     <Avatar size={'sm'} />
                     <Box>
                         <HStack>
-                            <Text lineHeight={0} color={self ? 'blue.600' : 'green.600'} fontWeight={'medium'} mb={2}>{self ? 'You' : user ? `${user.firstName} ${user.lastName}` : <SkeletonText />}</Text>
-                            <Text lineHeight={5} fontSize={'x-small'} >{timeago.format(response.data.timeStamp.toDate())}</Text>
+                            <Box color={self ? 'blue.600' : 'green.600'} fontWeight={'medium'}>{self ? 'You' : user ? `${user.firstName} ${user.lastName}` : <SkeletonText />}</Box>
+                            <Box fontSize={'x-small'} >{timeago.format(response.data.timeStamp.toDate())}</Box>
                         </HStack>
 
                         {self ? <Button p={0} size={'xs'} variant={'link'}>Delete</Button> : <></>}

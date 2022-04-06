@@ -64,6 +64,10 @@ export default function LikeButton({ postRef: ref, currentUser }) {
             }
     )
 
+    // onSnapshot(likeQuery, querySnapshot => {
+    //     setLiked(querySnapshot.docs === 0)
+    // })
+
 
     React.useEffect(() => {
         if (likeCollection) {
@@ -82,7 +86,7 @@ export default function LikeButton({ postRef: ref, currentUser }) {
 
     return (
 
-        <HStack> {ref
+        <HStack my={2} > {ref
             ?
             <>
                 <IconButton colorScheme={ liked ? 'green' : 'blackAlpha'} onClick={handleLikeClickEvent} borderRadius={'full'} size={'xs'} variant={ liked ? 'solid' : 'ghost'} icon={<FeatherIcon size={14} icon='thumbs-up' />} />

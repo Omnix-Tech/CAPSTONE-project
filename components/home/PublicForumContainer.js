@@ -4,9 +4,13 @@ import Post from '../Post';
 import { collection, doc, query, where, orderBy, onSnapshot, limit, startAfter, getDocs } from 'firebase/firestore';
 import { firestore } from '../../app/config/firebase.config';
 import InfiniteScroll from 'react-infinite-scroll-component';
+import * as Scroll from 'react-scroll'
+
+import NewPostAlert from '../NewPostAlert';
 
 
 const MAX_GRAB = 4
+const scroll = Scroll.animateScroll
 
 export default function PublicForumContiner({ location, user: currentUser, ...props }) {
 
@@ -26,6 +30,7 @@ export default function PublicForumContiner({ location, user: currentUser, ...pr
     const [snapshot, setSnapshot] = React.useState(null)
     const [posts, setPosts] = React.useState(null)
     const [lastPost, setLastPost] = React.useState(null)
+    const [allowRefresh, setAllowRefresh] = React.useState(false)
 
 
 
@@ -60,6 +65,7 @@ export default function PublicForumContiner({ location, user: currentUser, ...pr
                 : docs.map(doc => doc.data()))
         })
     }
+
     const getInitialPosts = async () => {
 
         try {
@@ -104,15 +110,29 @@ export default function PublicForumContiner({ location, user: currentUser, ...pr
             const docs = querySnapshot.docs
             if (docs.length > 0) {
                 if (snapshot?.docs[0].id !== docs[0].id) {
-                    setPosts(docs.map(doc => doc.data()))
+                    setAllowRefresh(true)
                     setSnapshot(querySnapshot)
-                    setLastPost(docs[docs.length - 1])
                 }
             }
 
         }
-
     })
+
+
+    const handleRefresh = () => {
+        const docs = snapshot.docs
+        setPosts(docs.map(doc => doc.data()))
+        lastPost ? setLastPost(docs[docs.length - 1]) : null
+        setAllowRefresh(false)
+        setTimeout(() => {
+            scroll.scrollToTop()
+        }, 500)
+        
+    }
+
+
+
+
     return (
         <Box {...props}>
 
@@ -143,6 +163,9 @@ export default function PublicForumContiner({ location, user: currentUser, ...pr
                         </InfiniteScroll>
                 }
             </Box>
+
+
+            <NewPostAlert refresh={allowRefresh} onClick={handleRefresh} />
         </Box>
     );
 }
