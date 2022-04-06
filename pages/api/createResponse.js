@@ -6,7 +6,6 @@ export default async function handler(req, res) {
 
 
     const { user, post, content } = req.body
-    console.log(post, user, content)
     try {
         await ResponseCollection.create({ uid: user, postId: post, content })
             .catch(error => { throw error })

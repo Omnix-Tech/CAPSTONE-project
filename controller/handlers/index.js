@@ -1,7 +1,6 @@
 const axios = require('axios')
 const API_URI = process.env.NEXT_PUBLIC_ORIGIN
 
-
 const server = () => axios.create({ baseURL: API_URI })
 
 const registerUser = async (data) => {
@@ -26,14 +25,8 @@ const verifyUser = async () => {
 }
 
 
-const getLocations = async (location) => {
-    const coordinates = location.coords
-    const response = await server().post('/api/getLocations', {
-        latitude: coordinates.latitude,
-        longitude: coordinates.longitude
-    })
-
-        .catch(error => { throw error })
+const getLocations = async (position) => {
+    const response = await server().post('/api/getLocations', { longitude: position.longitude, latitude: position.latitude }).catch(error => { throw error })
 
     if (response) {
         const data = response.data

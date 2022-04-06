@@ -1,8 +1,6 @@
 
 import React from 'react'
 import Layout from '../components/layout'
-import { doc, getDoc } from 'firebase/firestore'
-import { firestore } from '../app/config/firebase.config'
 
 import { Text, Box, Heading, HStack, Grid, GridItem, IconButton, Tooltip, SkeletonText } from '@chakra-ui/react'
 import FeatherIcon from 'feather-icons-react'
@@ -10,6 +8,7 @@ import AlertContainer from '../components/home/AlertsContainer'
 import PublicForumContiner from '../components/home/PublicForumContainer'
 import SearchContainer from '../components/home/SearchContainer'
 import NewButton from '../components/New'
+import useConnect from '../controller/hooks/useConnect'
 
 
 const ButtonStyle = {
@@ -29,25 +28,8 @@ const ButtonStyle = {
   }
 }
 
-export default function Home({ user, currentConnect }) {
-  const [connect, setConnect] = React.useState(null)
-
-  const handleSetConnect = () => {
-    if (currentConnect) {
-      getDoc(doc(firestore, `Locations/${currentConnect.location.id}`))
-        .then(snapshot => {
-          setConnect(snapshot.data())
-        })
-        .catch(error => alert(error.message))
-    }
-  }
-
-  React.useEffect(() => {
-    if (currentConnect) handleSetConnect()
-  }, [currentConnect])
-
-
-
+export default function Home({ user }) {
+  const { connectDocument: connect } = useConnect(user)
 
   return (
     <>

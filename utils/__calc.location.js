@@ -10,7 +10,6 @@ const distance = (xlat, ylat, xlng, ylng) => {
 
     var val = Math.pow(Math.sin(diffLat / 2), 2) + Math.cos(lat1) * Math.cos(lat2) * Math.pow(Math.sin(diffLng / 2), 2)
     
-    
     return (2 * Math.asin(Math.sqrt(val))) * 6371
 }
 
