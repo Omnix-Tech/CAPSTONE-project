@@ -5,6 +5,7 @@ import { Box, Text, Divider, HStack, ButtonGroup, Button, IconButton } from '@ch
 import FeatherIcon from 'feather-icons-react'
 import { ConnectPopover } from './ConnectInfo'
 import { registerUserLocation, deleteUserLocation } from '../../controller/handlers'
+import { AlertContext } from '../../controller/context'
 
 
 
@@ -12,22 +13,33 @@ import { registerUserLocation, deleteUserLocation } from '../../controller/handl
 
 
 export default function ConnectsContainer({ connectsDocs, otherLocations, currentUser, handleSetConnect }) {
-
+    const { alert: createAlert } = React.useContext(AlertContext)
 
     const handleSetUserLocation = (locationId) => {
+        createAlert({ isLoading: true })
         registerUserLocation({ locationId, uid: currentUser.uid })
-        .then( response => {
-            if (response.error) alert(response.error)
-        })
-        .catch(error => alert(error.message))
+            .then(response => {
+                if (response.error) {
+                    createAlert({ message: 'Something went wrong', status: 'error' })
+                    return
+                }
+                createAlert({ message: 'Connected', status: 'success' })
+            })
+            .catch(error => createAlert({ message: 'Something went wrong', status: 'error' }))
     }
 
     const handleRemoveUserLocation = (locationId) => {
+        createAlert({ isLoading: true })
         deleteUserLocation({ locationId, uid: currentUser.uid })
-        .then( response => {
-            if (response.error) alert(response.error)
-        })
-        .catch(error => alert(error.message))
+            .then(response => {
+                if (response.error) {
+                    createAlert({ message: 'Something went wrong', status: 'error' })
+                    return
+                }
+
+                createAlert({ message: 'Disconnect', status: 'success' })
+            })
+            .catch(error => createAlert({ message: 'Something went wrong', status: 'error' }))
     }
 
     return (
@@ -52,7 +64,7 @@ export default function ConnectsContainer({ connectsDocs, otherLocations, curren
                         </HStack>
                     ))}
                 </Box>
-                
+
                 <Divider my={10} />
 
                 <Box px={10}>

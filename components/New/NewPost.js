@@ -9,6 +9,7 @@ import { useUploadFile, useDownloadURL } from 'react-firebase-hooks/storage'
 
 import { v4 as uuidv4 } from 'uuid'
 import { createPost } from '../../controller/handlers';
+import { AlertContext } from '../../controller/context';
 
 const scrollCSS = {
     overflowX: 'auto',
@@ -54,6 +55,8 @@ function UploadSuccess({ url }) {
 
 
 function FileUploadContainer({ file, uid, handleSuccessiveFile, handleDeleteSuccessive, index }) {
+
+    
     const ref = storageRef(storage, `/media/posts/user-${uid}/${file.id}`)
     const [uploadFile, uploading, snapshot, error] = useUploadFile()
 
@@ -151,6 +154,8 @@ function FileUploadContainer({ file, uid, handleSuccessiveFile, handleDeleteSucc
 
 
 export default function NewPost({ location, user, forum, closeModal }) {
+    const { alert: createAlert } = React.useContext(AlertContext)
+    
     const { isOpen, onClose, onToggle } = useDisclosure()
     const [content, setContent] = React.useState('')
     const [privacy, setPrivacy] = React.useState(forum ? null : false)
@@ -167,7 +172,7 @@ export default function NewPost({ location, user, forum, closeModal }) {
                 setSuccessFiles(remainingFiles)
                 const filteredFiles = files.filter((file) => file.id !== id)
                 setFiles(filteredFiles)
-            }).catch(error => alert(error.message))
+            }).catch(error => createAlert({ message: error.message, status: 'error' }))
         }
     }
 
@@ -180,12 +185,12 @@ export default function NewPost({ location, user, forum, closeModal }) {
 
     const handleSumbitPost = async () => {
         const post = { content, privacy, files: successFiles, user: user.uid, forum: forum ? forum.id : null, location: forum ? null : location.place_id }
-        const response = await createPost(post).catch(error => alert(error.message))
+        const response = await createPost(post).catch(error => createAlert({message: 'Something went wrong, Try Again', status: 'error'}) )
 
         if (response?.error) {
-            alert('Something went wrong, Try Again')
+            createAlert({message: 'Something went wrong, Try Again', status: 'error'})
         } else {
-            alert('Posted')
+            createAlert({heading: 'Posted', status: 'success'})
             closeModal()
         }
     }

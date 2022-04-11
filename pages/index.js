@@ -2,7 +2,7 @@
 import React from 'react'
 import Layout from '../components/layout'
 
-import { Text, Box, Heading, HStack, Grid, GridItem, IconButton, Tooltip, SkeletonText } from '@chakra-ui/react'
+import { Text, Box, Heading, HStack, Grid, GridItem, Tooltip, SkeletonText } from '@chakra-ui/react'
 import FeatherIcon from 'feather-icons-react'
 import AlertContainer from '../components/home/AlertsContainer'
 import PublicForumContiner from '../components/home/PublicForumContainer'
@@ -10,7 +10,6 @@ import SearchContainer from '../components/home/SearchContainer'
 import NewButton from '../components/New'
 import useConnect from '../controller/hooks/useConnect'
 import ConnectMenu from '../components/ConnectSelect'
-
 
 const ButtonStyle = {
   fontSize: 'sm',

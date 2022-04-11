@@ -17,34 +17,40 @@ export function ConnectInfo({ connect }) {
         where('location', '==', doc(firestore, `Locations/${connect?.place_id}`))
     ))
 
-    
+
     return (
         <Box>
-            <Box>
-                <Text fontWeight={'medium'} >{connect.area}</Text>
-                <Text fontWeight={'medium'} fontSize={'x-small'} >{connect.parish}</Text>
-            </Box>
-            <Divider my={5} />
-
-            {connect.councillors.map(councillor => (
+            {connect ?
                 <>
-                    <Text fontSize={'x-small'} fontWeight={'medium'} >Councillor</Text>
-                    <Text fontSize={'sm'} fontWeight={'medium'} >{councillor.name}</Text>
-                    <Text fontSize={'x-small'} fontWeight={'medium'} >{councillor.email}</Text>
+                    <Box>
+                        <Text fontWeight={'medium'} >{connect.area}</Text>
+                        <Text fontWeight={'medium'} fontSize={'x-small'} >{connect.parish}</Text>
+                    </Box>
+                    <Divider my={5} />
 
+                    {connect.councillors.map(councillor => (
+                        <>
+                            <Text fontSize={'x-small'} fontWeight={'medium'} >Councillor</Text>
+                            <Text fontSize={'sm'} fontWeight={'medium'} >{councillor.name}</Text>
+                            <Text fontSize={'x-small'} fontWeight={'medium'} >{councillor.email}</Text>
+
+                        </>
+                    ))}
+
+
+                    <Divider my={2} />
+                    {querySnapshot ?
+                        <HStack spacing={2}>
+                            <FeatherIcon size={14} icon={'users'} />
+                            <Text fontWeight={'medium'} fontSize={'sm'} >{querySnapshot?.size === 1 ? `${querySnapshot?.size} Member` : `${querySnapshot?.size} Members`} </Text>
+                        </HStack>
+
+                        : <></>
+                    }
                 </>
-            ))}
+                :
+                <></>}
 
-
-            <Divider my={2} />
-            {querySnapshot ?
-                <HStack spacing={2}>
-                    <FeatherIcon size={14} icon={'users'} />
-                    <Text fontWeight={'medium'} fontSize={'sm'} >{querySnapshot?.size === 1 ? `${querySnapshot?.size} Member` : `${querySnapshot?.size} Members`} </Text>
-                </HStack>
-
-                : <></>
-            }
         </Box>
     )
 }

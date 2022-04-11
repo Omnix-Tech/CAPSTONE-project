@@ -1,22 +1,15 @@
 
 
 
-import { Tooltip, IconButton, Menu, MenuButton, MenuList, MenuItem, Text } from '@chakra-ui/react';
+import { IconButton, Menu, MenuButton, MenuList, MenuItem, Text } from '@chakra-ui/react';
 import FeatherIcon from 'feather-icons-react'
-import useConnect from '../../controller/hooks/useConnect';
 
-export default function ConnectMenu({ connectsDocs, handleSetConnect  }) {
+export default function ConnectMenu({ connectsDocs, handleSetConnect }) {
 
 
     return (
         <Menu>
-            <Tooltip label={'More Connects'} >
-                <MenuButton>
-
-                    <IconButton variant={'ghost'} size={'xs'} icon={<FeatherIcon icon={'more-horizontal'} />} />
-
-                </MenuButton>
-            </Tooltip>
+            <MenuButton as={IconButton} size={'xs'} variant={'ghost'} icon={<FeatherIcon icon={'more-horizontal'} />}/>
 
             {connectsDocs ?
                 <>

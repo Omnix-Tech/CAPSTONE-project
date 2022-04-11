@@ -78,7 +78,7 @@ const useConnect = (user) => {
     }, [user])
 
     React.useEffect(() => {
-        handleSetConnect()
+        router.query.connect ? handleSetConnect(router.query.connect) : handleSetConnect()
         handleSetConnectsDocs()
     }, [connects])
 

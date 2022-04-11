@@ -8,9 +8,13 @@ import { likePost, unlikePost } from '../../controller/handlers'
 import { doc, query, where, limit, collection, getDocs, onSnapshot } from 'firebase/firestore';
 import { firestore } from '../../app/config/firebase.config';
 import { useCollectionDataOnce } from 'react-firebase-hooks/firestore';
+import { AlertContext } from '../../controller/context';
 
 
 export default function LikeButton({ postRef: ref, currentUser }) {
+    const { alert: createAlert } = React.useContext(AlertContext)
+    
+    
     const likeQuery = query(
         collection(firestore, 'Likes'),
         where('user', '==', doc(firestore, `/Users/${currentUser?.uid}`)),
@@ -21,30 +25,31 @@ export default function LikeButton({ postRef: ref, currentUser }) {
     const [liked, setLiked] = React.useState(false)
     const [likeCollection, loading, error, snapshot] = useCollectionDataOnce(likeQuery)
     const [likeSnapshot, setLikeSnapshot] = React.useState(null)
-
     const [likesCount, setLikesCount] = React.useState(0)
 
 
     const handleLikePost = async () => {
         const data = await likePost({ postId: ref.id, uid: currentUser.uid })
-            .catch(error => { alert(error.message) })
+            .catch(error => { createAlert({ message: error.message, status: 'error' }) })
 
         if (data.error) {
-            alert('Something went wrong')
+            createAlert({ messege: 'Something went wrong', status: 'error' })
         } else {
             setLiked(true)
             const like = (await getDocs(likeQuery)).docs[0]
             setLikeSnapshot(like)
+            createAlert({ heading: 'Liked', status: 'success' })
         }
     }
     const handleUnlikePost = async () => {
 
         const data = await unlikePost({ likeId: likeSnapshot.id })
         if (data.error) {
-            alert('Something went wrong')
+            createAlert({ messege: 'Something went wrong', status: 'error' })
         } else {
             setLiked(false)
             setLikeSnapshot(null)
+            createAlert({ heading: 'Unliked', status: 'success' })
         }
     }
     const handleLikeClickEvent = async () => {
