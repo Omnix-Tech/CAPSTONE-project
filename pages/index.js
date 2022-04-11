@@ -9,7 +9,7 @@ import PublicForumContiner from '../components/home/PublicForumContainer'
 import SearchContainer from '../components/home/SearchContainer'
 import NewButton from '../components/New'
 import useConnect from '../controller/hooks/useConnect'
-import ConnectMenu from '../components/ConnectSelect'
+import ConnectMenu from '../components/ConnectMenu'
 
 const ButtonStyle = {
   fontSize: 'sm',
