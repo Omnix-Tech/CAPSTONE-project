@@ -15,7 +15,6 @@ export default function Connects({ locations, user, position,  }) {
 
 
       const connects = connectsDocs.map(connect => connect.place_id)
-
       const otherConnects = locations.filter(({ place_id }, index) => {
         return !connects.includes(place_id)
       })
