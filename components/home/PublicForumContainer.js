@@ -14,15 +14,16 @@ const scroll = Scroll.animateScroll
 
 export default function PublicForumContiner({ location, user: currentUser, ...props }) {
 
-    const locationRef = doc(firestore, `Locations/${location?.place_id}`)
+    const [locationRef, setLocationRef] = React.useState(doc(firestore, `Locations/${location?.place_id}`))
     const collectionRef = collection(firestore, 'Post_Location')
-    const postsQuery = query(
+    
+    const [postsQuery, setPostQuery] = React.useState(query(
         collectionRef,
         where('location', '==', locationRef),
         where('isPublic', '==', true),
         orderBy('timeStamp', 'desc'),
         limit(MAX_GRAB)
-    )
+    ))
 
 
 
@@ -67,7 +68,7 @@ export default function PublicForumContiner({ location, user: currentUser, ...pr
     }
 
     const getInitialPosts = async () => {
-
+        
         try {
             const querySnapshot = await getDocs(queryContent).catch(error => { console.log(error.message) })
             const docs = querySnapshot ? querySnapshot.docs : []
@@ -75,8 +76,8 @@ export default function PublicForumContiner({ location, user: currentUser, ...pr
 
             if (docs.length > 0) setSnapshot(querySnapshot)
             setPosts(docs.map(doc => doc.data()))
-            setLastPost(docs.length === 0 ? null : docs[docs.length - 1])
-
+            docs.length < MAX_GRAB ? null : setLastPost(docs.length === 0 ? null : docs[docs.length - 1])
+            
 
         } catch (error) { console.log(error) }
 
@@ -105,19 +106,43 @@ export default function PublicForumContiner({ location, user: currentUser, ...pr
     }, [])
 
 
-    onSnapshot(queryContent, (querySnapshot) => {
-        if (snapshot) {
-            const docs = querySnapshot.docs
-            if (docs.length > 0) {
-                if ((snapshot?.docs[0].id !== docs[0].id) && !allowRefresh) {
-                    setAllowRefresh(true)
-                    setSnapshot(querySnapshot)
-                    console.log('Changing')
-                }
-            }
+    React.useEffect(() => {
+        setLocationRef(doc(firestore, `Locations/${location?.place_id}`))
+    }, [location])
 
-        }
-    })
+    React.useEffect(() => {
+        setPostQuery(query(
+            collectionRef,
+            where('location', '==', locationRef),
+            where('isPublic', '==', true),
+            orderBy('timeStamp', 'desc'),
+            limit(MAX_GRAB)
+        ))
+    }, [locationRef])
+
+    React.useEffect(() => {
+        setQuery(postsQuery)
+    }, [postsQuery])
+
+    React.useEffect(() => {
+        getInitialPosts()
+    }, [queryContent])
+
+    
+
+
+    // onSnapshot(queryContent, (querySnapshot) => {
+    //     if (snapshot) {
+    //         const docs = querySnapshot.docs
+    //         if (docs.length > 0) {
+    //             if ((snapshot?.docs[0].id !== docs[0].id) && !allowRefresh) {
+    //                 setAllowRefresh(true)
+    //                 setSnapshot(querySnapshot)
+    //             }
+    //         }
+
+    //     }
+    // })
 
 
     const handleRefresh = () => {

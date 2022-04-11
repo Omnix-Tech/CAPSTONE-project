@@ -21,6 +21,7 @@
     "firebase-admin": "^10.0.2",
     "framer-motion": "^6",
     "fs": "^0.0.1-security",
+    "google-maps-react": "^2.0.6",
     "javascript-time-ago": "^2.3.13",
     "next": "12.1.2",
     "next-pwa": "^5.4.6",

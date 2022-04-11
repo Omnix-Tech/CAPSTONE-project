@@ -39,7 +39,6 @@ function MyApp({ Component, pageProps, ...props }) {
     if (!loading && !user && router.pathname.includes('/auth')) router.replace('/auth')
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [user])
-
   
   return (
     <ChakraProvider resetCSS theme={extendedThemeO}>

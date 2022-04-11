@@ -9,6 +9,7 @@ import PublicForumContiner from '../components/home/PublicForumContainer'
 import SearchContainer from '../components/home/SearchContainer'
 import NewButton from '../components/New'
 import useConnect from '../controller/hooks/useConnect'
+import ConnectMenu from '../components/ConnectSelect'
 
 
 const ButtonStyle = {
@@ -29,7 +30,7 @@ const ButtonStyle = {
 }
 
 export default function Home({ user }) {
-  const { connectDocument: connect } = useConnect(user)
+  const { connectDocument: connect, handleSetConnect, connectsDocs } = useConnect(user)
 
   return (
     <>
@@ -45,11 +46,9 @@ export default function Home({ user }) {
                 <HStack spacing={'5px'} fontWeight={'medium'} fontSize={'sm'} alignItems={'center'} >
                   <FeatherIcon size={'16px'} icon={'map-pin'} />
 
-                  {!connect ? <SkeletonText borderRadius={'full'} noOfLines={1} width={'50%'} /> : <Text>{connect ? `${connect.area} Connect` : ``}</Text>}
+                  {!connect ? <SkeletonText borderRadius={'full'} noOfLines={1} width={'30%'} /> : <Text>{connect ? `${connect.area} Connect` : ``}</Text>}
 
-                  <Tooltip label={'More Connects'} >
-                    <IconButton variant={'ghost'} size={'xs'} icon={<FeatherIcon icon={'more-horizontal'} />} />
-                  </Tooltip>
+                  <ConnectMenu handleSetConnect={handleSetConnect} connectsDocs={connectsDocs} />
 
                 </HStack>
               </Box>

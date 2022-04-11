@@ -49,6 +49,18 @@ const registerUserLocation = async (data) => {
 }
 
 
+const deleteUserLocation = async (data) => {
+    const response = await server().post('/api/deleteUserLocation', data).catch(error => { throw error })
+
+    if (response) {
+        const data = response.data
+        console.log(data)
+        return data
+    }
+    throw new Error('Network Error')
+}
+
+
 const createPost = async (data) => {
 
     const response = await server().post('/api/createPost', data).catch(error => { throw error })
@@ -103,5 +115,5 @@ const createResponse = async (data) => {
 
 
 module.exports = {
-    registerUser, verifyUser, getLocations, registerUserLocation, createPost, likePost, unlikePost, createResponse
+    registerUser, verifyUser, getLocations, registerUserLocation, createPost, likePost, unlikePost, createResponse, deleteUserLocation
 }

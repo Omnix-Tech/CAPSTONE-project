@@ -44,6 +44,10 @@ class UserLocation {
 
         return response
     }
+
+    async remove({ uid, location_id }) {
+        await this.db.remove(`${uid}-${location_id}`)
+    }
 }
 
 

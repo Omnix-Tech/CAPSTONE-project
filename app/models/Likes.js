@@ -6,7 +6,6 @@ const { UserCollection } = require('./User')
 
 
 const LIKES_COLLECTION = 'Likes'
-
 class Likes {
     constructor() {
         this.db = new Database(LIKES_COLLECTION)

@@ -1,6 +1,5 @@
 
 
-
 const distance = (xlat, ylat, xlng, ylng) => {
     const toRadians = (degree) => degree * Math.PI / 180
     const [lng1, lng2, lat1, lat2] = [ toRadians(xlng), toRadians(ylng), toRadians(xlat), toRadians(ylat) ];
