@@ -40,7 +40,7 @@ function File({ file, isMore, currentIndex, noMore }) {
             {isMore && isLast
                 ? <>
                     <Box borderRadius={10} overflow={'hidden'} position={'relative'}>
-                        {loading ? <Skeleton width={'full'} height={170} /> : <Image src={url} w={'full'} h={'auto'} maxH={300} />}
+                        {loading ? <Skeleton width={'full'} height={170} /> : <Image alt='' src={url} w={'full'} h={'auto'} maxH={300} />}
                         <HStack justifyContent={'center'} fontWeight={'medium'} bgColor={'rgba(0,0,0,0.6)'} transition={'0.5s'} _hover={{ bgColor: 'rgba(0,0,0,0.8)' }} position={'absolute'} top={0} left={0} right={0} bottom={0}>
                             <FeatherIcon size={18} color={'white'} icon={'plus'} />
                             <Text color={'white'} >{noMore}</Text>
@@ -49,7 +49,7 @@ function File({ file, isMore, currentIndex, noMore }) {
                 </>
                 : <>
                     <Box transition={'0.5s'} _hover={{ bgColor: 'rgba(0,0,0,0.3)' }} borderRadius={10} overflow={'hidden'} position={'relative'}>
-                        {loading ? <Skeleton width={'full'} height={170} /> : <Image src={url} w={'full'} h={'auto'} maxH={300} />}
+                        {loading ? <Skeleton width={'full'} height={170} /> : <Image alt='' src={url} w={'full'} h={'auto'} maxH={300} />}
                     </Box>
                 </>}
 

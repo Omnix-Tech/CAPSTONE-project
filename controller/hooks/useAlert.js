@@ -25,11 +25,7 @@ const useAlert = () => {
 
 
     const onClose = () => setIsOpen(false)
-
-
-
-
-
+    
     return {
         isOpen,
         onClose,

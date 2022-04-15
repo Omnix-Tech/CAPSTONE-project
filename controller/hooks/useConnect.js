@@ -39,12 +39,12 @@ const useConnect = (user) => {
             if (!place) {
                 setConnect(connects[0])
             } else {
-                    getDoc(doc(firestore, `User_Location/${user.uid}-${place}`))
-                    .then( snapshot => {
+                getDoc(doc(firestore, `User_Location/${user.uid}-${place}`))
+                    .then(snapshot => {
                         setConnect(snapshot.data())
                     })
-                    .catch( error => alert(error.message))
-        
+                    .catch(error => alert(error.message))
+
             }
         }
     }
@@ -66,12 +66,16 @@ const useConnect = (user) => {
         setConnectsDocs(docs)
     }
 
-    onSnapshot(query(
-        collection(firestore, 'User_Location'),
-        where('user', '==', doc(firestore, `Users/${user?.uid}`))
-    ), querySnapshot => {
-        if (querySnapshot.size !== connects.length) setConnects(querySnapshot.docs.map(doc => doc.data()))
-    })
+    const listenForUpdates = () => {
+        onSnapshot(query(
+            collection(firestore, 'User_Location'),
+            where('user', '==', doc(firestore, `Users/${user?.uid}`))
+        ), querySnapshot => {
+            if (querySnapshot.size !== connects.length) setConnects(querySnapshot.docs.map(doc => doc.data()))
+        })
+    }
+
+
 
     React.useEffect(() => {
         if (user) handleSetUserConnects()
@@ -80,12 +84,12 @@ const useConnect = (user) => {
     React.useEffect(() => {
         router.query.connect ? handleSetConnect(router.query.connect) : handleSetConnect()
         handleSetConnectsDocs()
+        listenForUpdates()
     }, [connects])
 
     React.useEffect(() => {
         if (connect) handleSetConnectDocument()
     }, [connect])
-
 
 
 

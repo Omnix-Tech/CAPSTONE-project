@@ -29,18 +29,16 @@ export function ConnectInfo({ connect }) {
                     <Divider my={5} />
 
                     {connect.councillors.map(councillor => (
-                        <>
-                            <Text fontSize={'x-small'} fontWeight={'medium'} >Councillor</Text>
+                        <Box my={2} key={councillor.name} >
+                            <Text fontSize={'x-small'} fontWeight={'medium'} >Councillor - {councillor.area}</Text>
                             <Text fontSize={'sm'} fontWeight={'medium'} >{councillor.name}</Text>
-                            <Text fontSize={'x-small'} fontWeight={'medium'} >{councillor.email}</Text>
-
-                        </>
+                            <Text fontSize={'x-small'} fontWeight={'medium'} >{councillor.email === '' ? 'n/a' : councillor.email}</Text>
+                            <Divider my={2} />
+                        </Box>
                     ))}
 
-
-                    <Divider my={2} />
                     {querySnapshot ?
-                        <HStack spacing={2}>
+                        <HStack mt={3} spacing={2}>
                             <FeatherIcon size={14} icon={'users'} />
                             <Text fontWeight={'medium'} fontSize={'sm'} >{querySnapshot?.size === 1 ? `${querySnapshot?.size} Member` : `${querySnapshot?.size} Members`} </Text>
                         </HStack>

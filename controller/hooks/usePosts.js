@@ -61,7 +61,6 @@ const usePosts = (location) => {
         })
     }
 
-
     const getInitialPosts = async () => {
 
         try {
@@ -88,6 +87,10 @@ const usePosts = (location) => {
         }, 500)
 
     }
+    
+    React.useEffect(() => {
+        getInitialPosts()
+    }, [])
 
     React.useEffect(() => {
         if (posts) {
@@ -105,11 +108,6 @@ const usePosts = (location) => {
             setQuery(postQuery)
         }
     }, [posts])
-
-    React.useEffect(() => {
-        getInitialPosts()
-    }, [])
-
 
     React.useEffect(() => {
         setLocationRef(doc(firestore, `Locations/${location?.place_id}`))

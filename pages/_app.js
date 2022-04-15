@@ -30,22 +30,31 @@ const extendedThemeO = extendTheme({
 function MyApp({ Component, pageProps, ...props }) {
   const [user, loading] = useAuthState(auth)
   const { position, locations, error } = useGeolocation()
-  const { isLoading, isOpen, onClose, handleOpenAlert, message, heading, status } = useAlert()
   const router = useRouter()
 
 
+  const { isLoading, isOpen, onClose, handleOpenAlert, message, heading, status } = useAlert()
+  const alerts = React.useMemo(() => {
+    return { alert: handleOpenAlert }
+  }, [handleOpenAlert])
+
+
+
   React.useEffect(() => {
-    if (!loading && user && router.pathname.includes('/auth')) router.replace('/')
-    if (!loading && !user && !router.pathname.includes('/auth')) router.replace('/auth')
-    if (!loading && !user && router.pathname.includes('/auth')) router.replace('/auth')
+    if (!loading) {
+      if (user && router.pathname.includes('/auth')) router.replace('/')
+      if (!user && !router.pathname.includes('/auth')) router.replace('/auth')
+      if (!user && router.pathname.includes('/auth')) router.replace('/auth')
+    }
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [user])
+  }, [loading, user])
 
 
 
   return (
     <ChakraProvider resetCSS theme={extendedThemeO}>
-      <AlertContext.Provider value={ React.useMemo(() => ({ alert: handleOpenAlert }))} >
+      <AlertContext.Provider value={alerts} >
         {loading ? <Loading /> :
           <Component
             {...pageProps}
@@ -54,7 +63,7 @@ function MyApp({ Component, pageProps, ...props }) {
             locations={locations}
           />}
       </AlertContext.Provider>
-      <Alert status={status} display={isOpen ? 'flex' : 'none'} borderRadius={30} position={'fixed'} width={350} bottom={{ base: 90, md: 10 }} right={{base: 10, md: 90 }} >
+      <Alert zIndex={'toast'} status={status} display={isOpen ? 'flex' : 'none'} borderRadius={30} position={'fixed'} width={350} bottom={{ base: 90, md: 10 }} right={{ base: 10, md: 90 }} >
 
         {isLoading ?
           <Center width={'full'}><Spinner /></Center>

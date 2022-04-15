@@ -48,7 +48,7 @@ function SelectLocation({ locations, setlocationId, locationId }) {
                 <Heading size={'md'} color={'white'} >Select your community</Heading>
             </Box>
 
-            <SimpleGrid mt={5} padding={2} minChildWidth={140} spacing={5}>
+            <SimpleGrid mt={5} padding={2} minChildWidth={100} spacing={5}>
 
                 {locations.map(location => (
                     <Box
@@ -87,9 +87,10 @@ function Complete({ locationId, community, uid, setCurrentStep, setIsDone, isDon
 
     React.useEffect(() => {
         if (!isDone) handleSetUserLocation()
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
-    
+
     return (
         <Box paddingX={{ base: 5, md: 40 }}>
 
@@ -111,16 +112,14 @@ function Complete({ locationId, community, uid, setCurrentStep, setIsDone, isDon
 }
 
 
-export default function Setup({ user, query, locations }) {
+export default function Setup({ user, locations }) {
     const router = useRouter()
-    
-    
-    const { token } = query
+    const { token } = router.query
     const [currentStep, setCurrentStep] = React.useState(0)
     const [community, setCommunity] = React.useState('')
     const [isDone, setIsDone] = React.useState(false)
 
-    
+
     const [locationId, setlocationId] = React.useState(null)
 
 
@@ -136,8 +135,6 @@ export default function Setup({ user, query, locations }) {
         handleInitialization()
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
-
-    console.log(locations)
 
     return (
         <Box bgRepeat={'no-repeat !important'} bgPosition={'unset'} bgSize={'cover !important'} bg={`url('/images/bg.jpg')`} >
@@ -200,8 +197,4 @@ export default function Setup({ user, query, locations }) {
     );
 }
 
-
-Setup.getInitialProps = ({ query }) => {
-    return { query }
-}
 

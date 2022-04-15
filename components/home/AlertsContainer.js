@@ -11,7 +11,7 @@ function Alert() {
     <Box m={5} >
       <HStack boxShadow={'-2px -3px 16px -1px rgba(0,0,0,0.14)'} pr={2} overflow={'hidden'} bgColor={'white'} borderRadius={10} h={'full'} justifyContent={'flex-start'} >
         <Box overflow={'hidden'} w={'40%'}>
-          <Image w={'full'} objectFit={'cover'} src={'https://i0.wp.com/mckoysnews.com/wp-content/uploads/2019/11/Jamaica-News-Today-October-5-2019JBNN.jpeg?w=1280&ssl=1'} />
+          <Image w={'full'} objectFit={'cover'} alt='' src={'https://i0.wp.com/mckoysnews.com/wp-content/uploads/2019/11/Jamaica-News-Today-October-5-2019JBNN.jpeg?w=1280&ssl=1'} />
         </Box>
         <Box p={2} w={'60%'} >
           <Heading textAlign={'left'} size={'sm'} isTruncated >Power Outage in your area</Heading>

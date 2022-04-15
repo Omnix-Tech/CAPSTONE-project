@@ -15,7 +15,6 @@ function getDistance(xlng, xlat, ylng, ylat) {
     return (2 * Math.asin(Math.sqrt(val))) * 6371
 }
 
-
 const useGeolocation = () => {
     const [watch_id, setWatchId] = React.useState(null)
     const [error, setError] = React.useState(null)

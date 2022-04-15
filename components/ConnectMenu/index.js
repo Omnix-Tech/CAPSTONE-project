@@ -16,10 +16,8 @@ export default function ConnectMenu({ connectsDocs }) {
                 <>
                     <MenuList>
                         {connectsDocs.map(connect => (
-                            <MenuItem key={connect.place_id} >
-                                <a href={`/?connect=${connect.place_id}`} >
-                                    <Text fontSize={'sm'} fontWeight={'medium'} > {connect.area} </Text>
-                                </a>
+                            <MenuItem as={'a'} href={`/?connect=${connect.place_id}`}  key={connect.place_id} >
+                                <Text fontSize={'sm'} fontWeight={'medium'} > {connect.area} </Text>
                             </MenuItem>
                         ))}
                     </MenuList>

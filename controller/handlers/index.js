@@ -72,8 +72,6 @@ const createPost = async (data) => {
     throw new Error('Network Error')
 }
 
-
-
 const likePost = async (data) => {
     const response = await server().post('/api/likePost', data).catch( error => { throw error })
     if (response) {
@@ -93,7 +91,6 @@ const unlikePost = async (data) => {
 
     throw new Error('Network Error')
 }
-
 
 const createResponse = async (data) => {
     const response = await server().post('/api/createResponse', data).catch( error => { throw error })

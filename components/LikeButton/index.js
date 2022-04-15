@@ -7,14 +7,13 @@ import FeatherIcon from 'feather-icons-react'
 import { likePost, unlikePost } from '../../controller/handlers'
 import { doc, query, where, limit, collection, getDocs, onSnapshot } from 'firebase/firestore';
 import { firestore } from '../../app/config/firebase.config';
-import { useCollectionDataOnce } from 'react-firebase-hooks/firestore';
 import { AlertContext } from '../../controller/context';
 
 
 export default function LikeButton({ postRef: ref, currentUser }) {
     const { alert: createAlert } = React.useContext(AlertContext)
-    
-    
+
+
     const likeQuery = query(
         collection(firestore, 'Likes'),
         where('user', '==', doc(firestore, `/Users/${currentUser?.uid}`)),
@@ -23,7 +22,6 @@ export default function LikeButton({ postRef: ref, currentUser }) {
     )
 
     const [liked, setLiked] = React.useState(false)
-    const [likeCollection, loading, error, snapshot] = useCollectionDataOnce(likeQuery)
     const [likeSnapshot, setLikeSnapshot] = React.useState(null)
     const [likesCount, setLikesCount] = React.useState(0)
 
@@ -59,30 +57,38 @@ export default function LikeButton({ postRef: ref, currentUser }) {
         }
         await handleLikePost()
     }
-
-
-    onSnapshot(
-        query(
-            collection(firestore, 'Likes'),
-            where('post', '==', ref)), querySnapshot => {
-                setLikesCount(querySnapshot.size)
+    const listenForLikes = () => {
+        onSnapshot(
+            query(
+                collection(firestore, 'Likes'),
+                where('post', '==', ref)
+            ), querySnapshot => {
+                if (likesCount != querySnapshot.size) setLikesCount(querySnapshot.size)
             }
-    )
-
-    // onSnapshot(likeQuery, querySnapshot => {
-    //     setLiked(querySnapshot.docs === 0)
-    // })
+        )
+    }
 
 
-    React.useEffect(() => {
-        if (likeCollection) {
-            if (likeCollection.length === 0) setLiked(false)
-            if (likeCollection.length > 0) {
-                setLikeSnapshot(snapshot.docs[0])
+    const listenForUpdates = () => {
+        onSnapshot(likeQuery, querySnapshot => {
+            const docs = querySnapshot.docs
+            if (docs.length === 0) setLiked(false)
+            if (docs.length > 0) {
+                setLikeSnapshot(docs[0])
                 setLiked(true)
             }
-        }
-    }, [likeCollection])
+        })
+    }
+
+    React.useEffect(() => {
+        listenForUpdates()
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [])
+
+    React.useEffect(() => {
+        listenForLikes()
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [likesCount])
 
 
 
@@ -94,7 +100,7 @@ export default function LikeButton({ postRef: ref, currentUser }) {
         <HStack my={2} > {ref
             ?
             <>
-                <IconButton colorScheme={ liked ? 'green' : 'blackAlpha'} onClick={handleLikeClickEvent} borderRadius={'full'} size={'xs'} variant={ liked ? 'solid' : 'ghost'} icon={<FeatherIcon size={14} icon='thumbs-up' />} />
+                <IconButton colorScheme={liked ? 'green' : 'blackAlpha'} onClick={handleLikeClickEvent} borderRadius={'full'} size={'xs'} variant={liked ? 'solid' : 'ghost'} icon={<FeatherIcon size={14} icon='thumbs-up' />} />
                 <Text fontSize={'xs'} >{likesCount}</Text>
             </>
             :

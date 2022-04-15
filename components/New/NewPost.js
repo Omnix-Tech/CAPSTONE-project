@@ -42,7 +42,7 @@ function UploadSuccess({ url }) {
                 <FeatherIcon size={36} color={'green'} icon={'check-circle'} />
                 :
                 <Box position={'relative'}>
-                    <Image src={value} w={'full'} h={'auto'} />
+                    <Image alt='' src={value} w={'full'} h={'auto'} />
                     <HStack bgColor={'rgba(255,255,255,0.5)'} position={'absolute'} top={0} left={0} right={0} bottom={0} justifyContent={'center'} >
                         <FeatherIcon size={36} color={'green'} icon={'check-circle'} />
                     </HStack>
@@ -79,6 +79,7 @@ function FileUploadContainer({ file, uid, handleSuccessiveFile, handleDeleteSucc
 
     React.useEffect(() => {
         upload()
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
 
@@ -181,7 +182,6 @@ export default function NewPost({ location, user, forum, closeModal }) {
         setFiles(allFiles)
         onClose()
     }
-
 
     const handleSumbitPost = async () => {
         const post = { content, privacy, files: successFiles, user: user.uid, forum: forum ? forum.id : null, location: forum ? null : location.place_id }
