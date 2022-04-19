@@ -54,6 +54,8 @@ function MyApp({ Component, pageProps, ...props }) {
 
   return (
     <ChakraProvider resetCSS theme={extendedThemeO}>
+      
+      
       <AlertContext.Provider value={alerts} >
         {loading ? <Loading /> :
           <Component

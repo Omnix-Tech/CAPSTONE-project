@@ -1,11 +1,15 @@
 import { Box, Divider, FormControl, FormLabel, Input, Textarea, Text, SimpleGrid, HStack, Tooltip, Button } from '@chakra-ui/react';
 import React from 'react';
-import FeatherIcon from 'feather-icons-react'
 
 import useConnect from '../../controller/hooks/useConnect'
 
 export default function NewForum({ user }) {
   const { connectsDocs } = useConnect(user)
+
+
+  // Computations Incomplete
+
+
   return (
     <Box p={10}>
       <FormControl pb={10}>

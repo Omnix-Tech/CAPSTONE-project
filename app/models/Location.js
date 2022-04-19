@@ -9,6 +9,7 @@ const { admin } = require('../config/admin.config');
 const LOCATION_COLLECTION = 'Locations'
 const USER_LOCATION_COLLECTION = 'User_Location'
 const POST_LOCATION_COLLECTION = 'Post_Location'
+const FORUM_LOCATION_COLLECTION = 'Forum_Location'
 
 
 class Location {
@@ -77,8 +78,34 @@ class PostLocation {
 }
 
 
+
+class ForumLocation {
+    constructor() {
+        this.db = new Database(FORUM_LOCATION_COLLECTION)
+        this.locations = new Location()
+    }
+
+    async create({ forumRef, location_id }, transaction = null) {
+
+
+        const response = await this.db.create({
+            data: {
+                forumRef,
+                timeStamp: admin.firestore.Timestamp.now(),
+                location: this.locations.getReference(location_id)
+            },
+            id: uuidv4()
+        }, transaction).catch(error => { throw error })
+
+
+        return response
+    }
+}
+
+
 module.exports = {
     LocationCollection: new Location(),
     UserLocationCollection: new UserLocation(),
-    PostLocationCollection: new PostLocation()
+    PostLocationCollection: new PostLocation(),
+    ForumLocationCollection: new ForumLocation()
 }
