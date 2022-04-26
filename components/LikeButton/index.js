@@ -4,13 +4,14 @@ import { HStack, IconButton, Text } from '@chakra-ui/react';
 import FeatherIcon from 'feather-icons-react'
 
 
-import { likePost, unlikePost } from '../../controller/handlers'
+import useAPIs from '../../controller/handlers'
 import { doc, query, where, limit, collection, getDocs, onSnapshot } from 'firebase/firestore';
 import { firestore } from '../../app/config/firebase.config';
 import { AlertContext } from '../../controller/context';
 
 
 export default function LikeButton({ postRef: ref, currentUser }) {
+    const { unlikePost, likePost } = useAPIs()
     const { alert: createAlert } = React.useContext(AlertContext)
 
 
@@ -21,10 +22,9 @@ export default function LikeButton({ postRef: ref, currentUser }) {
         limit(1)
     )
 
-    const [liked, setLiked] = React.useState(false)
-    const [likeSnapshot, setLikeSnapshot] = React.useState(null)
-    const [likesCount, setLikesCount] = React.useState(0)
-
+    const [likeState, setLikeState] = React.useState({
+        liked: false, likeSnapshot: null, likesCount: 0
+    })
 
     const handleLikePost = async () => {
         const data = await likePost({ postId: ref.id, uid: currentUser.uid })
@@ -33,37 +33,37 @@ export default function LikeButton({ postRef: ref, currentUser }) {
         if (data.error) {
             createAlert({ messege: 'Something went wrong', status: 'error' })
         } else {
-            setLiked(true)
             const like = (await getDocs(likeQuery)).docs[0]
-            setLikeSnapshot(like)
+            setLikeState({ ...likeState, liked: true, likeSnapshot: like })
             createAlert({ heading: 'Liked', status: 'success' })
         }
     }
-    const handleUnlikePost = async () => {
 
-        const data = await unlikePost({ likeId: likeSnapshot.id })
+    const handleUnlikePost = async () => {
+        const data = await unlikePost({ likeId: likeState?.likeSnapshot.id })
         if (data.error) {
             createAlert({ messege: 'Something went wrong', status: 'error' })
         } else {
-            setLiked(false)
-            setLikeSnapshot(null)
+            setLikeState({ ...likeState, liked: false, likeSnapshot: null })
             createAlert({ heading: 'Unliked', status: 'success' })
         }
     }
+
     const handleLikeClickEvent = async () => {
-        if (likeSnapshot && liked) {
+        if (likeState.likeSnapshot && likeState.liked) {
             await handleUnlikePost()
             return
         }
         await handleLikePost()
     }
+
     const listenForLikes = () => {
         onSnapshot(
             query(
                 collection(firestore, 'Likes'),
                 where('post', '==', ref)
             ), querySnapshot => {
-                if (likesCount != querySnapshot.size) setLikesCount(querySnapshot.size)
+                if (likeState.likesCount != querySnapshot.size) setLikeState({ ...likeState, likesCount: querySnapshot.size })
             }
         )
     }
@@ -72,10 +72,9 @@ export default function LikeButton({ postRef: ref, currentUser }) {
     const listenForUpdates = () => {
         onSnapshot(likeQuery, querySnapshot => {
             const docs = querySnapshot.docs
-            if (docs.length === 0) setLiked(false)
+            if (docs.length === 0) setLikeState({ ...likeState, liked: false })
             if (docs.length > 0) {
-                setLikeSnapshot(docs[0])
-                setLiked(true)
+                setLikeState({ ...likeState, liked: true, likeSnapshot: docs[0] })
             }
         })
     }
@@ -88,10 +87,10 @@ export default function LikeButton({ postRef: ref, currentUser }) {
     React.useEffect(() => {
         listenForLikes()
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [likesCount])
+    }, [likeState.likesCount])
 
 
-
+    console.log(likeState)
 
 
 
@@ -100,8 +99,8 @@ export default function LikeButton({ postRef: ref, currentUser }) {
         <HStack my={2} > {ref
             ?
             <>
-                <IconButton colorScheme={liked ? 'green' : 'blackAlpha'} onClick={handleLikeClickEvent} borderRadius={'full'} size={'xs'} variant={liked ? 'solid' : 'ghost'} icon={<FeatherIcon size={14} icon='thumbs-up' />} />
-                <Text fontSize={'xs'} >{likesCount}</Text>
+                <IconButton colorScheme={likeState.liked ? 'green' : 'blackAlpha'} onClick={handleLikeClickEvent} borderRadius={'full'} size={'xs'} variant={likeState.liked ? 'solid' : 'ghost'} icon={<FeatherIcon size={14} icon='thumbs-up' />} />
+                <Text fontSize={'xs'} >{likeState.likesCount}</Text>
             </>
             :
             <></>}

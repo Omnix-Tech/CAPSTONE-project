@@ -4,7 +4,7 @@ import React from 'react'
 import { Box, Text, Divider, HStack, ButtonGroup, Button, IconButton } from '@chakra-ui/react'
 import FeatherIcon from 'feather-icons-react'
 import { ConnectPopover } from './ConnectInfo'
-import { registerUserLocation, deleteUserLocation } from '../../controller/handlers'
+import useAPIs from '../../controller/handlers'
 import { AlertContext } from '../../controller/context'
 
 
@@ -13,6 +13,7 @@ import { AlertContext } from '../../controller/context'
 
 
 export default function ConnectsContainer({ connectsDocs, otherLocations, currentUser, handleSetConnect }) {
+    const { registerUserLocation, deleteUserLocation } = useAPIs()
     const { alert: createAlert } = React.useContext(AlertContext)
 
     const handleSetUserLocation = (locationId) => {

@@ -129,7 +129,7 @@ const usePosts = (location) => {
 
     React.useEffect(() => {
         getInitialPosts()
-    }, [queryContent])
+    }, [])
 
     return {
         locationRef, postsQuery, queryContent, snapshot, posts, lastPost, allowRefresh, getThresholdPosts, handleRefresh

@@ -1,7 +1,7 @@
 const axios = require('axios')
-const API_URI = process.env.NEXT_PUBLIC_ORIGIN
+const uri = process.env.NEXT_PUBLIC_ORIGIN
+const server = () => axios.create({ baseURL: uri })
 
-const server = () => axios.create({ baseURL: API_URI })
 
 const registerUser = async (data) => {
     const response = await server().post('/api/registerUser', data).catch(error => { throw error })
@@ -103,14 +103,7 @@ const createResponse = async (data) => {
 }
 
 
+const useAPIs = () => ({ registerUser, getLocations, registerUserLocation, createPost, likePost, unlikePost, createResponse, deleteUserLocation })
 
 
-
-
-
-
-
-
-module.exports = {
-    registerUser, verifyUser, getLocations, registerUserLocation, createPost, likePost, unlikePost, createResponse, deleteUserLocation
-}
+export default useAPIs;

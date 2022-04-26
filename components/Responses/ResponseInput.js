@@ -6,9 +6,10 @@ import { useCollectionOnce } from 'react-firebase-hooks/firestore';
 
 import { firestore } from '../../app/config/firebase.config'
 
-import { createResponse } from '../../controller/handlers';
+import useAPIs from '../../controller/handlers';
 
 export default function ResponseInput({ post, currentUser }) {
+    const { createResponse } = useAPIs()
 
     const responseQuery = query(
         collection(firestore, 'Responses'),
@@ -34,6 +35,7 @@ export default function ResponseInput({ post, currentUser }) {
 
     const listenForNewUpdates = () => {
         onSnapshot(responseQuery, (querySnapshot) => {
+            console.log('Response Listening')
             if (responseCount != querySnapshot.size) setResponseCount(querySnapshot.size)
         })
     }

@@ -8,7 +8,7 @@ import { deleteObject, ref as storageRef } from 'firebase/storage';
 import { useUploadFile, useDownloadURL } from 'react-firebase-hooks/storage'
 
 import { v4 as uuidv4 } from 'uuid'
-import { createPost } from '../../controller/handlers';
+import useAPIs from '../../controller/handlers';
 import { AlertContext } from '../../controller/context';
 
 const scrollCSS = {
@@ -155,6 +155,7 @@ function FileUploadContainer({ file, uid, handleSuccessiveFile, handleDeleteSucc
 
 
 export default function NewPost({ location, user, forum, closeModal }) {
+    const { createPost } = useAPIs()
     const { alert: createAlert } = React.useContext(AlertContext)
     
     const { isOpen, onClose, onToggle } = useDisclosure()

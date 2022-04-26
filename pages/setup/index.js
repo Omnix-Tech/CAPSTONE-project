@@ -4,7 +4,7 @@ import { Grid, GridItem, Heading, VStack, Input, Box, Button, HStack, Image, Cen
 
 
 import { useRouter } from 'next/dist/client/router';
-import { registerUserLocation } from '../../controller/handlers';
+import useAPIs from '../../controller/handlers';
 
 
 
@@ -72,6 +72,7 @@ function SelectLocation({ locations, setlocationId, locationId }) {
 
 function Complete({ locationId, community, uid, setCurrentStep, setIsDone, isDone }) {
     const [isLoading, setIsLoading] = React.useState(true)
+    const { registerUserLocation } = useAPIs()
 
     const handleSetUserLocation = async () => {
         const response = await registerUserLocation({ locationId, location: community, uid }).catch(error => { alert(error.message) })

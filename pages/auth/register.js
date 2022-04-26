@@ -6,6 +6,7 @@ import Link from 'next/link';
 
 import { useForm, Controller } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
+import useAPIs from '../../controller/handlers';
 
 
 const InputStyle = {
@@ -42,7 +43,7 @@ export default function Register() {
 
     const router = useRouter()
     const { registerForm } = require('../../forms')
-    const { registerUser } = require('../../controller/handlers')
+    const { registerUser } = useAPIs()
 
     const {
         handleSubmit,
