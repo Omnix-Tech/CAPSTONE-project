@@ -10,6 +10,7 @@ import { useUploadFile, useDownloadURL } from 'react-firebase-hooks/storage'
 import { v4 as uuidv4 } from 'uuid'
 import useAPIs from '../../controller/handlers';
 import { AlertContext } from '../../controller/context';
+import useFeedback from '../../controller/hooks/useFeedback';
 
 const scrollCSS = {
     overflowX: 'auto',
@@ -56,7 +57,7 @@ function UploadSuccess({ url }) {
 
 function FileUploadContainer({ file, uid, handleSuccessiveFile, handleDeleteSuccessive, index }) {
 
-    
+
     const ref = storageRef(storage, `/media/posts/user-${uid}/${file.id}`)
     const [uploadFile, uploading, snapshot, error] = useUploadFile()
 
@@ -156,8 +157,8 @@ function FileUploadContainer({ file, uid, handleSuccessiveFile, handleDeleteSucc
 
 export default function NewPost({ location, user, forum, closeModal }) {
     const { createPost } = useAPIs()
-    const { alert: createAlert } = React.useContext(AlertContext)
-    
+    const { showError, showSuccess, render } = useFeedback()
+
     const { isOpen, onClose, onToggle } = useDisclosure()
     const [content, setContent] = React.useState('')
     const [privacy, setPrivacy] = React.useState(forum ? null : false)
@@ -166,7 +167,7 @@ export default function NewPost({ location, user, forum, closeModal }) {
 
 
     const handleSuccessiveFile = (file) => setSuccessFiles([...successFiles, file])
-    
+
     const handleDeleteSuccessive = (url, id) => {
         if (url) {
             const remainingFiles = successFiles.filter(file => file != url)
@@ -174,7 +175,7 @@ export default function NewPost({ location, user, forum, closeModal }) {
                 setSuccessFiles(remainingFiles)
                 const filteredFiles = files.filter((file) => file.id !== id)
                 setFiles(filteredFiles)
-            }).catch(error => createAlert({ message: error.message, status: 'error' }))
+            }).catch(error => showError({ message: error.message }))
         }
     }
 
@@ -186,18 +187,19 @@ export default function NewPost({ location, user, forum, closeModal }) {
 
     const handleSumbitPost = async () => {
         const post = { content, privacy, files: successFiles, user: user.uid, forum: forum ? forum.id : null, location: forum ? null : location.place_id }
-        const response = await createPost(post).catch(error => createAlert({message: 'Something went wrong, Try Again', status: 'error'}) )
+        const response = await createPost(post).catch(error => showError({ message: 'Something went wrong, Try Again' }))
 
         if (response?.error) {
-            createAlert({message: 'Something went wrong, Try Again', status: 'error'})
+            showError({ message: 'Something went wrong, Try Again' })
         } else {
-            createAlert({heading: 'Posted', status: 'success'})
+            showSuccess({ heading: 'Posted' })
             closeModal()
         }
     }
 
     return (
         <Box>
+            {render()}
             <HStack mt={30} alignItems={'flex-start'} w={'full'}>
                 <Avatar />
                 <Box px={5} w={'full'} >

@@ -5,7 +5,7 @@ import { Box, Text, Divider, HStack, ButtonGroup, Button, IconButton } from '@ch
 import FeatherIcon from 'feather-icons-react'
 import { ConnectPopover } from './ConnectInfo'
 import useAPIs from '../../controller/handlers'
-import { AlertContext } from '../../controller/context'
+import useFeedback from '../../controller/hooks/useFeedback'
 
 
 
@@ -14,37 +14,39 @@ import { AlertContext } from '../../controller/context'
 
 export default function ConnectsContainer({ connectsDocs, otherLocations, currentUser, handleSetConnect }) {
     const { registerUserLocation, deleteUserLocation } = useAPIs()
-    const { alert: createAlert } = React.useContext(AlertContext)
+    const { showError, showSuccess, render, loading } = useFeedback()
 
     const handleSetUserLocation = (locationId) => {
-        createAlert({ isLoading: true })
+        loading()
         registerUserLocation({ locationId, uid: currentUser.uid })
             .then(response => {
                 if (response.error) {
-                    createAlert({ message: 'Something went wrong', status: 'error' })
+                    showError({ message: 'Something went wrong' })
                     return
                 }
-                createAlert({ message: 'Connected', status: 'success' })
+                showSuccess({ message: 'Connected' })
             })
-            .catch(error => createAlert({ message: 'Something went wrong', status: 'error' }))
+            .catch(error => showError({ message: 'Something went wrong' }))
     }
 
     const handleRemoveUserLocation = (locationId) => {
-        createAlert({ isLoading: true })
+        loading()
         deleteUserLocation({ locationId, uid: currentUser.uid })
             .then(response => {
                 if (response.error) {
-                    createAlert({ message: 'Something went wrong', status: 'error' })
+                    showError({ message: 'Something went wrong' })
                     return
                 }
 
-                createAlert({ message: 'Disconnect', status: 'success' })
+                showSuccess({ message: 'Disconnect' })
             })
-            .catch(error => createAlert({ message: 'Something went wrong', status: 'error' }))
+            .catch(error => showError({ message: 'Something went wrong' }))
     }
 
     return (
         <>
+
+        { render() }
             <Box py={10}>
                 <Box px={10}>
                     <Text fontWeight={'medium'} >Your Connects</Text>

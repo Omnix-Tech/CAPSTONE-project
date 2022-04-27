@@ -7,12 +7,12 @@ import FeatherIcon from 'feather-icons-react'
 import useAPIs from '../../controller/handlers'
 import { doc, query, where, limit, collection, getDocs, onSnapshot } from 'firebase/firestore';
 import { firestore } from '../../app/config/firebase.config';
-import { AlertContext } from '../../controller/context';
+import useFeedback from '../../controller/hooks/useFeedback';
 
 
 export default function LikeButton({ postRef: ref, currentUser }) {
     const { unlikePost, likePost } = useAPIs()
-    const { alert: createAlert } = React.useContext(AlertContext)
+    const { showError, showSuccess, render } = useFeedback()
 
 
     const likeQuery = query(
@@ -28,24 +28,24 @@ export default function LikeButton({ postRef: ref, currentUser }) {
 
     const handleLikePost = async () => {
         const data = await likePost({ postId: ref.id, uid: currentUser.uid })
-            .catch(error => { createAlert({ message: error.message, status: 'error' }) })
+            .catch(error => { showError({ message: error.message }) })
 
         if (data.error) {
-            createAlert({ messege: 'Something went wrong', status: 'error' })
+            showError({ message: 'Something went wrong' })
         } else {
             const like = (await getDocs(likeQuery)).docs[0]
             setLikeState({ ...likeState, liked: true, likeSnapshot: like })
-            createAlert({ heading: 'Liked', status: 'success' })
+            showSuccess({ message: 'Liked' })
         }
     }
 
     const handleUnlikePost = async () => {
         const data = await unlikePost({ likeId: likeState?.likeSnapshot.id })
         if (data.error) {
-            createAlert({ messege: 'Something went wrong', status: 'error' })
+            showError({ message: 'Something went wrong' })
         } else {
             setLikeState({ ...likeState, liked: false, likeSnapshot: null })
-            createAlert({ heading: 'Unliked', status: 'success' })
+            showSuccess({ message: 'Unliked' })
         }
     }
 
@@ -90,21 +90,23 @@ export default function LikeButton({ postRef: ref, currentUser }) {
     }, [likeState.likesCount])
 
 
-    console.log(likeState)
-
-
-
     return (
 
-        <HStack my={2} > {ref
-            ?
-            <>
-                <IconButton colorScheme={likeState.liked ? 'green' : 'blackAlpha'} onClick={handleLikeClickEvent} borderRadius={'full'} size={'xs'} variant={likeState.liked ? 'solid' : 'ghost'} icon={<FeatherIcon size={14} icon='thumbs-up' />} />
-                <Text fontSize={'xs'} >{likeState.likesCount}</Text>
-            </>
-            :
-            <></>}
+        <>
 
-        </HStack>
+            <HStack my={2} > {ref
+                ?
+                <>
+                    <IconButton colorScheme={likeState.liked ? 'green' : 'blackAlpha'} onClick={handleLikeClickEvent} borderRadius={'full'} size={'xs'} variant={likeState.liked ? 'solid' : 'ghost'} icon={<FeatherIcon size={14} icon='thumbs-up' />} />
+                    <Text fontSize={'xs'} >{likeState.likesCount}</Text>
+                </>
+                :
+                <></>}
+
+            </HStack>
+            
+            { render() }
+
+        </>
     );
 }

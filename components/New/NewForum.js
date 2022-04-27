@@ -1,10 +1,15 @@
 import { Box, Divider, FormControl, FormLabel, Input, Textarea, Text, SimpleGrid, HStack, Tooltip, Button } from '@chakra-ui/react';
 import React from 'react';
+import useAPIs from '../../controller/handlers';
 
 import useConnect from '../../controller/hooks/useConnect'
+import useFeedback from '../../controller/hooks/useFeedback';
 
-export default function NewForum({ user }) {
+export default function NewForum({ user, closeModal }) {
+  const { showError, showSuccess, render } = useFeedback()
+  const { createForum } = useAPIs()
   const { connectsDocs } = useConnect(user)
+  const [disabled, setDisabled] = React.useState(false)
   const [ forum_data, setForumData ] = React.useState({
     forum_title: '', description: '', connects: []
   })
@@ -21,7 +26,19 @@ export default function NewForum({ user }) {
   }
 
   const handleSubmit = () => {
-    
+    setDisabled(true)
+    createForum({...forum_data, user_id: user.uid })
+    .then( data => {
+      const { error } = data
+      if (error) {
+        console.log(error)
+        setDisabled(false)
+        showError({ message: 'Something went wrong'})
+        return;
+      }
+      showSuccess({ message: 'Forum Created' })
+      closeModal()
+    })
   }
 
   return (
@@ -69,11 +86,14 @@ export default function NewForum({ user }) {
             fontSize={'xs'}
             textTransform={'uppercase'}
             size={'md'}
-
+            disabled={(forum_data.forum_title === '' | forum_data.connects.length === 0) && !disabled }
+            onClick={handleSubmit}
           >Create Forum</Button>
         </Tooltip>
       </HStack>
+      
 
+      { render() }
 
     </Box>
   );

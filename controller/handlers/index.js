@@ -103,7 +103,17 @@ const createResponse = async (data) => {
 }
 
 
-const useAPIs = () => ({ registerUser, getLocations, registerUserLocation, createPost, likePost, unlikePost, createResponse, deleteUserLocation })
+const createForum = async (data) => {
+    const response = await server().post('/api/createForum', data).catch( error => { throw error })
+    if (response) {
+        const data = await response.data
+        return data
+    }
+
+    throw new Error('Network Error')
+}
+
+const useAPIs = () => ({ createForum, registerUser, getLocations, registerUserLocation, createPost, likePost, unlikePost, createResponse, deleteUserLocation })
 
 
 export default useAPIs;

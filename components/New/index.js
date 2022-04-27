@@ -41,7 +41,7 @@ function NewModal({ location, user, ...props }) {
                                 <NewPost location={location} user={user} closeModal={props.onClose} />
                             </TabPanel>
                             <TabPanel>
-                                <NewForum user={user} />
+                                <NewForum user={user} closeModal={props.onClose} />
                             </TabPanel>
                         </TabPanels>
 

@@ -85,13 +85,10 @@ class ForumLocation {
         this.locations = new Location()
     }
 
-    async create({ forumRef, location_id }, transaction = null) {
-
-
+    async create({ forum, location_id }, transaction = null) {
         const response = await this.db.create({
             data: {
-                forumRef,
-                timeStamp: admin.firestore.Timestamp.now(),
+                forum,
                 location: this.locations.getReference(location_id)
             },
             id: uuidv4()

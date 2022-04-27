@@ -2,14 +2,11 @@ import '../styles/globals.css'
 
 import React from 'react'
 import { useAuthState } from 'react-firebase-hooks/auth'
-import { Center, Alert, AlertDescription, AlertIcon, AlertTitle, Box, ChakraProvider, CloseButton, extendTheme, Spinner } from '@chakra-ui/react'
+import { ChakraProvider, extendTheme } from '@chakra-ui/react'
 import { useRouter } from 'next/router'
 
 import Loading from '../components/Loading'
 import useGeolocation from '../controller/hooks/useGeolocation'
-import useAlert from '../controller/hooks/useAlert'
-import { AlertContext } from '../controller/context'
-
 
 const { auth } = require('../app/config/firebase.config')
 
@@ -33,12 +30,6 @@ function MyApp({ Component, pageProps, ...props }) {
   const router = useRouter()
 
 
-  const { isLoading, isOpen, onClose, handleOpenAlert, message, heading, status } = useAlert()
-  const alerts = React.useMemo(() => {
-    return { alert: handleOpenAlert }
-  }, [handleOpenAlert])
-
-
 
   React.useEffect(() => {
     if (!loading) {
@@ -55,8 +46,6 @@ function MyApp({ Component, pageProps, ...props }) {
   return (
     <ChakraProvider resetCSS theme={extendedThemeO}>
       
-      
-      <AlertContext.Provider value={alerts} >
         {loading ? <Loading /> :
           <Component
             {...pageProps}
@@ -64,23 +53,6 @@ function MyApp({ Component, pageProps, ...props }) {
             position={position}
             locations={locations}
           />}
-      </AlertContext.Provider>
-      <Alert zIndex={'toast'} status={status} display={isOpen ? 'flex' : 'none'} borderRadius={30} position={'fixed'} width={350} bottom={{ base: 90, md: 10 }} right={{ base: 10, md: 90 }} >
-
-        {isLoading ?
-          <Center width={'full'}><Spinner /></Center>
-          :
-          <>
-            <AlertIcon />
-            <Box>
-              {heading === '' ? <></> : <AlertTitle>{heading}</AlertTitle>}
-              {message === '' ? <></> : <AlertDescription>{message}</AlertDescription>}
-            </Box>
-            <CloseButton borderRadius={'full'} onClick={onClose} position='absolute' right='8px' top='8px' />
-          </>}
-
-
-      </Alert>
 
     </ChakraProvider>
   )

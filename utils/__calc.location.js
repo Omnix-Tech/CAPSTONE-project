@@ -25,5 +25,5 @@ module.exports = (currentCoordinates, coordinates) => {
         return firstElement.distance - secondElement.distance
     })
     
-    return coordinates_with_distance.slice(0,10).map(({index}) => index)
+    return coordinates_with_distance.slice(0,12).map(({index}) => index)
 }

@@ -10,12 +10,13 @@ import SearchContainer from '../components/home/SearchContainer'
 import NewButton from '../components/New'
 import useConnect from '../controller/hooks/useConnect'
 import ConnectMenu from '../components/ConnectMenu'
+import UserForumContainer from '../components/home/UserForums'
+import ForumsContainer from '../components/home/ForumsContainer'
 
 const ButtonStyle = {
   fontSize: 'sm',
   spacing: 5,
   borderRadius: 10,
-  color: 'teal.500',
   p: 10,
   py: 2,
   w: 'full',
@@ -24,12 +25,13 @@ const ButtonStyle = {
   justifyContent: 'center',
   _hover: {
     cursor: 'pointer',
-    color: 'teal.700'
+    color: 'green.700'
   }
 }
 
 export default function Home({ user }) {
   const { connectDocument: connect, handleSetConnect, connectsDocs } = useConnect(user)
+  const [ selectedContent, setSelectedContent ] = React.useState(0) 
 
   return (
     <>
@@ -39,7 +41,7 @@ export default function Home({ user }) {
           <GridItem p={2} colSpan={{ base: 12, md: 5, lg: 4 }} top={{ base: 'unset', lg: 70 }} position={{ base: 'unset', lg: 'sticky' }} h={'fit-content'} >
 
 
-            <Box >
+            <Box>
               <Box boxShadow={'-2px -3px 16px -1px rgba(0,0,0,0.14)'} padding={10} bgColor={'white'} borderRadius={10}>
                 <Heading mb={2} size={'md'}>Hello, {user?.displayName}</Heading>
                 <HStack spacing={'5px'} fontWeight={'medium'} fontSize={'sm'} alignItems={'center'} >
@@ -56,15 +58,15 @@ export default function Home({ user }) {
             <Box mt={5} boxShadow={'0px 0px 10px 0px rgba(0,0,0,0.14)'} bgColor={'white'}>
               <Grid templateColumns={'repeat(12,1fr)'}>
                 <GridItem py={2} colSpan={{ base: 4, lg: 4 }} >
-                  <Tooltip label={'Public Forum'}>
-                    <HStack {...ButtonStyle}>
+                  <Tooltip label={'Forums'}>
+                    <HStack onClick={() => setSelectedContent(0) } color={ selectedContent === 0 ? 'green.500' : 'teal.500' } {...ButtonStyle}>
                       <FeatherIcon icon={'users'} />
                     </HStack>
                   </Tooltip>
                 </GridItem>
                 <GridItem py={2} colSpan={{ base: 4, lg: 4 }} >
-                  <Tooltip label={'Forums'}>
-                    <HStack {...ButtonStyle}>
+                  <Tooltip label={'Your Forums'}>
+                    <HStack onClick={() => setSelectedContent(1) } color={ selectedContent === 1 ? 'green.500' : 'teal.500' } {...ButtonStyle}>
                       <FeatherIcon icon={'message-circle'} />
                     </HStack>
                   </Tooltip>
@@ -72,12 +74,22 @@ export default function Home({ user }) {
                 <GridItem py={2} colSpan={{ base: 4, lg: 4 }} >
 
                   <Tooltip label={'Alerts'}>
-                    <HStack {...ButtonStyle}>
+                    <HStack onClick={() => setSelectedContent(2) } color={ selectedContent === 2 ? 'green.500' : 'teal.500' } {...ButtonStyle}>
                       <FeatherIcon icon={'airplay'} />
                     </HStack>
                   </Tooltip>
                 </GridItem>
               </Grid>
+            </Box>
+
+            <Box p={5} bgColor={'white'}>
+
+              { selectedContent === 1 ? <UserForumContainer user={user} setSelectedContent={setSelectedContent} /> : <></>}
+
+              { selectedContent === 0 ? <ForumsContainer location={connect} user={user} /> : <></>}
+
+              { selectedContent === 2 ? <>Alerts</> : <></>}
+              
             </Box>
 
 
