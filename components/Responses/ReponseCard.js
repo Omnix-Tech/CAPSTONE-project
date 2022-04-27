@@ -5,6 +5,7 @@ import TimeAgo from 'javascript-time-ago';
 import en from 'javascript-time-ago/locale/en.json'
 import React from 'react';
 import { firestore } from '../../app/config/firebase.config';
+import useAPIs from '../../controller/handlers';
 
 
 TimeAgo.setDefaultLocale(en)
@@ -25,17 +26,32 @@ const CardStyle = {
 export default function ReponseCard({ self, response: data }) {
     const timeago = new TimeAgo('en-US')
 
-
+    const { deleteResponse } = useAPIs()
 
     const [response, setResponse] = React.useState(data)
     const [user, setUser] = React.useState(null)
-    
 
+
+    const handleDeleteResponse = async () => {
+        deleteResponse({ response_id: response.ref.id })
+            .then(data => {
+                if (data?.error) {
+                    alert(`Error: ${data.error.message}`)
+                    return
+                }
+
+                alert(`Deleted`)
+            })
+            .catch(error => {
+                console.log(error)
+                alert(error.message)
+            })
+    }
 
     React.useEffect(() => {
-        getDoc(doc(firestore, `Users/${response.data.user.id}`)).then( snapshot => setUser(snapshot.data()))
+        getDoc(doc(firestore, `Users/${response.data.user.id}`)).then(snapshot => setUser(snapshot.data()))
     }, [response])
-    
+
     return (
         <>
             <Box
@@ -49,7 +65,7 @@ export default function ReponseCard({ self, response: data }) {
                             <Box fontSize={'x-small'} >{timeago.format(response.data.timeStamp.toDate())}</Box>
                         </HStack>
 
-                        {self ? <Button p={0} size={'xs'} variant={'link'}>Delete</Button> : <></>}
+                        {self ? <Button onClick={handleDeleteResponse} p={0} size={'xs'} variant={'link'}>Delete</Button> : <></>}
                     </Box>
                 </HStack>
                 <Divider my={2} />

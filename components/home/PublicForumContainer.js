@@ -2,13 +2,11 @@ import React from 'react';
 import { Box, Divider, Text, VStack, Spinner, HStack } from '@chakra-ui/react';
 import Post from '../Post';
 import InfiniteScroll from 'react-infinite-scroll-component';
-
-import NewPostAlert from '../NewPostAlert';
 import usePosts from '../../controller/hooks/usePosts';
 
 export default function PublicForumContiner({ location, user: currentUser, ...props }) {
 
-    const { posts, getThresholdPosts, lastPost, allowRefresh, handleRefresh } = usePosts(location)
+    const { posts, lastPost, getNextThresholdPosts } = usePosts({ location })
 
     return (
         <Box {...props}>
@@ -29,7 +27,7 @@ export default function PublicForumContiner({ location, user: currentUser, ...pr
 
                         <InfiniteScroll
                             dataLength={posts.length}
-                            next={getThresholdPosts}
+                            next={getNextThresholdPosts}
                             hasMore={lastPost !== null}
                             loader={<HStack paddingY={20} width={'full'} justifyContent={'center'}><Spinner size='lg' /></HStack>}
                             endMessage={<HStack paddingY={2} width={'full'} justifyContent={'center'}><Text color={'gray.400'} fontSize={'x-small'}>{(`That's it`).toUpperCase()}</Text></HStack>}
@@ -40,9 +38,6 @@ export default function PublicForumContiner({ location, user: currentUser, ...pr
                         </InfiniteScroll>
                 }
             </Box>
-
-
-            <NewPostAlert refresh={allowRefresh} onClick={handleRefresh} />
         </Box>
     );
 }

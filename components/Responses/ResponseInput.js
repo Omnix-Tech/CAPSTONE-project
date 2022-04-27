@@ -30,7 +30,6 @@ export default function ResponseInput({ post, currentUser }) {
                 alert('sent')
             })
             .catch(error => alert(error.message))
-
     }
 
     const listenForNewUpdates = () => {

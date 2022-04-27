@@ -4,6 +4,7 @@ const { UserCollection } = require('./User')
 const { PostLocationCollection } = require('./Location')
 
 const { v4: uuidv4 } = require('uuid');
+const { ResponseCollection } = require('./Response');
 const POST_COLLECTION = 'Posts'
 const FILE_COLLECTION = 'Files'
 
@@ -53,6 +54,12 @@ class Posts {
 
 
         return response
+    }
+
+
+    async remove(id) {
+        firestore.recursiveDelete()
+        ResponseCollection.remove()
     }
 
     getReference(id) {

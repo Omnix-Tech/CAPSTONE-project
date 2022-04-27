@@ -38,7 +38,7 @@ export default function Home({ user }) {
       <Layout user={user} currentTab={'home'} >
         <NewButton user={user} location={connect} />
         <Grid w={'full'} templateColumns={'repeat(12,1fr)'}>
-          <GridItem p={2} colSpan={{ base: 12, md: 5, lg: 4 }} top={{ base: 'unset', lg: 70 }} position={{ base: 'unset', lg: 'sticky' }} h={'fit-content'} >
+          <GridItem px={2} py={10} colSpan={{ base: 12, md: 5, lg: 4 }} top={{ base: 'unset', md: 70 }} maxH={{ base: 'unset', md: '95vh'}} overflowY={{ base: 'unset', md: 'scroll' }} position={{base: 'unset', md: 'sticky'}} >
 
 
             <Box>

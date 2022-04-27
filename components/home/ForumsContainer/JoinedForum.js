@@ -21,7 +21,7 @@ export default function JoinedForumContainer({ forum }) {
                         <Box>
                             <Text fontWeight={'medium'} fontSize={'sm'} >{doc?.title}</Text>
                             {forum.status === 'Owner' ?
-                                <Text fontSize={'x-small'} color={'gray.700'}>Created {doc ? timeago.format(forum?.timeStamp.toDate()) : ''}</Text>
+                                <Text fontSize={'x-small'} color={'gray.700'}>You created the forum {doc ? timeago.format(forum?.timeStamp.toDate()) : ''}</Text>
                                 :
                                 <Text fontSize={'x-small'} color={'gray.700'}>Joined {doc ? timeago.format(forum?.timeStamp.toDate()) : ''}</Text>}
 
@@ -37,7 +37,13 @@ export default function JoinedForumContainer({ forum }) {
                                 borderRadius={'full'}
                             />
                             <MenuList zIndex={'popover'}>
-                                <MenuItem fontSize={'sm'} >Leave Forum</MenuItem>
+                                {forum.status === 'Owner' ?
+                                    <MenuItem fontSize={'sm'} >Delete Forum</MenuItem>
+                                    :
+                                    <MenuItem fontSize={'sm'} >Leave Forum</MenuItem>
+                                }
+
+
                             </MenuList>
                         </Menu>
                     </HStack>

@@ -1,16 +1,18 @@
+import { ResponseCollection } from "../../app/models/Response"
 
 
 
 export default async function handler(req, res) {
 
-    const { } = req.body
+    const { response_id } = req.body
 
 
     try {
 
         // Computation Start
 
-
+        const response =  await ResponseCollection.remove(response_id)
+        .catch( error => { throw error })
 
 
 

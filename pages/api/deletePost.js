@@ -4,14 +4,14 @@
 export default async function handler(req, res) {
 
 
-    const {  } = req.body
+    const { post_id  } = req.body
 
 
     try {
 
         // Computation Start
 
-
+        
 
 
 

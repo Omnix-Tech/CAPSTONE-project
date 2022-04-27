@@ -3,138 +3,76 @@ import { firestore } from '../../app/config/firebase.config'
 import { doc, collection, query, where, orderBy, limit, getDocs, startAfter } from 'firebase/firestore'
 import * as Scroll from 'react-scroll'
 
-const MAX_GRAB = 10
+const MAX_GRAB = 3
 const scroll = Scroll.animateScroll
 
 
-const usePosts = (location) => {
+const usePosts = ({ location, forum, isVisiting }) => {
 
-    const [locationRef, setLocationRef] = React.useState(doc(firestore, `Locations/${location?.place_id}`))
-    const collectionRef = collection(firestore, 'Post_Location')
-
-    const [postsQuery, setPostQuery] = React.useState(query(
-        collectionRef,
-        where('location', '==', locationRef),
-        where('isPublic', '==', true),
-        orderBy('timeStamp', 'desc'),
-        limit(MAX_GRAB)
-    ))
-
-    const [queryContent, setQuery] = React.useState(postsQuery)
-    const [snapshot, setSnapshot] = React.useState(null)
+    const [contentQuery, setContentQuery] = React.useState(null)
     const [posts, setPosts] = React.useState(null)
     const [lastPost, setLastPost] = React.useState(null)
-    const [allowRefresh, setAllowRefresh] = React.useState(false)
 
 
+    const getInitialPosts = () => {
+        getDocs(contentQuery)
+            .then(querySnapshot => {
 
-    const getThresholdPosts = async () => {
-        const moreQuery = lastPost ? query(
-            collectionRef,
-            where('location', '==', locationRef),
-            where('isPublic', '==', true),
-            orderBy('timeStamp', 'desc'),
-            startAfter(lastPost),
-            limit(MAX_GRAB)
-        ) : query(
-            collectionRef,
-            where('location', '==', locationRef),
-            where('isPublic', '==', true),
-            orderBy('timeStamp', 'desc'),
-            limit(MAX_GRAB)
-        )
+                const docs = querySnapshot.docs
+                querySnapshot.size < MAX_GRAB ? setLastPost(null) : setLastPost(docs[querySnapshot.size - 1])
+                setPosts(docs.map(doc => doc.data()))
 
-        getDocs(moreQuery).then(querySnapshot => {
-            const docs = querySnapshot.docs
-
-            if (docs.length < MAX_GRAB) {
-                setLastPost(null)
-            } else {
-                setLastPost(docs[docs.length - 1])
-            }
-
-            if (!snapshot && docs.length > 0) setSnapshot(querySnapshot)
-            
-            setPosts(posts ?
-                [...posts, ...docs.map(doc => doc.data())]
-                : docs.map(doc => doc.data()))
-        })
+            })
+            .catch(error => { throw error })
     }
 
-    const getInitialPosts = async () => {
-
-        try {
-            const querySnapshot = await getDocs(queryContent).catch(error => { console.log(error.message) })
-            const docs = querySnapshot ? querySnapshot.docs : []
-
-
-            if (docs.length > 0) setSnapshot(querySnapshot)
-            setPosts(docs.map(doc => doc.data()))
-            docs.length < MAX_GRAB ? setLastPost(null) : setLastPost(docs.length === 0 ? null : docs[docs.length - 1])
-
-
-        } catch (error) { console.log(error) }
-
+    const getNextThresholdPosts = () => {
+        getDocs(query(contentQuery, startAfter(lastPost)))
+            .then(querySnapshot => {
+                const docs = querySnapshot.docs
+                querySnapshot.size < MAX_GRAB ? setLastPost(null) : setLastPost(docs[querySnapshot.size - 1])
+                setPosts(posts ? [...posts, ...docs.map(doc => doc.data())] : docs.map(doc => doc.data()))
+            })
     }
 
-    const handleRefresh = () => {
-        const docs = snapshot.docs
-        setPosts(docs.map(doc => doc.data()))
-        lastPost ? setLastPost(docs[docs.length - 1]) : null
-        setAllowRefresh(false)
-        setTimeout(() => {
-            scroll.scrollToTop()
-        }, 500)
-
-    }
-    
-    React.useEffect(() => {
-        getInitialPosts()
-    }, [])
 
     React.useEffect(() => {
-        if (posts) {
-            const postQuery = posts.length > 0 ? query(
-                collectionRef,
-                where('location', '==', locationRef),
-                where('isPublic', '==', true),
-                orderBy('timeStamp', 'desc'),
-                limit(posts.length)
-            ) : query(
-                collectionRef,
-                where('location', '==', locationRef),
-                where('isPublic', '==', true),
-                orderBy('timeStamp', 'desc'))
-            setQuery(postQuery)
+        if (location) {
+            isVisiting ?
+                setContentQuery(
+                    query(collection(firestore, 'Post_Location'),
+                        where('location', '==', doc(firestore, `Locations/${location?.place_id}`)),
+                        where('isPublic', '==', true),
+                        orderBy('timeStamp', 'desc'),
+                        limit(MAX_GRAB))
+                )
+                :
+                setContentQuery(
+                    query(collection(firestore, 'Post_Location'),
+                        where('location', '==', doc(firestore, `Locations/${location?.place_id}`)),
+                        orderBy('timeStamp', 'desc'),
+                        limit(MAX_GRAB))
+                )
         }
-    }, [posts])
+
+        if (forum) {
+            setContentQuery(
+                query(collection(firestore, 'Forum_Post'),
+                    where('forum', '==', doc(firestore, `Forums/${forum}`)),
+                    orderBy('timeStamp', 'desc'),
+                    limit(MAX_GRAB)
+                )
+            )
+        }
+    }, [forum, location, isVisiting])
+
 
     React.useEffect(() => {
-        setLocationRef(doc(firestore, `Locations/${location?.place_id}`))
-    }, [location])
+        if (contentQuery) getInitialPosts()
+    }, [contentQuery])
 
-    React.useEffect(() => {
-        setPostQuery(query(
-            collectionRef,
-            where('location', '==', locationRef),
-            where('isPublic', '==', true),
-            orderBy('timeStamp', 'desc'),
-            limit(MAX_GRAB)
-        ))
-    }, [locationRef])
 
-    React.useEffect(() => {
-        setQuery(postsQuery)
-    }, [postsQuery])
-
-    React.useEffect(() => {
-        getInitialPosts()
-    }, [])
-
-    return {
-        locationRef, postsQuery, queryContent, snapshot, posts, lastPost, allowRefresh, getThresholdPosts, handleRefresh
-    }
-
+    return { posts, lastPost, getNextThresholdPosts }
 }
 
 

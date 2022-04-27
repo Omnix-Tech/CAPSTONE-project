@@ -73,7 +73,7 @@ const createPost = async (data) => {
 }
 
 const likePost = async (data) => {
-    const response = await server().post('/api/likePost', data).catch( error => { throw error })
+    const response = await server().post('/api/likePost', data).catch(error => { throw error })
     if (response) {
         const data = await response.data
         return data
@@ -83,7 +83,7 @@ const likePost = async (data) => {
 }
 
 const unlikePost = async (data) => {
-    const response = await server().post('/api/unlikePost', data).catch( error => { throw error })
+    const response = await server().post('/api/unlikePost', data).catch(error => { throw error })
     if (response) {
         const data = await response.data
         return data
@@ -93,7 +93,7 @@ const unlikePost = async (data) => {
 }
 
 const createResponse = async (data) => {
-    const response = await server().post('/api/createResponse', data).catch( error => { throw error })
+    const response = await server().post('/api/createResponse', data).catch(error => { throw error })
     if (response) {
         const data = await response.data
         return data
@@ -104,7 +104,7 @@ const createResponse = async (data) => {
 
 
 const createForum = async (data) => {
-    const response = await server().post('/api/createForum', data).catch( error => { throw error })
+    const response = await server().post('/api/createForum', data).catch(error => { throw error })
     if (response) {
         const data = await response.data
         return data
@@ -113,7 +113,20 @@ const createForum = async (data) => {
     throw new Error('Network Error')
 }
 
-const useAPIs = () => ({ createForum, registerUser, getLocations, registerUserLocation, createPost, likePost, unlikePost, createResponse, deleteUserLocation })
+
+
+const deleteResponse = async ({ response_id }) => {
+    const response = await server().post('/api/deleteResponse', { response_id })
+        .catch(error => { throw error })
+
+    if (response) {
+        return await response.data
+    }
+
+    throw new Error('Network Error')
+}
+
+const useAPIs = () => ({ deleteResponse, createForum, registerUser, getLocations, registerUserLocation, createPost, likePost, unlikePost, createResponse, deleteUserLocation })
 
 
 export default useAPIs;
