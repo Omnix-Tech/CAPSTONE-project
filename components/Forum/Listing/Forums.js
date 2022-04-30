@@ -12,7 +12,7 @@ function Loading() {
 
 
 
-export function OtherForums({ forums }) {
+export function OtherForums({ forums, limit }) {
 
 
     return (
@@ -40,7 +40,7 @@ export function OtherForums({ forums }) {
 }
 
 
-export function JoinedForums({ forums, user, location }) {
+export function JoinedForums({ forums, user, location, limit }) {
     return (
         <>
             <Text fontWeight={'medium'} fontSize={'xs'} color={'green.800'}>Joined Forums</Text>
@@ -56,8 +56,8 @@ export function JoinedForums({ forums, user, location }) {
                 </>
                 :
                 <>
-                    {forums.map(forum => <JoinedForumCard key={forum.id} forum={forum} user={user} location={location} />)}
-                    <Button my={5} isFullWidth size={'xs'} variant={'ghost'} colorScheme={'green'} >Load more</Button>
+                    {forums.map(forum => <JoinedForumCard key={forum.id} forum={forum} user={user} location={location} limit={limit} />)}
+                    { forums.length > limit ? <Button my={5} isFullWidth size={'xs'} variant={'ghost'} colorScheme={'green'} >load more</Button> : <></>}
                 </>
             }
 
@@ -67,6 +67,7 @@ export function JoinedForums({ forums, user, location }) {
 
 
 export default function Forums({ location, user, currentForum }) {
+    const limit = 3
     const { joinedForums, forums } = useForums({ user, location })
     const [otherForums, setOtherForums] = React.useState(null)
 
@@ -82,8 +83,8 @@ export default function Forums({ location, user, currentForum }) {
 
     return (
         <>
-            {joinedForums ? <JoinedForums forums={currentForum ? joinedForums.filter(forum => forum.forum.id != currentForum) : joinedForums} user={user} location={location} /> : <Loading />}
-            {otherForums ? <OtherForums forums={otherForums} /> : <Loading />}
+            {joinedForums ? <JoinedForums limit={limit} forums={currentForum ? joinedForums.filter(forum => forum.forum.id != currentForum) : joinedForums} user={user} location={location} /> : <Loading />}
+            {otherForums ? <OtherForums limit={limit} forums={otherForums} /> : <Loading />}
         </>
     )
 }

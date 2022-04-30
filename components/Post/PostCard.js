@@ -73,7 +73,7 @@ export default function PostCard({ files, post, user, currentUser, loading, file
                     <HStack w={'full'} justifyContent={'space-between'} alignItems={'flex-start'}>
                         <Box px={2} onClick={onOpen} >
                             <Box>
-                                {user ? <Heading transition={'0.25s'} _hover={{ color: 'messenger.400' }} lineHeight={'normal'} size={'sm'}>{`${user?.firstName} ${user?.lastName}`}</Heading> : <SkeletonText noOfLines={1} />}
+                                {user ? <Heading transition={'0.25s'} _hover={{ color: 'messenger.400' }} lineHeight={'normal'} size={'xs'}>{`${user?.firstName} ${user?.lastName}`}</Heading> : <SkeletonText noOfLines={1} />}
                                 <Text fontSize={'xs'} color={'gray.700'}>{timeago && post ? timeago?.format(post?.timeStamp.toDate()) : ''}</Text>
                             </Box>
                             <Box my={2} >
@@ -108,13 +108,13 @@ export default function PostCard({ files, post, user, currentUser, loading, file
                         <Menu>
                             <MenuButton
                                 as={IconButton}
-                                icon={<FeatherIcon icon={'more-horizontal'} />}
+                                icon={<FeatherIcon size={16} icon={'more-horizontal'} />}
                                 variant={'ghost'}
-                                size={'sm'}
+                                size={'xs'}
                             />
                             <MenuList>
-                                <MenuItem>Report Post</MenuItem>
-                                {loading ? <></> : post?.user?.id === currentUser?.uid ? <MenuItem>Edit Post</MenuItem> : <></>}
+                                <MenuItem fontSize={'sm'}>Report Post</MenuItem>
+                                {loading ? <></> : post?.user?.id === currentUser?.uid ? <MenuItem fontSize={'sm'}>Edit Post</MenuItem> : <></>}
                             </MenuList>
                         </Menu>
                     </HStack>

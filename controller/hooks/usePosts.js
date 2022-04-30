@@ -3,11 +3,13 @@ import { firestore } from '../../app/config/firebase.config'
 import { doc, collection, query, where, orderBy, limit, getDocs, startAfter } from 'firebase/firestore'
 import * as Scroll from 'react-scroll'
 
-const MAX_GRAB = 3
+var MAX_GRAB = 3
 const scroll = Scroll.animateScroll
 
 
-const usePosts = ({ location, forum, isVisiting }) => {
+const usePosts = ({ location, forum, isVisiting, contentLimit }) => {
+
+    MAX_GRAB = contentLimit ? contentLimit : MAX_GRAB
 
     const [contentQuery, setContentQuery] = React.useState(null)
     const [posts, setPosts] = React.useState(null)

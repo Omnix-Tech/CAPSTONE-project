@@ -1,4 +1,4 @@
-import { Box, HStack, Text, Menu, MenuButton, MenuItem, MenuList, IconButton, Divider } from "@chakra-ui/react"
+import { Box, HStack, Text, Menu, MenuButton, MenuItem, MenuList, IconButton, Divider, Accordion, AccordionItem, AccordionButton, AccordionIcon, AccordionPanel } from "@chakra-ui/react"
 import FeatherIcon from 'feather-icons-react'
 
 
@@ -13,8 +13,10 @@ TimeAgo.addLocale(en)
 const timeago = new TimeAgo('en-US')
 
 
-export default function JoinedForumCard({ forum, user, location }) {
+export default function JoinedForumCard({ forum, user, location, limit }) {
     const [doc, loading] = useDocumentData(forum.forum)
+
+
     return (
         <>
             {doc ?
@@ -58,10 +60,23 @@ export default function JoinedForumCard({ forum, user, location }) {
                     <Text my={4} noOfLines={2} fontSize={'xs'} >{doc?.description}</Text>
 
                     <Box mt={2}>
-                        <Text color={'linkedin.900'} fontSize={'xs'} fontWeight={'medium'}>Most Recent Activities</Text>
-                        <Divider mb={2} />
 
-                        <Forum user={user} forum={forum.forum.id} allowPagination={false} />
+
+
+                        <Accordion allowToggle>
+                            <AccordionItem>
+                                <AccordionButton _focus={{outline: 'none', boxShadow: 'none'}} justifyContent={'space-between'} >
+                                    <Text color={'linkedin.900'} fontSize={'xs'} fontWeight={'medium'}>Most Recent Activities</Text>
+                                    <AccordionIcon />
+                                </AccordionButton>
+
+                                <AccordionPanel p={0}>
+                                    <Forum user={user} forum={forum.forum.id} allowPagination={false} contentLimit={limit} />
+                                </AccordionPanel>
+                            </AccordionItem>
+                        </Accordion>
+
+
                     </Box>
                 </Box>
                 :

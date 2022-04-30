@@ -1,5 +1,5 @@
 import React from 'react'
-import { Alert, Center, AlertIcon, CloseButton, Box, AlertTitle, AlertDescription, Spinner } from '@chakra-ui/react'
+import { Alert, Center, AlertIcon, Box, AlertTitle, AlertDescription, Spinner } from '@chakra-ui/react'
 
 const useFeedback = () => {
 
@@ -12,6 +12,7 @@ const useFeedback = () => {
 
     const handleOpenAlert = ({ heading, message, status, isLoading }) => {
         setIsOpen(true)
+        
         if (isLoading) {
             setIsLoading(true)
             return;
@@ -21,6 +22,10 @@ const useFeedback = () => {
         message ? setMessage(message) : setMessage('')
         heading ? setHeading(heading) : setHeading('')
         status ? setStatus(status) : setStatus('info')
+
+        setTimeout(() => {
+            setIsOpen(false)
+        }, 3000)
     }
 
 
@@ -34,12 +39,12 @@ const useFeedback = () => {
     }
 
 
-    const onClose = () => setIsOpen(false)
+    
 
 
     const render = () => (
         <>
-            <Alert zIndex={'toast'} status={status} display={isOpen ? 'flex' : 'none'} borderRadius={30} position={'fixed'} width={350} bottom={{ base: 90, md: 10 }} right={{ base: 10, md: 90 }} >
+            <Alert zIndex={'popover'} status={status} display={isOpen ? 'flex' : 'none'} borderRadius={2} position={'fixed'} width={350} bottom={{ base: 90, md: 10 }} right={{ base: 10, md: 90 }} >
 
                 {isLoading ?
                     <Center width={'full'}><Spinner /></Center>
@@ -47,13 +52,10 @@ const useFeedback = () => {
                     <>
                         <AlertIcon />
                         <Box>
-                            {heading === '' ? <></> : <AlertTitle>{heading}</AlertTitle>}
-                            {message === '' ? <></> : <AlertDescription>{message}</AlertDescription>}
+                            {heading === '' ? <></> : <AlertTitle fontSize={'sm'}>{heading}</AlertTitle>}
+                            {message === '' ? <></> : <AlertDescription fontSize={'sm'}>{message}</AlertDescription>}
                         </Box>
-                        <CloseButton borderRadius={'full'} onClick={onClose} position='absolute' right='8px' top='8px' />
                     </>}
-
-
             </Alert></>
     )
 
@@ -64,7 +66,6 @@ const useFeedback = () => {
 
     return {
         isOpen,
-        onClose,
         isLoading,
         message,
         status,
