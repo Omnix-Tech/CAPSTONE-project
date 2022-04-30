@@ -67,7 +67,7 @@ export default function PostCard({ files, post, user, currentUser, loading, file
     return (
         <Box>
             <Divider bgColor={'gray.300'} />
-            <Box transition={'0.15s'} bgColor={'whiteAlpha.300'} _hover={{ bgColor: 'white', cursor: 'pointer' }} width={'full'} marginBottom={2} padding={3} >
+            <Box transition={'0.15s'} bgColor={'whiteAlpha.300'} _hover={{ bgColor: 'white', cursor: 'pointer' }} width={'full'} marginBottom={2} padding={2} >
                 <HStack justifyContent={'flex-start'} alignItems={'flex-start'}>
                     <Avatar onClick={onOpen} size={'sm'} />
                     <HStack w={'full'} justifyContent={'space-between'} alignItems={'flex-start'}>

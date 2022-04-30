@@ -3,14 +3,12 @@ import React from 'react';
 import useAPIs from '../../controller/handlers';
 
 import useConnect from '../../controller/hooks/useConnect'
-import useFeedback from '../../controller/hooks/useFeedback';
 
-export default function NewForum({ user, closeModal }) {
-  const { showError, showSuccess, render } = useFeedback()
+export default function NewForum({ user, closeModal, showError, showSuccess }) {
   const { createForum } = useAPIs()
   const { connectsDocs } = useConnect(user)
   const [disabled, setDisabled] = React.useState(false)
-  const [ forum_data, setForumData ] = React.useState({
+  const [forum_data, setForumData] = React.useState({
     forum_title: '', description: '', connects: []
   })
 
@@ -18,27 +16,27 @@ export default function NewForum({ user, closeModal }) {
     if (forum_data.connects.includes(connect)) {
       const index = forum_data.connects.indexOf(connect)
       const connects = JSON.parse(JSON.stringify(forum_data.connects))
-      connects.splice(index,1)
-      setForumData({ ... forum_data, connects })
+      connects.splice(index, 1)
+      setForumData({ ...forum_data, connects })
     } else {
-      setForumData({ ... forum_data, connects: [... forum_data.connects, connect]})
+      setForumData({ ...forum_data, connects: [...forum_data.connects, connect] })
     }
   }
 
   const handleSubmit = () => {
     setDisabled(true)
-    createForum({...forum_data, user_id: user.uid })
-    .then( data => {
-      const { error } = data
-      if (error) {
-        console.log(error)
-        setDisabled(false)
-        showError({ message: 'Something went wrong'})
-        return;
-      }
-      showSuccess({ message: 'Forum Created' })
-      closeModal()
-    })
+    createForum({ ...forum_data, user_id: user.uid })
+      .then(data => {
+        const { error } = data
+        if (error) {
+          console.log(error)
+          setDisabled(false)
+          showError({ message: 'Something went wrong' })
+          return;
+        }
+        showSuccess({ message: 'Forum Created' })
+        closeModal()
+      })
   }
 
   return (
@@ -60,14 +58,14 @@ export default function NewForum({ user, closeModal }) {
         {connectsDocs ? <>
           {connectsDocs.map(doc => (
             <Box key={doc.place_id} p={1}>
-              <Box 
-              onClick={() => handleAddandRemoveConnect(doc.place_id) } 
-              p={3} 
-              textColor={forum_data.connects.includes(doc.place_id) ? 'white' : 'black'}
-              borderRadius={2} 
-              transition={'.25s'} 
-              bgColor={ forum_data.connects.includes(doc.place_id) ? 'messenger.300' : 'gray.100'} 
-              _hover={{ cursor: 'pointer', bgColor: forum_data.connects.includes(doc.place_id) ? 'messenger.500' : 'gray.300'}} >
+              <Box
+                onClick={() => handleAddandRemoveConnect(doc.place_id)}
+                p={3}
+                textColor={forum_data.connects.includes(doc.place_id) ? 'white' : 'black'}
+                borderRadius={2}
+                transition={'.25s'}
+                bgColor={forum_data.connects.includes(doc.place_id) ? 'messenger.300' : 'gray.100'}
+                _hover={{ cursor: 'pointer', bgColor: forum_data.connects.includes(doc.place_id) ? 'messenger.500' : 'gray.300' }} >
                 <Text fontWeight={'medium'} fontSize={'sm'} >{doc.area}</Text>
               </Box>
             </Box>
@@ -86,14 +84,11 @@ export default function NewForum({ user, closeModal }) {
             fontSize={'xs'}
             textTransform={'uppercase'}
             size={'md'}
-            disabled={(forum_data.forum_title === '' | forum_data.connects.length === 0) && !disabled }
+            disabled={(forum_data.forum_title === '' | forum_data.connects.length === 0) && !disabled}
             onClick={handleSubmit}
           >Create Forum</Button>
         </Tooltip>
       </HStack>
-      
-
-      { render() }
 
     </Box>
   );

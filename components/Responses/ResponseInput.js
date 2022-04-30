@@ -65,7 +65,7 @@ export default function ResponseInput({ post, currentUser }) {
 
 
                     </InputAddon>
-                    <Textarea resize={'none'} size={'sm'} px={2} variant={'unstyled'} placeholder={'Type your response'} value={responseContent} onChange={(e) => setResponseContent(e.target.value)} />
+                    <Textarea resize={'none'} size={'xs'} px={2} variant={'unstyled'} placeholder={'Type your response'} value={responseContent} onChange={(e) => setResponseContent(e.target.value)} />
                 </InputGroup>
 
                 <Tooltip label={'Send Response'}>

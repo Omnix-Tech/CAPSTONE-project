@@ -2,16 +2,23 @@
 import React from 'react'
 import Layout from '../components/layout'
 
-import { Text, Box, Heading, HStack, Grid, GridItem, Tooltip, SkeletonText } from '@chakra-ui/react'
+import { Text, Box, Heading, HStack, Grid, Divider, GridItem, Tooltip, SkeletonText } from '@chakra-ui/react'
 import FeatherIcon from 'feather-icons-react'
-import AlertContainer from '../components/home/AlertsContainer'
-import PublicForumContiner from '../components/home/PublicForumContainer'
-import SearchContainer from '../components/home/SearchContainer'
+
+
+
 import NewButton from '../components/New'
 import useConnect from '../controller/hooks/useConnect'
 import ConnectMenu from '../components/ConnectMenu'
-import UserForumContainer from '../components/home/UserForums'
-import ForumsContainer from '../components/home/ForumsContainer'
+
+
+
+import AlertContainer from '../components/Alerts'
+import SearchContainer from '../components/Search'
+
+import Forums from '../components/Forum/Listing/Forums'
+import UserForums from '../components/Forum/Listing/UserForums'
+import Forum from '../components/Forum'
 
 const ButtonStyle = {
   fontSize: 'sm',
@@ -31,14 +38,14 @@ const ButtonStyle = {
 
 export default function Home({ user }) {
   const { connectDocument: connect, handleSetConnect, connectsDocs } = useConnect(user)
-  const [ selectedContent, setSelectedContent ] = React.useState(0) 
+  const [selectedContent, setSelectedContent] = React.useState(0)
 
   return (
     <>
       <Layout user={user} currentTab={'home'} >
         <NewButton user={user} location={connect} />
         <Grid w={'full'} templateColumns={'repeat(12,1fr)'}>
-          <GridItem px={2} py={10} colSpan={{ base: 12, md: 5, lg: 4 }} top={{ base: 'unset', md: 70 }} maxH={{ base: 'unset', md: '95vh'}} overflowY={{ base: 'unset', md: 'scroll' }} position={{base: 'unset', md: 'sticky'}} >
+          <GridItem px={2} py={10} colSpan={{ base: 12, md: 5, lg: 4 }} top={{ base: 'unset', md: 70 }} maxH={{ base: 'unset', md: '95vh' }} overflowY={{ base: 'unset', md: 'scroll' }} position={{ base: 'unset', md: 'sticky' }} >
 
 
             <Box>
@@ -59,14 +66,14 @@ export default function Home({ user }) {
               <Grid templateColumns={'repeat(12,1fr)'}>
                 <GridItem py={2} colSpan={{ base: 4, lg: 4 }} >
                   <Tooltip label={'Forums'}>
-                    <HStack onClick={() => setSelectedContent(0) } color={ selectedContent === 0 ? 'green.500' : 'teal.500' } {...ButtonStyle}>
+                    <HStack onClick={() => setSelectedContent(0)} color={selectedContent === 0 ? 'green.500' : 'teal.500'} {...ButtonStyle}>
                       <FeatherIcon icon={'users'} />
                     </HStack>
                   </Tooltip>
                 </GridItem>
                 <GridItem py={2} colSpan={{ base: 4, lg: 4 }} >
                   <Tooltip label={'Your Forums'}>
-                    <HStack onClick={() => setSelectedContent(1) } color={ selectedContent === 1 ? 'green.500' : 'teal.500' } {...ButtonStyle}>
+                    <HStack onClick={() => setSelectedContent(1)} color={selectedContent === 1 ? 'green.500' : 'teal.500'} {...ButtonStyle}>
                       <FeatherIcon icon={'message-circle'} />
                     </HStack>
                   </Tooltip>
@@ -74,7 +81,7 @@ export default function Home({ user }) {
                 <GridItem py={2} colSpan={{ base: 4, lg: 4 }} >
 
                   <Tooltip label={'Alerts'}>
-                    <HStack onClick={() => setSelectedContent(2) } color={ selectedContent === 2 ? 'green.500' : 'teal.500' } {...ButtonStyle}>
+                    <HStack onClick={() => setSelectedContent(2)} color={selectedContent === 2 ? 'green.500' : 'teal.500'} {...ButtonStyle}>
                       <FeatherIcon icon={'airplay'} />
                     </HStack>
                   </Tooltip>
@@ -84,12 +91,12 @@ export default function Home({ user }) {
 
             <Box p={5} bgColor={'white'}>
 
-              { selectedContent === 1 ? <UserForumContainer user={user} setSelectedContent={setSelectedContent} /> : <></>}
+              {selectedContent === 1 ? <UserForums location={connect} user={user} setSelectedContent={setSelectedContent} /> : <></>}
 
-              { selectedContent === 0 ? <ForumsContainer location={connect} user={user} /> : <></>}
+              {selectedContent === 0 ? <Forums location={connect} user={user} /> : <></>}
 
-              { selectedContent === 2 ? <>Alerts</> : <></>}
-              
+              {selectedContent === 2 ? <>Alerts</> : <></>}
+
             </Box>
 
 
@@ -97,7 +104,13 @@ export default function Home({ user }) {
 
           <GridItem px={2} colSpan={{ base: 12, md: 7, lg: 5 }} >
             <AlertContainer my={5} />
-            {connect ? <PublicForumContiner location={connect} my={5} user={user} /> : <></>}
+
+            <Box my={5}>
+              <Text px={5} color={'gray.400'} fontWeight={'medium'} textTransform={'uppercase'} fontSize={'xs'}>{connect ? connect?.area : ''} Forum</Text>
+              <Divider my={2} />
+              {connect ? <Forum location={connect} user={user} /> : <></>}
+            </Box>
+
           </GridItem>
 
           <GridItem px={2} top={70} position={'sticky'} height={'fit-content'} minH={'90vh'} display={{ base: 'none', md: 'none', lg: 'unset' }} colSpan={{ base: 0, md: 0, lg: 3 }}>

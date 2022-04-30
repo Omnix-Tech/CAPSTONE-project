@@ -37,6 +37,7 @@ const usePosts = ({ location, forum, isVisiting }) => {
 
 
     React.useEffect(() => {
+        
         if (location) {
             isVisiting ?
                 setContentQuery(
@@ -64,6 +65,7 @@ const usePosts = ({ location, forum, isVisiting }) => {
                 )
             )
         }
+
     }, [forum, location, isVisiting])
 
 

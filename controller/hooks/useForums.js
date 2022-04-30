@@ -1,4 +1,4 @@
-import { collection, doc, getDocs, query, where } from 'firebase/firestore'
+import { collection, doc, getDoc, getDocs, query, where } from 'firebase/firestore'
 import React from 'react'
 import { firestore } from '../../app/config/firebase.config'
 
@@ -10,13 +10,14 @@ const useForums = ({ user, forum_id, location }) => {
     const [participants, setParticipants] = React.useState(null)
     const [joinedForums, setJoinedForums] = React.useState(null)
     const [forums, setForums] = React.useState(null)
+    const [forum, setForum] = React.useState(null)
 
     const handleSetCreatedForums = () => {
         getDocs(
             query(collection(firestore, 'Forums'), where('owner', '==', doc(firestore, `/Users/${user.uid}`)))
         ).then(querySnapshot => {
             const docs = querySnapshot.docs
-            setCreatedForums(docs.map(doc => ({ ...doc.data(), snapshot: doc })))
+            setCreatedForums(docs.map(doc => ({ ...doc.data(), id: doc.id })))
         })
     }
 
@@ -35,7 +36,7 @@ const useForums = ({ user, forum_id, location }) => {
 
         ).then(querySnapshot => {
             const docs = querySnapshot.docs
-            setParticipants(docs.map(doc => ({ ...doc.data(), snapshot: doc })))
+            setParticipants(docs.map(doc => ({ ...doc.data(), id: doc.id })))
         })
 
     }
@@ -45,7 +46,7 @@ const useForums = ({ user, forum_id, location }) => {
             query(collection(firestore, 'User_Forum'), where('user', '==', doc(firestore, `/Users/${user.uid}`)))
         ).then(querySnapshot => {
             const docs = querySnapshot.docs
-            setJoinedForums(docs.map(doc => ({ ...doc.data(), snapshot: doc })))
+            setJoinedForums(docs.map(doc => ({ ...doc.data(), id: doc.id })))
         })
     }
 
@@ -58,8 +59,17 @@ const useForums = ({ user, forum_id, location }) => {
         )
             .then(querySnapshot => {
                 const docs = querySnapshot.docs
-                setForums(docs.map(doc => ({ ...doc.data(), snapshot: doc })))
+                setForums(docs.map(doc => ({ ...doc.data(), id: doc.id })))
             })
+    }
+
+
+    const handleSetForum = () => {
+        getDoc(doc(firestore, `/Forums/${forum_id}`))
+        .then( snapshot => {
+            console.log(forum_id, snapshot, snapshot.data())
+            setForum({...snapshot.data(), id: snapshot.id })
+        })
     }
 
 
@@ -75,6 +85,7 @@ const useForums = ({ user, forum_id, location }) => {
     React.useEffect(() => {
         if (forum_id) handleSetConnects()
         if (forum_id) handleSetParticipants()
+        if (forum_id) handleSetForum()
     }, [forum_id])
 
 
@@ -84,7 +95,7 @@ const useForums = ({ user, forum_id, location }) => {
 
 
 
-    return { joinedForums, createdForums, connects, participants, forums }
+    return { forum, joinedForums, createdForums, connects, participants, forums }
 }
 
 

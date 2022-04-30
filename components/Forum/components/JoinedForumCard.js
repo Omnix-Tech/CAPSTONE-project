@@ -5,13 +5,15 @@ import FeatherIcon from 'feather-icons-react'
 import { useDocumentData } from "react-firebase-hooks/firestore"
 import TimeAgo from 'javascript-time-ago';
 import en from 'javascript-time-ago/locale/en.json'
+import Forum from "..";
+import Link from "next/link";
 
 
 TimeAgo.addLocale(en)
 const timeago = new TimeAgo('en-US')
 
-export default function JoinedForumContainer({ forum }) {
 
+export default function JoinedForumCard({ forum, user, location }) {
     const [doc, loading] = useDocumentData(forum.forum)
     return (
         <>
@@ -19,7 +21,12 @@ export default function JoinedForumContainer({ forum }) {
                 <Box my={2} borderRadius={5} border={'1px'} borderColor={'gray.200'} p={3}>
                     <HStack justifyContent={'space-between'} alignItems={'center'}>
                         <Box>
-                            <Text fontWeight={'medium'} fontSize={'sm'} >{doc?.title}</Text>
+                            <Link href={`/forum/${forum.forum.id}?${(new URLSearchParams({ connect: location?.place_id }).toString())}`} passHref>
+                                <a>
+                                    <Text fontWeight={'medium'} fontSize={'sm'} >{doc?.title}</Text>
+                                </a>
+                            </Link>
+
                             {forum.status === 'Owner' ?
                                 <Text fontSize={'x-small'} color={'gray.700'}>You created the forum {doc ? timeago.format(forum?.timeStamp.toDate()) : ''}</Text>
                                 :
@@ -53,6 +60,8 @@ export default function JoinedForumContainer({ forum }) {
                     <Box mt={2}>
                         <Text color={'linkedin.900'} fontSize={'xs'} fontWeight={'medium'}>Most Recent Activities</Text>
                         <Divider mb={2} />
+
+                        <Forum user={user} forum={forum.forum.id} allowPagination={false} />
                     </Box>
                 </Box>
                 :
@@ -60,6 +69,5 @@ export default function JoinedForumContainer({ forum }) {
             }
 
         </>
-
     )
 }

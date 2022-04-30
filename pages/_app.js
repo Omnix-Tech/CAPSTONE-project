@@ -25,7 +25,7 @@ const extendedThemeO = extendTheme({
 })
 
 function MyApp({ Component, pageProps, ...props }) {
-  const [user, loading] = useAuthState(auth)
+  const [user, loading ] = useAuthState(auth)
   const { position, locations, error } = useGeolocation()
   const router = useRouter()
 

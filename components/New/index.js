@@ -4,12 +4,13 @@ import { Box, Text, Tooltip, IconButton, Modal, ModalOverlay, ModalContent, useD
 import FeatherIcon from 'feather-icons-react'
 import NewPost from './NewPost';
 import NewForum from './NewForum';
+import useFeedback from '../../controller/hooks/useFeedback';
 
 
-function NewModal({ location, user, ...props }) {
+function NewModal({ location, user, showError, showSuccess, forum, ...props }) {
     return (
         <Modal
-            {... props}
+            {...props}
             size={'2xl'}
         >
             <ModalOverlay />
@@ -38,10 +39,10 @@ function NewModal({ location, user, ...props }) {
                     <ModalBody>
                         <TabPanels>
                             <TabPanel>
-                                <NewPost location={location} user={user} closeModal={props.onClose} />
+                                <NewPost location={location} user={user} closeModal={props.onClose} showError={showError} showSuccess={showSuccess} forum={forum} />
                             </TabPanel>
                             <TabPanel>
-                                <NewForum user={user} closeModal={props.onClose} />
+                                <NewForum user={user} closeModal={props.onClose} showError={showError} showSuccess={showSuccess} />
                             </TabPanel>
                         </TabPanels>
 
@@ -53,15 +54,16 @@ function NewModal({ location, user, ...props }) {
 }
 
 
-export default function NewButton({ user, location }) {
+export default function NewButton({ user, location, forum }) {
 
     const { isOpen, onOpen, onClose } = useDisclosure()
+    const { showError, showSuccess, render } = useFeedback()
     const modalToggle = React.useRef()
 
     return (
         <>
-
-            <NewModal user={user} location={location} isOpen={isOpen} onClose={onClose} finalFocusRef={modalToggle} />
+            {render()}
+            <NewModal user={user} location={location} isOpen={isOpen} onClose={onClose} finalFocusRef={modalToggle} showError={showError} showSuccess={showSuccess} forum={forum ? forum : null} />
 
 
             <Box zIndex={'modal'} position={'fixed'} bottom={{ base: 90, lg: 10 }} right={5}>

@@ -16,7 +16,6 @@ const useConnect = (user) => {
     const [error, setError] = React.useState(null)
 
     const router = useRouter()
-
     const handleSetUserConnects = () => {
         if (user) {
             getDocs(
@@ -30,7 +29,7 @@ const useConnect = (user) => {
                     setConnects(querySnapshot.docs.map(doc => doc.data()))
                 })
 
-                .catch(error => setError({ status: 0, message: error.message }))
+                .catch(error => { setError({ status: 0, message: error.message })})
         }
     }
 

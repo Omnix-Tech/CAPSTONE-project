@@ -1,15 +1,12 @@
 import { Box, Button, Center, Spinner, Text } from "@chakra-ui/react"
-import useForums from "../../../controller/hooks/useForums"
-import ForumContainer from "./UserForums"
+
+import useForums from "../../../controller/hooks/useForums";
+import UserForumCard from "../components/UserForumCard";
 
 
-
-
-
-export default function UserForumContainer({ user, setSelectedContent }) {
-
+export default function UserForums({ user, location, setSelectedContent }) {
     const { createdForums } = useForums({ user })
-    
+    console.log(createdForums)
 
     return (
         <>
@@ -26,7 +23,7 @@ export default function UserForumContainer({ user, setSelectedContent }) {
                         </>
                         :
                         <>
-                            {createdForums.map(forum => <ForumContainer forum={forum} key={forum.snapshot.id} />)}
+                            {createdForums.map(forum => <UserForumCard location={location} forum={forum} key={forum.id} />)}
                         </>
 
                     }

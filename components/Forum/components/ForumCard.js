@@ -4,12 +4,11 @@ import React from "react";
 import { Badge, Box, Button, Text, HStack, Divider } from "@chakra-ui/react";
 import { getDoc } from "firebase/firestore";
 import { useDocumentData } from "react-firebase-hooks/firestore";
-import { firestore } from "../../../app/config/firebase.config";
 
 import useForums from "../../../controller/hooks/useForums";
 
-export default function ForumContainer({ forum }) {
 
+export default function ForumCard({ forum }) {
     const [forumDoc] = useDocumentData(forum.forum)
     const [user, setUser] = React.useState(null)
     const { connects, participants } = useForums({ forum_id: forum.forum.id })

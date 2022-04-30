@@ -5,14 +5,17 @@ const { PostLocationCollection } = require('./Location')
 
 const { v4: uuidv4 } = require('uuid');
 const { ResponseCollection } = require('./Response');
+const { ForumCollection } = require('./Forum');
 const POST_COLLECTION = 'Posts'
 const FILE_COLLECTION = 'Files'
+const FORUM_POST_COLLECTION = 'Forum_Post'
 
 
 class Posts {
     constructor() {
         this.db = new Database(POST_COLLECTION)
         this.FileCollection = new Files()
+        this.ForumPostCollection = new ForumPost()
     }
 
     async create({ uid, content, files, location, privacy, forum }) {
@@ -31,7 +34,10 @@ class Posts {
                 id: uuidv4()
             }, transaction).catch(error => { throw error })
 
-            await PostLocationCollection.create(
+
+            if (forum) await this.ForumPostCollection.create({ forum, post: response.ref }, transaction).catch(error => { throw error })
+
+            if (!forum) await PostLocationCollection.create(
                 {
                     post: response.ref,
                     location_id: location,
@@ -82,6 +88,30 @@ class Files {
         }, transaction).catch(error => { throw error })
 
         return response
+    }
+}
+
+
+class ForumPost {
+    constructor() {
+        this.db = new Database(FORUM_POST_COLLECTION)
+    }
+
+
+    async create({ forum, post }, transaction = null) {
+        const data = {
+            forum: ForumCollection.getReference(forum),
+            post: post,
+            timeStamp: admin.firestore.Timestamp.now()
+        }
+
+
+        const response = await this.db.create({ data }, transaction)
+            .catch(error => { throw error })
+
+
+        return response
+
     }
 }
 

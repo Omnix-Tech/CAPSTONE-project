@@ -9,8 +9,6 @@ import { useUploadFile, useDownloadURL } from 'react-firebase-hooks/storage'
 
 import { v4 as uuidv4 } from 'uuid'
 import useAPIs from '../../controller/handlers';
-import { AlertContext } from '../../controller/context';
-import useFeedback from '../../controller/hooks/useFeedback';
 
 const scrollCSS = {
     overflowX: 'auto',
@@ -155,9 +153,8 @@ function FileUploadContainer({ file, uid, handleSuccessiveFile, handleDeleteSucc
 }
 
 
-export default function NewPost({ location, user, forum, closeModal }) {
+export default function NewPost({ location, user, forum, closeModal, showError, showSuccess }) {
     const { createPost } = useAPIs()
-    const { showError, showSuccess, render } = useFeedback()
 
     const { isOpen, onClose, onToggle } = useDisclosure()
     const [content, setContent] = React.useState('')
@@ -186,7 +183,7 @@ export default function NewPost({ location, user, forum, closeModal }) {
     }
 
     const handleSumbitPost = async () => {
-        const post = { content, privacy, files: successFiles, user: user.uid, forum: forum ? forum.id : null, location: forum ? null : location.place_id }
+        const post = { content, privacy, files: successFiles, user: user.uid, forum: forum ? forum : null, location: forum ? null : location.place_id }
         const response = await createPost(post).catch(error => showError({ message: 'Something went wrong, Try Again' }))
 
         if (response?.error) {
@@ -199,7 +196,6 @@ export default function NewPost({ location, user, forum, closeModal }) {
 
     return (
         <Box>
-            {render()}
             <HStack mt={30} alignItems={'flex-start'} w={'full'}>
                 <Avatar />
                 <Box px={5} w={'full'} >
