@@ -1,17 +1,23 @@
 import React from "react";
 
 
-import { Badge, Box, Button, Text, HStack, Divider } from "@chakra-ui/react";
+import { Badge, Box, Button, Text, HStack, Divider, useDisclosure } from "@chakra-ui/react";
 import { getDoc } from "firebase/firestore";
-import { useDocumentData } from "react-firebase-hooks/firestore";
 
 import useForums from "../../../controller/hooks/useForums";
+import useFeedback from "../../../controller/hooks/useFeedback";
+import JoinModal from "./JoinModal";
 
 
-export default function ForumCard({ forum }) {
-    const [forumDoc] = useDocumentData(forum.forum)
+export default function ForumCard({ forum, currentUser }) {
+
+    const { isOpen, onOpen, onClose } = useDisclosure()
+    const modal = React.useRef()
+
+
+    const { showError, showSuccess, render } = useFeedback()
     const [user, setUser] = React.useState(null)
-    const { connects, participants } = useForums({ forum_id: forum.forum.id })
+    const { connects, participants, forum: forumDoc } = useForums({ forum_id: forum.forum.id })
 
     const handleSetUser = () => {
         getDoc(forumDoc.owner)
@@ -28,6 +34,11 @@ export default function ForumCard({ forum }) {
     return (
         <>
 
+            <JoinModal currentUser={currentUser} showError={showError} showSuccess={showSuccess} isOpen={isOpen} onClose={onClose} modalRef={modal} forum={forumDoc} connects={connects} participants={participants} owner={user} />
+
+
+            {render()}
+
             {forumDoc ?
                 <>
                     <Box my={4}>
@@ -42,13 +53,13 @@ export default function ForumCard({ forum }) {
                                 <Divider my={2} />
 
                                 <HStack>
-                                    <Badge fontSize={'x-small'} >{connects ? connects.length : 0} Connects</Badge>
-                                    <Badge fontSize={'x-small'}>{participants ? participants.length : 0} Participants</Badge>
+                                    <Badge fontSize={'x-small'} >{connects ? connects.length : 0} Connect(s)</Badge>
+                                    <Badge fontSize={'x-small'}>{participants ? participants.length : 0} Participant(s)</Badge>
                                 </HStack>
                             </Box>
 
 
-                            <Button variant={'ghost'} fontSize={'xs'} borderRadius={2} colorScheme={'green'} >Join</Button>
+                            <Button onClick={onOpen} variant={'ghost'} size={'xs'} borderRadius={2} colorScheme={'green'} >Join</Button>
                         </HStack>
                     </Box>
                     <Divider borderColor={'gray.400'} />

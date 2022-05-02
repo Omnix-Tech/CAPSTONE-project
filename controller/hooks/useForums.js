@@ -67,7 +67,6 @@ const useForums = ({ user, forum_id, location }) => {
     const handleSetForum = () => {
         getDoc(doc(firestore, `/Forums/${forum_id}`))
         .then( snapshot => {
-            console.log(forum_id, snapshot, snapshot.data())
             setForum({...snapshot.data(), id: snapshot.id })
         })
     }

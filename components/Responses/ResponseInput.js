@@ -34,10 +34,12 @@ export default function ResponseInput({ post, currentUser }) {
 
     const listenForNewUpdates = () => {
         onSnapshot(responseQuery, (querySnapshot) => {
-            console.log('Response Listening')
+         
             if (responseCount != querySnapshot.size) setResponseCount(querySnapshot.size)
         })
     }
+
+   
 
     React.useEffect(() => {
         if (snapshot) setResponseCount(snapshot.size)

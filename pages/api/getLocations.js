@@ -1,5 +1,5 @@
 
-const { getLocations } = require('../../utils/get.locations')
+const { getLocations } = require('../../utils/locations/get.locations')
 
 export default async function handler(req, res) {
     const { latitude, longitude } = req.body

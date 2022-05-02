@@ -3,10 +3,13 @@
 const { UserLocationCollection } = require('../../app/models/Location');
 
 export default async function handler(req, res) {
-    const { locationId, uid, location } = req.body
+    const { locationId, uid, community } = req.body
 
     try {
         await UserLocationCollection.create({ uid, location_id: locationId }).catch(error => { throw error })
+        if (community && community !== '') {
+
+        }
         
         res.status(200).json({})
 

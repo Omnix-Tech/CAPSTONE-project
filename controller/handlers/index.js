@@ -126,7 +126,19 @@ const deleteResponse = async ({ response_id }) => {
     throw new Error('Network Error')
 }
 
-const useAPIs = () => ({ deleteResponse, createForum, registerUser, getLocations, registerUserLocation, createPost, likePost, unlikePost, createResponse, deleteUserLocation })
+
+const joinForum = async ({ forum, user }) => {
+    const response = await server().post('/api/joinForum', { forum, user })
+        .catch(error => { throw error })
+
+    if (response) {
+        return await response.data
+    }
+
+    throw new Error('Network Error')
+}
+
+const useAPIs = () => ({ server, joinForum, deleteResponse, createForum, registerUser, getLocations, registerUserLocation, createPost, likePost, unlikePost, createResponse, deleteUserLocation })
 
 
 export default useAPIs;

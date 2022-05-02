@@ -42,8 +42,8 @@ export default function UserForumCard({ forum, location }) {
 
 
             <HStack mt={5}>
-                <Badge colorScheme={'green'} fontSize={'x-small'} >{connects ? connects.length : 0} Connects</Badge>
-                <Badge colorScheme={'linkedin'} fontSize={'x-small'} >{participants ? participants.length : 0} Participants</Badge>
+                <Badge colorScheme={'green'} fontSize={'x-small'} >{connects ? connects.length : 0} Connect(s)</Badge>
+                <Badge colorScheme={'linkedin'} fontSize={'x-small'} >{participants ? participants.length : 0} Participant(s)</Badge>
             </HStack>
 
             <Divider my={4} />

@@ -5,7 +5,7 @@ import InfiniteScroll from 'react-infinite-scroll-component';
 import usePosts from '../../controller/hooks/usePosts';
 
 
-export default function Forum({ location, user: currentUser, forum, allowPagination, ...props }) {
+export default function Forum({ limit, location, user: currentUser, forum, allowPagination, ...props }) {
 
     const { posts, lastPost, getNextThresholdPosts } = usePosts({ location, forum })
 

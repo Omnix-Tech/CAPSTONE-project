@@ -10,6 +10,7 @@ const LOCATION_COLLECTION = 'Locations'
 const USER_LOCATION_COLLECTION = 'User_Location'
 const POST_LOCATION_COLLECTION = 'Post_Location'
 const FORUM_LOCATION_COLLECTION = 'Forum_Location'
+const ALERT_LOCATION_COLLECTION = 'AlertLocation'
 
 
 class Location {
@@ -18,7 +19,7 @@ class Location {
     }
 
     async update(data, { id, ref }) {
-        return { ... await this.locations.update({ data, id, ref }).catch(error => { throw error }) }
+        return { ... await this.db.update({ data, id, ref }).catch(error => { throw error }) }
     }
 
 
@@ -100,9 +101,51 @@ class ForumLocation {
 }
 
 
+class AlertLocation {
+    constructor() {
+        this.db = new Database(ALERT_LOCATION_COLLECTION)
+        this.locations = new Location()
+    }
+
+    async create({ alert, location_id, status, batchID }, transaction = null) {
+        const response = await this.db.create({
+            data: {
+                alert,
+                location: this.locations.getReference(location_id),
+                status,
+                batchID
+            }
+        }, transaction).catch(error => { throw error })
+
+
+        return response
+    }
+
+    async deleteBatch({ batchID }) {
+        const query = this.db.collection.where('batchID', '==', batchID)
+        query.get().then(async querySnapshot => {
+            const docs = querySnapshot.docs
+
+            for (var index = 0; index < docs.length; index++) {
+                await this.remove(docs[index].id)
+            }
+
+        }).catch(error => {
+            throw error
+        })
+    }
+
+
+    async remove(id) {
+        return await this.db.remove(id)
+    }
+}
+
+
 module.exports = {
     LocationCollection: new Location(),
     UserLocationCollection: new UserLocation(),
     PostLocationCollection: new PostLocation(),
-    ForumLocationCollection: new ForumLocation()
+    ForumLocationCollection: new ForumLocation(),
+    AlertLocationCollection: new AlertLocation()
 }

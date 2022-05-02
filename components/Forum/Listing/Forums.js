@@ -12,7 +12,7 @@ function Loading() {
 
 
 
-export function OtherForums({ forums, limit }) {
+export function OtherForums({ forums, user, limit }) {
 
 
     return (
@@ -30,7 +30,7 @@ export function OtherForums({ forums, limit }) {
                 </>
                 :
                 <>
-                    {forums.map(forum => <ForumCard key={forum.id} forum={forum} />)}
+                    {forums.map(forum => <ForumCard key={forum.id} forum={forum} currentUser={user} />)}
                     <Button my={5} isFullWidth size={'xs'} variant={'ghost'} colorScheme={'green'} >Load more</Button>
                 </>
             }
@@ -84,7 +84,7 @@ export default function Forums({ location, user, currentForum }) {
     return (
         <>
             {joinedForums ? <JoinedForums limit={limit} forums={currentForum ? joinedForums.filter(forum => forum.forum.id != currentForum) : joinedForums} user={user} location={location} /> : <Loading />}
-            {otherForums ? <OtherForums limit={limit} forums={otherForums} /> : <Loading />}
+            {otherForums ? <OtherForums limit={limit} forums={otherForums} user={user} /> : <Loading />}
         </>
     )
 }

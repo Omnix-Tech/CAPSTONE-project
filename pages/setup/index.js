@@ -75,7 +75,7 @@ function Complete({ locationId, community, uid, setCurrentStep, setIsDone, isDon
     const { registerUserLocation } = useAPIs()
 
     const handleSetUserLocation = async () => {
-        const response = await registerUserLocation({ locationId, location: community, uid }).catch(error => { alert(error.message) })
+        const response = await registerUserLocation({ locationId, uid, community }).catch(error => { alert(error.message) })
         if (response?.error) {
             alert(response.error.message)
             setCurrentStep(1)
@@ -123,7 +123,6 @@ export default function Setup({ user, locations }) {
 
     const [locationId, setlocationId] = React.useState(null)
 
-
     const handleInitialization = async () => {
         await signInWithCustomToken(token)
             .catch(error => {
@@ -147,7 +146,7 @@ export default function Setup({ user, locations }) {
 
                         {currentStep === 0 ? <CommunityNameComponent community={community} setCommunity={setCommunity} /> : <></>}
                         {currentStep === 1 ? <SelectLocation locations={locations} setlocationId={setlocationId} locationId={locationId} /> : <></>}
-                        {currentStep === 2 ? <Complete isDone={isDone} setIsDone={setIsDone} uid={user?.uid} locationId={locationId} community={community} setCurrentStep={setCurrentStep} /> : <></>}
+                        {currentStep === 2 ? <Complete community={community} isDone={isDone} setIsDone={setIsDone} uid={user?.uid} locationId={locationId} setCurrentStep={setCurrentStep} /> : <></>}
 
                         <Box w={'60%'} pt={5}>
                             {currentStep === 0 ?

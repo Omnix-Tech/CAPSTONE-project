@@ -63,14 +63,25 @@ class UserForum {
     }
 
     async create({ forum, user, status }, transaction = null) {
+        console.log(forum, user, status)
+
+
         const data = {
             forum, user: UserCollection.getReference(user), timeStamp: admin.firestore.Timestamp.now(), status
         }
         const response = await this.db.create({ data }, transaction).catch(error => { throw error })
         return response
     }
+
+    async remove(id) {
+        this.db.remove(id)
+    }
 }
 
+
+
+
 module.exports = {
-    ForumCollection: new Forum()
+    ForumCollection: new Forum(),
+    UserForumCollection: new UserForum()
 }

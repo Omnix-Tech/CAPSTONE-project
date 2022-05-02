@@ -7,6 +7,7 @@ import TimeAgo from 'javascript-time-ago';
 import en from 'javascript-time-ago/locale/en.json'
 import Forum from "..";
 import Link from "next/link";
+import useForums from "../../../controller/hooks/useForums";
 
 
 TimeAgo.addLocale(en)
@@ -14,7 +15,8 @@ const timeago = new TimeAgo('en-US')
 
 
 export default function JoinedForumCard({ forum, user, location, limit }) {
-    const [doc, loading] = useDocumentData(forum.forum)
+
+    const { forum: doc } = useForums({ forum_id: forum.forum.id })
 
 
     return (
@@ -66,12 +68,12 @@ export default function JoinedForumCard({ forum, user, location, limit }) {
                         <Accordion allowToggle>
                             <AccordionItem>
                                 <AccordionButton _focus={{outline: 'none', boxShadow: 'none'}} justifyContent={'space-between'} >
-                                    <Text color={'linkedin.900'} fontSize={'xs'} fontWeight={'medium'}>Most Recent Activities</Text>
+                                    <Text color={'linkedin.900'} fontSize={'xs'} fontWeight={'medium'}>Recent Activities</Text>
                                     <AccordionIcon />
                                 </AccordionButton>
 
                                 <AccordionPanel p={0}>
-                                    <Forum user={user} forum={forum.forum.id} allowPagination={false} contentLimit={limit} />
+                                    <Forum user={user} forum={forum.forum.id} allowPagination={false} limit={limit} />
                                 </AccordionPanel>
                             </AccordionItem>
                         </Accordion>

@@ -6,7 +6,6 @@ import UserForumCard from "../components/UserForumCard";
 
 export default function UserForums({ user, location, setSelectedContent }) {
     const { createdForums } = useForums({ user })
-    console.log(createdForums)
 
     return (
         <>
