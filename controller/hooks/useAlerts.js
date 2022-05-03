@@ -45,25 +45,21 @@ const useAlerts = (connect) => {
             const now = (new Date()).getTime()
             const refreshTimeInMLSeconds = refreshTime.getTime()
 
-            const difference =  refreshTimeInMLSeconds - (now - 3600000)
+            const difference = refreshTimeInMLSeconds - (now - 900000)
             console.log('Difference: ', difference)
-
-            setRefresh( difference <= 0)
+            setRefresh(difference <= 0)
         }
-
-
 
     }
 
-    const handleSetsetAlertLocation = () => {
-        getDocs(
-            query(
-                collection(firestore, 'AlertLocation'),
-                where('location', '==', doc(firestore, `Locations/${connect.place_id}`)),
-                where('batchID', '==', app_data.currentBatch),
-                where('status', '==', 'secondary')
-            )
+    const handleSetAlertLocation = () => {
+        const alertQuery = query(
+            collection(firestore, 'AlertLocation'),
+            where('location', '==', doc(firestore, `Locations/${connect.place_id}`)),
+            where('batchID', '==', app_data.currentBatch),
+            where('status', '==', 'secondary')
         )
+        getDocs(alertQuery)
             .then(snapshot => {
                 const docs = snapshot.docs
                 setAlertLocation(docs.map(doc => doc.data()))
@@ -73,21 +69,28 @@ const useAlerts = (connect) => {
             })
     }
 
-    const handleRefreshAlerts = () => {
-        console.log('running...')
+    const handleRefreshAlerts = async () => {
+        
 
+        if (app_data) {
+            if (app_data.isUpdating) return;
+        }
+        console.log('running...')
 
         server().post('/api/refreshAlerts', {
             currentBatch: app_data ? app_data.currentBatch : null,
             lastBatch: app_data ? app_data.lastBatch : null
         })
-            .then(response => response.data)
-            .then(data => {
+            .then(response => {
+                const { data } = response
                 if (data.error) {
                     console.log('Something went wrong: ', data.error)
                 }
+                console.log('All Done')
             })
-            .catch(error => { })
+            .catch(error => {
+                console.log('Something went wrong: ', error.message)
+            })
     }
 
     const handleSetAlerts = async () => {
@@ -95,7 +98,6 @@ const useAlerts = (connect) => {
         for (var index = 0; index < alertLocation.length; index++) {
             const snapshot = await getDoc(alertLocation[index].alert)
                 .catch(error => console.log(error))
-
             docs.push(snapshot.data())
         }
 
@@ -115,7 +117,7 @@ const useAlerts = (connect) => {
 
 
     React.useEffect(() => {
-        if (app_data && connect) handleSetsetAlertLocation()
+        if (app_data && connect) handleSetAlertLocation()
     }, [app_data, connect])
 
 
@@ -126,7 +128,7 @@ const useAlerts = (connect) => {
 
     React.useEffect(() => {
         console.log(refresh)
-        if (refresh) handleRefreshAlerts()
+        if (refresh && app_data) handleRefreshAlerts()
     }, [refresh])
 
     return { alerts }

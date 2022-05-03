@@ -64,7 +64,13 @@ const getDate = (element) => {
 const verifyArticle = (element, timeLimit) => {
     const date = getDate(element)
     const publishDate = date ? date.getTime() : null
-    if (publishDate) return publishDate < timeLimit
+
+    if (publishDate) {
+        const difference = publishDate - timeLimit
+        console.log(publishDate, timeLimit, difference, difference <= 0)
+
+        return difference <= 0
+    }
     return true
 }
 
@@ -110,7 +116,7 @@ const getArticles = async (html, origin, timeLimit) => {
 module.exports = {
     handler: async (limit = 1) => {
         const hr = limit * 3600000
-        const timeLimit = + new Date() - (24 * hr)
+        const timeLimit = (new Date()).getTime() - hr
 
         const { html, origin } = await getHTML(SOURCE_URL).catch(error => console.log(error))
         var { articles, isComplete } = await getArticles(html, origin, timeLimit).catch(err => console.log('Error Occured here: ', err))

@@ -31,8 +31,8 @@ export default function AlertModal({ isOpen, onClose, modalRef, alert }) {
                     <ModalBody>
                         <Grid templateColumns={'repeat(12,1fr)'} >
 
-                            <GridItem colSpan={{ base: 12, md: 12 }}>
-                                <Image src={alert.media} objectFit={'contain'} />
+                            <GridItem display={'flex'} justifyContent={'center'} colSpan={{ base: 12, md: 12 }}>
+                                <Image maxH={'50vh'} src={alert.media} objectPosition={'contain'} />
                             </GridItem>
 
                             <GridItem colSpan={{ base: 12, md: 12 }}>
@@ -53,7 +53,7 @@ export default function AlertModal({ isOpen, onClose, modalRef, alert }) {
                     </ModalBody>
 
                     <ModalFooter justifyContent={'end'}>
-                        <Button variant={'ghost'} colorScheme={'green'}>Learn More</Button>
+                        { alert.link ? <Button as={'a'} href={alert.source.includes('Loop') ? alert.origin + alert.link : alert.link } target={'_blank'} variant={'ghost'} colorScheme={'green'}>Learn More</Button> : <></> }
                     </ModalFooter>
                 </ModalContent>
             </Modal>

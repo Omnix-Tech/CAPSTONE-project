@@ -1,7 +1,7 @@
 const observer = require('./observer.news').handler
 const loop = require('./loop.news').handler
-
-
+const jcf = require('./jcf.news').handler
+const jps = require('./jps').handler
 
 
 module.exports = {
@@ -23,7 +23,23 @@ module.exports = {
 
         all_articles = [...all_articles, ... (articles ? articles : [])]
 
+        articles = null
+        articles = await jcf(limit)
+            .catch(error => {
+                console.log('JCF ERROR:: ', error)
+            })
 
+        all_articles = [...all_articles, ... (articles ? articles : [])]
+
+        articles = null
+        articles = await jps()
+            .catch(error => {
+                console.log('JPS ERROR:: ', error)
+            })
+
+        all_articles = [...all_articles, ... (articles ? articles : [])]
+
+        
         return all_articles
     }
 }

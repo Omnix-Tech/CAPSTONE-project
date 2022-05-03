@@ -4,8 +4,6 @@ import { doc, getDoc } from "firebase/firestore";
 
 
 import React from 'react'
-import { useDocumentData } from "react-firebase-hooks/firestore";
-import { firestore } from "../../app/config/firebase.config";
 import AlertModal from "./AlertModal";
 
 
@@ -72,7 +70,7 @@ export default function AlertCard({ alert }) {
     return (
         <>
             <AlertModal isOpen={isOpen} onClose={onClose} modalRef={modalRef} alert={alert} />
-            <Box _hover={{ cursor: 'pointer' }} onClick={onOpen} ref={modalRef} {...styles.background(alert.media)} >
+            <Box h={'full'} _hover={{ cursor: 'pointer' }} onClick={onOpen} ref={modalRef} {...styles.background(alert.media)} >
                 <Box h={'full'} {...styles.card}>
                     <Heading {...styles.heading} >{alert.title}</Heading>
 
@@ -89,7 +87,7 @@ export default function AlertCard({ alert }) {
 
 
                     <HStack justifyContent={'right'}>
-                        <Button as={'a'} href={alert.link} {...styles.button} >Learn more</Button>
+                        { alert.link ? <Button as={'a'} target="_blank" href={ alert.source.includes('Loop') ? alert.origin + alert.link : alert.link } {...styles.button} >Learn more</Button> : <></> }
                     </HStack>
                 </Box>
             </Box>

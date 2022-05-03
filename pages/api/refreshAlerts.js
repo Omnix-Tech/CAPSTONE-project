@@ -13,6 +13,17 @@ export default async function handler(req, res) {
 
     try {
 
+        if (await AppData.exist()) {
+            await AppData.update({
+                data: {
+                    isUpdating: true
+                }
+            }).catch(error => { throw error })
+        } else {
+            await AppData.create({ currentBatch: '', isUpdating: true })
+                .catch(error => { throw error })
+        }
+
         // Computation Start
 
         if (lastBatch) {
@@ -27,40 +38,32 @@ export default async function handler(req, res) {
             await AlertsCollection.create({
                 data: { batchID: presentBatch, ...alerts[alertIndex] }
             }).catch(error => { throw error })
+
+
         }
 
         if (currentBatch) {
-            if (await AppData.exist()) {
-
-                await AppData.update({
+            await AppData.update({
+                data: {
                     lastBatch: currentBatch,
-                    currentBatch: presentBatch
-                }).catch(error => { throw error })
-
-            } else {
-
-                await AppData.create({ currentBatch: presentBatch })
-                    .catch(error => { throw error })
-
-            }
+                    currentBatch: presentBatch,
+                    isUpdating: false
+                },
+                setRefreshTime: true
+            }).catch(error => { throw error })
 
         } else {
-            if (await AppData.exist()) {
-
-                await AppData.update({
+            await AppData.update({
+                data: {
                     lastBatch: '',
-                    currentBatch: presentBatch
-                }).catch(error => { throw error })
-
-            } else {
-
-                await AppData.create({ currentBatch: presentBatch })
-                    .catch(error => { throw error })
-
-            }
-
+                    currentBatch: presentBatch,
+                    isUpdating: false
+                },
+                setRefreshTime: true
+            }).catch(error => { throw error })
         }
 
+        console.log('---Done')
         res.status(200).json({ presentBatch })
 
     } catch (error) {

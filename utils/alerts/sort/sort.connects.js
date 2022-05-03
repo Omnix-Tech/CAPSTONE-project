@@ -5,7 +5,9 @@ const locations = require('../../locations/locations.json')
 
 const searchArticle = ( keywords, article ) => {
     const results = keywords.map( keyword => {
-        return article.search( keyword.toUpperCase() ) !== -1
+        const word = keyword.toUpperCase().replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g, "")
+        console.log(word)
+        return article.search( word ) !== -1
     })
 
     return results.includes(true)
@@ -13,7 +15,7 @@ const searchArticle = ( keywords, article ) => {
 
 const sortConnects = ( articles ) => {
     const alerts = articles.map( article => {
-        const content = article.content.toUpperCase()
+        const content = article.content.toUpperCase().replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g, "")
         article['connects'] = {
             primary : [],
             secondary: []
