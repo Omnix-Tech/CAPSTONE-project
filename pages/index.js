@@ -64,25 +64,17 @@ export default function Home({ user }) {
 
             <Box mt={5} boxShadow={'0px 0px 10px 0px rgba(0,0,0,0.14)'} bgColor={'white'}>
               <Grid templateColumns={'repeat(12,1fr)'}>
-                <GridItem py={2} colSpan={{ base: 4, lg: 4 }} >
+                <GridItem py={2} colSpan={{ base: 6, lg: 6 }} >
                   <Tooltip label={'Forums'}>
                     <HStack onClick={() => setSelectedContent(0)} color={selectedContent === 0 ? 'green.500' : 'teal.500'} {...ButtonStyle}>
                       <FeatherIcon icon={'users'} />
                     </HStack>
                   </Tooltip>
                 </GridItem>
-                <GridItem py={2} colSpan={{ base: 4, lg: 4 }} >
+                <GridItem py={2} colSpan={{ base: 6, lg: 6 }} >
                   <Tooltip label={'Your Forums'}>
                     <HStack onClick={() => setSelectedContent(1)} color={selectedContent === 1 ? 'green.500' : 'teal.500'} {...ButtonStyle}>
                       <FeatherIcon icon={'message-circle'} />
-                    </HStack>
-                  </Tooltip>
-                </GridItem>
-                <GridItem py={2} colSpan={{ base: 4, lg: 4 }} >
-
-                  <Tooltip label={'Alerts'}>
-                    <HStack onClick={() => setSelectedContent(2)} color={selectedContent === 2 ? 'green.500' : 'teal.500'} {...ButtonStyle}>
-                      <FeatherIcon icon={'airplay'} />
                     </HStack>
                   </Tooltip>
                 </GridItem>
