@@ -31,7 +31,7 @@ export default async function handler(req, res) {
 
         if (currentBatch) {
             if (await AppData.exist()) {
-                
+
                 await AppData.update({
                     lastBatch: currentBatch,
                     currentBatch: presentBatch
@@ -46,7 +46,7 @@ export default async function handler(req, res) {
 
         } else {
             if (await AppData.exist()) {
-                
+
                 await AppData.update({
                     lastBatch: '',
                     currentBatch: presentBatch

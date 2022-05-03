@@ -108,6 +108,7 @@ class AlertLocation {
     }
 
     async create({ alert, location_id, status, batchID }, transaction = null) {
+        console.log('Batch ID#: ', batchID) 
         const response = await this.db.create({
             data: {
                 alert,
@@ -115,7 +116,10 @@ class AlertLocation {
                 status,
                 batchID
             }
-        }, transaction).catch(error => { throw error })
+        }, transaction).catch(error => {
+            console.log('ERROR Batch ID#: ', batchID) 
+            throw error 
+        })
 
 
         return response
@@ -131,6 +135,7 @@ class AlertLocation {
             }
 
         }).catch(error => {
+            
             throw error
         })
     }

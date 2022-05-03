@@ -93,7 +93,7 @@ export default function Layout({ currentTab, children, user }) {
           </Box>
 
           <Box>
-            <IconButton color={currentTab === 'alerts' ? 'teal.400' : 'unset'} variant={'ghost'} icon={<FeatherIcon icon={'airplay'} />} />
+            <IconButton color={currentTab === 'alerts' ? 'teal.400' : 'unset'} variant={'ghost'} icon={<FeatherIcon icon={'alert-circle'} />} />
           </Box>
 
           <Box>

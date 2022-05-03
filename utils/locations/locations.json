@@ -22,7 +22,8 @@
     ],
     "address": "Norman Gardens, Kingston, Jamaica",
     "place_id": "ChIJ3fs2GWg_244R3sq8qdXerxQ",
-    "location": { "lat": 17.9797019, "lng": -76.7581794 }
+    "location": { "lat": 17.9797019, "lng": -76.7581794 },
+    "keywords": { "primary": ["Norman Gardens"], "secondary": ["KINGSTON"] }
   },
   {
     "area": "Rose Hall",
@@ -47,7 +48,11 @@
     ],
     "address": "Rose Hall Road, Montego Bay, Jamaica",
     "place_id": "ChIJL2dFYaMu2o4RTqiY7RidEns",
-    "location": { "lat": 18.5163517, "lng": -77.818874 }
+    "location": { "lat": 18.5163517, "lng": -77.818874 },
+    "keywords": {
+      "primary": ["Rose Hall", "Montego Bay"],
+      "secondary": ["ST. JAMES"]
+    }
   },
   {
     "area": "Montego Bay",
@@ -112,7 +117,8 @@
     ],
     "address": "Montego Bay, Jamaica",
     "place_id": "ChIJseJ3_V0q2o4RZlfMWtua1vw",
-    "location": { "lat": 18.4762228, "lng": -77.8938895 }
+    "location": { "lat": 18.4762228, "lng": -77.8938895 },
+    "keywords": { "primary": ["Montego Bay"], "secondary": ["ST. JAMES"] }
   },
   {
     "area": "Llandewey",
@@ -129,7 +135,8 @@
     ],
     "address": "Llandewey, Jamaica",
     "place_id": "ChIJzwubfNg3244R10qmN-gAbM0",
-    "location": { "lat": 17.9621167, "lng": -76.6094997 }
+    "location": { "lat": 17.9621167, "lng": -76.6094997 },
+    "keywords": { "primary": ["Llandewey"], "secondary": ["ST. THOMAS"] }
   },
   {
     "area": "Dalvey",
@@ -154,7 +161,11 @@
     ],
     "address": "WQ52+WWP, Golden Grove, Jamaica",
     "place_id": "ChIJtw1EBkC4xI4RJOWXWiXwHuk",
-    "location": { "lat": 17.9098286, "lng": -76.2476863 }
+    "location": { "lat": 17.9098286, "lng": -76.2476863 },
+    "keywords": {
+      "primary": ["Dalvey", "Golden Grove"],
+      "secondary": ["ST. THOMAS"]
+    }
   },
   {
     "area": "Yallahs",
@@ -179,7 +190,8 @@
     ],
     "address": "Yallahs, Jamaica",
     "place_id": "ChIJbUgRfjdJ244RPdsSNTeEQjw",
-    "location": { "lat": 17.8768385, "lng": -76.5517132 }
+    "location": { "lat": 17.8768385, "lng": -76.5517132 },
+    "keywords": { "primary": ["Yallahs"], "secondary": ["ST. THOMAS"] }
   },
   {
     "area": "York Town",
@@ -204,7 +216,8 @@
     ],
     "address": "York Town, Jamaica",
     "place_id": "ChIJ6ecYJFuZ244RlMwD0rr7Ky0",
-    "location": { "lat": 17.9246291, "lng": -77.2979782 }
+    "location": { "lat": 17.9246291, "lng": -77.2979782 },
+    "keywords": { "primary": ["York Town"], "secondary": ["CLARENDON"] }
   },
   {
     "area": "May Pen",
@@ -237,7 +250,8 @@
     ],
     "address": "May Pen, Jamaica",
     "place_id": "ChIJOaRAXwif244RltGBb1z4kBM",
-    "location": { "lat": 17.9646325, "lng": -77.2433891 }
+    "location": { "lat": 17.9646325, "lng": -77.2433891 },
+    "keywords": { "primary": ["May Pen"], "secondary": ["CLARENDON"] }
   },
   {
     "area": "Portmore City Municipality",
@@ -254,7 +268,11 @@
     ],
     "address": "Portmore, Jamaica",
     "place_id": "ChIJh142zDtr244RtrOfBl5TN3o",
-    "location": { "lat": 17.9611269, "lng": -76.88939069999999 }
+    "location": { "lat": 17.9611269, "lng": -76.88939069999999 },
+    "keywords": {
+      "primary": ["Portmore City Municipality", "Portmore"],
+      "secondary": ["ST. CATHERINE"]
+    }
   },
   {
     "area": "Homestead",
@@ -279,7 +297,11 @@
     ],
     "address": "Homestead, Spanish Town, Jamaica",
     "place_id": "ChIJ21hrTNAS244Rb4Mrh4KDClU",
-    "location": { "lat": 17.9937435, "lng": -76.9736672 }
+    "location": { "lat": 17.9937435, "lng": -76.9736672 },
+    "keywords": {
+      "primary": ["Homestead", "Spanish Town"],
+      "secondary": ["ST. CATHERINE"]
+    }
   },
   {
     "area": "Sheffield",
@@ -296,7 +318,11 @@
     ],
     "address": "7MHW+25M, Negril, Jamaica",
     "place_id": "ChIJkXCG1UcN2Y4RV49kCQkXD2M",
-    "location": { "lat": 18.2775801, "lng": -78.30457679999999 }
+    "location": { "lat": 18.2775801, "lng": -78.30457679999999 },
+    "keywords": {
+      "primary": ["Sheffield", "Negril"],
+      "secondary": ["WESTMORELAND"]
+    }
   },
   {
     "area": "Negril",
@@ -313,7 +339,8 @@
     ],
     "address": "Negril, Jamaica",
     "place_id": "ChIJhSwwEoUN2Y4RE1k13jbxwHs",
-    "location": { "lat": 18.2683058, "lng": -78.3472424 }
+    "location": { "lat": 18.2683058, "lng": -78.3472424 },
+    "keywords": { "primary": ["Negril"], "secondary": ["WESTMORELAND"] }
   },
   {
     "area": "Little London",
@@ -330,7 +357,8 @@
     ],
     "address": "Little London, Jamaica",
     "place_id": "ChIJIRb-Cfxt2Y4RBqbz2V4GYEI",
-    "location": { "lat": 18.24402, "lng": -78.20773299999999 }
+    "location": { "lat": 18.24402, "lng": -78.20773299999999 },
+    "keywords": { "primary": ["Little London"], "secondary": ["WESTMORELAND"] }
   },
   {
     "area": "Grange Hill",
@@ -347,7 +375,8 @@
     ],
     "address": "Grange Hill, Jamaica",
     "place_id": "ChIJ-3B1kmtx2Y4RNtHobvSNB3M",
-    "location": { "lat": 18.3109894, "lng": -78.18779219999999 }
+    "location": { "lat": 18.3109894, "lng": -78.18779219999999 },
+    "keywords": { "primary": ["Grange Hill"], "secondary": ["WESTMORELAND"] }
   },
   {
     "area": "Friendship",
@@ -364,7 +393,8 @@
     ],
     "address": "Westmoreland Parish, Jamaica",
     "place_id": "ChIJfWSP0I5t2Y4ReL6eOyyzkvk",
-    "location": { "lat": 18.2944378, "lng": -78.1564432 }
+    "location": { "lat": 18.2944378, "lng": -78.1564432 },
+    "keywords": { "primary": ["Friendship"], "secondary": ["WESTMORELAND"] }
   },
   {
     "area": "Whitehouse",
@@ -381,7 +411,11 @@
     ],
     "address": "White House, Jamaica",
     "place_id": "ChIJQ0p2p1Rg2Y4RfcGH5BQPP3I",
-    "location": { "lat": 18.0943972, "lng": -77.9667267 }
+    "location": { "lat": 18.0943972, "lng": -77.9667267 },
+    "keywords": {
+      "primary": ["Whitehouse", "White House"],
+      "secondary": ["WESTMORELAND"]
+    }
   },
   {
     "area": "Darliston",
@@ -398,7 +432,8 @@
     ],
     "address": "Darliston, Jamaica",
     "place_id": "ChIJp_rY2ipj2Y4REsKtFEyewEM",
-    "location": { "lat": 18.2349018, "lng": -77.9752926 }
+    "location": { "lat": 18.2349018, "lng": -77.9752926 },
+    "keywords": { "primary": ["Darliston"], "secondary": ["WESTMORELAND"] }
   },
   {
     "area": "Bethel Town",
@@ -415,7 +450,8 @@
     ],
     "address": "Bethel Town, Jamaica",
     "place_id": "ChIJq3Vger192Y4R6vxIkqNMaoE",
-    "location": { "lat": 18.2955723, "lng": -77.9516462 }
+    "location": { "lat": 18.2955723, "lng": -77.9516462 },
+    "keywords": { "primary": ["Bethel Town"], "secondary": ["WESTMORELAND"] }
   },
   {
     "area": "Savanna-la-Mar",
@@ -440,7 +476,11 @@
     ],
     "address": "Savanna la Mar, Jamaica",
     "place_id": "ChIJFRwjH9tv2Y4R9fGrIie4704",
-    "location": { "lat": 18.2291677, "lng": -78.1393397 }
+    "location": { "lat": 18.2291677, "lng": -78.1393397 },
+    "keywords": {
+      "primary": ["Savanna-la-Mar", "Savanna la Mar"],
+      "secondary": ["WESTMORELAND"]
+    }
   },
   {
     "area": "Petersfield",
@@ -457,7 +497,8 @@
     ],
     "address": "Petersfield, Jamaica",
     "place_id": "ChIJDZ6TINx62Y4R2bmP6sEXZGM",
-    "location": { "lat": 18.2616156, "lng": -78.0712516 }
+    "location": { "lat": 18.2616156, "lng": -78.0712516 },
+    "keywords": { "primary": ["Petersfield"], "secondary": ["WESTMORELAND"] }
   },
   {
     "area": "Leamington",
@@ -474,7 +515,8 @@
     ],
     "address": "Leamington, Jamaica",
     "place_id": "ChIJLTfRwpti2Y4RF46K55fgwhM",
-    "location": { "lat": 18.2032053, "lng": -77.9353127 }
+    "location": { "lat": 18.2032053, "lng": -77.9353127 },
+    "keywords": { "primary": ["Leamington"], "secondary": ["WESTMORELAND"] }
   },
   {
     "area": "Frome",
@@ -491,7 +533,8 @@
     ],
     "address": "Frome, Jamaica",
     "place_id": "ChIJeXIG5lVw2Y4Rje9ud9fGUPs",
-    "location": { "lat": 18.2927112, "lng": -78.1521676 }
+    "location": { "lat": 18.2927112, "lng": -78.1521676 },
+    "keywords": { "primary": ["Frome"], "secondary": ["WESTMORELAND"] }
   },
   {
     "area": "Cornwall Mountain",
@@ -508,7 +551,11 @@
     ],
     "address": "Cornwall Mountain Rd, Jamaica",
     "place_id": "ChIJGSGqI_982Y4R5NmBeRS8Afg",
-    "location": { "lat": 18.2914145, "lng": -77.9888917 }
+    "location": { "lat": 18.2914145, "lng": -77.9888917 },
+    "keywords": {
+      "primary": ["Cornwall Mountain"],
+      "secondary": ["WESTMORELAND"]
+    }
   },
   {
     "area": "Warsop",
@@ -523,9 +570,10 @@
         "party": "JLP"
       }
     ],
-    "address": "Warsop, Trelawney, Jamaica",
+    "address": "Warsop, Trelawny, Jamaica",
     "place_id": "ChIJVVQ14c_J244RUXNaQKn3DQ8",
-    "location": { "lat": 18.267604, "lng": -77.5737215 }
+    "location": { "lat": 18.267604, "lng": -77.5737215 },
+    "keywords": { "primary": ["Warsop"], "secondary": ["TRELAWNY"] }
   },
   {
     "area": "Ulster Spring",
@@ -542,7 +590,8 @@
     ],
     "address": "Ulster Spring, Jamaica",
     "place_id": "ChIJO3YVsNG1244RD21NIKMXJeo",
-    "location": { "lat": 18.3092599, "lng": -77.52467949999999 }
+    "location": { "lat": 18.3092599, "lng": -77.52467949999999 },
+    "keywords": { "primary": ["Ulster Spring"], "secondary": ["TRELAWNY"] }
   },
   {
     "area": "Lorrimers",
@@ -559,7 +608,8 @@
     ],
     "address": "Lorrimers, Jamaica",
     "place_id": "ChIJFV3bw0O3244Rz2f56Q4uNyg",
-    "location": { "lat": 18.2209618, "lng": -77.4888388 }
+    "location": { "lat": 18.2209618, "lng": -77.4888388 },
+    "keywords": { "primary": ["Lorrimers"], "secondary": ["TRELAWNY"] }
   },
   {
     "area": "Albert Town",
@@ -576,7 +626,8 @@
     ],
     "address": "Albert Town, Jamaica",
     "place_id": "ChIJfWUOChK2244RloyaptOSUrI",
-    "location": { "lat": 18.2929119, "lng": -77.5418791 }
+    "location": { "lat": 18.2929119, "lng": -77.5418791 },
+    "keywords": { "primary": ["Albert Town"], "secondary": ["TRELAWNY"] }
   },
   {
     "area": "Wakefield",
@@ -593,7 +644,8 @@
     ],
     "address": "Wakefield, Jamaica",
     "place_id": "ChIJu4MYGLYy2o4ROKdDNBptOF0",
-    "location": { "lat": 18.416479, "lng": -77.723747 }
+    "location": { "lat": 18.416479, "lng": -77.723747 },
+    "keywords": { "primary": ["Wakefield"], "secondary": ["TRELAWNY"] }
   },
   {
     "area": "Sherwood Content",
@@ -610,7 +662,8 @@
     ],
     "address": "Sherwood Content, Jamaica",
     "place_id": "ChIJteBHETfL244RBkUHzOqWWhs",
-    "location": { "lat": 18.3907938, "lng": -77.62701799999999 }
+    "location": { "lat": 18.3907938, "lng": -77.62701799999999 },
+    "keywords": { "primary": ["Sherwood Content"], "secondary": ["TRELAWNY"] }
   },
   {
     "area": "Martha Brae",
@@ -627,7 +680,8 @@
     ],
     "address": "Martha Brae, Jamaica",
     "place_id": "ChIJhbQQpIwz2o4RVFMtcYDpf_k",
-    "location": { "lat": 18.4704799, "lng": -77.6600552 }
+    "location": { "lat": 18.4704799, "lng": -77.6600552 },
+    "keywords": { "primary": ["Martha Brae"], "secondary": ["TRELAWNY"] }
   },
   {
     "area": "Falmouth",
@@ -644,7 +698,8 @@
     ],
     "address": "Falmouth, Jamaica",
     "place_id": "ChIJa6vPw_gz2o4RNiV9z_h1cZQ",
-    "location": { "lat": 18.4928457, "lng": -77.656476 }
+    "location": { "lat": 18.4928457, "lng": -77.656476 },
+    "keywords": { "primary": ["Falmouth"], "secondary": ["TRELAWNY"] }
   },
   {
     "area": "Duncans",
@@ -661,7 +716,8 @@
     ],
     "address": "Duncans, Jamaica",
     "place_id": "ChIJde_4gxVK2o4RY8sc4LVyQdY",
-    "location": { "lat": 18.4691383, "lng": -77.5404459 }
+    "location": { "lat": 18.4691383, "lng": -77.5404459 },
+    "keywords": { "primary": ["Duncans"], "secondary": ["TRELAWNY"] }
   },
   {
     "area": "White Horses",
@@ -678,7 +734,8 @@
     ],
     "address": "White Horses, Jamaica",
     "place_id": "ChIJKfSUcsq0xI4RahwBEzVTwbc",
-    "location": { "lat": 17.881546, "lng": -76.4534165 }
+    "location": { "lat": 17.881546, "lng": -76.4534165 },
+    "keywords": { "primary": ["White Horses"], "secondary": ["ST. THOMAS"] }
   },
   {
     "area": "Trinityville",
@@ -695,7 +752,11 @@
     ],
     "address": "Trinity Ville, Jamaica",
     "place_id": "ChIJbRP8gI41244RvrvBgpK0qts",
-    "location": { "lat": 17.9618459, "lng": -76.5228101 }
+    "location": { "lat": 17.9618459, "lng": -76.5228101 },
+    "keywords": {
+      "primary": ["Trinityville", "Trinity Ville"],
+      "secondary": ["ST. THOMAS"]
+    }
   },
   {
     "area": "Seaforth",
@@ -712,7 +773,8 @@
     ],
     "address": "Seaforth, Jamaica",
     "place_id": "ChIJVf_SxKpK244R0_zhdQH1hyc",
-    "location": { "lat": 17.9453521, "lng": -76.4534165 }
+    "location": { "lat": 17.9453521, "lng": -76.4534165 },
+    "keywords": { "primary": ["Seaforth"], "secondary": ["ST. THOMAS"] }
   },
   {
     "area": "Cedar Valley",
@@ -729,7 +791,8 @@
     ],
     "address": "Cedar Valley, Jamaica",
     "place_id": "ChIJhVXAx082244RLP3OLwNjGRk",
-    "location": { "lat": 17.9910194, "lng": -76.5855861 }
+    "location": { "lat": 17.9910194, "lng": -76.5855861 },
+    "keywords": { "primary": ["Cedar Valley"], "secondary": ["ST. THOMAS"] }
   },
   {
     "area": "Port Morant",
@@ -746,7 +809,8 @@
     ],
     "address": "Port Morant, Jamaica",
     "place_id": "ChIJNbJCife2xI4RD-0f5-NqwUU",
-    "location": { "lat": 17.8961425, "lng": -76.33188899999999 }
+    "location": { "lat": 17.8961425, "lng": -76.33188899999999 },
+    "keywords": { "primary": ["Port Morant"], "secondary": ["ST. THOMAS"] }
   },
   {
     "area": "Morant Bay",
@@ -763,7 +827,8 @@
     ],
     "address": "Morant Bay, Jamaica",
     "place_id": "ChIJPVplbEa0xI4R0WnB927lG7Q",
-    "location": { "lat": 17.8886522, "lng": -76.3897733 }
+    "location": { "lat": 17.8886522, "lng": -76.3897733 },
+    "keywords": { "primary": ["Morant Bay"], "secondary": ["ST. THOMAS"] }
   },
   {
     "area": "Bath",
@@ -780,7 +845,8 @@
     ],
     "address": "Bath, Jamaica",
     "place_id": "ChIJM8-bifDJxI4RVvemLntux8M",
-    "location": { "lat": 17.9557781, "lng": -76.35504569999999 }
+    "location": { "lat": 17.9557781, "lng": -76.35504569999999 },
+    "keywords": { "primary": ["Bath"], "secondary": ["ST. THOMAS"] }
   },
   {
     "area": "Retreat",
@@ -797,7 +863,11 @@
     ],
     "address": "Retreat, Tower Isle, Jamaica",
     "place_id": "ChIJj4tepTz92o4Rvn9bUxwOn5M",
-    "location": { "lat": 18.3944305, "lng": -77.0283798 }
+    "location": { "lat": 18.3944305, "lng": -77.0283798 },
+    "keywords": {
+      "primary": ["Retreat", "Tower Isle"],
+      "secondary": ["ST. MARY"]
+    }
   },
   {
     "area": "Oracabessa",
@@ -814,7 +884,8 @@
     ],
     "address": "Oracabessa, Jamaica",
     "place_id": "ChIJ5eGtusrj2o4RZciLJvwZykA",
-    "location": { "lat": 18.4034755, "lng": -76.938379 }
+    "location": { "lat": 18.4034755, "lng": -76.938379 },
+    "keywords": { "primary": ["Oracabessa"], "secondary": ["ST. MARY"] }
   },
   {
     "area": "Gayle",
@@ -831,7 +902,8 @@
     ],
     "address": "Gayle, Jamaica",
     "place_id": "ChIJizKiIjId244R0hzmCUdGuhg",
-    "location": { "lat": 18.3267954, "lng": -77.0075055 }
+    "location": { "lat": 18.3267954, "lng": -77.0075055 },
+    "keywords": { "primary": ["Gayle"], "secondary": ["ST. MARY"] }
   },
   {
     "area": "Carron Hall",
@@ -848,7 +920,8 @@
     ],
     "address": "Carron Hall Main Rd, Jamaica",
     "place_id": "ChIJK0J38G0c244RgfvQwdNtz9k",
-    "location": { "lat": 18.2736331, "lng": -76.9457531 }
+    "location": { "lat": 18.2736331, "lng": -76.9457531 },
+    "keywords": { "primary": ["Carron Hall"], "secondary": ["ST. MARY"] }
   },
   {
     "area": "Boscobel",
@@ -865,7 +938,8 @@
     ],
     "address": "Boscobel, Jamaica",
     "place_id": "ChIJd6_1R_7i2o4RKY0nDMFp8yI",
-    "location": { "lat": 18.399656, "lng": -76.9671865 }
+    "location": { "lat": 18.399656, "lng": -76.9671865 },
+    "keywords": { "primary": ["Boscobel"], "secondary": ["ST. MARY"] }
   },
   {
     "area": "Belfield",
@@ -882,7 +956,8 @@
     ],
     "address": "St. Mary Parish, Jamaica",
     "place_id": "ChIJ-51miJTh2o4RjUo8l1lKaRw",
-    "location": { "lat": 18.3092711, "lng": -76.964306 }
+    "location": { "lat": 18.3092711, "lng": -76.964306 },
+    "keywords": { "primary": ["Belfield"], "secondary": ["ST. MARY"] }
   },
   {
     "area": "Richmond",
@@ -899,7 +974,8 @@
     ],
     "address": "Richmond, Jamaica",
     "place_id": "ChIJjSUR2jIZ244R3RnWDUMFO1M",
-    "location": { "lat": 18.2544504, "lng": -76.88650849999999 }
+    "location": { "lat": 18.2544504, "lng": -76.88650849999999 },
+    "keywords": { "primary": ["Richmond"], "secondary": ["ST. MARY"] }
   },
   {
     "area": "Castleton",
@@ -916,7 +992,8 @@
     ],
     "address": "Castleton, Jamaica",
     "place_id": "ChIJKz8c9oEi244RmqYD7Q6iksY",
-    "location": { "lat": 18.2015068, "lng": -76.8252443 }
+    "location": { "lat": 18.2015068, "lng": -76.8252443 },
+    "keywords": { "primary": ["Castleton"], "secondary": ["ST. MARY"] }
   },
   {
     "area": "Annotto Bay",
@@ -933,7 +1010,8 @@
     ],
     "address": "Annotto Bay, Jamaica",
     "place_id": "ChIJZ11wdG8h244RzegS04CJuMc",
-    "location": { "lat": 18.2703512, "lng": -76.7704413 }
+    "location": { "lat": 18.2703512, "lng": -76.7704413 },
+    "keywords": { "primary": ["Annotto Bay"], "secondary": ["ST. MARY"] }
   },
   {
     "area": "Port Maria",
@@ -950,7 +1028,8 @@
     ],
     "address": "Port Maria, Jamaica",
     "place_id": "ChIJ-51miJTh2o4R8vPghd2EoHc",
-    "location": { "lat": 18.3653596, "lng": -76.8922729 }
+    "location": { "lat": 18.3653596, "lng": -76.8922729 },
+    "keywords": { "primary": ["Port Maria"], "secondary": ["ST. MARY"] }
   },
   {
     "area": "Islington",
@@ -967,7 +1046,8 @@
     ],
     "address": "Islington, Jamaica",
     "place_id": "ChIJb4lcnaUf244RqY5jEeUJsdc",
-    "location": { "lat": 18.3107128, "lng": -76.8597727 }
+    "location": { "lat": 18.3107128, "lng": -76.8597727 },
+    "keywords": { "primary": ["Islington"], "secondary": ["ST. MARY"] }
   },
   {
     "area": "Highgate",
@@ -984,7 +1064,8 @@
     ],
     "address": "Highgate, Jamaica",
     "place_id": "ChIJZYZtscce244RomtVPsgF_yg",
-    "location": { "lat": 18.2722961, "lng": -76.8922729 }
+    "location": { "lat": 18.2722961, "lng": -76.8922729 },
+    "keywords": { "primary": ["Highgate"], "secondary": ["ST. MARY"] }
   },
   {
     "area": "Hampstead",
@@ -1001,7 +1082,11 @@
     ],
     "address": "835M+MC7, Whitehall, Jamaica",
     "place_id": "ChIJi7Y17wcf244RiiETKKYGB0k",
-    "location": { "lat": 18.3091599, "lng": -76.91644339999999 }
+    "location": { "lat": 18.3091599, "lng": -76.91644339999999 },
+    "keywords": {
+      "primary": ["Hampstead", "Whitehall"],
+      "secondary": ["ST. MARY"]
+    }
   },
   {
     "area": "Spring Garden",
@@ -1018,7 +1103,11 @@
     ],
     "address": "Spring Garden, 13 St Peters Ave, Montego Bay, Jamaica",
     "place_id": "ChIJKf7g2z4r2o4RGTJQKdTCfX0",
-    "location": { "lat": 18.4865818, "lng": -77.9111175 }
+    "location": { "lat": 18.4865818, "lng": -77.9111175 },
+    "keywords": {
+      "primary": ["Spring Garden", "13 St Peters Ave", "Montego Bay"],
+      "secondary": ["ST. JAMES"]
+    }
   },
   {
     "area": "Mount Salem",
@@ -1035,7 +1124,11 @@
     ],
     "address": "Mount Salem, Montego Bay, Jamaica",
     "place_id": "ChIJSW71T2Aq2o4RiVa2K3J6zIY",
-    "location": { "lat": 18.4668374, "lng": -77.9067467 }
+    "location": { "lat": 18.4668374, "lng": -77.9067467 },
+    "keywords": {
+      "primary": ["Mount Salem", "Montego Bay"],
+      "secondary": ["ST. JAMES"]
+    }
   },
   {
     "area": "Granville",
@@ -1052,7 +1145,11 @@
     ],
     "address": "Granville, Montego Bay, Jamaica",
     "place_id": "ChIJ8ZmEcekq2o4R4MAtt4avRCA",
-    "location": { "lat": 18.4458592, "lng": -77.8981754 }
+    "location": { "lat": 18.4458592, "lng": -77.8981754 },
+    "keywords": {
+      "primary": ["Granville", "Montego Bay"],
+      "secondary": ["ST. JAMES"]
+    }
   },
   {
     "area": "Welcome Hall",
@@ -1069,7 +1166,8 @@
     ],
     "address": "Welcome Hall, Jamaica",
     "place_id": "ChIJPwCsl4XU244Rmo6-jjo0KXI",
-    "location": { "lat": 18.3760256, "lng": -77.8468895 }
+    "location": { "lat": 18.3760256, "lng": -77.8468895 },
+    "keywords": { "primary": ["Welcome Hall"], "secondary": ["ST. JAMES"] }
   },
   {
     "area": "Maroon Town",
@@ -1086,7 +1184,8 @@
     ],
     "address": "Maroon Town, Jamaica",
     "place_id": "ChIJSewj5eXT244Rb_9qzjAIm4A",
-    "location": { "lat": 18.3458766, "lng": -77.7952675 }
+    "location": { "lat": 18.3458766, "lng": -77.7952675 },
+    "keywords": { "primary": ["Maroon Town"], "secondary": ["ST. JAMES"] }
   },
   {
     "area": "Catadupa",
@@ -1103,7 +1202,8 @@
     ],
     "address": "Catadupa, Jamaica",
     "place_id": "ChIJP75UZvzW244Rnx8Y8pazj7I",
-    "location": { "lat": 18.279485, "lng": -77.8738864 }
+    "location": { "lat": 18.279485, "lng": -77.8738864 },
+    "keywords": { "primary": ["Catadupa"], "secondary": ["ST. JAMES"] }
   },
   {
     "area": "Cambridge",
@@ -1120,7 +1220,8 @@
     ],
     "address": "Cambridge, Jamaica",
     "place_id": "ChIJHYEjyG3W244RRLQRld_yd4k",
-    "location": { "lat": 18.3098699, "lng": -77.901428 }
+    "location": { "lat": 18.3098699, "lng": -77.901428 },
+    "keywords": { "primary": ["Cambridge"], "secondary": ["ST. JAMES"] }
   },
   {
     "area": "Spring Mount",
@@ -1137,7 +1238,8 @@
     ],
     "address": "Spring Mount, Jamaica",
     "place_id": "ChIJIb7O5LrU244RydxQDg4xXLk",
-    "location": { "lat": 18.4005172, "lng": -77.8510213 }
+    "location": { "lat": 18.4005172, "lng": -77.8510213 },
+    "keywords": { "primary": ["Spring Mount"], "secondary": ["ST. JAMES"] }
   },
   {
     "area": "Somerton",
@@ -1154,7 +1256,11 @@
     ],
     "address": "Somerton, Montego Bay, Jamaica",
     "place_id": "ChIJWy4X6JYr2o4R7XzfBtjEQrw",
-    "location": { "lat": 18.4762228, "lng": -77.8938895 }
+    "location": { "lat": 18.4762228, "lng": -77.8938895 },
+    "keywords": {
+      "primary": ["Somerton", "Montego Bay"],
+      "secondary": ["ST. JAMES"]
+    }
   },
   {
     "area": "Salt Spring",
@@ -1171,7 +1277,11 @@
     ],
     "address": "Salt Spring Rd, Montego Bay, Jamaica",
     "place_id": "ChIJXeRdaUQq2o4RZ9SCBJvA694",
-    "location": { "lat": 18.4792783, "lng": -77.8989565 }
+    "location": { "lat": 18.4792783, "lng": -77.8989565 },
+    "keywords": {
+      "primary": ["Salt Spring", "Montego Bay"],
+      "secondary": ["ST. JAMES"]
+    }
   },
   {
     "area": "Pedro Plains",
@@ -1188,7 +1298,8 @@
     ],
     "address": "Pedro Plains, Jamaica",
     "place_id": "ChIJG4fP2dHl244RgBTXD24bZwE",
-    "location": { "lat": 17.9329747, "lng": -77.78316629999999 }
+    "location": { "lat": 17.9329747, "lng": -77.78316629999999 },
+    "keywords": { "primary": ["Pedro Plains"], "secondary": ["ST. ELIZABETH"] }
   },
   {
     "area": "Mountain Side",
@@ -1205,7 +1316,11 @@
     ],
     "address": "Mountainside, Jamaica",
     "place_id": "ChIJqy5IMp3o244R6cFJlf9p_Jc",
-    "location": { "lat": 17.9738332, "lng": -77.7423469 }
+    "location": { "lat": 17.9738332, "lng": -77.7423469 },
+    "keywords": {
+      "primary": ["Mountain Side", "Mountainside"],
+      "secondary": ["ST. ELIZABETH"]
+    }
   },
   {
     "area": "Brompton",
@@ -1222,7 +1337,8 @@
     ],
     "address": "Brompton, Jamaica",
     "place_id": "ChIJrd6Jdsrf244R0JyHWPJYtmU",
-    "location": { "lat": 18.0667157, "lng": -77.8860316 }
+    "location": { "lat": 18.0667157, "lng": -77.8860316 },
+    "keywords": { "primary": ["Brompton"], "secondary": ["ST. ELIZABETH"] }
   },
   {
     "area": "Black River",
@@ -1239,7 +1355,8 @@
     ],
     "address": "Black River, Jamaica",
     "place_id": "ChIJDdHmcaLg244RWmnEhOvjv6Q",
-    "location": { "lat": 18.0335359, "lng": -77.85673799999999 }
+    "location": { "lat": 18.0335359, "lng": -77.85673799999999 },
+    "keywords": { "primary": ["Black River"], "secondary": ["ST. ELIZABETH"] }
   },
   {
     "area": "Southfield",
@@ -1256,7 +1373,8 @@
     ],
     "address": "Southfield, Jamaica",
     "place_id": "ChIJH9bysGju244ROb3pZ0gv5YI",
-    "location": { "lat": 17.878111, "lng": -77.67141699999999 }
+    "location": { "lat": 17.878111, "lng": -77.67141699999999 },
+    "keywords": { "primary": ["Southfield"], "secondary": ["ST. ELIZABETH"] }
   },
   {
     "area": "Myersville",
@@ -1273,7 +1391,11 @@
     ],
     "address": "X9F7+4X, Nain, Jamaica",
     "place_id": "ChIJ32jjEDDr244RCReGhlB8G9I",
-    "location": { "lat": 17.972833, "lng": -77.635043 }
+    "location": { "lat": 17.972833, "lng": -77.635043 },
+    "keywords": {
+      "primary": ["Myersville", "Nain"],
+      "secondary": ["ST. ELIZABETH"]
+    }
   },
   {
     "area": "Malvern",
@@ -1290,7 +1412,8 @@
     ],
     "address": "Malvern, Jamaica",
     "place_id": "ChIJl-UGbBzp244RiFexftjxKY4",
-    "location": { "lat": 17.9678128, "lng": -77.6936948 }
+    "location": { "lat": 17.9678128, "lng": -77.6936948 },
+    "keywords": { "primary": ["Malvern"], "secondary": ["ST. ELIZABETH"] }
   },
   {
     "area": "Junction",
@@ -1307,7 +1430,11 @@
     ],
     "address": "W94R+FX3, May Hill, Jamaica",
     "place_id": "ChIJGcvhd1_s244RbPoFqlknW-Q",
-    "location": { "lat": 17.9061485, "lng": -77.607565 }
+    "location": { "lat": 17.9061485, "lng": -77.607565 },
+    "keywords": {
+      "primary": ["Junction", "May Hill"],
+      "secondary": ["ST. ELIZABETH"]
+    }
   },
   {
     "area": "New Market",
@@ -1324,7 +1451,8 @@
     ],
     "address": "New Market, Jamaica",
     "place_id": "ChIJB9moDMjY244RwxzY06RYry8",
-    "location": { "lat": 18.1495053, "lng": -77.9046039 }
+    "location": { "lat": 18.1495053, "lng": -77.9046039 },
+    "keywords": { "primary": ["New Market"], "secondary": ["ST. ELIZABETH"] }
   },
   {
     "area": "Lacovia",
@@ -1341,7 +1469,8 @@
     ],
     "address": "Lacovia, Jamaica",
     "place_id": "ChIJJ1Tivy3d244R0UZ3csyx8QM",
-    "location": { "lat": 18.071871, "lng": -77.749443 }
+    "location": { "lat": 18.071871, "lng": -77.749443 },
+    "keywords": { "primary": ["Lacovia"], "secondary": ["ST. ELIZABETH"] }
   },
   {
     "area": "Ipswich",
@@ -1358,7 +1487,11 @@
     ],
     "address": "Ipswitch, Jamaica",
     "place_id": "ChIJrYYG2Tva244RxhPfb-_H-Xk",
-    "location": { "lat": 18.1959208, "lng": -77.8210036 }
+    "location": { "lat": 18.1959208, "lng": -77.8210036 },
+    "keywords": {
+      "primary": ["Ipswich", "Ipswitch"],
+      "secondary": ["ST. ELIZABETH"]
+    }
   },
   {
     "area": "Siloah",
@@ -1375,7 +1508,11 @@
     ],
     "address": "Santa Cruz, Jamaica",
     "place_id": "ChIJfdYQOovC244RP__tv44woZc",
-    "location": { "lat": 18.0549722, "lng": -77.70326589999999 }
+    "location": { "lat": 18.0549722, "lng": -77.70326589999999 },
+    "keywords": {
+      "primary": ["Siloah", "Santa Cruz"],
+      "secondary": ["ST. ELIZABETH"]
+    }
   },
   {
     "area": "Santa Cruz",
@@ -1392,7 +1529,8 @@
     ],
     "address": "Santa Cruz, Jamaica",
     "place_id": "ChIJY3TLFIrC244RLigskHR8gQs",
-    "location": { "lat": 18.0500867, "lng": -77.7051443 }
+    "location": { "lat": 18.0500867, "lng": -77.7051443 },
+    "keywords": { "primary": ["Santa Cruz"], "secondary": ["ST. ELIZABETH"] }
   },
   {
     "area": "Braes River",
@@ -1409,7 +1547,8 @@
     ],
     "address": "Well in Braes River, Jamaica",
     "place_id": "ChIJMfvZTnnB244RYKhGil2Ez9I",
-    "location": { "lat": 18.0802709, "lng": -77.647368 }
+    "location": { "lat": 18.0802709, "lng": -77.647368 },
+    "keywords": { "primary": ["Braes River"], "secondary": ["ST. ELIZABETH"] }
   },
   {
     "area": "Balaclava",
@@ -1426,7 +1565,8 @@
     ],
     "address": "Balaclava, Jamaica",
     "place_id": "ChIJ-btBFX7G244RJJLkfQjOIOk",
-    "location": { "lat": 18.1718343, "lng": -77.65074890000001 }
+    "location": { "lat": 18.1718343, "lng": -77.65074890000001 },
+    "keywords": { "primary": ["Balaclava"], "secondary": ["ST. ELIZABETH"] }
   },
   {
     "area": "Red Hills",
@@ -1451,7 +1591,8 @@
     ],
     "address": "Red Hills Rd, Jamaica",
     "place_id": "ChIJ-X230CQ-244R_pYynhbf4vg",
-    "location": { "lat": 18.0580405, "lng": -76.8536555 }
+    "location": { "lat": 18.0580405, "lng": -76.8536555 },
+    "keywords": { "primary": ["Red Hills"], "secondary": ["ST. CATHERINE"] }
   },
   {
     "area": "Point Hill",
@@ -1468,7 +1609,8 @@
     ],
     "address": "Point Hill Main Rd, Jamaica",
     "place_id": "ChIJMwEFX_sM244RNi7IRauPD54",
-    "location": { "lat": 18.0253024, "lng": -77.0647359 }
+    "location": { "lat": 18.0253024, "lng": -77.0647359 },
+    "keywords": { "primary": ["Point Hill"], "secondary": ["ST. CATHERINE"] }
   },
   {
     "area": "Ginger Ridge",
@@ -1485,7 +1627,11 @@
     ],
     "address": "3RFP+2WQ, Lluidas Vale, Jamaica",
     "place_id": "ChIJs9uQgDkK244RU13Rasmgodw",
-    "location": { "lat": 18.0725963, "lng": -77.16265229999999 }
+    "location": { "lat": 18.0725963, "lng": -77.16265229999999 },
+    "keywords": {
+      "primary": ["Ginger Ridge", "Lluidas Vale"],
+      "secondary": ["ST. CATHERINE"]
+    }
   },
   {
     "area": "De La Vega",
@@ -1526,7 +1672,8 @@
     ],
     "address": "St. Catherine Parish, Jamaica",
     "place_id": "ChIJm81moToT244Rgj0-MWwire4",
-    "location": { "lat": 18.0364134, "lng": -77.0564464 }
+    "location": { "lat": 18.0364134, "lng": -77.0564464 },
+    "keywords": { "primary": ["De La Vega"], "secondary": ["ST. CATHERINE"] }
   },
   {
     "area": "Hellshire",
@@ -1543,7 +1690,8 @@
     ],
     "address": "Hellshire, Jamaica",
     "place_id": "ChIJkVuX7Sps244RhQAzmMOnZ1o",
-    "location": { "lat": 17.9015381, "lng": -76.9527836 }
+    "location": { "lat": 17.9015381, "lng": -76.9527836 },
+    "keywords": { "primary": ["Hellshire"], "secondary": ["ST. CATHERINE"] }
   },
   {
     "area": "Greater Portmore North (Naggo head)",
@@ -1560,7 +1708,15 @@
     ],
     "address": "Naggo Head, Portmore, Jamaica",
     "place_id": "ChIJ8wCnSjlr244RWr6fFlsrQB0",
-    "location": { "lat": 17.9680932, "lng": -76.8850673 }
+    "location": { "lat": 17.9680932, "lng": -76.8850673 },
+    "keywords": {
+      "primary": [
+        "Greater Portmore North (Naggo head)",
+        "Naggo Head",
+        "Portmore"
+      ],
+      "secondary": ["ST. CATHERINE"]
+    }
   },
   {
     "area": "Greater Portmore East",
@@ -1577,7 +1733,11 @@
     ],
     "address": "Greater Portmore, Portmore, Jamaica",
     "place_id": "ChIJn4Chc29r244RH4qXV7Cl97Y",
-    "location": { "lat": 17.94798, "lng": -76.90956469999999 }
+    "location": { "lat": 17.94798, "lng": -76.90956469999999 },
+    "keywords": {
+      "primary": ["Greater Portmore East", "Greater Portmore", "Portmore"],
+      "secondary": ["ST. CATHERINE"]
+    }
   },
   {
     "area": "Braeton",
@@ -1594,7 +1754,11 @@
     ],
     "address": "Braeton, Portmore, Jamaica",
     "place_id": "ChIJJ5aTNQ5r244RswGJD1X91DE",
-    "location": { "lat": 17.9495083, "lng": -76.88939069999999 }
+    "location": { "lat": 17.9495083, "lng": -76.88939069999999 },
+    "keywords": {
+      "primary": ["Braeton", "Portmore"],
+      "secondary": ["ST. CATHERINE"]
+    }
   },
   {
     "area": "Old Harbour",
@@ -1627,7 +1791,8 @@
     ],
     "address": "Old Harbour, Jamaica",
     "place_id": "ChIJyYpK_Xl0244RNtg93kR5nBI",
-    "location": { "lat": 17.941076, "lng": -77.10824439999999 }
+    "location": { "lat": 17.941076, "lng": -77.10824439999999 },
+    "keywords": { "primary": ["Old Harbour"], "secondary": ["ST. CATHERINE"] }
   },
   {
     "area": "Church Pen",
@@ -1644,7 +1809,11 @@
     ],
     "address": "Church Pen, Old Harbour, Jamaica",
     "place_id": "ChIJd7y7vpxz244R_isFQuWSHoQ",
-    "location": { "lat": 17.9412738, "lng": -77.0895421 }
+    "location": { "lat": 17.9412738, "lng": -77.0895421 },
+    "keywords": {
+      "primary": ["Church Pen", "Old Harbour"],
+      "secondary": ["ST. CATHERINE"]
+    }
   },
   {
     "area": "Borobridge",
@@ -1661,7 +1830,11 @@
     ],
     "address": "6JC3+8XP, Clarkson Ville, Jamaica",
     "place_id": "ChIJieO1DRaw244RQxgECqgPmzQ",
-    "location": { "lat": 18.2208495, "lng": -77.3950412 }
+    "location": { "lat": 18.2208495, "lng": -77.3950412 },
+    "keywords": {
+      "primary": ["Borobridge", "Clarkson Ville"],
+      "secondary": ["ST. ANN"]
+    }
   },
   {
     "area": "Westchester",
@@ -1678,7 +1851,11 @@
     ],
     "address": "Westchester, Portmore, Jamaica",
     "place_id": "ChIJhyDoWCpr244RM2yEMXpHS8k",
-    "location": { "lat": 17.9753417, "lng": -76.874258 }
+    "location": { "lat": 17.9753417, "lng": -76.874258 },
+    "keywords": {
+      "primary": ["Westchester", "Portmore"],
+      "secondary": ["ST. CATHERINE"]
+    }
   },
   {
     "area": "Waterford",
@@ -1695,7 +1872,8 @@
     ],
     "address": "Waterford, Jamaica",
     "place_id": "ChIJ0XGpbSgV244R2hVUlf8HIKc",
-    "location": { "lat": 17.9874402, "lng": -76.8706548 }
+    "location": { "lat": 17.9874402, "lng": -76.8706548 },
+    "keywords": { "primary": ["Waterford"], "secondary": ["ST. CATHERINE"] }
   },
   {
     "area": "Independence City",
@@ -1712,7 +1890,11 @@
     ],
     "address": "10 Tampa Ave, Portmore, Jamaica",
     "place_id": "ChIJP4QTpNYU244RNK-QjcbZAqY",
-    "location": { "lat": 17.9840595, "lng": -76.8769604 }
+    "location": { "lat": 17.9840595, "lng": -76.8769604 },
+    "keywords": {
+      "primary": ["Independence City", "10 Tampa Ave", "Portmore"],
+      "secondary": ["ST. CATHERINE"]
+    }
   },
   {
     "area": "Edgewater",
@@ -1729,7 +1911,11 @@
     ],
     "address": "Edgewater, Portmore, Jamaica",
     "place_id": "ChIJSc5Zpdlq244Rxfa4AMtg3Us",
-    "location": { "lat": 17.9642027, "lng": -76.8706548 }
+    "location": { "lat": 17.9642027, "lng": -76.8706548 },
+    "keywords": {
+      "primary": ["Edgewater", "Portmore"],
+      "secondary": ["ST. CATHERINE"]
+    }
   },
   {
     "area": "Bridgeport",
@@ -1746,7 +1932,11 @@
     ],
     "address": "Bridgeport, Portmore, Jamaica",
     "place_id": "ChIJw9zPSiRr244RmGnRVgIZCNQ",
-    "location": { "lat": 17.9618897, "lng": -76.8793025 }
+    "location": { "lat": 17.9618897, "lng": -76.8793025 },
+    "keywords": {
+      "primary": ["Bridgeport", "Portmore"],
+      "secondary": ["ST. CATHERINE"]
+    }
   },
   {
     "area": "Sydenham",
@@ -1763,7 +1953,11 @@
     ],
     "address": "Sydenham, Spanish Town, Jamaica",
     "place_id": "ChIJozWCX8wS244Rr9ISDiFyLdg",
-    "location": { "lat": 17.9884211, "lng": -76.98086769999999 }
+    "location": { "lat": 17.9884211, "lng": -76.98086769999999 },
+    "keywords": {
+      "primary": ["Sydenham", "Spanish Town"],
+      "secondary": ["ST. CATHERINE"]
+    }
   },
   {
     "area": "Horizon Park",
@@ -1780,7 +1974,11 @@
     ],
     "address": "Horizon Park, Spanish Town, Jamaica",
     "place_id": "ChIJv_LZxjJt244ROSRbQXneurE",
-    "location": { "lat": 17.9838669, "lng": -76.9779875 }
+    "location": { "lat": 17.9838669, "lng": -76.9779875 },
+    "keywords": {
+      "primary": ["Horizon Park", "Spanish Town"],
+      "secondary": ["ST. CATHERINE"]
+    }
   },
   {
     "area": "Linstead",
@@ -1797,7 +1995,8 @@
     ],
     "address": "Linstead, Jamaica",
     "place_id": "ChIJvxau3ZEP244R1lITIYUMYcc",
-    "location": { "lat": 18.1402987, "lng": -77.04493269999999 }
+    "location": { "lat": 18.1402987, "lng": -77.04493269999999 },
+    "keywords": { "primary": ["Linstead"], "secondary": ["ST. CATHERINE"] }
   },
   {
     "area": "Ewarton",
@@ -1814,7 +2013,8 @@
     ],
     "address": "Ewarton, Jamaica",
     "place_id": "ChIJi3g2Y1gP244Rb-ZN61TS4FI",
-    "location": { "lat": 18.1752248, "lng": -77.0881034 }
+    "location": { "lat": 18.1752248, "lng": -77.0881034 },
+    "keywords": { "primary": ["Ewarton"], "secondary": ["ST. CATHERINE"] }
   },
   {
     "area": "Troja",
@@ -1831,7 +2031,8 @@
     ],
     "address": "Troja, Jamaica",
     "place_id": "ChIJl-qi_isa244RpIlEhHO1b-k",
-    "location": { "lat": 18.2089665, "lng": -76.92253199999999 }
+    "location": { "lat": 18.2089665, "lng": -76.92253199999999 },
+    "keywords": { "primary": ["Troja"], "secondary": ["ST. CATHERINE"] }
   },
   {
     "area": "Mount Industry",
@@ -1848,7 +2049,11 @@
     ],
     "address": "Mt. Industry, Jamaica",
     "place_id": "ChIJf43i9ksX244RR9R99VS2mcU",
-    "location": { "lat": 18.1473215, "lng": -76.91388730000001 }
+    "location": { "lat": 18.1473215, "lng": -76.91388730000001 },
+    "keywords": {
+      "primary": ["Mount Industry", "Mt. Industry"],
+      "secondary": ["ST. CATHERINE"]
+    }
   },
   {
     "area": "Guys Hill",
@@ -1865,7 +2070,8 @@
     ],
     "address": "Guys Hill, Jamaica",
     "place_id": "ChIJ-foyA0Qb244RJvkKEPnJAEw",
-    "location": { "lat": 18.2499757, "lng": -76.9902276 }
+    "location": { "lat": 18.2499757, "lng": -76.9902276 },
+    "keywords": { "primary": ["Guys Hill"], "secondary": ["ST. CATHERINE"] }
   },
   {
     "area": "Sligoville",
@@ -1882,7 +2088,8 @@
     ],
     "address": "Sligoville, Jamaica",
     "place_id": "ChIJWX6pnmsR244RPtG1SKaOCOE",
-    "location": { "lat": 18.0961122, "lng": -76.94369979999999 }
+    "location": { "lat": 18.0961122, "lng": -76.94369979999999 },
+    "keywords": { "primary": ["Sligoville"], "secondary": ["ST. CATHERINE"] }
   },
   {
     "area": "Bog Walk",
@@ -1899,7 +2106,8 @@
     ],
     "address": "Bog Walk, Jamaica",
     "place_id": "ChIJm0TCp-AR244Rx3-QSjEQeoY",
-    "location": { "lat": 18.1057667, "lng": -77.0075055 }
+    "location": { "lat": 18.1057667, "lng": -77.0075055 },
+    "keywords": { "primary": ["Bog Walk"], "secondary": ["ST. CATHERINE"] }
   },
   {
     "area": "Angels",
@@ -1916,7 +2124,8 @@
     ],
     "address": "Angels, Jamaica",
     "place_id": "ChIJ17LzYEES244R8TnCUp4aZL0",
-    "location": { "lat": 18.0503229, "lng": -76.9830277 }
+    "location": { "lat": 18.0503229, "lng": -76.9830277 },
+    "keywords": { "primary": ["Angels"], "secondary": ["ST. CATHERINE"] }
   },
   {
     "area": "Above Rocks",
@@ -1949,7 +2158,8 @@
     ],
     "address": "Above Rocks, Jamaica",
     "place_id": "ChIJgyqcAfIW244RFn-EAfRvhvU",
-    "location": { "lat": 18.109865, "lng": -76.87642 }
+    "location": { "lat": 18.109865, "lng": -76.87642 },
+    "keywords": { "primary": ["Above Rocks"], "secondary": ["ST. CATHERINE"] }
   },
   {
     "area": "Twickenham Park",
@@ -1966,7 +2176,11 @@
     ],
     "address": "Twickenham Dr, Spanish Town, Jamaica",
     "place_id": "ChIJtaeiMT8T244RvEhB2t1_VLQ",
-    "location": { "lat": 18.0000301, "lng": -76.9435531 }
+    "location": { "lat": 18.0000301, "lng": -76.9435531 },
+    "keywords": {
+      "primary": ["Twickenham Park", "Twickenham Dr", "Spanish Town"],
+      "secondary": ["ST. CATHERINE"]
+    }
   },
   {
     "area": "Greendale",
@@ -1983,7 +2197,11 @@
     ],
     "address": "Greendale, Spanish Town, Jamaica",
     "place_id": "ChIJkcC8pDkT244RtqHFTBMLT6w",
-    "location": { "lat": 17.9962367, "lng": -76.9451717 }
+    "location": { "lat": 17.9962367, "lng": -76.9451717 },
+    "keywords": {
+      "primary": ["Greendale", "Spanish Town"],
+      "secondary": ["ST. CATHERINE"]
+    }
   },
   {
     "area": "Southboro",
@@ -2000,7 +2218,11 @@
     ],
     "address": "Southboro Dr, Portmore, Jamaica",
     "place_id": "ChIJM7n5wjpr244RoNUdL1RrJ5s",
-    "location": { "lat": 17.9647633, "lng": -76.8857629 }
+    "location": { "lat": 17.9647633, "lng": -76.8857629 },
+    "keywords": {
+      "primary": ["Southboro", "Portmore"],
+      "secondary": ["ST. CATHERINE"]
+    }
   },
   {
     "area": "Portmore Pines",
@@ -2017,7 +2239,11 @@
     ],
     "address": "Portmore Pines, Masded, Jamaica",
     "place_id": "ChIJcb68wjdr244RG2s0nTopKao",
-    "location": { "lat": 17.9680071, "lng": -76.8944345 }
+    "location": { "lat": 17.9680071, "lng": -76.8944345 },
+    "keywords": {
+      "primary": ["Portmore Pines", "Masded"],
+      "secondary": ["ST. CATHERINE"]
+    }
   },
   {
     "area": "Gregory Park",
@@ -2034,7 +2260,11 @@
     ],
     "address": "Gregory Park, Portmore, Jamaica",
     "place_id": "ChIJXdYmWtoU244RdmhN9Eh5C3k",
-    "location": { "lat": 17.9986932, "lng": -76.88650849999999 }
+    "location": { "lat": 17.9986932, "lng": -76.88650849999999 },
+    "keywords": {
+      "primary": ["Gregory Park", "Portmore"],
+      "secondary": ["ST. CATHERINE"]
+    }
   },
   {
     "area": "Spanish Town",
@@ -2051,7 +2281,8 @@
     ],
     "address": "Spanish Town, Jamaica",
     "place_id": "ChIJ3QY9zeES244R3fC8Jl81uX4",
-    "location": { "lat": 18.0166835, "lng": -76.9748123 }
+    "location": { "lat": 18.0166835, "lng": -76.9748123 },
+    "keywords": { "primary": ["Spanish Town"], "secondary": ["ST. CATHERINE"] }
   },
   {
     "area": "Lluidas Vale",
@@ -2068,7 +2299,8 @@
     ],
     "address": "Lluidas Vale, Jamaica",
     "place_id": "ChIJfYrq-QYJ244Rlzk98EXAbPM",
-    "location": { "lat": 18.1254083, "lng": -77.14707829999999 }
+    "location": { "lat": 18.1254083, "lng": -77.14707829999999 },
+    "keywords": { "primary": ["Lluidas Vale"], "secondary": ["ST. CATHERINE"] }
   },
   {
     "area": "Hampton Green",
@@ -2085,7 +2317,11 @@
     ],
     "address": "Hampton Green, Spanish Town, Jamaica",
     "place_id": "ChIJw55_Ed8S244RfVi4rxGjQm4",
-    "location": { "lat": 18.0028446, "lng": -76.9686267 }
+    "location": { "lat": 18.0028446, "lng": -76.9686267 },
+    "keywords": {
+      "primary": ["Hampton Green", "Spanish Town"],
+      "secondary": ["ST. CATHERINE"]
+    }
   },
   {
     "area": "Ensom City",
@@ -2102,7 +2338,11 @@
     ],
     "address": "Ensom City, Spanish Town, Jamaica",
     "place_id": "ChIJcy6nfuIS244RtRa22Jw_-mY",
-    "location": { "lat": 18.0119455, "lng": -76.9635859 }
+    "location": { "lat": 18.0119455, "lng": -76.9635859 },
+    "keywords": {
+      "primary": ["Ensom City", "Spanish Town"],
+      "secondary": ["ST. CATHERINE"]
+    }
   },
   {
     "area": "Gibraltar",
@@ -2119,7 +2359,8 @@
     ],
     "address": "Gibraltar, Jamaica",
     "place_id": "ChIJH3l2CQSz244RxZJZialLpbI",
-    "location": { "lat": 18.3480465, "lng": -77.4286011 }
+    "location": { "lat": 18.3480465, "lng": -77.4286011 },
+    "keywords": { "primary": ["Gibraltar"], "secondary": ["ST. ANN"] }
   },
   {
     "area": "Calderwood",
@@ -2136,7 +2377,8 @@
     ],
     "address": "St. Ann Parish, Jamaica",
     "place_id": "ChIJe9l9kzVS2o4RllOWGihszuE",
-    "location": { "lat": 18.3281428, "lng": -77.2405153 }
+    "location": { "lat": 18.3281428, "lng": -77.2405153 },
+    "keywords": { "primary": ["Calderwood"], "secondary": ["ST. ANN"] }
   },
   {
     "area": "Alexandria",
@@ -2153,7 +2395,8 @@
     ],
     "address": "Alexandria, Jamaica",
     "place_id": "ChIJE7Kb_5Ot244RKRsBv2ZmROQ",
-    "location": { "lat": 18.3051999, "lng": -77.35397739999999 }
+    "location": { "lat": 18.3051999, "lng": -77.35397739999999 },
+    "keywords": { "primary": ["Alexandria"], "secondary": ["ST. ANN"] }
   },
   {
     "area": "Moneague",
@@ -2170,7 +2413,8 @@
     ],
     "address": "Moneague, Jamaica",
     "place_id": "ChIJH7j8eVIB244R-mcpN2cjH7k",
-    "location": { "lat": 18.2760947, "lng": -77.11687529999999 }
+    "location": { "lat": 18.2760947, "lng": -77.11687529999999 },
+    "keywords": { "primary": ["Moneague"], "secondary": ["ST. ANN"] }
   },
   {
     "area": "Claremont",
@@ -2187,7 +2431,8 @@
     ],
     "address": "Claremont, Jamaica",
     "place_id": "ChIJDfbBfmEA244RtTDfcUZguv8",
-    "location": { "lat": 18.3271999, "lng": -77.176712 }
+    "location": { "lat": 18.3271999, "lng": -77.176712 },
+    "keywords": { "primary": ["Claremont"], "secondary": ["ST. ANN"] }
   },
   {
     "area": "Bensonton",
@@ -2202,9 +2447,10 @@
         "party": "PNP"
       }
     ],
-    "address": "Unnamed Road, Jamaica",
+    "address": "Bensonton, Jamaica",
     "place_id": "ChIJSXWRFtWp244RmeFsocZEOxU",
-    "location": { "lat": 18.2399686, "lng": -77.2133368 }
+    "location": { "lat": 18.2399686, "lng": -77.2133368 },
+    "keywords": { "primary": ["Bensonton"], "secondary": ["ST. ANN"] }
   },
   {
     "area": "Beecher Town",
@@ -2221,7 +2467,11 @@
     ],
     "address": "9V9M+2R7, Ocho Rios, Jamaica",
     "place_id": "ChIJz2Sdah3-2o4RAz3RRSkINCo",
-    "location": { "lat": 18.3675407, "lng": -77.1154387 }
+    "location": { "lat": 18.3675407, "lng": -77.1154387 },
+    "keywords": {
+      "primary": ["Beecher Town", "Ocho Rios"],
+      "secondary": ["ST. ANN"]
+    }
   },
   {
     "area": "Sturge Town",
@@ -2238,7 +2488,8 @@
     ],
     "address": "Sturge Town, Jamaica",
     "place_id": "ChIJl6YXxQ5T2o4RTVLEmk79cSw",
-    "location": { "lat": 18.4196773, "lng": -77.3130576 }
+    "location": { "lat": 18.4196773, "lng": -77.3130576 },
+    "keywords": { "primary": ["Sturge Town"], "secondary": ["ST. ANN"] }
   },
   {
     "area": "Dry Harbour",
@@ -2255,7 +2506,8 @@
     ],
     "address": "Dry Harbour Mountains, Jamaica",
     "place_id": "ChIJYeg1v2qy244RfNVXRmVMc2I",
-    "location": { "lat": 18.3166667, "lng": -77.39999999999999 }
+    "location": { "lat": 18.3166667, "lng": -77.39999999999999 },
+    "keywords": { "primary": ["Dry Harbour"], "secondary": ["ST. ANN"] }
   },
   {
     "area": "Bamboo",
@@ -2272,7 +2524,8 @@
     ],
     "address": "Bamboo, Jamaica",
     "place_id": "ChIJU3GzXLhU2o4ROeLeRjmgkU4",
-    "location": { "lat": 18.3852144, "lng": -77.2663771 }
+    "location": { "lat": 18.3852144, "lng": -77.2663771 },
+    "keywords": { "primary": ["Bamboo"], "secondary": ["ST. ANN"] }
   },
   {
     "area": "Ocho Rios",
@@ -2289,7 +2542,8 @@
     ],
     "address": "Ocho Rios, Jamaica",
     "place_id": "ChIJ1YH7Hcn92o4RdyzObcG6ziQ",
-    "location": { "lat": 18.4073894, "lng": -77.1031345 }
+    "location": { "lat": 18.4073894, "lng": -77.1031345 },
+    "keywords": { "primary": ["Ocho Rios"], "secondary": ["ST. ANN"] }
   },
   {
     "area": "Lime Hall",
@@ -2306,7 +2560,8 @@
     ],
     "address": "Lime Hall Rd, Jamaica",
     "place_id": "ChIJ6zXPGXFV2o4RQZK7w7hLihw",
-    "location": { "lat": 18.4130987, "lng": -77.2084308 }
+    "location": { "lat": 18.4130987, "lng": -77.2084308 },
+    "keywords": { "primary": ["Lime Hall"], "secondary": ["ST. ANDREW"] }
   },
   {
     "area": "Dallas",
@@ -2363,7 +2618,8 @@
     ],
     "address": "St. Andrew Parish, Jamaica",
     "place_id": "ChIJyfSroZE-244RvCjo_JQDBdA",
-    "location": { "lat": 18.0391345, "lng": -76.7567368 }
+    "location": { "lat": 18.0391345, "lng": -76.7567368 },
+    "keywords": { "primary": ["Dallas"], "secondary": ["ST. ANDREW"] }
   },
   {
     "area": "Waterhouse",
@@ -2380,7 +2636,11 @@
     ],
     "address": "Waterhouse Dr, Kingston, Jamaica",
     "place_id": "ChIJRSKwWpkV244RiKqdPTy-5mU",
-    "location": { "lat": 18.0287171, "lng": -76.8437247 }
+    "location": { "lat": 18.0287171, "lng": -76.8437247 },
+    "keywords": {
+      "primary": ["Waterhouse"],
+      "secondary": ["ST. ANDREW", "Kingston"]
+    }
   },
   {
     "area": "Seaview Gardens",
@@ -2397,7 +2657,11 @@
     ],
     "address": "Seaview Gardens, Kingston, Jamaica",
     "place_id": "ChIJe4hExW4V244R-dJL-EiMSWY",
-    "location": { "lat": 18.0028906, "lng": -76.8418246 }
+    "location": { "lat": 18.0028906, "lng": -76.8418246 },
+    "keywords": {
+      "primary": ["Seaview Gardens"],
+      "secondary": ["ST. ANDREW", "Kingston"]
+    }
   },
   {
     "area": "Duhaney Park",
@@ -2414,7 +2678,11 @@
     ],
     "address": "Duhaney Park, Kingston, Jamaica",
     "place_id": "ChIJm7mxCpoV244RvAMQ3LotPvE",
-    "location": { "lat": 18.0296291, "lng": -76.8504744 }
+    "location": { "lat": 18.0296291, "lng": -76.8504744 },
+    "keywords": {
+      "primary": ["Duhaney Park"],
+      "secondary": ["ST. ANDREW", "Kingston"]
+    }
   },
   {
     "area": "Stony Hill",
@@ -2431,7 +2699,8 @@
     ],
     "address": "Stony Hill, Jamaica",
     "place_id": "ChIJSf-Gf9w9244RcpNKczstkKw",
-    "location": { "lat": 18.0736829, "lng": -76.7942403 }
+    "location": { "lat": 18.0736829, "lng": -76.7942403 },
+    "keywords": { "primary": ["Stony Hill"], "secondary": ["ST. ANDREW"] }
   },
   {
     "area": "Lawrence Tavern",
@@ -2448,7 +2717,11 @@
     ],
     "address": "45G3+CQ5, Noland Hill, Jamaica",
     "place_id": "ChIJlawVhcgX244RYCzttGU3zrM",
-    "location": { "lat": 18.1260005, "lng": -76.8455297 }
+    "location": { "lat": 18.1260005, "lng": -76.8455297 },
+    "keywords": {
+      "primary": ["Lawrence Tavern", "Noland Hill"],
+      "secondary": ["ST. ANDREW"]
+    }
   },
   {
     "area": "Chancery Hall",
@@ -2465,7 +2738,11 @@
     ],
     "address": "Chancery Hall Dr, Kingston, Jamaica",
     "place_id": "ChIJw5iZ5wQ-244RlOU-jl4VpVQ",
-    "location": { "lat": 18.0551322, "lng": -76.8180819 }
+    "location": { "lat": 18.0551322, "lng": -76.8180819 },
+    "keywords": {
+      "primary": ["Chancery Hall"],
+      "secondary": ["ST. ANDREW", "Kingston"]
+    }
   },
   {
     "area": "Brandon Hill",
@@ -2482,7 +2759,11 @@
     ],
     "address": "4578+XVV, Noland Hill, Jamaica",
     "place_id": "ChIJM3x3RtMX244RKknG1oauxVk",
-    "location": { "lat": 18.1149835, "lng": -76.8328267 }
+    "location": { "lat": 18.1149835, "lng": -76.8328267 },
+    "keywords": {
+      "primary": ["Brandon Hill", "Noland Hill"],
+      "secondary": ["ST. ANDREW"]
+    }
   },
   {
     "area": "Olympic Gardens",
@@ -2499,7 +2780,11 @@
     ],
     "address": "Olympic Gardens, Kingston, Jamaica",
     "place_id": "ChIJMwmN7nsV244R4sJKpNNNVnk",
-    "location": { "lat": 18.0183711, "lng": -76.83461609999999 }
+    "location": { "lat": 18.0183711, "lng": -76.83461609999999 },
+    "keywords": {
+      "primary": ["Olympic Gardens"],
+      "secondary": ["ST. ANDREW", "Kingston"]
+    }
   },
   {
     "area": "Molynes Gardens",
@@ -2516,7 +2801,11 @@
     ],
     "address": "Molynes Gardens, Kingston, Jamaica",
     "place_id": "ChIJ429hzSQ-244RljK6T7Kliug",
-    "location": { "lat": 18.0346081, "lng": -76.8173138 }
+    "location": { "lat": 18.0346081, "lng": -76.8173138 },
+    "keywords": {
+      "primary": ["Molynes Gardens"],
+      "secondary": ["ST. ANDREW", "Kingston"]
+    }
   },
   {
     "area": "Trench Town",
@@ -2533,7 +2822,11 @@
     ],
     "address": "Trench Town, Kingston, Jamaica",
     "place_id": "ChIJSZhdYZI_244RxNlLEr6SvhE",
-    "location": { "lat": 17.9857896, "lng": -76.8043355 }
+    "location": { "lat": 17.9857896, "lng": -76.8043355 },
+    "keywords": {
+      "primary": ["Trench Town"],
+      "secondary": ["ST. ANDREW", "Kingston"]
+    }
   },
   {
     "area": "Whitfield Town",
@@ -2550,7 +2843,11 @@
     ],
     "address": "Whitfield Town, Kingston, Jamaica",
     "place_id": "ChIJIzbRROk_244RmF8RVEfUd5k",
-    "location": { "lat": 17.9947009, "lng": -76.8072196 }
+    "location": { "lat": 17.9947009, "lng": -76.8072196 },
+    "keywords": {
+      "primary": ["Whitfield Town"],
+      "secondary": ["ST. ANDREW", "Kingston"]
+    }
   },
   {
     "area": "Payne Lands",
@@ -2567,7 +2864,11 @@
     ],
     "address": "Payneland, Kingston, Jamaica",
     "place_id": "ChIJrSb_sOA_244R_B3AyjR5_-8",
-    "location": { "lat": 17.9961762, "lng": -76.8207384 }
+    "location": { "lat": 17.9961762, "lng": -76.8207384 },
+    "keywords": {
+      "primary": ["Payne Lands", "Payneland"],
+      "secondary": ["ST. ANDREW", "Kingston"]
+    }
   },
   {
     "area": "Greenwich Town",
@@ -2584,7 +2885,11 @@
     ],
     "address": "Greenwich Town, Kingston, Jamaica",
     "place_id": "ChIJMVO99vo_244Rysdsos9pU1o",
-    "location": { "lat": 17.9815507, "lng": -76.8165928 }
+    "location": { "lat": 17.9815507, "lng": -76.8165928 },
+    "keywords": {
+      "primary": ["Greenwich Town"],
+      "secondary": ["ST. ANDREW", "Kingston"]
+    }
   },
   {
     "area": "Vineyard Town",
@@ -2601,7 +2906,11 @@
     ],
     "address": "Vineyard, Kingston, Jamaica",
     "place_id": "ChIJ4bAjb3Y_244Ri98IkU0KKMs",
-    "location": { "lat": 17.9898081, "lng": -76.7783748 }
+    "location": { "lat": 17.9898081, "lng": -76.7783748 },
+    "keywords": {
+      "primary": ["Vineyard Town", "Vineyard"],
+      "secondary": ["ST. ANDREW", "Kingston"]
+    }
   },
   {
     "area": "Hughenden",
@@ -2618,7 +2927,11 @@
     ],
     "address": "Hughenden, Kingston, Jamaica",
     "place_id": "ChIJ4cMHZy8-244R5vdSlhydUsY",
-    "location": { "lat": 18.0314148, "lng": -76.8183952 }
+    "location": { "lat": 18.0314148, "lng": -76.8183952 },
+    "keywords": {
+      "primary": ["Hughenden"],
+      "secondary": ["ST. ANDREW", "Kingston"]
+    }
   },
   {
     "area": "Havendale",
@@ -2635,7 +2948,11 @@
     ],
     "address": "Havendale, Kingston, Jamaica",
     "place_id": "ChIJ061nwRM-244RiBb8s4WGAuU",
-    "location": { "lat": 18.0516394, "lng": -76.81154579999999 }
+    "location": { "lat": 18.0516394, "lng": -76.81154579999999 },
+    "keywords": {
+      "primary": ["Havendale"],
+      "secondary": ["ST. ANDREW", "Kingston"]
+    }
   },
   {
     "area": "Waterloo",
@@ -2652,7 +2969,11 @@
     ],
     "address": "Waterloo Rd, Kingston, Jamaica",
     "place_id": "ChIJW4xjjU0-244RZWZo4gLcQ_4",
-    "location": { "lat": 18.0173136, "lng": -76.7920127 }
+    "location": { "lat": 18.0173136, "lng": -76.7920127 },
+    "keywords": {
+      "primary": ["Waterloo"],
+      "secondary": ["ST. ANDREW", "Kingston"]
+    }
   },
   {
     "area": "Barbican",
@@ -2669,7 +2990,11 @@
     ],
     "address": "Barbican, Kingston, Jamaica",
     "place_id": "ChIJzdBbyPs-244RNrTA6iR2LbA",
-    "location": { "lat": 18.0256117, "lng": -76.7711626 }
+    "location": { "lat": 18.0256117, "lng": -76.7711626 },
+    "keywords": {
+      "primary": ["Barbican"],
+      "secondary": ["ST. ANDREW", "Kingston"]
+    }
   },
   {
     "area": "Norbrook",
@@ -2686,7 +3011,11 @@
     ],
     "address": "Norbrook, Kingston, Jamaica",
     "place_id": "ChIJDdHKwXw-244R03rULupJCdc",
-    "location": { "lat": 18.0554552, "lng": -76.782702 }
+    "location": { "lat": 18.0554552, "lng": -76.782702 },
+    "keywords": {
+      "primary": ["Norbrook"],
+      "secondary": ["ST. ANDREW", "Kingston"]
+    }
   },
   {
     "area": "Papine",
@@ -2703,7 +3032,11 @@
     ],
     "address": "Papine, Kingston, Jamaica",
     "place_id": "ChIJHYcSSyo_244Rg_2srQNjZHA",
-    "location": { "lat": 18.0115978, "lng": -76.736538 }
+    "location": { "lat": 18.0115978, "lng": -76.736538 },
+    "keywords": {
+      "primary": ["Papine"],
+      "secondary": ["ST. ANDREW", "Kingston"]
+    }
   },
   {
     "area": "Mona",
@@ -2720,7 +3053,8 @@
     ],
     "address": "Mona, Kingston, Jamaica",
     "place_id": "ChIJV-0khSM_244RTig-AcmhHW0",
-    "location": { "lat": 18.0123976, "lng": -76.7480805 }
+    "location": { "lat": 18.0123976, "lng": -76.7480805 },
+    "keywords": { "primary": ["Mona"], "secondary": ["ST. ANDREW", "Kingston"] }
   },
   {
     "area": "Mavis Bank",
@@ -2737,7 +3071,11 @@
     ],
     "address": "6th St, Kingston, Jamaica",
     "place_id": "ChIJi1VYocc5244RiVLNQ42q4TE",
-    "location": { "lat": 18.0235272, "lng": -76.66262449999999 }
+    "location": { "lat": 18.0235272, "lng": -76.66262449999999 },
+    "keywords": {
+      "primary": ["Mavis Bank", "6th St"],
+      "secondary": ["ST. ANDREW", "Kingston"]
+    }
   },
   {
     "area": "Kintyre",
@@ -2754,7 +3092,11 @@
     ],
     "address": "Kintyre Rd, Kingston, Jamaica",
     "place_id": "ChIJTaICxSs_244RREY6DZhlpuY",
-    "location": { "lat": 18.0123464, "lng": -76.7372819 }
+    "location": { "lat": 18.0123464, "lng": -76.7372819 },
+    "keywords": {
+      "primary": ["Kintyre"],
+      "secondary": ["ST. ANDREW", "Kingston"]
+    }
   },
   {
     "area": "Harbour View",
@@ -2771,7 +3113,8 @@
     ],
     "address": "Harbour View, Jamaica",
     "place_id": "ChIJn3YbrlxH244RAF3sMSLkQJE",
-    "location": { "lat": 17.9523291, "lng": -76.7192221 }
+    "location": { "lat": 17.9523291, "lng": -76.7192221 },
+    "keywords": { "primary": ["Harbour View"], "secondary": ["ST. ANDREW"] }
   },
   {
     "area": "Gordon Town",
@@ -2788,7 +3131,8 @@
     ],
     "address": "Gordon Town, Jamaica",
     "place_id": "ChIJVU-TYjg5244RdYvdc81QctQ",
-    "location": { "lat": 18.0354673, "lng": -76.7195828 }
+    "location": { "lat": 18.0354673, "lng": -76.7195828 },
+    "keywords": { "primary": ["Gordon Town"], "secondary": ["ST. ANDREW"] }
   },
   {
     "area": "Maxfield Park",
@@ -2805,7 +3149,11 @@
     ],
     "address": "Maxfield Pk, Kingston, Jamaica",
     "place_id": "ChIJvSL_B8E_244RXflvrg19K28",
-    "location": { "lat": 17.9989131, "lng": -76.806544 }
+    "location": { "lat": 17.9989131, "lng": -76.806544 },
+    "keywords": {
+      "primary": ["Maxfield Park", "Maxfield Pk"],
+      "secondary": ["ST. ANDREW", "Kingston"]
+    }
   },
   {
     "area": "Hagley Park",
@@ -2822,7 +3170,11 @@
     ],
     "address": "Hagley Park Rd, Kingston, Jamaica",
     "place_id": "ChIJ0RdUWMQ_244RP1Q3M3qZZ4k",
-    "location": { "lat": 18.0064354, "lng": -76.8137467 }
+    "location": { "lat": 18.0064354, "lng": -76.8137467 },
+    "keywords": {
+      "primary": ["Hagley Park"],
+      "secondary": ["ST. ANDREW", "Kingston"]
+    }
   },
   {
     "area": "Cassia Park",
@@ -2839,7 +3191,11 @@
     ],
     "address": "Cassia Park Rd, Kingston, Jamaica",
     "place_id": "ChIJS-U6pDQ-244Rw7Vq8upN4Yg",
-    "location": { "lat": 18.021521, "lng": -76.8072149 }
+    "location": { "lat": 18.021521, "lng": -76.8072149 },
+    "keywords": {
+      "primary": ["Cassia Park"],
+      "secondary": ["ST. ANDREW", "Kingston"]
+    }
   },
   {
     "area": "St. Margaret's Bay",
@@ -2856,7 +3212,11 @@
     ],
     "address": "St Margarets Bay, Jamaica",
     "place_id": "ChIJneND4lgs244RgiZQ7o5fX7A",
-    "location": { "lat": 18.1917654, "lng": -76.5314817 }
+    "location": { "lat": 18.1917654, "lng": -76.5314817 },
+    "keywords": {
+      "primary": ["St. Margaret's Bay", "St Margarets Bay"],
+      "secondary": ["PORTLAND"]
+    }
   },
   {
     "area": "Hope Bay",
@@ -2873,7 +3233,8 @@
     ],
     "address": "Hope Bay, Jamaica",
     "place_id": "ChIJiSReiY4u244R_c3XL0WFjro",
-    "location": { "lat": 18.1984796, "lng": -76.56471739999999 }
+    "location": { "lat": 18.1984796, "lng": -76.56471739999999 },
+    "keywords": { "primary": ["Hope Bay"], "secondary": ["PORTLAND"] }
   },
   {
     "area": "Buff Bay",
@@ -2890,7 +3251,8 @@
     ],
     "address": "Buff Bay, Jamaica",
     "place_id": "ChIJrXI9t-Yl244R57ZdZHiSK1o",
-    "location": { "lat": 18.2342641, "lng": -76.66004149999999 }
+    "location": { "lat": 18.2342641, "lng": -76.66004149999999 },
+    "keywords": { "primary": ["Buff Bay"], "secondary": ["PORTLAND"] }
   },
   {
     "area": "Fellowship",
@@ -2923,7 +3285,8 @@
     ],
     "address": "Portland Parish, Jamaica",
     "place_id": "ChIJvyh0wjvSxI4R5sp3IWhqbU4",
-    "location": { "lat": 18.0844274, "lng": -76.4100267 }
+    "location": { "lat": 18.0844274, "lng": -76.4100267 },
+    "keywords": { "primary": ["Fellowship"], "secondary": ["PORTLAND"] }
   },
   {
     "area": "Port Antonio",
@@ -2940,7 +3303,8 @@
     ],
     "address": "Port Antonio, Jamaica",
     "place_id": "ChIJvyh0wjvSxI4RR08sJxJWxTU",
-    "location": { "lat": 18.1712764, "lng": -76.44763209999999 }
+    "location": { "lat": 18.1712764, "lng": -76.44763209999999 },
+    "keywords": { "primary": ["Port Antonio"], "secondary": ["PORTLAND"] }
   },
   {
     "area": "Manchioneal",
@@ -2957,7 +3321,8 @@
     ],
     "address": "Manchioneal, Jamaica",
     "place_id": "ChIJK57vV13PxI4RViHGgb_yqVM",
-    "location": { "lat": 18.0443274, "lng": -76.27542749999999 }
+    "location": { "lat": 18.0443274, "lng": -76.27542749999999 },
+    "keywords": { "primary": ["Manchioneal"], "secondary": ["PORTLAND"] }
   },
   {
     "area": "Fairy Hill",
@@ -2974,7 +3339,8 @@
     ],
     "address": "Fairy Hill, Jamaica",
     "place_id": "ChIJEzYZeCbSxI4RLw2twLm570E",
-    "location": { "lat": 18.1641262, "lng": -76.36806960000001 }
+    "location": { "lat": 18.1641262, "lng": -76.36806960000001 },
+    "keywords": { "primary": ["Fairy Hill"], "secondary": ["PORTLAND"] }
   },
   {
     "area": "Porus",
@@ -2991,7 +3357,8 @@
     ],
     "address": "Porus, Jamaica",
     "place_id": "ChIJD9JNEG29244RCt7-I5YxOi8",
-    "location": { "lat": 18.0345922, "lng": -77.4106671 }
+    "location": { "lat": 18.0345922, "lng": -77.4106671 },
+    "keywords": { "primary": ["Porus"], "secondary": ["MANCHESTER"] }
   },
   {
     "area": "Newport",
@@ -3008,7 +3375,8 @@
     ],
     "address": "Newport, Jamaica",
     "place_id": "ChIJN7g9C4CU244RWx2R0IlEYz8",
-    "location": { "lat": 17.92865, "lng": -77.516319 }
+    "location": { "lat": 17.92865, "lng": -77.516319 },
+    "keywords": { "primary": ["Newport"], "secondary": ["MANCHESTER"] }
   },
   {
     "area": "Grove Town",
@@ -3025,7 +3393,8 @@
     ],
     "address": "A2, Jamaica",
     "place_id": "ChIJeYjOfWCR244RMowBM6kLYWk",
-    "location": { "lat": 17.9004105, "lng": -77.467483 }
+    "location": { "lat": 17.9004105, "lng": -77.467483 },
+    "keywords": { "primary": ["Grove Town", "A2"], "secondary": ["MANCHESTER"] }
   },
   {
     "area": "Alligator Pond",
@@ -3042,7 +3411,8 @@
     ],
     "address": "Alligator Pond, Jamaica",
     "place_id": "ChIJl2LPLS3t244Rm6fd3lzMZnM",
-    "location": { "lat": 17.874371, "lng": -77.562241 }
+    "location": { "lat": 17.874371, "lng": -77.562241 },
+    "keywords": { "primary": ["Alligator Pond"], "secondary": ["MANCHESTER"] }
   },
   {
     "area": "Spur Tree",
@@ -3059,7 +3429,8 @@
     ],
     "address": "Spur Tree, Jamaica",
     "place_id": "ChIJsaMbkzSV244RXPsVofd5n-I",
-    "location": { "lat": 17.9956245, "lng": -77.560509 }
+    "location": { "lat": 17.9956245, "lng": -77.560509 },
+    "keywords": { "primary": ["Spur Tree"], "secondary": ["MANCHESTER"] }
   },
   {
     "area": "New Green",
@@ -3076,7 +3447,8 @@
     ],
     "address": "New Green Rd, Jamaica",
     "place_id": "ChIJY-PRlE2-244RSnm-Qt4vU3c",
-    "location": { "lat": 18.05352, "lng": -77.5107955 }
+    "location": { "lat": 18.05352, "lng": -77.5107955 },
+    "keywords": { "primary": ["New Green"], "secondary": ["MANCHESTER"] }
   },
   {
     "area": "Mile Gully",
@@ -3093,7 +3465,8 @@
     ],
     "address": "Mile Gully, Jamaica",
     "place_id": "ChIJydUUdbm4244RWNTgJXPNOQM",
-    "location": { "lat": 18.1239702, "lng": -77.5418791 }
+    "location": { "lat": 18.1239702, "lng": -77.5418791 },
+    "keywords": { "primary": ["Mile Gully"], "secondary": ["MANCHESTER"] }
   },
   {
     "area": "Craighead",
@@ -3118,7 +3491,8 @@
     ],
     "address": "Manchester Parish, Jamaica",
     "place_id": "ChIJ2WhaWlm4244RRc0ndo73kdY",
-    "location": { "lat": 18.0669654, "lng": -77.5160788 }
+    "location": { "lat": 18.0669654, "lng": -77.5160788 },
+    "keywords": { "primary": ["Craighead"], "secondary": ["MANCHESTER"] }
   },
   {
     "area": "Walderston",
@@ -3135,7 +3509,8 @@
     ],
     "address": "Walderston, Jamaica",
     "place_id": "ChIJmbYU5kO5244RvKfe9wbpXLc",
-    "location": { "lat": 18.1297257, "lng": -77.4852541 }
+    "location": { "lat": 18.1297257, "lng": -77.4852541 },
+    "keywords": { "primary": ["Walderston"], "secondary": ["MANCHESTER"] }
   },
   {
     "area": "Christiana",
@@ -3152,7 +3527,8 @@
     ],
     "address": "Christiana, Jamaica",
     "place_id": "ChIJKQIoOpa5244RQ80wAo3HVF4",
-    "location": { "lat": 18.1730042, "lng": -77.4902726 }
+    "location": { "lat": 18.1730042, "lng": -77.4902726 },
+    "keywords": { "primary": ["Christiana"], "secondary": ["MANCHESTER"] }
   },
   {
     "area": "Royal Flat",
@@ -3169,7 +3545,8 @@
     ],
     "address": "Royal Flat, Jamaica",
     "place_id": "ChIJpbOH0Sq8244RNvF4WonL12s",
-    "location": { "lat": 18.056782, "lng": -77.4716313 }
+    "location": { "lat": 18.056782, "lng": -77.4716313 },
+    "keywords": { "primary": ["Royal Flat"], "secondary": ["MANCHESTER"] }
   },
   {
     "area": "Mandeville",
@@ -3186,7 +3563,8 @@
     ],
     "address": "Mandeville, Jamaica",
     "place_id": "ChIJt_eI1DC-244R7dSl7GBNWPo",
-    "location": { "lat": 18.0312855, "lng": -77.5046101 }
+    "location": { "lat": 18.0312855, "lng": -77.5046101 },
+    "keywords": { "primary": ["Mandeville"], "secondary": ["MANCHESTER"] }
   },
   {
     "area": "Knockpatrick",
@@ -3203,7 +3581,8 @@
     ],
     "address": "Knockpatrick, Jamaica",
     "place_id": "ChIJzQG07KKV244R4dCNrNIHzVI",
-    "location": { "lat": 17.9936351, "lng": -77.5074774 }
+    "location": { "lat": 17.9936351, "lng": -77.5074774 },
+    "keywords": { "primary": ["Knockpatrick"], "secondary": ["MANCHESTER"] }
   },
   {
     "area": "Bellefield",
@@ -3220,7 +3599,11 @@
     ],
     "address": "Ward Ave, Mandeville, Jamaica",
     "place_id": "ChIJk-iLix2_244RvAUoW0YM7EQ",
-    "location": { "lat": 18.0389161, "lng": -77.5127724 }
+    "location": { "lat": 18.0389161, "lng": -77.5127724 },
+    "keywords": {
+      "primary": ["Bellefield", "Ward Ave", "Mandeville"],
+      "secondary": ["MANCHESTER"]
+    }
   },
   {
     "area": "Tivoli Gardens",
@@ -3237,7 +3620,8 @@
     ],
     "address": "Tivoli Gardens, Kingston, Jamaica",
     "place_id": "ChIJm_KWwIo_244RbT_Hun8s6z8",
-    "location": { "lat": 17.9746509, "lng": -76.80073010000001 }
+    "location": { "lat": 17.9746509, "lng": -76.80073010000001 },
+    "keywords": { "primary": ["Tivoli Gardens"], "secondary": ["KINGSTON"] }
   },
   {
     "area": "Denham Town",
@@ -3254,7 +3638,11 @@
     ],
     "address": "Denham Town, Kingston, Jamaica",
     "place_id": "ChIJ21SiTYs_244RLTxSnHjyHWs",
-    "location": { "lat": 17.9775873, "lng": -76.8026801 }
+    "location": { "lat": 17.9775873, "lng": -76.8026801 },
+    "keywords": {
+      "primary": ["Denham Town"],
+      "secondary": ["HANOVER", "Kingston"]
+    }
   },
   {
     "area": "Race Course",
@@ -3279,7 +3667,8 @@
     ],
     "address": "Kingston, Jamaica",
     "place_id": "ChIJodLehJc_244RQK-3q78h8yQ",
-    "location": { "lat": 18.0178743, "lng": -76.8099041 }
+    "location": { "lat": 18.0178743, "lng": -76.8099041 },
+    "keywords": { "primary": ["Race Course"], "secondary": ["KINGSTON"] }
   },
   {
     "area": "Allman Town",
@@ -3296,7 +3685,8 @@
     ],
     "address": "Allman Town, Kingston, Jamaica",
     "place_id": "ChIJ_TP5Q5s_244Rq5rxFkXwOfE",
-    "location": { "lat": 17.984597, "lng": -76.78702899999999 }
+    "location": { "lat": 17.984597, "lng": -76.78702899999999 },
+    "keywords": { "primary": ["Allman Town"], "secondary": ["KINGSTON"] }
   },
   {
     "area": "Lucea",
@@ -3313,7 +3703,8 @@
     ],
     "address": "Lucea, Jamaica",
     "place_id": "ChIJcTIKYZqd2Y4RHVcjKHiETjk",
-    "location": { "lat": 18.4504186, "lng": -78.17639369999999 }
+    "location": { "lat": 18.4504186, "lng": -78.17639369999999 },
+    "keywords": { "primary": ["Lucea"], "secondary": ["HANOVER"] }
   },
   {
     "area": "Green Island",
@@ -3330,7 +3721,8 @@
     ],
     "address": "Green Island, Jamaica",
     "place_id": "ChIJ-wvLuN902Y4RwxfqMw-Jd4A",
-    "location": { "lat": 18.3897236, "lng": -78.2682596 }
+    "location": { "lat": 18.3897236, "lng": -78.2682596 },
+    "keywords": { "primary": ["Green Island"], "secondary": ["HANOVER"] }
   },
   {
     "area": "Cauldwell",
@@ -3347,7 +3739,11 @@
     ],
     "address": "9QQ4+R27, Green Island, Jamaica",
     "place_id": "ChIJ846ps1V02Y4RjgJ67QeOt1o",
-    "location": { "lat": 18.389526, "lng": -78.244952 }
+    "location": { "lat": 18.389526, "lng": -78.244952 },
+    "keywords": {
+      "primary": ["Cauldwell", "Green Island"],
+      "secondary": ["HANOVER"]
+    }
   },
   {
     "area": "Sandy Bay",
@@ -3364,7 +3760,8 @@
     ],
     "address": "Sandy Bay, Jamaica",
     "place_id": "ChIJf6CyIpKC2Y4Rnraum2s-G8w",
-    "location": { "lat": 18.4484094, "lng": -78.0751774 }
+    "location": { "lat": 18.4484094, "lng": -78.0751774 },
+    "keywords": { "primary": ["Sandy Bay"], "secondary": ["HANOVER"] }
   },
   {
     "area": "Riverside",
@@ -3381,7 +3778,8 @@
     ],
     "address": "Hanover Parish, Jamaica",
     "place_id": "ChIJQ2aPH3Z32Y4R6t2-SvAH4yM",
-    "location": { "lat": 18.4097707, "lng": -78.13363799999999 }
+    "location": { "lat": 18.4097707, "lng": -78.13363799999999 },
+    "keywords": { "primary": ["Riverside"], "secondary": ["HANOVER"] }
   },
   {
     "area": "Hopewell",
@@ -3398,7 +3796,8 @@
     ],
     "address": "Hopewell, Jamaica",
     "place_id": "ChIJeYIVPPWB2Y4RLkblTgykHyk",
-    "location": { "lat": 18.4461517, "lng": -78.0166847 }
+    "location": { "lat": 18.4461517, "lng": -78.0166847 },
+    "keywords": { "primary": ["Hopewell"], "secondary": ["HANOVER"] }
   },
   {
     "area": "Chester Castle",
@@ -3415,7 +3814,8 @@
     ],
     "address": "Chester Castle, Jamaica",
     "place_id": "ChIJZ7FvpNN92Y4Ra9VBsdCXUDk",
-    "location": { "lat": 18.321366, "lng": -77.9702959 }
+    "location": { "lat": 18.321366, "lng": -77.9702959 },
+    "keywords": { "primary": ["Chester Castle"], "secondary": ["HANOVER"] }
   },
   {
     "area": "Toll Gate",
@@ -3432,7 +3832,8 @@
     ],
     "address": "Toll Gate, Jamaica",
     "place_id": "ChIJKRkz7c2Z244R9L_jna8mPqw",
-    "location": { "lat": 17.9757058, "lng": -77.3668965 }
+    "location": { "lat": 17.9757058, "lng": -77.3668965 },
+    "keywords": { "primary": ["Toll Gate"], "secondary": ["CLARENDON"] }
   },
   {
     "area": "Race Course",
@@ -3449,7 +3850,8 @@
     ],
     "address": "Race Course, Jamaica",
     "place_id": "ChIJiUB0jF-b244Rrg-rSFAlYc4",
-    "location": { "lat": 17.8479002, "lng": -77.2807423 }
+    "location": { "lat": 17.8479002, "lng": -77.2807423 },
+    "keywords": { "primary": ["Race Course"], "secondary": ["CLARENDON"] }
   },
   {
     "area": "Milk River",
@@ -3466,7 +3868,8 @@
     ],
     "address": "Milk River, Jamaica",
     "place_id": "ChIJs8kigmCa244RWNCOxjJaq4Y",
-    "location": { "lat": 17.8756885, "lng": -77.3496708 }
+    "location": { "lat": 17.8756885, "lng": -77.3496708 },
+    "keywords": { "primary": ["Milk River"], "secondary": ["CLARENDON"] }
   },
   {
     "area": "Rocky Point",
@@ -3483,7 +3886,8 @@
     ],
     "address": "Rocky Point, Jamaica",
     "place_id": "ChIJExMFwQiD244RD_3T_0iiOXM",
-    "location": { "lat": 17.7735381, "lng": -77.2548837 }
+    "location": { "lat": 17.7735381, "lng": -77.2548837 },
+    "keywords": { "primary": ["Rocky Point"], "secondary": ["CLARENDON"] }
   },
   {
     "area": "Palmers Cross",
@@ -3500,7 +3904,8 @@
     ],
     "address": "Palmers Cross, Jamaica",
     "place_id": "ChIJvTdhezOe244RxkwcV1EXFIM",
-    "location": { "lat": 17.9514942, "lng": -77.21139389999999 }
+    "location": { "lat": 17.9514942, "lng": -77.21139389999999 },
+    "keywords": { "primary": ["Palmers Cross"], "secondary": ["CLARENDON"] }
   },
   {
     "area": "Mineral Heights",
@@ -3515,9 +3920,13 @@
         "party": "JLP"
       }
     ],
-    "address": "1st Street, Top, Halse Hall, May Pen, Jamaica",
+    "address": "Halse Hall, May Pen, Jamaica",
     "place_id": "ChIJfdjY0T-f244ReRv7fLBQOEA",
-    "location": { "lat": 17.9387988, "lng": -77.23989859999999 }
+    "location": { "lat": 17.9387988, "lng": -77.23989859999999 },
+    "keywords": {
+      "primary": ["Mineral Heights", "Halse Hall", "May Pen"],
+      "secondary": ["CLARENDON"]
+    }
   },
   {
     "area": "Hayes",
@@ -3534,7 +3943,8 @@
     ],
     "address": "Hayes, Jamaica",
     "place_id": "ChIJBTaQM7Od244Rs-7E0_W3koE",
-    "location": { "lat": 17.8735534, "lng": -77.22901929999999 }
+    "location": { "lat": 17.8735534, "lng": -77.22901929999999 },
+    "keywords": { "primary": ["Hayes"], "secondary": ["CLARENDON"] }
   },
   {
     "area": "Kellits",
@@ -3551,7 +3961,8 @@
     ],
     "address": "Kellits, Jamaica",
     "place_id": "ChIJl6WDBMan244R5c5ksQh_yxY",
-    "location": { "lat": 18.1829949, "lng": -77.2462628 }
+    "location": { "lat": 18.1829949, "lng": -77.2462628 },
+    "keywords": { "primary": ["Kellits"], "secondary": ["CLARENDON"] }
   },
   {
     "area": "Crofts Hill",
@@ -3568,7 +3979,8 @@
     ],
     "address": "Crofts Hill, Jamaica",
     "place_id": "ChIJy-gLMXKn244RM0B6ZR8N4O0",
-    "location": { "lat": 18.1279212, "lng": -77.2060241 }
+    "location": { "lat": 18.1279212, "lng": -77.2060241 },
+    "keywords": { "primary": ["Crofts Hill"], "secondary": ["CLARENDON"] }
   },
   {
     "area": "Aenon Town",
@@ -3585,7 +3997,8 @@
     ],
     "address": "Aenon Town, Jamaica",
     "place_id": "ChIJq8nyYBKw244RxlBulRZ5d3A",
-    "location": { "lat": 18.2046037, "lng": -77.39560039999999 }
+    "location": { "lat": 18.2046037, "lng": -77.39560039999999 },
+    "keywords": { "primary": ["Aenon Town"], "secondary": ["CLARENDON"] }
   },
   {
     "area": "Thompson Town",
@@ -3602,7 +4015,11 @@
     ],
     "address": "Thompson Town, Jamaica",
     "place_id": "ChIJx_DWtb6i244RTSaFYVZmaBk",
-    "location": { "lat": 18.0866489, "lng": -77.3726379 }
+    "location": { "lat": 18.0866489, "lng": -77.3726379 },
+    "keywords": {
+      "primary": ["Thompson Town", "Victoia", "Smithville", "Blackwoods"],
+      "secondary": ["CLARENDON"]
+    }
   },
   {
     "area": "Spaulding",
@@ -3619,7 +4036,11 @@
     ],
     "address": "Spalding, Jamaica",
     "place_id": "ChIJCxa-NM27244R-PLMimyWVEo",
-    "location": { "lat": 18.1577304, "lng": -77.45728969999999 }
+    "location": { "lat": 18.1577304, "lng": -77.45728969999999 },
+    "keywords": {
+      "primary": ["Spaulding", "Spalding"],
+      "secondary": ["CLARENDON"]
+    }
   },
   {
     "area": "Ritchies",
@@ -3636,7 +4057,8 @@
     ],
     "address": "RItchies, Jamaica",
     "place_id": "ChIJF5CeF3G7244Rs6P570E0jxM",
-    "location": { "lat": 18.1091076, "lng": -77.4042102 }
+    "location": { "lat": 18.1091076, "lng": -77.4042102 },
+    "keywords": { "primary": ["Ritchies"], "secondary": ["CLARENDON"] }
   },
   {
     "area": "Frankfield",
@@ -3653,7 +4075,8 @@
     ],
     "address": "Frankfield, Jamaica",
     "place_id": "ChIJ1034WNSk244RkFWhH_mwPZQ",
-    "location": { "lat": 18.144858, "lng": -77.3726379 }
+    "location": { "lat": 18.144858, "lng": -77.3726379 },
+    "keywords": { "primary": ["Frankfield"], "secondary": ["CLARENDON"] }
   },
   {
     "area": "Rock River",
@@ -3670,7 +4093,8 @@
     ],
     "address": "Rock River, Jamaica",
     "place_id": "ChIJz-RRaJmg244RL8FzqlEJfxc",
-    "location": { "lat": 18.0635419, "lng": -77.20027449999999 }
+    "location": { "lat": 18.0635419, "lng": -77.20027449999999 },
+    "keywords": { "primary": ["Rock River"], "secondary": ["CLARENDON"] }
   },
   {
     "area": "Mocho",
@@ -3687,7 +4111,8 @@
     ],
     "address": "Mocho P.O., Dawkins, Jamaica",
     "place_id": "ChIJeRIKlvmi244ROWtdbk6nv0s",
-    "location": { "lat": 18.045364, "lng": -77.33682189999999 }
+    "location": { "lat": 18.045364, "lng": -77.33682189999999 },
+    "keywords": { "primary": ["Mocho", "Dawkins"], "secondary": ["CLARENDON"] }
   },
   {
     "area": "Chapleton",
@@ -3704,7 +4129,11 @@
     ],
     "address": "Chapelton, Jamaica",
     "place_id": "ChIJAQyE4zih244RF3ktHOpmNIY",
-    "location": { "lat": 18.0797857, "lng": -77.2692503 }
+    "location": { "lat": 18.0797857, "lng": -77.2692503 },
+    "keywords": {
+      "primary": ["Chapleton", "Chapelton"],
+      "secondary": ["CLARENDON"]
+    }
   },
   {
     "area": "Cannan Heights",
@@ -3721,7 +4150,11 @@
     ],
     "address": "XQ74+VJ5, May Pen, Jamaica",
     "place_id": "ChIJ17Yz_Pef244RichzgyX20kg",
-    "location": { "lat": 17.9646325, "lng": -77.2433891 }
+    "location": { "lat": 17.9646325, "lng": -77.2433891 },
+    "keywords": {
+      "primary": ["Cannan Heights", "May Pen"],
+      "secondary": ["CLARENDON"]
+    }
   },
   {
     "area": "Denbigh",
@@ -3738,6 +4171,7 @@
     ],
     "address": "Denbigh, Jamaica",
     "place_id": "ChIJyfHrADyf244RMWJbvEdiJnM",
-    "location": { "lat": 17.9661581, "lng": -77.2663771 }
+    "location": { "lat": 17.9661581, "lng": -77.2663771 },
+    "keywords": { "primary": ["Denbigh"], "secondary": ["CLARENDON"] }
   }
 ]

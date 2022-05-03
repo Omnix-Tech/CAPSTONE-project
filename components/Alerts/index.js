@@ -10,7 +10,6 @@ import useAlerts from '../../controller/hooks/useAlerts';
 export default function AlertContainer({ location, ...props }) {
 
   const { alerts } = useAlerts(location)
-  // const alerts = []
 
 
   return (
@@ -23,7 +22,9 @@ export default function AlertContainer({ location, ...props }) {
 
         alerts.length === 0
           ?
-          <>No Alerts</>
+          <Center p={10}>
+            <Text fontSize={'xs'} fontWeight={'medium'} >No Alerts</Text>
+          </Center>
           :
 
           <>

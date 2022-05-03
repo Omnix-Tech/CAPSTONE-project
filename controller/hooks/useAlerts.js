@@ -2,7 +2,7 @@ import React from 'react'
 import useAPIs from '../handlers'
 
 
-import { collection, doc, getDoc, getDocs, onSnapshot } from 'firebase/firestore'
+import { collection, doc, getDoc, getDocs, onSnapshot, query, where } from 'firebase/firestore'
 import { firestore } from '../../app/config/firebase.config'
 
 
@@ -10,6 +10,7 @@ import { firestore } from '../../app/config/firebase.config'
 const useAlerts = (connect) => {
     const { server } = useAPIs()
 
+    const [alertLocation, setAlertLocation] = React.useState(null)
     const [alerts, setAlerts] = React.useState(null)
     const [refresh, setRefresh] = React.useState(false)
     const [app_data, setAppData] = React.useState({})
@@ -24,35 +25,53 @@ const useAlerts = (connect) => {
     }
 
     const handleSetAppData = () => {
-        getDoc( doc( firestore,  '/AppData/WE_CONNECT') ).then(snapshot => {
+        getDoc(doc(firestore, '/AppData/WE_CONNECT')).then(snapshot => {
             if (snapshot.exists()) {
                 setAppData(snapshot.data())
             } else {
                 handleRefreshAlerts()
             }
-            
-        }).catch(error => { console.log(error)})
-    }
 
+        }).catch(error => { })
+    }
 
     const handleSetRefresh = () => {
-        console.log(app_data)
+        const time = app_data.lastRefresh
+
+        if (time) {
+            const refreshTime = new Date(
+                time.seconds * 1000 + time.nanoseconds / 1000000
+            )
+            const now = (new Date()).getTime()
+            const refreshTimeInMLSeconds = refreshTime.getTime()
+
+            const difference =  refreshTimeInMLSeconds - (now - 3600000)
+            console.log('Difference: ', difference)
+
+            setRefresh( difference <= 0)
+        }
+
+
+
     }
 
-    const handleSetAlerts = () => {
+    const handleSetsetAlertLocation = () => {
         getDocs(
-            collection( firestore, 'Alerts' )
+            query(
+                collection(firestore, 'AlertLocation'),
+                where('location', '==', doc(firestore, `Locations/${connect.place_id}`)),
+                where('batchID', '==', app_data.currentBatch),
+                where('status', '==', 'secondary')
+            )
         )
-        .then( snapshot => {
-            const docs = snapshot.docs
-            setAlerts(docs.map( doc => doc.data() ))
-        })
-        .catch( error => {
-            setAlerts([])
-            console.log('Error Occurred')
-        })
+            .then(snapshot => {
+                const docs = snapshot.docs
+                setAlertLocation(docs.map(doc => doc.data()))
+            })
+            .catch(error => {
+                setAlertLocation([])
+            })
     }
-
 
     const handleRefreshAlerts = () => {
         console.log('running...')
@@ -66,13 +85,21 @@ const useAlerts = (connect) => {
             .then(data => {
                 if (data.error) {
                     console.log('Something went wrong: ', data.error)
-                } else {
-                    console.log(data)
                 }
             })
-            .catch(error => {
-                console.log(error)
-            })
+            .catch(error => { })
+    }
+
+    const handleSetAlerts = async () => {
+        var docs = []
+        for (var index = 0; index < alertLocation.length; index++) {
+            const snapshot = await getDoc(alertLocation[index].alert)
+                .catch(error => console.log(error))
+
+            docs.push(snapshot.data())
+        }
+
+        setAlerts(docs)
     }
 
 
@@ -88,9 +115,19 @@ const useAlerts = (connect) => {
 
 
     React.useEffect(() => {
-        if (app_data) handleSetAlerts()
-    }, [app_data])
+        if (app_data && connect) handleSetsetAlertLocation()
+    }, [app_data, connect])
 
+
+    React.useEffect(() => {
+        if (alertLocation) handleSetAlerts()
+    }, [alertLocation])
+
+
+    React.useEffect(() => {
+        console.log(refresh)
+        if (refresh) handleRefreshAlerts()
+    }, [refresh])
 
     return { alerts }
 

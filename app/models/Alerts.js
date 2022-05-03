@@ -28,16 +28,17 @@ class Alert {
                 location_id: primary[index],
                 status: 'primary',
                 batchID
-            })
+            }).catch( error => {})
         }
 
 
         for (var index = 0; index < secondary.length; index++) {
             await AlertLocationCollection.create({
                 alert: response.ref,
-                location_id: primary[index],
-                status: 'secondary'
-            })
+                location_id: secondary[index],
+                status: 'secondary',
+                batchID
+            }).catch( error => {})
         }
 
         return response

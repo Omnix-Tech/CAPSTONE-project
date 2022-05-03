@@ -103,7 +103,7 @@ export default function Home({ user }) {
           </GridItem>
 
           <GridItem px={2} colSpan={{ base: 12, md: 7, lg: 5 }} >
-            <AlertContainer my={5} />
+            <AlertContainer my={5} location={connect} />
 
             <Box my={5}>
               <Text px={5} color={'gray.400'} fontWeight={'medium'} textTransform={'uppercase'} fontSize={'xs'}>{connect ? connect?.area : ''} Forum</Text>

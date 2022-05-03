@@ -1,8 +1,11 @@
-import { Box, Heading, HStack, Text, Button, useDisclosure } from "@chakra-ui/react";
+import { Box, Heading, HStack, Text, Button, useDisclosure, Center, Spinner } from "@chakra-ui/react";
 import FeatherIcon from 'feather-icons-react'
+import { doc, getDoc } from "firebase/firestore";
 
 
 import React from 'react'
+import { useDocumentData } from "react-firebase-hooks/firestore";
+import { firestore } from "../../app/config/firebase.config";
 import AlertModal from "./AlertModal";
 
 
@@ -68,14 +71,13 @@ export default function AlertCard({ alert }) {
 
     return (
         <>
-
             <AlertModal isOpen={isOpen} onClose={onClose} modalRef={modalRef} alert={alert} />
             <Box _hover={{ cursor: 'pointer' }} onClick={onOpen} ref={modalRef} {...styles.background(alert.media)} >
                 <Box h={'full'} {...styles.card}>
                     <Heading {...styles.heading} >{alert.title}</Heading>
 
                     <Text {...styles.content}>
-                        { alert.content }
+                        {alert.content}
                     </Text>
 
                     <HStack {...styles.source}>
