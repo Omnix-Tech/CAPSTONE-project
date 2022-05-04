@@ -21,7 +21,7 @@ export default function AlertList({ connect, category, parish }) {
                         <>
                             <Grid templateColumns={'repeat(12,1fr)'} >
                                 {alerts.map( alert => (
-                                    <GridItem key={alert.id} p={2} colSpan={{ base: 12, md: 6 }} >
+                                    <GridItem key={alert.id} p={1} colSpan={{ base: 12, md: 6 }} >
                                         <AlertCard alert={alert} />
                                     </GridItem>
                                 ))}

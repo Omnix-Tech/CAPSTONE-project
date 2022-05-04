@@ -22,7 +22,7 @@ export default function Alerts({ user }) {
         <Layout user={user} currentTab={'alerts'}>
             <Grid w={'full'} templateColumns={'repeat(12,1fr)'} >
 
-                <GridItem px={2} py={10} colSpan={{ base: 12, md: 5, lg: 4 }} >
+                <GridItem px={2} pt={10} colSpan={{ base: 12, md: 5, lg: 4 }} >
                     <Box top={{ base: 'unset', md: 70 }} position={{ base: 'unset', md: 'sticky' }}>
                         <Box boxShadow={'-2px -3px 16px -1px rgba(0,0,0,0.14)'} padding={10} bgColor={'white'} borderRadius={10}>
                             <Heading mb={2} size={'md'} >Hello, {user?.displayName}</Heading>
@@ -38,7 +38,7 @@ export default function Alerts({ user }) {
                             <Divider my={2} />
                             <Box>
                                 <Box onClick={() => setCategory(null)} transition={'.25s'} _hover={{ cursor: 'pointer', bgColor: 'linkedin.500', textColor: 'white' }} bgColor={category ? 'unset' : 'linkedin.300'} textColor={category ? 'unset' : 'white'} p={2}>
-                                    <Text fontWeight={'medium'} >Inform</Text>
+                                    <Text fontWeight={'medium'} >Information</Text>
                                 </Box>
 
                                 <Box onClick={() => setCategory('wanted')} transition={'.25s'} _hover={{ cursor: 'pointer', bgColor: 'linkedin.500', textColor: 'white' }} bgColor={category === 'wanted' ? 'linkedin.300' : 'unset'} textColor={category === 'wanted' ? 'white' : 'unset'} p={2}>
