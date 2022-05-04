@@ -1,19 +1,36 @@
 import React from 'react'
 import useAPIs from '../handlers'
+import useFeedback from './useFeedback'
 
 
-import { collection, doc, getDoc, getDocs, onSnapshot, query, where } from 'firebase/firestore'
+import { collection, doc, getDoc, getDocs, onSnapshot, orderBy, query, where } from 'firebase/firestore'
 import { firestore } from '../../app/config/firebase.config'
 
 
 
-const useAlerts = (connect) => {
+const useAlerts = ({ connect, parish, category }) => {
+    const { showError, render } = useFeedback()
     const { server } = useAPIs()
 
-    const [alertLocation, setAlertLocation] = React.useState(null)
     const [alerts, setAlerts] = React.useState(null)
     const [refresh, setRefresh] = React.useState(false)
-    const [app_data, setAppData] = React.useState({})
+    const [app_data, setAppData] = React.useState(null)
+
+
+    const [connectReference, setConnectReference] = React.useState(null)
+    const [currentQuery, setCurrentQuery] = React.useState(null)
+
+
+    const [querries, setQuerries] = React.useState({
+        parish: null,
+        connect: null,
+        type: null,
+        wanted: null,
+        missing: null
+    })
+
+
+
 
 
     const listenForUpdates = () => {
@@ -44,33 +61,13 @@ const useAlerts = (connect) => {
             )
             const now = (new Date()).getTime()
             const refreshTimeInMLSeconds = refreshTime.getTime()
-
             const difference = refreshTimeInMLSeconds - (now - 900000)
-            console.log('Difference: ', difference)
             setRefresh(difference <= 0)
         }
-
-    }
-
-    const handleSetAlertLocation = () => {
-        const alertQuery = query(
-            collection(firestore, 'AlertLocation'),
-            where('location', '==', doc(firestore, `Locations/${connect.place_id}`)),
-            where('batchID', '==', app_data.currentBatch),
-            where('status', '==', 'secondary')
-        )
-        getDocs(alertQuery)
-            .then(snapshot => {
-                const docs = snapshot.docs
-                setAlertLocation(docs.map(doc => doc.data()))
-            })
-            .catch(error => {
-                setAlertLocation([])
-            })
     }
 
     const handleRefreshAlerts = async () => {
-        
+
 
         if (app_data) {
             if (app_data.isUpdating) return;
@@ -93,16 +90,63 @@ const useAlerts = (connect) => {
             })
     }
 
-    const handleSetAlerts = async () => {
-        var docs = []
-        for (var index = 0; index < alertLocation.length; index++) {
-            const snapshot = await getDoc(alertLocation[index].alert)
-                .catch(error => console.log(error))
-            docs.push(snapshot.data())
-        }
 
-        setAlerts(docs)
+    const handleSetCurrentQuerry = () => {
+        if (category) {
+            if (category === 'wanted') {
+                if (querries.wanted) setCurrentQuery(querries.wanted)
+            } else if (category === 'missing') {
+                if (querries.missing) setCurrentQuery(querries.missing)
+            }
+        } else if (parish) {
+            if (querries.parish) setCurrentQuery(querries.parish)
+        } else {
+            if (querries.connect) setCurrentQuery(querries.connect)
+        }
     }
+
+
+    const handleSetQuerries = () => {
+        if (category) {
+            if (category === 'wanted') {
+                setQuerries({
+                    ...querries,
+                    wanted: query(collection(firestore, 'Alerts'), where('batchID', '==', app_data.currentBatch), where('category', '==', 'wanted'))
+                })
+            } else if (category === 'missing') {
+                setQuerries({
+                    ...querries,
+                    missing: query(collection(firestore, 'Alerts'), where('batchID', '==', app_data.currentBatch), where('category', '==', 'missing'))
+                })
+            }
+        } else if (parish) {
+            setQuerries({
+                ...querries.connect,
+                parish: parish.toUpperCase().includes('KINGSTON') ?
+                    query(collection(firestore, 'Alerts'), where('batchID', '==', app_data.currentBatch), where('parishes', 'array-contains-any', ['ST. ANDREW', 'KINGSTON']), orderBy('date', 'desc'))
+                    : query(collection(firestore, 'Alerts'), where('batchID', '==', app_data.currentBatch), where('parishes', 'array-contains', parish.toUpperCase()), orderBy('date', 'desc'))
+            })
+        } else {
+            setQuerries({
+                ...querries,
+                connect: query(collection(firestore, 'Alerts'), where('batchID', '==', app_data.currentBatch), where('connects', 'array-contains', connectReference), orderBy('date', 'desc'))
+            })
+        }
+    }
+
+
+    const handleSetAlerts = async () => {
+        getDocs(currentQuery)
+            .then(querySnapshot => {
+                setAlerts(querySnapshot.docs.map(snapshot => ({ id: snapshot.id, ...snapshot.data() })))
+            })
+            .catch(error => {
+                console.log(error)
+                showError({ message: 'Something went wrong' })
+            })
+    }
+
+
 
 
     React.useEffect(() => {
@@ -112,26 +156,39 @@ const useAlerts = (connect) => {
 
 
     React.useEffect(() => {
-        if (app_data) handleSetRefresh()
+        if (connect) setConnectReference(doc(firestore, `Locations/${connect.place_id}`))
+    }, [connect])
+
+
+
+    React.useEffect(() => {
+        if (app_data) {
+            handleSetRefresh()
+        }
     }, [app_data])
 
 
     React.useEffect(() => {
-        if (app_data && connect) handleSetAlertLocation()
-    }, [app_data, connect])
-
-
-    React.useEffect(() => {
-        if (alertLocation) handleSetAlerts()
-    }, [alertLocation])
-
-
-    React.useEffect(() => {
-        console.log(refresh)
         if (refresh && app_data) handleRefreshAlerts()
     }, [refresh])
 
-    return { alerts }
+
+    React.useEffect(() => {
+        handleSetCurrentQuerry()
+    }, [querries])
+
+    React.useEffect(() => {
+        if (app_data) handleSetQuerries()
+    }, [connectReference, parish, category, app_data])
+
+
+    React.useEffect(() => {
+        if (currentQuery) handleSetAlerts()
+    }, [currentQuery])
+
+
+
+    return { alerts, render }
 
 }
 

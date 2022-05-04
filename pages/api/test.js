@@ -1,6 +1,6 @@
 
 
-const tweet = require('../../utils/alerts/scrape/jps').handler
+const wanted = require('../../utils/alerts/scrape/jcf').handler
 export default async function handler(req, res) {
 
 
@@ -11,7 +11,7 @@ export default async function handler(req, res) {
 
         // Computation Start
 
-        const data = await tweet().catch(error => console.log(error))
+        const data = await wanted(false).catch(error => console.log(error))
 
 
 

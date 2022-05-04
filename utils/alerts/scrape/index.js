@@ -1,7 +1,8 @@
 const observer = require('./observer.news').handler
 const loop = require('./loop.news').handler
-const jcf = require('./jcf.news').handler
+const JCFNews = require('./jcf.news').handler
 const jps = require('./jps').handler
+const JCF = require('./jcf').handler
 
 
 module.exports = {
@@ -24,7 +25,7 @@ module.exports = {
         all_articles = [...all_articles, ... (articles ? articles : [])]
 
         articles = null
-        articles = await jcf(limit)
+        articles = await JCFNews(limit)
             .catch(error => {
                 console.log('JCF ERROR:: ', error)
             })
@@ -35,6 +36,24 @@ module.exports = {
         articles = await jps()
             .catch(error => {
                 console.log('JPS ERROR:: ', error)
+            })
+
+        all_articles = [...all_articles, ... (articles ? articles : [])]
+
+
+        articles = null
+        articles = await JCF(true)
+            .catch(error => {
+                console.log('Wanted ERROR:: ', error)
+            })
+
+        all_articles = [...all_articles, ... (articles ? articles : [])]
+
+
+        articles = null
+        articles = await JCF(false)
+            .catch(error => {
+                console.log('Missiong ERROR:: ', error)
             })
 
         all_articles = [...all_articles, ... (articles ? articles : [])]

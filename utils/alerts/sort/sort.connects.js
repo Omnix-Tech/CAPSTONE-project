@@ -3,33 +3,25 @@ const locations = require('../../locations/locations.json')
 
 
 
-const searchArticle = ( keywords, article ) => {
-    const results = keywords.map( keyword => {
+const searchArticle = (keywords, article) => {
+    const results = keywords.map(keyword => {
         const word = keyword.toUpperCase().replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g, "")
-        console.log(word)
-        return article.search( word ) !== -1
+        return article.search(word) !== -1
     })
 
     return results.includes(true)
 }
 
-const sortConnects = ( articles ) => {
-    const alerts = articles.map( article => {
+const sortConnects = (articles) => {
+    const alerts = articles.map(article => {
         const content = article.content.toUpperCase().replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g, "")
-        article['connects'] = {
-            primary : [],
-            secondary: []
-        }
+        article['connects'] = []
 
-        locations.map( ({ keywords: { primary, secondary }, place_id } ) => {
+        locations.map(({ keywords, place_id, parish }) => {
 
-            if ( searchArticle(primary, content) ) {
+            if (searchArticle(keywords, content)) {
 
-                article.connects.primary.push(place_id)
-                
-            } else if ( searchArticle(secondary, content)) {
-
-                article.connects.secondary.push(place_id)
+                article.connects.push({ id: place_id, parish })
 
             }
 
@@ -39,7 +31,7 @@ const sortConnects = ( articles ) => {
     })
 
 
-    
+
     return alerts
 }
 

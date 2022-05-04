@@ -12,6 +12,13 @@ const styles = {
     }
 }
 
+function linkify(text) {
+    const urlRegex = /(\b(https?|ftp|file):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/ig
+    return text.replace(urlRegex, url => {
+        return `<a target='_blank' href='${url}' >${url}</a>`
+    })
+}
+
 export default function AlertModal({ isOpen, onClose, modalRef, alert }) {
     return (
         <>
@@ -40,20 +47,23 @@ export default function AlertModal({ isOpen, onClose, modalRef, alert }) {
                                     {alert.title}
                                 </Heading>
 
+
+
                                 <Text fontSize={'xs'} color={'gray.700'}> {alert.source} </Text>
 
 
                                 <Box mt={5} >
-                                    <Text noOfLines={6}>
-                                        {alert.content}
-                                    </Text>
+                                    <Text noOfLines={6}
+                                        dangerouslySetInnerHTML={{
+                                            __html: linkify(alert.content)
+                                        }} />
                                 </Box>
                             </GridItem>
                         </Grid>
                     </ModalBody>
 
                     <ModalFooter justifyContent={'end'}>
-                        { alert.link ? <Button as={'a'} href={alert.source.includes('Loop') ? alert.origin + alert.link : alert.link } target={'_blank'} variant={'ghost'} colorScheme={'green'}>Learn More</Button> : <></> }
+                        {alert.link ? <Button as={'a'} href={alert.source.includes('Loop') ? alert.origin + alert.link : alert.link} target={'_blank'} variant={'ghost'} colorScheme={'green'}>Learn More</Button> : <></>}
                     </ModalFooter>
                 </ModalContent>
             </Modal>

@@ -1,6 +1,5 @@
-import { Box, Heading, HStack, Text, Button, useDisclosure, Center, Spinner } from "@chakra-ui/react";
+import { Box, Heading, HStack, Text, Button, useDisclosure } from "@chakra-ui/react";
 import FeatherIcon from 'feather-icons-react'
-import { doc, getDoc } from "firebase/firestore";
 
 
 import React from 'react'
@@ -12,9 +11,8 @@ const styles = {
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         bg: `url('${bg}')`,
-        borderRadius: 10,
-        overflow: 'hidden',
-        mx: 3
+        borderRadius: 5,
+        overflow: 'hidden'
     }),
 
     card: {
@@ -62,6 +60,13 @@ const styles = {
 
 }
 
+function linkify(text) {
+    const urlRegex = /(\b(https?|ftp|file):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/ig
+    return text.replace(urlRegex, url => {
+        return `<a target='_blank' href='${url}' >${url}</a>`
+    })
+}
+
 export default function AlertCard({ alert }) {
 
     const { isOpen, onClose, onOpen } = useDisclosure()
@@ -69,14 +74,17 @@ export default function AlertCard({ alert }) {
 
     return (
         <>
+
             <AlertModal isOpen={isOpen} onClose={onClose} modalRef={modalRef} alert={alert} />
             <Box h={'full'} _hover={{ cursor: 'pointer' }} onClick={onOpen} ref={modalRef} {...styles.background(alert.media)} >
                 <Box h={'full'} {...styles.card}>
                     <Heading {...styles.heading} >{alert.title}</Heading>
 
-                    <Text {...styles.content}>
-                        {alert.content}
-                    </Text>
+                    <Text {...styles.content} 
+                    dangerouslySetInnerHTML={{
+                        __html: linkify(alert.content)
+                    }} />
+
 
                     <HStack {...styles.source}>
                         <FeatherIcon size={18} icon={'arrow-up-right'} />
@@ -87,7 +95,7 @@ export default function AlertCard({ alert }) {
 
 
                     <HStack justifyContent={'right'}>
-                        { alert.link ? <Button as={'a'} target="_blank" href={ alert.source.includes('Loop') ? alert.origin + alert.link : alert.link } {...styles.button} >Learn more</Button> : <></> }
+                        {alert.link ? <Button as={'a'} target="_blank" href={alert.source.includes('Loop') ? alert.origin + alert.link : alert.link} {...styles.button} >Learn more</Button> : <></>}
                     </HStack>
                 </Box>
             </Box>

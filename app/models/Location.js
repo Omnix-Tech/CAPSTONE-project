@@ -107,12 +107,13 @@ class AlertLocation {
         this.locations = new Location()
     }
 
-    async create({ alert, location_id, status, batchID }, transaction = null) {
+    async create({ alert, location_id, parish, status, batchID }, transaction = null) {
         const response = await this.db.create({
             data: {
                 alert,
                 location: this.locations.getReference(location_id),
                 status,
+                parish,
                 batchID
             }
         }, transaction).catch(error => {

@@ -97,7 +97,8 @@ const getArticles = async (html, origin, timeLimit) => {
             source: 'Jamaica Observer',
             origin,
             content: await getContent(el, origin),
-            date: getDate(el)
+            date: getDate(el),
+            category: 'inform'
         })
     }
 

@@ -1,5 +1,5 @@
 const { Database } = require(".");
-const { AlertLocationCollection } = require("./Location");
+const { AlertLocationCollection, LocationCollection } = require("./Location");
 
 
 
@@ -17,29 +17,12 @@ class Alert {
     }
 
 
-    async create({ id, data: { connects: { primary, secondary }, batchID, ...alert } }) {
-        const response = await this.db.create({ id, data: { batchID, ...alert } })
+    async create({ id, data: { connects, batchID, ...alert } }) {
+        const locations = connects.map( connect => LocationCollection.getReference(connect.id) )
+        const parishes = connects.map( connect => connect.parish )
+
+        const response = await this.db.create({ id, data: { batchID, connects: locations, parishes, ...alert } })
             .catch(error => { throw error })
-
-
-        for (var index = 0; index < primary.length; index++) {
-            await AlertLocationCollection.create({
-                alert: response.ref,
-                location_id: primary[index],
-                status: 'primary',
-                batchID
-            }).catch( error => {})
-        }
-
-
-        for (var index = 0; index < secondary.length; index++) {
-            await AlertLocationCollection.create({
-                alert: response.ref,
-                location_id: secondary[index],
-                status: 'secondary',
-                batchID
-            }).catch( error => {})
-        }
 
         return response
     }

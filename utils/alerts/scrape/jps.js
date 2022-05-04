@@ -47,7 +47,8 @@ const tweet = async () => {
                 source: 'Jamaica Public Service',
                 origin: null,
                 content: tweet.text,
-                date: new Date(tweet.created_at)
+                date: new Date(tweet.created_at),
+                category: 'inform'
             }
         })
 

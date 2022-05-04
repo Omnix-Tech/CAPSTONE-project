@@ -9,8 +9,7 @@ import useAlerts from '../../controller/hooks/useAlerts';
 
 export default function AlertContainer({ location, ...props }) {
 
-  // const { alerts } = useAlerts(location)
-  const alerts = []
+  const { alerts } = useAlerts({ connect: location })
 
   return (
     <Box {...props}>
@@ -29,8 +28,8 @@ export default function AlertContainer({ location, ...props }) {
 
           <>
             <Carousel showStatus={false} >
-              {alerts.map((alert, index) => {
-                return <AlertCard key={index} alert={alert} />
+              {alerts.map(alert => {
+                return <Box key={alert.id} mx={2}><AlertCard alert={alert} /></Box>
               })}
             </Carousel>
           </>

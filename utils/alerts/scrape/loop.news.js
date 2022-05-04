@@ -73,7 +73,8 @@ const getArticles = async (html, origin, timeLimit) => {
             source: 'Loop News Jamaica',
             origin,
             content: await getContent($(el), origin),
-            date: getDate($(el))
+            date: getDate($(el)),
+            category: 'inform'
         })
     }
 

@@ -1,5 +1,4 @@
 import { AlertsCollection } from '../../app/models/Alerts';
-import { AlertLocationCollection } from '../../app/models/Location';
 import { AppData } from '../../app/models/System';
 
 
@@ -28,7 +27,6 @@ export default async function handler(req, res) {
 
         if (lastBatch) {
             await AlertsCollection.deleteBatch({ batchID: lastBatch }).catch(error => { throw error })
-            await AlertLocationCollection.deleteBatch({ batchID: lastBatch }).catch(error => { throw error })
         }
 
         const presentBatch = uuidv4()
