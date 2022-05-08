@@ -1,24 +1,15 @@
 import { Text, Box, HStack, IconButton, Tooltip, InputGroup, InputAddon, Textarea } from '@chakra-ui/react';
-import { collection, where, query, onSnapshot } from '@firebase/firestore';
 import FeatherIcon from 'feather-icons-react'
 import React from 'react';
-import { useCollectionOnce } from 'react-firebase-hooks/firestore';
-
-import { firestore } from '../../app/config/firebase.config'
 
 import useAPIs from '../../controller/handlers';
+import useResponse from '../../controller/hooks/useResponse';
 
-export default function ResponseInput({ post, currentUser }) {
+export default function ResponseInput({ post, currentUser, showSuccess, showError }) {
     const { createResponse } = useAPIs()
+    const { responses } = useResponse({ post })
 
-    const responseQuery = query(
-        collection(firestore, 'Responses'),
-        where('post', '==', post)
-    )
-
-    const [snapshot] = useCollectionOnce(responseQuery)
     const [responseContent, setResponseContent] = React.useState('')
-    const [responseCount, setResponseCount] = React.useState(0)
 
 
     const handleResponseSubmit = () => {
@@ -27,29 +18,10 @@ export default function ResponseInput({ post, currentUser }) {
         })
             .then(data => {
                 setResponseContent('')
-                alert('sent')
+                showSuccess({ message: 'Sent'})
             })
-            .catch(error => alert(error.message))
+            .catch(error => showError({message: 'Something went wrong'}))
     }
-
-    const listenForNewUpdates = () => {
-        onSnapshot(responseQuery, (querySnapshot) => {
-         
-            if (responseCount != querySnapshot.size) setResponseCount(querySnapshot.size)
-        })
-    }
-
-   
-
-    React.useEffect(() => {
-        if (snapshot) setResponseCount(snapshot.size)
-    }, [snapshot])
-
-
-    React.useEffect(() => {
-        listenForNewUpdates()
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [responseCount])
 
     return (
         <Box px={5} w={'full'}>
@@ -62,7 +34,7 @@ export default function ResponseInput({ post, currentUser }) {
                                 <FeatherIcon color={'white'} size={16} icon={'message-circle'} />
                             </Box>
 
-                            <Text fontSize={'xs'} > {responseCount}</Text>
+                            <Text fontSize={'xs'} > { responses ? responses.length : 0 }</Text>
                         </HStack>
 
 

@@ -9,6 +9,7 @@ import { ref as storageRef } from 'firebase/storage'
 import { storage } from '../../app/config/firebase.config'
 import LikeButton from '../LikeButton';
 import ResponseInput from '../Responses/ResponseInput'
+import useFeedback from '../../controller/hooks/useFeedback';
 
 
 TimeAgo.addLocale(en)
@@ -63,69 +64,76 @@ export default function PostCard({ files, post, user, currentUser, loading, file
     const timeago = new TimeAgo('en-US')
 
 
+    const { showError, showSuccess, render } = useFeedback()
+
+
 
     return (
-        <Box>
-            <Divider bgColor={'gray.300'} />
-            <Box transition={'0.15s'} bgColor={'whiteAlpha.300'} _hover={{ bgColor: 'white', cursor: 'pointer' }} width={'full'} marginBottom={2} padding={2} >
-                <HStack justifyContent={'flex-start'} alignItems={'flex-start'}>
-                    <Avatar onClick={onOpen} size={'sm'} />
-                    <HStack w={'full'} justifyContent={'space-between'} alignItems={'flex-start'}>
-                        <Box px={2} onClick={onOpen} >
-                            <Box>
-                                {user ? <Heading transition={'0.25s'} _hover={{ color: 'messenger.400' }} lineHeight={'normal'} size={'xs'}>{`${user?.firstName} ${user?.lastName}`}</Heading> : <SkeletonText noOfLines={1} />}
-                                <Text fontSize={'xs'} color={'gray.700'}>{timeago && post ? timeago?.format(post?.timeStamp.toDate()) : ''}</Text>
-                            </Box>
-                            <Box my={2} >
-                                {loading
-                                    ? <Skeleton noOfLines={3} />
-                                    :
-                                    <Text fontSize={'sm'}>{post?.content}</Text>}
-                            </Box>
-                            {fileLoading ?
-                                <></> :
+        <>
+            {render()}
+            <Box>
+                <Divider bgColor={'gray.300'} />
+                <Box transition={'0.15s'} bgColor={'whiteAlpha.300'} _hover={{ bgColor: 'white', cursor: 'pointer' }} width={'full'} marginBottom={2} padding={2} >
+                    <HStack justifyContent={'flex-start'} alignItems={'flex-start'}>
+                        <Avatar onClick={onOpen} size={'sm'} />
+                        <HStack w={'full'} justifyContent={'space-between'} alignItems={'flex-start'}>
+                            <Box px={2} onClick={onOpen} >
+                                <Box>
+                                    {user ? <Heading transition={'0.25s'} _hover={{ color: 'messenger.400' }} lineHeight={'normal'} size={'xs'}>{`${user?.firstName} ${user?.lastName}`}</Heading> : <SkeletonText noOfLines={1} />}
+                                    <Text fontSize={'xs'} color={'gray.700'}>{timeago && post ? timeago?.format(post?.timeStamp.toDate()) : ''}</Text>
+                                </Box>
+                                <Box my={2} >
+                                    {loading
+                                        ? <Skeleton noOfLines={3} />
+                                        :
+                                        <Text fontSize={'sm'}>{post?.content}</Text>}
+                                </Box>
+                                {fileLoading ?
+                                    <></> :
 
-                                files.length === 0 ? <></>
-                                    :
-                                    <>
-                                        <Divider my={2} />
-                                        <Box>
-                                            <HStack {...scrollCSS} minH={100} h={'fit-content'} >
-                                                {files.length > 3 ? files.slice(0, 3).map((file, index) => {
-                                                    return (
-                                                        <File key={file.file} file={file.file} currentIndex={index} isMore={true} noMore={files.length - 3} />
-                                                    )
-                                                }) : files.map((file, index) => {
-                                                    return (
-                                                        <File key={file.file} file={file.file} currentIndex={index} isMore={false} />
-                                                    )
-                                                })}
-                                            </HStack>
-                                        </Box>
-                                    </>}
+                                    files.length === 0 ? <></>
+                                        :
+                                        <>
+                                            <Divider my={2} />
+                                            <Box>
+                                                <HStack {...scrollCSS} minH={100} h={'fit-content'} >
+                                                    {files.length > 3 ? files.slice(0, 3).map((file, index) => {
+                                                        return (
+                                                            <File key={file.file} file={file.file} currentIndex={index} isMore={true} noMore={files.length - 3} />
+                                                        )
+                                                    }) : files.map((file, index) => {
+                                                        return (
+                                                            <File key={file.file} file={file.file} currentIndex={index} isMore={false} />
+                                                        )
+                                                    })}
+                                                </HStack>
+                                            </Box>
+                                        </>}
 
-                        </Box>
-                        <Menu>
-                            <MenuButton
-                                as={IconButton}
-                                icon={<FeatherIcon size={16} icon={'more-horizontal'} />}
-                                variant={'ghost'}
-                                size={'xs'}
-                            />
-                            <MenuList>
-                                <MenuItem fontSize={'sm'}>Report Post</MenuItem>
-                                {loading ? <></> : post?.user?.id === currentUser?.uid ? <MenuItem fontSize={'sm'}>Edit Post</MenuItem> : <></>}
-                            </MenuList>
-                        </Menu>
+                            </Box>
+                            <Menu>
+                                <MenuButton
+                                    as={IconButton}
+                                    icon={<FeatherIcon size={16} icon={'more-horizontal'} />}
+                                    variant={'ghost'}
+                                    size={'xs'}
+                                />
+                                <MenuList>
+                                    <MenuItem fontSize={'sm'}>Report Post</MenuItem>
+                                    {loading ? <></> : post?.user?.id === currentUser?.uid ? <MenuItem fontSize={'sm'}>Edit Post</MenuItem> : <></>}
+                                </MenuList>
+                            </Menu>
+                        </HStack>
                     </HStack>
-                </HStack>
 
-                <Divider my="1" />
-                <HStack paddingX={2} justifyContent={'space-between'} alignItems={'flex-start'} >
-                    <ResponseInput post={ref} currentUser={currentUser} />
-                    <LikeButton postRef={ref} currentUser={currentUser} />
-                </HStack>
+                    <Divider my="1" />
+                    <HStack paddingX={2} justifyContent={'space-between'} alignItems={'flex-start'} >
+                        <ResponseInput showError={showError} showSuccess={showSuccess} post={ref} currentUser={currentUser} />
+                        <LikeButton postRef={ref} currentUser={currentUser} />
+                    </HStack>
+                </Box>
             </Box>
-        </Box>
+        </>
+
     );
 }

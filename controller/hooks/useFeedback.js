@@ -12,7 +12,7 @@ const useFeedback = () => {
 
     const handleOpenAlert = ({ heading, message, status, isLoading }) => {
         setIsOpen(true)
-        
+
         if (isLoading) {
             setIsLoading(true)
             return;
@@ -39,7 +39,7 @@ const useFeedback = () => {
     }
 
 
-    
+
 
 
     const render = () => (
@@ -56,7 +56,8 @@ const useFeedback = () => {
                             {message === '' ? <></> : <AlertDescription fontSize={'sm'}>{message}</AlertDescription>}
                         </Box>
                     </>}
-            </Alert></>
+            </Alert>
+        </>
     )
 
 

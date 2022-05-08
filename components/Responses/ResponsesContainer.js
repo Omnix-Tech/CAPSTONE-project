@@ -22,7 +22,7 @@ export default function ResponsesContainer({ responses, currentUser }) {
         : responses.length === 0 ?
           <HStack py={10} justifyContent={'center'} alignItems={'center'}><Text fontSize={'sm'} color={'gray.500'}>No Response</Text></HStack>
           :
-          responses.map(response => <ReponseCard key={response.ref.id} self={response.data.user.id === currentUser.uid } response={response} />)
+          responses.map(response => <ReponseCard key={response.id} self={ response.user.id === currentUser.uid } response={response} />)
       }
     </Box>
   );

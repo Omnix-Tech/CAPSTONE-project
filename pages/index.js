@@ -106,7 +106,7 @@ export default function Home({ user }) {
           </GridItem>
 
           <GridItem px={2} top={70} position={'sticky'} height={'fit-content'} minH={'90vh'} display={{ base: 'none', md: 'none', lg: 'unset' }} colSpan={{ base: 0, md: 0, lg: 3 }}>
-            <SearchContainer overflow={'scroll'} />
+            <SearchContainer overflow={'scroll'} user={user} connect={connect} />
           </GridItem>
         </Grid>
       </Layout>

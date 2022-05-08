@@ -9,7 +9,7 @@ import PostContainer from './PostContainer';
 
 
 
-export default function Post({ postRef, currentUser }) {
+export default function Post({ postRef, currentUser, render }) {
     const filesQuery = query(
         collection(firestore, 'Files'),
         where('post', '==', postRef)
@@ -20,6 +20,21 @@ export default function Post({ postRef, currentUser }) {
     const [post, loading] = useDocumentData(ref)
     const [user] = useDocumentData(post?.user)
 
+
+    const defaultRender = () => (
+        <PostCard
+            onOpen={onOpen}
+            files={files}
+            post={post}
+            user={user}
+            currentUser={currentUser}
+            loading={loading}
+            fileLoading={fileLoading}
+            postRef={postRef}
+        />
+    )
+
+
     React.useEffect(() => {
         setRef(postRef)
     }, [postRef])
@@ -27,22 +42,17 @@ export default function Post({ postRef, currentUser }) {
 
 
 
-    const { isOpen, onOpen, onClose, onToggle } = useDisclosure()
+    const { isOpen, onOpen, onClose } = useDisclosure()
     const postModalToggle = React.useRef()
     const modalOptions = { isOpen, onClose, finalFocusRef: postModalToggle }
 
-    
+
+
+
+
     return (
         <>
-            <PostCard
-                onOpen={onOpen}
-                files={files}
-                post={post}
-                user={user}
-                currentUser={currentUser}
-                loading={loading}
-                fileLoading={fileLoading}
-                postRef={postRef} />
+            {render ? render({ onOpen }) : defaultRender()}
             <PostContainer
                 {...modalOptions}
                 files={files}

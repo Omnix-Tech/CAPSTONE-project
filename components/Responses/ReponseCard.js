@@ -6,6 +6,7 @@ import en from 'javascript-time-ago/locale/en.json'
 import React from 'react';
 import { firestore } from '../../app/config/firebase.config';
 import useAPIs from '../../controller/handlers';
+import useFeedback from '../../controller/hooks/useFeedback';
 
 
 TimeAgo.setDefaultLocale(en)
@@ -23,33 +24,27 @@ const CardStyle = {
     }
 }
 
-export default function ReponseCard({ self, response: data }) {
+export default function ReponseCard({ self, response }) {
     const timeago = new TimeAgo('en-US')
 
     const { deleteResponse } = useAPIs()
-
-    const [response, setResponse] = React.useState(data)
     const [user, setUser] = React.useState(null)
 
 
     const handleDeleteResponse = async () => {
-        deleteResponse({ response_id: response.ref.id })
+        deleteResponse({ response_id: response.id })
             .then(data => {
                 if (data?.error) {
-                    alert(`Error: ${data.error.message}`)
                     return
                 }
-
-                alert(`Deleted`)
             })
             .catch(error => {
                 console.log(error)
-                alert(error.message)
             })
     }
 
     React.useEffect(() => {
-        getDoc(doc(firestore, `Users/${response.data.user.id}`)).then(snapshot => setUser(snapshot.data()))
+        getDoc(doc(firestore, `Users/${response.user.id}`)).then(snapshot => setUser(snapshot.data()))
     }, [response])
 
     return (
@@ -62,7 +57,7 @@ export default function ReponseCard({ self, response: data }) {
                     <Box>
                         <HStack>
                             <Box color={self ? 'blue.600' : 'green.600'} fontWeight={'medium'}>{self ? 'You' : user ? `${user.firstName} ${user.lastName}` : <SkeletonText />}</Box>
-                            <Box fontSize={'x-small'} >{timeago.format(response.data.timeStamp.toDate())}</Box>
+                            <Box fontSize={'x-small'} >{timeago.format(response.timeStamp.toDate())}</Box>
                         </HStack>
 
                         {self ? <Button onClick={handleDeleteResponse} p={0} size={'xs'} variant={'link'}>Delete</Button> : <></>}
@@ -70,7 +65,7 @@ export default function ReponseCard({ self, response: data }) {
                 </HStack>
                 <Divider my={2} />
 
-                <Text> {response.data.content} </Text>
+                <Text> {response.content} </Text>
             </Box>
         </>
 

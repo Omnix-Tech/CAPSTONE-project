@@ -1,10 +1,11 @@
-import { Grid, GridItem, Box, Heading, Spinner, VStack, Text, SkeletonText } from '@chakra-ui/react';
+import { Grid, GridItem, Box, Heading, Spinner, VStack, Text, SkeletonText, HStack } from '@chakra-ui/react';
 import React from 'react';
 import Layout from '../components/layout';
 import useConnect from '../controller/hooks/useConnect';
 
 import MapComponent from '../components/Map'
 import ConnectsContainer from '../components/Connects'
+import ConnectMenu from '../components/ConnectMenu';
 
 export default function Connects({ locations, user, position,  }) {
   const { connectDocument, connectsDocs, handleSetConnect } = useConnect(user)
@@ -32,7 +33,11 @@ export default function Connects({ locations, user, position,  }) {
           <Box p={{ base: 'unset', md: 5 }}>
             <Box boxShadow={'-2px -3px 16px -1px rgba(0,0,0,0.14)'} padding={10} bgColor={'white'} borderRadius={10}>
               <Heading mb={2} size={'md'}>Hello, {user?.displayName}</Heading>
+              <HStack>
               {!connectDocument ? <SkeletonText borderRadius={'full'} noOfLines={1} width={'30%'} /> : <Text fontWeight={'medium'} fontSize={'sm'}>{connectDocument ? `Current Connect ${connectDocument.area}` : ``}</Text>}
+                <ConnectMenu connectsDocs={connectsDocs} handleSetConnect={handleSetConnect} />
+              </HStack>
+              
             </Box>
           </Box>
           <Box mx={{ base: 'unset', md: 5 }} bgColor={'white'} my={5} boxShadow={'-2px -3px 16px -1px rgba(0,0,0,0.14)'} borderRadius={10}>

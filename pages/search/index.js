@@ -1,8 +1,19 @@
 import React from 'react';
 import Layout from '../../components/layout';
+import useConnect from '../../controller/hooks/useConnect';
 
-export default function Search() {
+import { Box } from '@chakra-ui/react';
+import SearchMainContainer from '../../components/Search/main';
+
+export default function Search({ user }) {
+  const { connectDocument: connect, connectsDocs } = useConnect(user)
+
+
   return (
-    <Layout currentTab={'search'} ></Layout>
+    <Layout currentTab={'search'} >
+      <Box px={10} >
+        <SearchMainContainer user={user} connect={connect} connectsDocs={connectsDocs} />
+      </Box>
+    </Layout>
   );
 }

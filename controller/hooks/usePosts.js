@@ -1,6 +1,6 @@
 import React from 'react'
 import { firestore } from '../../app/config/firebase.config'
-import { doc, collection, query, where, orderBy, limit, getDocs, startAfter } from 'firebase/firestore'
+import { doc, collection, query, where, orderBy, limit, getDocs, startAfter, onSnapshot } from 'firebase/firestore'
 import * as Scroll from 'react-scroll'
 
 var MAX_GRAB = 3
@@ -14,7 +14,22 @@ const usePosts = ({ location, forum, isVisiting, contentLimit }) => {
     const [contentQuery, setContentQuery] = React.useState(null)
     const [posts, setPosts] = React.useState(null)
     const [lastPost, setLastPost] = React.useState(null)
+    const [postUpdates, setPostUpdates] = React.useState(null)
 
+
+    const updatePost = (allowScroll = true) => {
+        postUpdates.size < MAX_GRAB ? setLastPost(null) : setPosts(postUpdates.docs[postUpdates.size - 1])
+        setPosts( postUpdates.docs.map( doc => doc.data() ))
+        setPostUpdates(null)
+        allowScroll ? scroll.scrollToTop() : null
+    }
+
+
+    const listenForUpdates = () => {
+        onSnapshot(contentQuery, querySnapshot => {
+            setPostUpdates(querySnapshot)
+        })
+    }
 
     const getInitialPosts = () => {
         getDocs(contentQuery)
@@ -73,10 +88,11 @@ const usePosts = ({ location, forum, isVisiting, contentLimit }) => {
 
     React.useEffect(() => {
         if (contentQuery) getInitialPosts()
+        if (contentQuery) listenForUpdates()
     }, [contentQuery])
 
 
-    return { posts, lastPost, getNextThresholdPosts }
+    return { posts, lastPost, getNextThresholdPosts, postUpdates, updatePost }
 }
 
 

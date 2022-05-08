@@ -10,6 +10,7 @@ import useAlerts from '../../controller/hooks/useAlerts';
 export default function AlertContainer({ location, ...props }) {
 
   const { alerts } = useAlerts({ connect: location })
+  // const alerts =[]
 
   return (
     <Box {...props}>
