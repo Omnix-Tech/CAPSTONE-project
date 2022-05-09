@@ -57,15 +57,17 @@ export default function Connects({ locations, user, position, }) {
 
         </GridItem>
         <GridItem colSpan={{ base: 12, md: 7 }} >
-          <Box
-            position={{ base: 'relative', md: 'sticky' }}
-            top={{ base: 'unset', md: 90 }}
-            h={{ base: '70vh', md: '80vh'}} px={30}
-            borderRadius={40}
-            overflow={'hidden'}
-            w={'full'} >
-            <MapComponent position={position} connectsDocs={connectsDocs} otherLocations={otherLocations} connectDocument={connectDocument} />
+          <Box p={5}>
+            <Box
+              position={{ base: 'relative', md: 'sticky' }}
+              top={{ base: 'unset', md: 90 }}
+              h={{ base: '70vh', md: '80vh' }}
+              overflow={'hidden'}
+              w={'full'} >
+              <MapComponent position={position} connectsDocs={connectsDocs} otherLocations={otherLocations} connectDocument={connectDocument} />
+            </Box>
           </Box>
+
         </GridItem>
       </Grid>
     </Layout>

@@ -3,6 +3,7 @@ const { Database, firestore } = require(".")
 const { ForumLocationCollection } = require('./Location')
 const { UserCollection } = require('./User')
 const { admin } = require('../config/admin.config')
+const { PostCollection, ForumPostCollection } = require("./Post")
 
 
 const FORUM_COLLECTION = 'Forums'
@@ -46,7 +47,19 @@ class Forum {
 
 
     async remove(id) {
+        const query = ForumPostCollection.db.collection.where('forum', '==', this.getReference(id))
+        query.get()
+        .then( async querySnapshot => {
+            const docs = querySnapshot.docs
 
+            for (var docIndex = 0; docIndex < docs.length; docIndex++) {
+                await ForumPostCollection.remove(docs[docIndex].id)
+                await PostCollection.remove(docs[docIndex].data().post)
+            }
+
+            this.db.remove(id)
+        })
+        .catch(error => { throw error })
     }
 
 
@@ -60,6 +73,7 @@ class Forum {
 class UserForum {
     constructor() {
         this.db = new Database(USER_FORUM_COLLECTION)
+        this.ForumCollection = new Forum()
     }
 
     async create({ forum, uid, status }, transaction = null) {
@@ -72,7 +86,7 @@ class UserForum {
     }
 
     async remove(id) {
-        this.db.remove(id)
+        const query = ForumPostCollection.db.collection.where('forum', '==', For)
     }
 }
 

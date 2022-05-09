@@ -44,7 +44,7 @@ export default function Register() {
 
     const router = useRouter()
     const { registerForm } = require('../../forms')
-    const { Post, registerUser } = useRequestHandlers()
+    const { Post } = useRequestHandlers()
     const { showError, render } = useFeedback()
 
     const {
@@ -64,7 +64,7 @@ export default function Register() {
     })
 
     const handleFormSubmit = async (data) => {
-        Post('api/user', data)
+        Post('api/register', data)
             .then(res => {
                 const { token } = res
                 router.replace({

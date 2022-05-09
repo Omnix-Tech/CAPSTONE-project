@@ -10,6 +10,7 @@ import { storage } from '../../app/config/firebase.config'
 import LikeButton from '../LikeButton';
 import ResponseInput from '../Responses/ResponseInput'
 import useFeedback from '../../controller/hooks/useFeedback';
+import useRequestHandlers from '../../controller/handlers';
 
 
 TimeAgo.addLocale(en)
@@ -65,7 +66,14 @@ export default function PostCard({ files, post, user, currentUser, loading, file
 
 
     const { showError, showSuccess, render } = useFeedback()
+    const { Remove } = useRequestHandlers()
 
+
+    const handleDeletePost = () => {
+        Remove(`api/post/${ref.id}`)
+        .then( () => showSuccess({ message: 'Post Deleted'}))
+        .catch( () => showError({message: 'Something went wrong'}))
+    }
 
 
     return (
@@ -120,7 +128,7 @@ export default function PostCard({ files, post, user, currentUser, loading, file
                                 />
                                 <MenuList>
                                     <MenuItem fontSize={'sm'}>Report Post</MenuItem>
-                                    {loading ? <></> : post?.user?.id === currentUser?.uid ? <MenuItem fontSize={'sm'}>Edit Post</MenuItem> : <></>}
+                                    {loading ? <></> : post?.user?.id === currentUser?.uid ? <MenuItem onClick={() => handleDeletePost()} fontSize={'sm'}>Delete Post</MenuItem> : <></>}
                                 </MenuList>
                             </Menu>
                         </HStack>

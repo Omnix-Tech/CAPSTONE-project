@@ -6,6 +6,7 @@ export default async function handler(req, res) {
 
 
     const { method } = req
+    console.log(method)
 
     switch (method) {
         case 'POST':
@@ -14,7 +15,6 @@ export default async function handler(req, res) {
                 const { firstName, lastName, email, password } = req.body
                 const userRecord = await Auth.registerUser({ firstName, lastName, email, password })
                 await UserCollection.create({ uid: userRecord.uid, firstName, lastName, email })
-
                 res.status(200).json({ token: await Auth.getCustomToken(userRecord.uid) })
             } catch (error) {
                 console.log(error)

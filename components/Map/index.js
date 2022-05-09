@@ -24,7 +24,7 @@ function MapComponent({ position, google, connectsDocs, otherLocations, connectD
         position && connectDocument ? <>
             <Map
                 google={google}
-                style={{ width: "90%", height: "100%" }}
+                style={{ width: "100%", height: "100%" }}
                 zoom={12}
                 initialCenter={connectDocument.location}
             >

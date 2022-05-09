@@ -44,7 +44,7 @@ const useFeedback = () => {
 
     const render = () => (
         <>
-            <Alert zIndex={'popover'} status={status} display={isOpen ? 'flex' : 'none'} borderRadius={2} position={'fixed'} width={350} bottom={{ base: 90, md: 10 }} right={{ base: 10, md: 90 }} >
+            <Alert zIndex={'popover'} status={status} display={isOpen ? 'flex' : 'none'} borderRadius={2} position={'fixed'} width={'30vw'} bottom={{ base: 90, md: 10 }} right={{ base: 10, md: 90 }} >
 
                 {isLoading ?
                     <Center width={'full'}><Spinner /></Center>

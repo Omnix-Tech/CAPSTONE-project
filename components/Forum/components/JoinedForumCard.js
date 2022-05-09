@@ -1,13 +1,13 @@
-import { Box, HStack, Text, Menu, MenuButton, MenuItem, MenuList, IconButton, Divider, Accordion, AccordionItem, AccordionButton, AccordionIcon, AccordionPanel } from "@chakra-ui/react"
+import { Box, HStack, Text, Menu, MenuButton, MenuItem, MenuList, IconButton, Accordion, AccordionItem, AccordionButton, AccordionIcon, AccordionPanel } from "@chakra-ui/react"
 import FeatherIcon from 'feather-icons-react'
 
-
-import { useDocumentData } from "react-firebase-hooks/firestore"
 import TimeAgo from 'javascript-time-ago';
 import en from 'javascript-time-ago/locale/en.json'
 import Forum from "..";
 import Link from "next/link";
 import useForums from "../../../controller/hooks/useForums";
+import useRequestHandlers from "../../../controller/handlers";
+import useFeedback from "../../../controller/hooks/useFeedback";
 
 
 TimeAgo.addLocale(en)
@@ -16,11 +16,27 @@ const timeago = new TimeAgo('en-US')
 
 export default function JoinedForumCard({ forum, user, location, limit }) {
 
+    const { showError, showSuccess, render } = useFeedback()
     const { forum: doc } = useForums({ forum_id: forum.forum.id })
+    const { Remove } = useRequestHandlers()
+
+    const handleDeleteForum = () => {
+        Remove(`api/forum/${forum.forum.id}`)
+        .then( res => showSuccess({message: 'Forum Removed'}))
+        .catch( error => showError({message: 'Filed to Delete Forum'}))
+    }
+
+
+    const handleLeaveForum = () => {
+        Remove(`api/forum/user/${forum.forum.id}`)
+        .then( res => showSuccess({message: 'Successfully left forum'}))
+        .catch(error => showError({message: 'Something went wrong'}))
+    }
 
 
     return (
         <>
+        { render() }
             {doc ?
                 <Box my={2} borderRadius={5} border={'1px'} borderColor={'gray.200'} p={3}>
                     <HStack justifyContent={'space-between'} alignItems={'center'}>
@@ -49,9 +65,9 @@ export default function JoinedForumCard({ forum, user, location, limit }) {
                             />
                             <MenuList zIndex={'popover'}>
                                 {forum.status === 'Owner' ?
-                                    <MenuItem fontSize={'sm'} >Delete Forum</MenuItem>
+                                    <MenuItem onClick={() => handleDeleteForum()} fontSize={'sm'} >Delete Forum</MenuItem>
                                     :
-                                    <MenuItem fontSize={'sm'} >Leave Forum</MenuItem>
+                                    <MenuItem onClick={() => handleLeaveForum()} fontSize={'sm'} >Leave Forum</MenuItem>
                                 }
 
 

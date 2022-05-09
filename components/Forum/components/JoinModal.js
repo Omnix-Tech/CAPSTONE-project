@@ -25,7 +25,7 @@ export default function JoinModal({ isOpen, onClose, modalRef, forum, participan
     const { Post } = useRequestHandlers()
 
     const handleJoinForum = () => {
-        Post(`api/forum/${forum.id}`, { uid: currentUser.uid })
+        Post(`api/forum/user/${forum.id}`, { uid: currentUser.uid })
             .then(res => {
                 showSuccess({ message: 'Success' })
                 onClose()

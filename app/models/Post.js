@@ -62,10 +62,21 @@ class Posts {
         return response
     }
 
-
     async remove(id) {
-        firestore.recursiveDelete()
-        ResponseCollection.remove()
+        const query = ResponseCollection.db.collection.where('post', '==', this.getReference(id))
+        query.get()
+            .then(async querySnapshot => {
+                const docs = querySnapshot.docs
+
+                for (var docIndex = 0; docIndex < docs.length; docIndex++) {
+                    await ResponseCollection.remove(docs[docIndex].id)
+                }
+
+                await this.db.remove(id)
+            })
+            .catch(error => { throw error })
+
+
     }
 
     getReference(id) {
@@ -89,6 +100,8 @@ class Files {
 
         return response
     }
+
+
 }
 
 
@@ -113,6 +126,11 @@ class ForumPost {
         return response
 
     }
+
+
+    async remove(id) {
+        await this.db.remove(id)
+    }
 }
 
 
@@ -121,5 +139,6 @@ class ForumPost {
 
 module.exports = {
     PostCollection: new Posts(),
-    FileCollection: new Files()
+    FileCollection: new Files(),
+    ForumPostCollection: new ForumPost()
 }
