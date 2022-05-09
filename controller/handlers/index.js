@@ -1,7 +1,7 @@
 const axios = require('axios')
 const uri = process.env.NEXT_PUBLIC_ORIGIN
-const server = () => axios.create({ baseURL: uri })
-
+// const server = () => axios.create({ baseURL: uri })
+const server = () => axios
 
 const Post = async (url, data) => {
     return new Promise((resolve, reject) => {
