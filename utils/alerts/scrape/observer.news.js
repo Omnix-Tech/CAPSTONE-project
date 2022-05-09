@@ -67,7 +67,6 @@ const verifyArticle = (element, timeLimit) => {
 
     if (publishDate) {
         const difference = publishDate - timeLimit
-        console.log(publishDate, timeLimit, difference, difference <= 0)
 
         return difference <= 0
     }

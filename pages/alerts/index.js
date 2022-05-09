@@ -55,7 +55,7 @@ export default function Alerts({ user }) {
 
 
                 <GridItem px={2} colSpan={{ base: 12, md: 7, lg: 8 }}>
-                    <Box boxShadow={'-2px -3px 16px -1px rgba(0,0,0,0.12)'} padding={10} bgColor={'white'}>
+                    <Box boxShadow={'-2px -3px 16px -1px rgba(0,0,0,0.12)'} padding={{ base: 5, md: 8 }} bgColor={'white'}>
 
                         {
                             category ? <></>

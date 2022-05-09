@@ -2,25 +2,28 @@ import { Text, Box, HStack, IconButton, Tooltip, InputGroup, InputAddon, Textare
 import FeatherIcon from 'feather-icons-react'
 import React from 'react';
 
-import useAPIs from '../../controller/handlers';
+import useRequestHandlers from '../../controller/handlers';
 import useResponse from '../../controller/hooks/useResponse';
 
 export default function ResponseInput({ post, currentUser, showSuccess, showError }) {
-    const { createResponse } = useAPIs()
+    const { Post } = useRequestHandlers()
     const { responses } = useResponse({ post })
 
     const [responseContent, setResponseContent] = React.useState('')
 
 
     const handleResponseSubmit = () => {
-        createResponse({
-            content: responseContent, post: post.id, user: currentUser.uid
+        Post(`api/response`, {
+            uid: currentUser.uid,
+            post: post.id,
+            content: responseContent
         })
-            .then(data => {
-                setResponseContent('')
-                showSuccess({ message: 'Sent'})
-            })
-            .catch(error => showError({message: 'Something went wrong'}))
+        .then( res => {
+            setResponseContent('')
+            showSuccess({ message: 'Sent'})
+        })
+        .catch( error => showError({message: 'Something went wrong'}))
+    
     }
 
     return (

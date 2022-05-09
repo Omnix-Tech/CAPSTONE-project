@@ -8,7 +8,7 @@ import { deleteObject, ref as storageRef } from 'firebase/storage';
 import { useUploadFile, useDownloadURL } from 'react-firebase-hooks/storage'
 
 import { v4 as uuidv4 } from 'uuid'
-import useAPIs from '../../controller/handlers';
+import useRequestHandlers from '../../controller/handlers';
 
 const scrollCSS = {
     overflowX: 'auto',
@@ -154,7 +154,7 @@ function FileUploadContainer({ file, uid, handleSuccessiveFile, handleDeleteSucc
 
 
 export default function NewPost({ location, user, forum, closeModal, showError, showSuccess }) {
-    const { createPost } = useAPIs()
+    const { Post } = useRequestHandlers()
 
     const { isOpen, onClose, onToggle } = useDisclosure()
     const [content, setContent] = React.useState('')
@@ -183,15 +183,14 @@ export default function NewPost({ location, user, forum, closeModal, showError, 
     }
 
     const handleSumbitPost = async () => {
-        const post = { content, privacy, files: successFiles, user: user.uid, forum: forum ? forum : null, location: forum ? null : location.place_id }
-        const response = await createPost(post).catch(error => showError({ message: 'Something went wrong, Try Again' }))
+        const post = { content, privacy, files: successFiles, uid: user.uid, forum: forum ? forum : null, location: forum ? null : location.place_id }
 
-        if (response?.error) {
-            showError({ message: 'Something went wrong, Try Again' })
-        } else {
-            showSuccess({ heading: 'Posted' })
-            closeModal()
-        }
+        Post(`api/post`, post)
+            .then(res => {
+                showSuccess({ message: 'Posted' })
+                closeModal()
+            })
+            .catch(error => showError({ message: 'Something went wrong, Try Again' }))
     }
 
     return (

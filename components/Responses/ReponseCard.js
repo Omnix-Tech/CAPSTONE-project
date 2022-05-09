@@ -5,8 +5,7 @@ import TimeAgo from 'javascript-time-ago';
 import en from 'javascript-time-ago/locale/en.json'
 import React from 'react';
 import { firestore } from '../../app/config/firebase.config';
-import useAPIs from '../../controller/handlers';
-import useFeedback from '../../controller/hooks/useFeedback';
+import useRequestHandlers from '../../controller/handlers';
 
 
 TimeAgo.setDefaultLocale(en)
@@ -27,20 +26,14 @@ const CardStyle = {
 export default function ReponseCard({ self, response }) {
     const timeago = new TimeAgo('en-US')
 
-    const { deleteResponse } = useAPIs()
+    const { Remove } = useRequestHandlers()
     const [user, setUser] = React.useState(null)
 
 
     const handleDeleteResponse = async () => {
-        deleteResponse({ response_id: response.id })
-            .then(data => {
-                if (data?.error) {
-                    return
-                }
-            })
-            .catch(error => {
-                console.log(error)
-            })
+       Remove(`api/response/${response.id}`)
+       .then(res => {})
+       .catch(error => console.log(error))
     }
 
     React.useEffect(() => {

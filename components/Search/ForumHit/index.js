@@ -10,7 +10,7 @@ import useForumHit from "./hook"
 
 export default function ForumHit({ forumObj, connect, user }) {
 
-    const { forum, showError, showSuccess, isOpen, onClose, modalRef, connects, participants, owner, isJoined } = useForumHit({ forumObj, connect, user })
+    const { forum, showError, showSuccess, isOpen, onClose, modalRef, connects, participants, owner, isJoined, onOpen } = useForumHit({ forumObj, connect, user })
 
     if (isJoined === null | forum === null) return <></>
 

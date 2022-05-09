@@ -4,7 +4,7 @@ import React from 'react'
 import { Box, Text, Divider, HStack, ButtonGroup, Button, IconButton } from '@chakra-ui/react'
 import FeatherIcon from 'feather-icons-react'
 import { ConnectPopover } from './ConnectInfo'
-import useAPIs from '../../controller/handlers'
+import useRequestHandlers from '../../controller/handlers'
 import useFeedback from '../../controller/hooks/useFeedback'
 
 
@@ -13,40 +13,30 @@ import useFeedback from '../../controller/hooks/useFeedback'
 
 
 export default function ConnectsContainer({ connectsDocs, otherLocations, currentUser, handleSetConnect }) {
-    const { registerUserLocation, deleteUserLocation } = useAPIs()
+    const { Post, Remove } = useRequestHandlers()
     const { showError, showSuccess, render, loading } = useFeedback()
 
     const handleSetUserLocation = (locationId) => {
         loading()
-        registerUserLocation({ locationId, uid: currentUser.uid })
-            .then(response => {
-                if (response.error) {
-                    showError({ message: 'Something went wrong' })
-                    return
-                }
+        Post(`api/location/${locationId}`, { uid: currentUser.uid })
+            .then(res => {
                 showSuccess({ message: 'Connected' })
             })
             .catch(error => showError({ message: 'Something went wrong' }))
+
     }
 
     const handleRemoveUserLocation = (locationId) => {
         loading()
-        deleteUserLocation({ locationId, uid: currentUser.uid })
-            .then(response => {
-                if (response.error) {
-                    showError({ message: 'Something went wrong' })
-                    return
-                }
-
-                showSuccess({ message: 'Disconnect' })
-            })
+        Remove(`api/location/${locationId}`, { uid: currentUser.uid })
+            .then(res => showSuccess({ message: 'Connect Removed' }))
             .catch(error => showError({ message: 'Something went wrong' }))
     }
 
     return (
         <>
 
-        { render() }
+            {render()}
             <Box py={10}>
                 <Box px={10}>
                     <Text fontWeight={'medium'} >Your Connects</Text>

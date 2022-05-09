@@ -4,7 +4,8 @@ import { Grid, GridItem, Heading, VStack, Input, Box, Button, HStack, Image, Cen
 
 
 import { useRouter } from 'next/dist/client/router';
-import useAPIs from '../../controller/handlers';
+import useRequestHandlers from '../../controller/handlers';
+import useFeedback from '../../controller/hooks/useFeedback';
 
 
 
@@ -70,19 +71,23 @@ function SelectLocation({ locations, setlocationId, locationId }) {
 }
 
 
-function Complete({ locationId, community, uid, setCurrentStep, setIsDone, isDone }) {
+function Complete({ locationId, community, uid, setCurrentStep, setIsDone, isDone, showError, showSuccess, loading }) {
     const [isLoading, setIsLoading] = React.useState(true)
-    const { registerUserLocation } = useAPIs()
+    const { Post } = useRequestHandlers()
 
     const handleSetUserLocation = async () => {
-        const response = await registerUserLocation({ locationId, uid, community }).catch(error => { alert(error.message) })
-        if (response?.error) {
-            alert(response.error.message)
-            setCurrentStep(1)
-            return
-        }
-        setIsDone(true)
-        setIsLoading(false)
+        loading()
+        Post(`api/location/${locationId}`, { uid, community })
+            .then(res => {
+                showSuccess({ message: 'Completed' })
+                setIsDone(true)
+                setIsLoading(false)
+            })
+            .catch(error => {
+                showError({ message: error.message })
+                setCurrentStep(1)
+            })
+
     }
 
 
@@ -114,11 +119,16 @@ function Complete({ locationId, community, uid, setCurrentStep, setIsDone, isDon
 
 
 export default function Setup({ user, locations }) {
+    const { showError, showSuccess, render, loading } = useFeedback()
+
+
     const router = useRouter()
     const { token } = router.query
     const [currentStep, setCurrentStep] = React.useState(0)
     const [community, setCommunity] = React.useState('')
     const [isDone, setIsDone] = React.useState(false)
+
+
 
 
     const [locationId, setlocationId] = React.useState(null)
@@ -137,63 +147,67 @@ export default function Setup({ user, locations }) {
     }, [])
 
     return (
-        <Box bgRepeat={'no-repeat !important'} bgPosition={'unset'} bgSize={'cover !important'} bg={`url('/images/bg.jpg')`} >
-            <Grid bgColor={'rgba(0,0,0,0.2)'} templateColumns={'repeat(12,1fr)'} >
-                <GridItem {...MainContainerStyle}  >
+        <>
+        { render() }
+            <Box bgRepeat={'no-repeat !important'} bgPosition={'unset'} bgSize={'cover !important'} bg={`url('/images/bg.jpg')`} >
+                <Grid bgColor={'rgba(0,0,0,0.2)'} templateColumns={'repeat(12,1fr)'} >
+                    <GridItem {...MainContainerStyle}  >
 
 
-                    <VStack spacing={30} paddingY={10} h={'100vh'} justifyContent={'center'}>
+                        <VStack spacing={30} paddingY={10} h={'100vh'} justifyContent={'center'}>
 
-                        {currentStep === 0 ? <CommunityNameComponent community={community} setCommunity={setCommunity} /> : <></>}
-                        {currentStep === 1 ? <SelectLocation locations={locations} setlocationId={setlocationId} locationId={locationId} /> : <></>}
-                        {currentStep === 2 ? <Complete community={community} isDone={isDone} setIsDone={setIsDone} uid={user?.uid} locationId={locationId} setCurrentStep={setCurrentStep} /> : <></>}
+                            {currentStep === 0 ? <CommunityNameComponent community={community} setCommunity={setCommunity} /> : <></>}
+                            {currentStep === 1 ? <SelectLocation locations={locations} setlocationId={setlocationId} locationId={locationId} /> : <></>}
+                            {currentStep === 2 ? <Complete showError={showError} showSuccess={showSuccess} loading={loading} community={community} isDone={isDone} setIsDone={setIsDone} uid={user?.uid} locationId={locationId} setCurrentStep={setCurrentStep} /> : <></>}
 
-                        <Box w={'60%'} pt={5}>
-                            {currentStep === 0 ?
-                                <Button disabled={community === ''} onClick={() => setCurrentStep(1)} mt={30} width={'full'} borderRadius={'full'} size={'lg'}>
-                                    Continue
-                                </Button>
-                                : <></>
-                            }
-
-                            {currentStep === 1 ?
-                                <HStack spacing={5} mt={30} alignItems={'center'} >
-                                    <Button onClick={() => setCurrentStep(0)} width={'full'} borderRadius={'full'} size={'lg'}>
-                                        Back
+                            <Box w={'60%'} pt={5}>
+                                {currentStep === 0 ?
+                                    <Button disabled={community === ''} onClick={() => setCurrentStep(1)} mt={30} width={'full'} borderRadius={'full'} size={'lg'}>
+                                        Continue
                                     </Button>
-                                    <Button onClick={() => setCurrentStep(2)} width={'full'} borderRadius={'full'} size={'lg'}>
-                                        Connect
-                                    </Button>
-                                </HStack>
-                                : <></>
-                            }
+                                    : <></>
+                                }
+
+                                {currentStep === 1 ?
+                                    <HStack spacing={5} mt={30} alignItems={'center'} >
+                                        <Button onClick={() => setCurrentStep(0)} width={'full'} borderRadius={'full'} size={'lg'}>
+                                            Back
+                                        </Button>
+                                        <Button onClick={() => setCurrentStep(2)} width={'full'} borderRadius={'full'} size={'lg'}>
+                                            Connect
+                                        </Button>
+                                    </HStack>
+                                    : <></>
+                                }
 
 
-                            {currentStep === 2 ?
-                                <HStack spacing={5} mt={30} alignItems={'center'} >
-                                    <Button onClick={() => setCurrentStep(1)} width={'full'} borderRadius={'full'} size={'lg'}>
-                                        Back
-                                    </Button>
-                                    <Button disabled={!isDone} onClick={() => router.replace('/')} width={'full'} borderRadius={'full'} size={'lg'}>
-                                        Done
-                                    </Button>
-                                </HStack>
+                                {currentStep === 2 ?
+                                    <HStack spacing={5} mt={30} alignItems={'center'} >
+                                        <Button onClick={() => setCurrentStep(1)} width={'full'} borderRadius={'full'} size={'lg'}>
+                                            Back
+                                        </Button>
+                                        <Button disabled={!isDone} onClick={() => router.replace('/')} width={'full'} borderRadius={'full'} size={'lg'}>
+                                            Done
+                                        </Button>
+                                    </HStack>
 
-                                : <></>
-                            }
+                                    : <></>
+                                }
+
+                            </Box>
+                        </VStack>
+
+
+                    </GridItem>
+                    <GridItem colSpan={{ base: 12, md: 1 }} display={{ base: 'none', md: 'block' }}>
+                        <Box h={'full'} w={'full'} >
 
                         </Box>
-                    </VStack>
+                    </GridItem>
+                </Grid>
+            </Box>
+        </>
 
-
-                </GridItem>
-                <GridItem colSpan={{ base: 12, md: 1 }} display={{ base: 'none', md: 'block' }}>
-                    <Box h={'full'} w={'full'} >
-
-                    </Box>
-                </GridItem>
-            </Grid>
-        </Box>
     );
 }
 

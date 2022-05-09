@@ -1,17 +1,17 @@
 import React from 'react'
-import useAPIs from '../handlers'
+import useRequestHandlers from '../handlers'
 
 
 function getDistance(xlng, xlat, ylng, ylat) {
     const toRadians = (degree) => degree * Math.PI / 180
-    const [lng1, lng2, lat1, lat2] = [ toRadians(xlng), toRadians(ylng), toRadians(xlat), toRadians(ylat) ];
+    const [lng1, lng2, lat1, lat2] = [toRadians(xlng), toRadians(ylng), toRadians(xlat), toRadians(ylat)];
 
     const diffLng = lng2 - lng1
     const diffLat = lat2 - lat2
 
     var val = Math.pow(Math.sin(diffLat / 2), 2) + Math.cos(lat1) * Math.cos(lat2) * Math.pow(Math.sin(diffLng / 2), 2)
-    
-    
+
+
     return (2 * Math.asin(Math.sqrt(val))) * 6371
 }
 
@@ -20,7 +20,7 @@ const useGeolocation = () => {
     const [error, setError] = React.useState(null)
     const [position, setPosition] = React.useState(null)
     const [locations, setLocations] = React.useState([])
-    const { getLocations } = useAPIs()
+    const { Get } = useRequestHandlers()
 
 
     const watchPosition = currentPosition => {
@@ -29,19 +29,17 @@ const useGeolocation = () => {
 
         var distance = getDistance(currentlongitude, currentLatitude, longitude, latitude)
         if (distance >= 1.5) setPosition(position.coords)
-        
+
     }
 
     const handleSetLocations = async () => {
         if (position) {
-            try {
-                const { locations, error } = await getLocations(position)
-                if (error) throw new Error(error.message)
-                setLocations(locations)
-
-            } catch (error) {
-                setError({ status: 0, message: error?.message })
-            }
+            Get(`api/location/${position.latitude}/${position.longitude}`)
+                .then(res => {
+                    const { locations } = res
+                    setLocations(locations)
+                })
+                .catch(error => setError({ status: 0, message: error?.message }))
         }
     }
 
@@ -73,7 +71,7 @@ const useGeolocation = () => {
 
     React.useEffect(() => {
 
-        if (position &&  !(watch_id)) {
+        if (position && !(watch_id)) {
             const id = navigator.geolocation.watchPosition(watchPosition, error => console.log(error), { timeout: 60000 })
             setWatchId(id)
         }

@@ -15,14 +15,15 @@ class Forum {
     }
 
 
-    async create({ user_id, forum_title, description, connects }) {
+    async create({ uid, title, description, connects }) {
 
         const forum = {
-            owner: UserCollection.getReference(user_id),
-            title: forum_title,
+            owner: UserCollection.getReference(uid),
+            title: title,
             timeStamp: admin.firestore.Timestamp.now(),
             description
         }
+
         const response = await firestore.runTransaction(async transaction => {
             const response = await this.db.create({ data: forum }, transaction)
             for (var connectIndex = 0; connectIndex < connects.length; connectIndex++) {
@@ -32,11 +33,10 @@ class Forum {
                 }, response.res)
             }
 
-            this.UserForumCollection.create({ forum: response.ref, user: user_id, status: 'Owner' })
+            this.UserForumCollection.create({ forum: response.ref, user: uid, status: 'Owner' })
 
             return response
         }).catch(error => {
-            console.log(error)
             throw error
         })
 
@@ -62,12 +62,10 @@ class UserForum {
         this.db = new Database(USER_FORUM_COLLECTION)
     }
 
-    async create({ forum, user, status }, transaction = null) {
-        console.log(forum, user, status)
-
-
+    async create({ forum, uid, status }, transaction = null) {
+        
         const data = {
-            forum, user: UserCollection.getReference(user), timeStamp: admin.firestore.Timestamp.now(), status
+            forum, user: UserCollection.getReference(uid), timeStamp: admin.firestore.Timestamp.now(), status
         }
         const response = await this.db.create({ data }, transaction).catch(error => { throw error })
         return response

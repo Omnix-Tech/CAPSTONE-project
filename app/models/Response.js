@@ -13,10 +13,10 @@ class Response {
         this.db = new Database(RESPONSE_COLLECTION)
     }
 
-    async create({ uid, postId, content }) {
+    async create({ uid, post, content }) {
         const response = await this.db.create({
             data: {
-                post: PostCollection.getReference(postId),
+                post: PostCollection.getReference(post),
                 user: UserCollection.getReference(uid),
                 content: content,
                 timeStamp: admin.firestore.Timestamp.now()

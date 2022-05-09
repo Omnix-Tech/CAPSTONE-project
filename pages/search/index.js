@@ -11,7 +11,7 @@ export default function Search({ user }) {
 
   return (
     <Layout currentTab={'search'} >
-      <Box px={10} >
+      <Box px={{ base: 2, md: 10 }} >
         <SearchMainContainer user={user} connect={connect} connectsDocs={connectsDocs} />
       </Box>
     </Layout>

@@ -1,15 +1,15 @@
 import { Box, Divider, FormControl, FormLabel, Input, Textarea, Text, SimpleGrid, HStack, Tooltip, Button } from '@chakra-ui/react';
 import React from 'react';
-import useAPIs from '../../controller/handlers';
+import useRequestHandlers from '../../controller/handlers';
 
 import useConnect from '../../controller/hooks/useConnect'
 
 export default function NewForum({ user, closeModal, showError, showSuccess }) {
-  const { createForum } = useAPIs()
+  const { Post } = useRequestHandlers()
   const { connectsDocs } = useConnect(user)
   const [disabled, setDisabled] = React.useState(false)
   const [forum_data, setForumData] = React.useState({
-    forum_title: '', description: '', connects: []
+    title: '', description: '', connects: []
   })
 
   const handleAddandRemoveConnect = (connect) => {
@@ -25,17 +25,19 @@ export default function NewForum({ user, closeModal, showError, showSuccess }) {
 
   const handleSubmit = () => {
     setDisabled(true)
-    createForum({ ...forum_data, user_id: user.uid })
-      .then(data => {
-        const { error } = data
-        if (error) {
-          console.log(error)
-          setDisabled(false)
-          showError({ message: 'Something went wrong' })
-          return;
-        }
+    Post(`api/forum`, {
+      uid: user.uid,
+      title: forum_data.title,
+      description: forum_data.description,
+      connects: forum_data.connects
+    })
+      .then(res => {
         showSuccess({ message: 'Forum Created' })
         closeModal()
+      })
+      .catch(error => {
+        setDisabled(false)
+        showError({ message: 'Something went wrong' })
       })
   }
 
@@ -43,7 +45,7 @@ export default function NewForum({ user, closeModal, showError, showSuccess }) {
     <Box p={10}>
       <FormControl pb={10}>
         <FormLabel fontSize={'xs'}>Forum Title</FormLabel>
-        <Input onChange={(e) => setForumData({ ...forum_data, forum_title: e.target.value })} variant={'unstyled'} _placeholder={{ fontSize: 'sm' }} placeholder={"What's the forum's title?"} />
+        <Input onChange={(e) => setForumData({ ...forum_data, title: e.target.value })} variant={'unstyled'} _placeholder={{ fontSize: 'sm' }} placeholder={"What's the forum's title?"} />
       </FormControl>
 
       <FormControl>
@@ -84,7 +86,7 @@ export default function NewForum({ user, closeModal, showError, showSuccess }) {
             fontSize={'xs'}
             textTransform={'uppercase'}
             size={'md'}
-            disabled={(forum_data.forum_title === '' | forum_data.connects.length === 0) && !disabled}
+            disabled={(forum_data.title === '' | forum_data.connects.length === 0) && !disabled}
             onClick={handleSubmit}
           >Create Forum</Button>
         </Tooltip>

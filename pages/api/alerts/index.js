@@ -1,0 +1,105 @@
+
+import { AlertsCollection } from "../../../app/models/Alerts";
+import { AppData } from "../../../app/models/System"
+const { v4: uuidv4 } = require('uuid');
+const refreshAlerts = require('../../../utils/alerts').handler
+
+
+const initializeAppData = async () => {
+    if (await AppData.exist()) {
+        await AppData.update({
+            data: {
+                isUpdating: true
+            }
+        })
+    } else {
+        await AppData.create({ currentBatch: '', isUpdating: true })
+    }
+}
+
+const deleteLastBatch = async (lastBatch) => {
+    await AlertsCollection.deleteBatch({ batchID: lastBatch }).catch(error => { throw error })
+    console.log('Deleting Old Batch...')
+}
+
+const createAlertDocument = async (presentBatch, doc) => {
+    await AlertsCollection.create({
+        data: { batchID: presentBatch, ...doc }
+    })
+}
+
+const closeAppDataSession = async (currentBatch, presentBatch) => {
+    if (currentBatch) {
+        await AppData.update({
+            data: {
+                lastBatch: currentBatch,
+                currentBatch: presentBatch,
+                isUpdating: false
+            },
+            setRefreshTime: true
+        })
+    } else {
+        await AppData.update({
+            data: {
+                lastBatch: '',
+                currentBatch: presentBatch,
+                isUpdating: false
+            },
+            setRefreshTime: true
+        })
+    }
+
+}
+
+const cancelAppDataSession = async () => {
+    await AppData.update({
+        data: {
+            isUpdating: false
+        }
+    })
+}
+
+
+export default async function handler(req, res) {
+
+
+    const { method } = req
+
+    switch (method) {
+        case 'POST':
+            try {
+
+                const { lastBatch, currentBatch } = req.body
+
+                await initializeAppData()
+
+                if (lastBatch) await deleteLastBatch(lastBatch)
+
+
+                const presentBatch = uuidv4()
+                const docs = await refreshAlerts()
+
+
+                for (var docIndex = 0; docIndex < docs.length; docIndex++) await createAlertDocument(presentBatch, docs[docIndex])
+
+
+                closeAppDataSession(currentBatch, presentBatch)
+                console.log('--- DONE')
+
+                res.status(200).json({ presentBatch })
+
+
+            } catch (error) {
+                await cancelAppDataSession()
+
+                console.log(error)
+                res.status(200).json({ error: error.message })
+            }
+
+            break;
+
+        default:
+            console.log(new Error('Invalid Method: ', method))
+            res.status(404)
+    }
+}

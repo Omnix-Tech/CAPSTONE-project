@@ -11,7 +11,7 @@ import useAPIs from '../handlers'
 
 
 const useLikes = ({ ref, currentUser }) => {
-    const { likePost, unlikePost } = useAPIs()
+    const { Post, Remove } = useAPIs()
 
     const { showError, showSuccess, render } = useFeedback()
     const [liked, setLiked] = React.useState(false)
@@ -47,37 +47,34 @@ const useLikes = ({ ref, currentUser }) => {
             })
     }
 
-    const handleLikePost = async () => {
-        const data = await likePost({ postId: ref.id, uid: currentUser.uid })
-            .catch(error => { showError({ message: error.message }) })
-
-        if (data.error) {
-            showError({ message: 'Something went wrong' })
-        } else {
-            const like = (await getDocs(
-                query(
+    const handleLikePost = () => {
+        Post(`api/like`, { uid: currentUser.uid, postId: ref.id })
+            .then(async res => {
+                const snapshot = (await query(
                     collection(firestore, 'Likes'),
                     where('user', '==', doc(firestore, `/Users/${currentUser?.uid}`)),
                     where('post', '==', ref),
                     limit(1)
-                )
-            )).docs[0]
-            setLiked(true)
-            setSnapshot(like)
-            showSuccess({ message: 'Liked' })
-        }
+                ))[0]
+
+                setLiked(true)
+                setSnapshot(snapshot)
+                showSuccess({ message: 'Liked' })
+            })
+            .catch(error => {
+                showError({ message: error.message })
+            })
     }
 
 
-    const handleUnlikePost = async () => {
-        const data = await unlikePost({ likeId: snapshot.id })
-        if (data.error) {
-            showError({ message: 'Something went wrong' })
-        } else {
-            setLiked(false)
-            setSnapshot(null)
-            showSuccess({ message: 'Unliked' })
-        }
+    const handleUnlikePost = () => {
+        Remove(`/api/like/${snapshot.id}`)
+            .then(res => {
+                setLiked(false)
+                setSnapshot(null)
+                showSuccess({ message: 'Unliked' })
+            })
+            .catch(error => showError({ message: 'Something went wrong' }))
     }
 
 

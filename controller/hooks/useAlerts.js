@@ -1,5 +1,5 @@
 import React from 'react'
-import useAPIs from '../handlers'
+import useRequestHandlers from '../handlers'
 import useFeedback from './useFeedback'
 
 
@@ -9,8 +9,8 @@ import { firestore } from '../../app/config/firebase.config'
 
 
 const useAlerts = ({ connect, parish, category }) => {
-    const { showError, render } = useFeedback()
-    const { server } = useAPIs()
+    const { showSuccess, showError, render } = useFeedback()
+    const { Post } = useRequestHandlers()
 
     const [alerts, setAlerts] = React.useState(null)
     const [refresh, setRefresh] = React.useState(false)
@@ -54,7 +54,6 @@ const useAlerts = ({ connect, parish, category }) => {
 
     const handleSetRefresh = () => {
         const time = app_data.lastRefresh
-
         if (time) {
             const refreshTime = new Date(
                 time.seconds * 1000 + time.nanoseconds / 1000000
@@ -72,22 +71,32 @@ const useAlerts = ({ connect, parish, category }) => {
         if (app_data) {
             if (app_data.isUpdating) return;
         }
-        console.log('running...')
+        console.log('running...', app_data)
 
-        server().post('/api/refreshAlerts', {
+        Post('api/alerts', {
             currentBatch: app_data ? app_data.currentBatch : null,
             lastBatch: app_data ? app_data.lastBatch : null
         })
-            .then(response => {
-                const { data } = response
-                if (data.error) {
-                    console.log('Something went wrong: ', data.error)
-                }
-                console.log('All Done')
+            .then(res => {
+                const { presentBatch } = res
+                showSuccess({message: 'Alerts Updated' })
+                console.log(presentBatch)
             })
-            .catch(error => {
-                console.log('Something went wrong: ', error.message)
-            })
+            .catch(error => showError({ message: `Something went wrong: ${error.message}` }))
+
+        // server().post('/api/refreshAlerts', {
+        //     currentBatch: app_data ? app_data.currentBatch : null,
+        //     lastBatch: app_data ? app_data.lastBatch : null
+        // })
+        //     .then(response => {
+        //         const { data } = response
+        //         if (data.error) {
+        //             console.log('Something went wrong: ', data.error)
+        //         }
+        //     })
+        //     .catch(error => {
+        //         console.log('Something went wrong: ', error.message)
+        //     })
     }
 
 
