@@ -1,5 +1,6 @@
+
 const { Database } = require(".");
-const { AlertLocationCollection, LocationCollection } = require("./Location");
+const { LocationCollection } = require("./Location");
 
 
 
@@ -18,8 +19,8 @@ class Alert {
 
 
     async create({ id, data: { connects, batchID, ...alert } }) {
-        const locations = connects.map( connect => LocationCollection.getReference(connect.id) )
-        const parishes = connects.map( connect => connect.parish )
+        const locations = connects.map(connect => LocationCollection.getReference(connect.id))
+        const parishes = connects.map(connect => connect.parish)
 
         const response = await this.db.create({ id, data: { batchID, connects: locations, parishes, ...alert } })
             .catch(error => { throw error })
@@ -30,16 +31,14 @@ class Alert {
 
     async deleteBatch({ batchID }) {
         const query = this.db.collection.where('batchID', '==', batchID)
-        query.get().then(async querySnapshot => {
-            const docs = querySnapshot.docs
-
-            for (var index = 0; index < docs.length; index++) {
-                await this.remove(docs[index].id)
-            }
-
-        }).catch(error => {
+        const querySnapshot = await query.get().catch(error => {
             throw error
         })
+        const docs = querySnapshot.docs
+
+        for (var index = 0; index < docs.length; index++) {
+            await this.remove(docs[index].id)
+        }
     }
 
 
@@ -49,7 +48,6 @@ class Alert {
 }
 
 
+const AlertsCollection = new Alert()
 
-module.exports = {
-    AlertsCollection: new Alert()
-}
+module.exports = { AlertsCollection }

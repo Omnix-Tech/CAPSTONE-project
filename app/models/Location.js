@@ -10,7 +10,6 @@ const LOCATION_COLLECTION = 'Locations'
 const USER_LOCATION_COLLECTION = 'User_Location'
 const POST_LOCATION_COLLECTION = 'Post_Location'
 const FORUM_LOCATION_COLLECTION = 'Forum_Location'
-const ALERT_LOCATION_COLLECTION = 'AlertLocation'
 
 
 class Location {
@@ -32,14 +31,13 @@ class Location {
 class UserLocation {
     constructor() {
         this.db = new Database(USER_LOCATION_COLLECTION)
-        this.locations = new Location()
     }
 
     async create({ uid, location_id }) {
         const response = await this.db.create({
             data: {
                 user: UserCollection.getReference(uid),
-                location: this.locations.getReference(location_id)
+                location: LocationCollection.getReference(location_id)
             },
             id: `${uid}-${location_id}`
         }).catch(error => { throw error })
@@ -57,7 +55,6 @@ class UserLocation {
 class PostLocation {
     constructor() {
         this.db = new Database(POST_LOCATION_COLLECTION)
-        this.locations = new Location()
     }
 
     async create({ post, location_id, isPublic }, transaction = null) {
@@ -68,13 +65,17 @@ class PostLocation {
                 post,
                 isPublic,
                 timeStamp: admin.firestore.Timestamp.now(),
-                location: this.locations.getReference(location_id)
+                location: LocationCollection.getReference(location_id)
             },
             id: uuidv4()
         }, transaction).catch(error => { throw error })
 
 
         return response
+    }
+
+    async remove(id) {
+        return await this.db.remove(id)
     }
 }
 
@@ -83,14 +84,13 @@ class PostLocation {
 class ForumLocation {
     constructor() {
         this.db = new Database(FORUM_LOCATION_COLLECTION)
-        this.locations = new Location()
     }
 
     async create({ forum, location_id }, transaction = null) {
         const response = await this.db.create({
             data: {
                 forum,
-                location: this.locations.getReference(location_id)
+                location: LocationCollection.getReference(location_id)
             },
             id: uuidv4()
         }, transaction).catch(error => { throw error })
@@ -98,47 +98,6 @@ class ForumLocation {
 
         return response
     }
-}
-
-
-class AlertLocation {
-    constructor() {
-        this.db = new Database(ALERT_LOCATION_COLLECTION)
-        this.locations = new Location()
-    }
-
-    async create({ alert, location_id, parish, status, batchID }, transaction = null) {
-        const response = await this.db.create({
-            data: {
-                alert,
-                location: this.locations.getReference(location_id),
-                status,
-                parish,
-                batchID
-            }
-        }, transaction).catch(error => {
-            throw error 
-        })
-
-
-        return response
-    }
-
-    async deleteBatch({ batchID }) {
-        const query = this.db.collection.where('batchID', '==', batchID)
-        query.get().then(async querySnapshot => {
-            const docs = querySnapshot.docs
-
-            for (var index = 0; index < docs.length; index++) {
-                await this.remove(docs[index].id)
-            }
-
-        }).catch(error => {
-            
-            throw error
-        })
-    }
-
 
     async remove(id) {
         return await this.db.remove(id)
@@ -146,10 +105,10 @@ class AlertLocation {
 }
 
 
-module.exports = {
-    LocationCollection: new Location(),
-    UserLocationCollection: new UserLocation(),
-    PostLocationCollection: new PostLocation(),
-    ForumLocationCollection: new ForumLocation(),
-    AlertLocationCollection: new AlertLocation()
-}
+
+const LocationCollection = new Location()
+const UserLocationCollection = new UserLocation()
+const PostLocationCollection = new PostLocation()
+const ForumLocationCollection = new ForumLocation()
+
+module.exports = { LocationCollection, UserLocationCollection, PostLocationCollection, ForumLocationCollection }

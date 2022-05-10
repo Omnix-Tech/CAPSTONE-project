@@ -14,8 +14,6 @@ const FORUM_POST_COLLECTION = 'Forum_Post'
 class Posts {
     constructor() {
         this.db = new Database(POST_COLLECTION)
-        this.FileCollection = new Files()
-        this.ForumPostCollection = new ForumPost()
     }
 
     async create({ uid, content, files, location, privacy, forum }) {
@@ -35,7 +33,7 @@ class Posts {
             }, transaction).catch(error => { throw error })
 
 
-            if (forum) await this.ForumPostCollection.create({ forum, post: response.ref }, transaction).catch(error => { throw error })
+            if (forum) await ForumPostCollection.create({ forum, post: response.ref }, transaction).catch(error => { throw error })
 
             if (!forum) await PostLocationCollection.create(
                 {
@@ -47,7 +45,7 @@ class Posts {
 
 
             for (var fileIndex = 0; fileIndex < files.length; fileIndex++) {
-                await this.FileCollection.create({
+                await FileCollection.create({
                     file: files[fileIndex],
                     post: response.ref
                 }, response.res).catch(error => { throw error })
@@ -62,21 +60,45 @@ class Posts {
         return response
     }
 
+    async #removeResponse(docs) {
+        for (var docIndex = 0; docIndex < docs.length; docIndex++) {
+            await ResponseCollection.remove(docs[docIndex].id)
+        }
+    }
+
+    async #removePostLocations(docs) {
+        for (var docIndex = 0; docIndex < docs.length; docIndex++) {
+            await PostLocationCollection.remove(docs[docIndex].id)
+        }
+    }
+
+    async #removePostForum(docs) {
+        for (var docIndex = 0; docIndex < docs.length; docIndex++) {
+            await ForumPostCollection.remove(docs[docIndex].id)
+        }
+    }
+
     async remove(id) {
-        const query = ResponseCollection.db.collection.where('post', '==', this.getReference(id))
-        query.get()
-            .then(async querySnapshot => {
-                const docs = querySnapshot.docs
+        const responseQuery = ResponseCollection.db.collection.where('post', '==', this.getReference(id))
+        const responseSnapshot = await responseQuery.get().catch(error => { throw error })
 
-                for (var docIndex = 0; docIndex < docs.length; docIndex++) {
-                    await ResponseCollection.remove(docs[docIndex].id)
-                }
+        console.log('Responses: ', responseSnapshot.size)
+        if (responseSnapshot.size > 0) await this.#removeResponse(responseSnapshot.docs)
 
-                await this.db.remove(id)
-            })
-            .catch(error => { throw error })
+        const locationQuery = PostLocationCollection.db.collection.where('post', '==', this.getReference(id))
+        const locationSnapshot = await locationQuery.get().catch(error => { throw error })
+
+        console.log('Location: ', locationSnapshot.size)
+        if (locationSnapshot.size > 0) await this.#removePostLocations(locationSnapshot.docs)
+
+        const forumQuery = ForumPostCollection.db.collection.where('post', '==', this.getReference(id) )
+        const forumSnapshot = await forumQuery.get().catch(error => { throw error })
+
+        console.log('Forum: ', forumSnapshot.size)
+        if (forumSnapshot.size > 0) await this.#removePostForum(forumSnapshot.docs)
 
 
+        return await this.db.remove(id)
     }
 
     getReference(id) {
@@ -129,16 +151,14 @@ class ForumPost {
 
 
     async remove(id) {
-        await this.db.remove(id)
+        return await this.db.remove(id)
     }
 }
 
 
 
+const PostCollection = new Posts()
+const FileCollection = new Files()
+const ForumPostCollection = new ForumPost()
 
-
-module.exports = {
-    PostCollection: new Posts(),
-    FileCollection: new Files(),
-    ForumPostCollection: new ForumPost()
-}
+module.exports = { PostCollection, FileCollection, ForumPostCollection }

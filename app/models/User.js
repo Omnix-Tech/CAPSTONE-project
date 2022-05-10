@@ -33,6 +33,6 @@ class Users {
 }
 
 
-module.exports = {
-    UserCollection: new Users()
-}
+const UserCollection = new Users()
+
+module.exports = { UserCollection }

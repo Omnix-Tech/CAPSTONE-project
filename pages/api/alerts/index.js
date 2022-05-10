@@ -1,19 +1,19 @@
 
 import { AlertsCollection } from "../../../app/models/Alerts";
-import { AppData } from "../../../app/models/System"
+import { AppDataCollection } from "../../../app/models/System"
 const { v4: uuidv4 } = require('uuid');
 const refreshAlerts = require('../../../utils/alerts').handler
 
 
 const initializeAppData = async () => {
-    if (await AppData.exist()) {
-        await AppData.update({
+    if (await AppDataCollection.exist()) {
+        await AppDataCollection.update({
             data: {
                 isUpdating: true
             }
         })
     } else {
-        await AppData.create({ currentBatch: '', isUpdating: true })
+        await AppDataCollection.create({ currentBatch: '', isUpdating: true })
     }
 }
 
@@ -30,7 +30,7 @@ const createAlertDocument = async (presentBatch, doc) => {
 
 const closeAppDataSession = async (currentBatch, presentBatch) => {
     if (currentBatch) {
-        await AppData.update({
+        await AppDataCollection.update({
             data: {
                 lastBatch: currentBatch,
                 currentBatch: presentBatch,
@@ -39,7 +39,7 @@ const closeAppDataSession = async (currentBatch, presentBatch) => {
             setRefreshTime: true
         })
     } else {
-        await AppData.update({
+        await AppDataCollection.update({
             data: {
                 lastBatch: '',
                 currentBatch: presentBatch,
@@ -52,7 +52,7 @@ const closeAppDataSession = async (currentBatch, presentBatch) => {
 }
 
 const cancelAppDataSession = async () => {
-    await AppData.update({
+    await AppDataCollection.update({
         data: {
             isUpdating: false
         }

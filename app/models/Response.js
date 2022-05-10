@@ -32,10 +32,11 @@ class Response {
         return await this.db.remove(id)
     }
 
-
+    getReference(id) {
+        return this.db.getReference(id)
+    }
 }
 
 
-module.exports = {
-    ResponseCollection: new Response()
-}
+const ResponseCollection = new Response()
+module.exports = { ResponseCollection }

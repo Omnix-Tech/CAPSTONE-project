@@ -30,7 +30,7 @@ class Likes {
     }
 }
 
+const LikesCollection = new Likes()
 
-module.exports = {
-    LikesCollection: new Likes()
-}
+
+module.exports = { LikesCollection }

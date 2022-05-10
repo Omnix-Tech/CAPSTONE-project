@@ -37,7 +37,7 @@ const ButtonStyle = {
 export default function ForumPage({ user }) {
 
     const router = useRouter()
-    const { connectDocument: connect, handleSetConnect, connectsDocs } = useConnect(user)
+    const { connectDocument: connect } = useConnect(user)
     const { id } = router.query
     const [selectedContent, setSelectedContent] = React.useState(0)
 

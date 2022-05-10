@@ -12,7 +12,6 @@ const USER_FORUM_COLLECTION = 'User_Forum'
 class Forum {
     constructor() {
         this.db = new Database(FORUM_COLLECTION)
-        this.UserForumCollection = new UserForum()
     }
 
 
@@ -34,7 +33,7 @@ class Forum {
                 }, response.res)
             }
 
-            this.UserForumCollection.create({ forum: response.ref, user: uid, status: 'Owner' })
+            UserForumCollection.create({ forum: response.ref, user: uid, status: 'Owner' })
 
             return response
         }).catch(error => {
@@ -48,18 +47,28 @@ class Forum {
 
     async remove(id) {
         const query = ForumPostCollection.db.collection.where('forum', '==', this.getReference(id))
-        query.get()
-        .then( async querySnapshot => {
-            const docs = querySnapshot.docs
+        const querySnapshot = await query.get().catch(error => { throw error })
 
-            for (var docIndex = 0; docIndex < docs.length; docIndex++) {
-                await ForumPostCollection.remove(docs[docIndex].id)
-                await PostCollection.remove(docs[docIndex].data().post)
-            }
+        const docs = querySnapshot.docs
 
-            this.db.remove(id)
-        })
-        .catch(error => { throw error })
+        for (var docIndex = 0; docIndex < docs.length; docIndex++) {
+            await ForumPostCollection.remove(docs[docIndex].id)
+            await PostCollection.remove(docs[docIndex].data().post.id)
+        }
+
+        const locationQuery = ForumLocationCollection.db.collection.where('forum', '==', this.getReference(id))
+        const locationSnapshot = await locationQuery.get().catch(error => { throw error })
+
+        const locationDocs = locationSnapshot.docs
+
+        for (var docIndex = 0; docIndex < locationDocs.length; docIndex++) {
+            await ForumLocationCollection.remove(
+                locationDocs[docIndex].data().forum.id
+            )
+        }
+
+
+        return this.db.remove(id)
     }
 
 
@@ -73,11 +82,10 @@ class Forum {
 class UserForum {
     constructor() {
         this.db = new Database(USER_FORUM_COLLECTION)
-        this.ForumCollection = new Forum()
     }
 
     async create({ forum, uid, status }, transaction = null) {
-        
+
         const data = {
             forum, user: UserCollection.getReference(uid), timeStamp: admin.firestore.Timestamp.now(), status
         }
@@ -86,14 +94,14 @@ class UserForum {
     }
 
     async remove(id) {
-        const query = ForumPostCollection.db.collection.where('forum', '==', For)
+        return this.db.remove(id)
     }
 }
 
 
 
+const ForumCollection = new Forum()
+const UserForumCollection = new UserForum()
 
-module.exports = {
-    ForumCollection: new Forum(),
-    UserForumCollection: new UserForum()
-}
+
+module.exports = { ForumCollection, UserForumCollection }

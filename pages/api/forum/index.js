@@ -9,9 +9,9 @@ export default async function handler(req, res) {
     switch (method) {
         case 'POST':
 
-            const { uid, title, description, connects } = req.body
-
             try {
+                const { uid, title, description, connects } = req.body
+                
                 await ForumCollection.create({ uid, title, description, connects })
                 res.status(200).json()
             } catch (error) {

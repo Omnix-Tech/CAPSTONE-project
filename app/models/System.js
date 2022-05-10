@@ -38,6 +38,6 @@ class AppData {
 
 }
 
-module.exports = {
-    AppData: new AppData()
-}
+const AppDataCollection = new AppData()
+
+module.exports = { AppDataCollection }

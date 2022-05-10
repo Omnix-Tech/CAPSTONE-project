@@ -5,14 +5,15 @@ export default async function handler(req, res) {
 
 
     const { method } = req
+
+    
     switch (method) {
         case 'POST':
 
             try {
 
                 const { uid, postId } = req.body
-                
-
+        
                 await LikesCollection.create({ uid, postId })
                 res.status(200).json()
 
