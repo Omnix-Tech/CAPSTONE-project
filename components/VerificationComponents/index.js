@@ -20,7 +20,7 @@ export default function Verify({ setStep, user }) {
     return (
         <Box>
             <Text fontSize={'3xl'} textTransform={'uppercase'} fontWeight={'bold'}>Welcome { user ? user.displayName : "" }</Text>
-            <Text mt={5} color={'black'} fontSize={'xl'} fontWeight={'medium'} >Before you get started, Let's get you verified</Text>
+            <Text mt={5} color={'black'} fontSize={'xl'} fontWeight={'medium'} >{`Before you get started, Let's get you verified`}</Text>
 
             <Box mt={8}>
                 <Grid templateColumns={'repeat(12,1fr)'} >
