@@ -69,7 +69,7 @@ export default async function handler(req, res) {
         case 'POST':
             try {
 
-                const { lastBatch, currentBatch } = req.body
+                const { lastBatch, currentBatch } = JSON.parse(req.body)
 
                 await initializeAppData()
 
@@ -100,6 +100,6 @@ export default async function handler(req, res) {
 
         default:
             console.log(new Error('Invalid Method: ', method))
-            res.status(404)
+            res.status(405)
     }
 }
