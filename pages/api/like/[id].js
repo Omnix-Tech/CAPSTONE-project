@@ -1,9 +1,5 @@
 import { LikesCollection } from "../../../app/models/Likes";
-export const config = {
-    api: {
-        bodyParser: false
-    }
-}
+
 
 export default async function handler(req, res) {
 

@@ -1,9 +1,5 @@
 import { ResponseCollection } from "../../../app/models/Response";
-export const config = {
-    api: {
-        bodyParser: false
-    }
-}
+
 
 export default async function handler(req, res) {
 
@@ -13,7 +9,7 @@ export default async function handler(req, res) {
     switch (method) {
         case 'POST':
 
-            const { uid, post, content } = JSON.parse(req.body)
+            const { uid, post, content } = req.body
 
             try {
                 await ResponseCollection.create({ uid, post, content })

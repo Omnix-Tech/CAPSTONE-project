@@ -5,11 +5,7 @@ import { AppDataCollection } from "../../../app/models/System"
 const { v4: uuidv4 } = require('uuid');
 const refreshAlerts = require('../../../utils/alerts').handler
 
-export const config = {
-    api: {
-        bodyParser: false
-    }
-}
+
 
 
 const initializeAppData = async () => {
@@ -76,7 +72,7 @@ export default async function handler(req, res) {
         case 'POST':
             try {
 
-                const { lastBatch, currentBatch } = JSON.parse(req.body)
+                const { lastBatch, currentBatch } = req.body
 
                 await initializeAppData()
 

@@ -1,9 +1,5 @@
 import { ResponseCollection } from "../../../app/models/Response";
-export const config = {
-    api: {
-        bodyParser: false
-    }
-}
+
 
 export default async function handler(req, res) {
 

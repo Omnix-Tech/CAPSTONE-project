@@ -1,10 +1,6 @@
 import { UserLocationCollection } from "../../../app/models/Location";
 import { UserCollection } from "../../../app/models/User";
-export const config = {
-    api: {
-        bodyParser: false
-    }
-}
+
 
 export default async function handler(req, res) {
 
@@ -18,7 +14,7 @@ export default async function handler(req, res) {
 
             try {
 
-                const { uid } = JSON.parse(req.body)
+                const { uid } = req.body
                 
                 await UserLocationCollection.create({ uid, location_id: id })
                 await UserCollection.update({ id: uid, data: { isRegistered: true }})

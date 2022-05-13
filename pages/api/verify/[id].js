@@ -1,10 +1,6 @@
 import { LocationCollection } from "../../../app/models/Location"
 import { UserCollection } from "../../../app/models/User"
-export const config = {
-    api: {
-        bodyParser: false
-    }
-}
+
 
 const getContent = require('../../../utils/verification').handler
 
@@ -37,7 +33,7 @@ export default async function handler(req, res) {
         case 'POST':
 
             try {
-                const { location } = JSON.parse(req.body)
+                const { location } = req.body
 
                 await UserCollection.update({
                     id, data: {
