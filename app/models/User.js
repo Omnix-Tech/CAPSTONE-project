@@ -10,10 +10,15 @@ class Users {
         this.db = new Database(USER_COLLECTION)
     }
 
+    async update({ id, data }) {
+        const response = await this.db.update({ data, id }).catch(err => { throw err })
+        return response
+    }
+
     async create({ uid, firstName, lastName, email }) {
 
         const user = {
-            firstName, lastName, email, verified: false, timeStamp: admin.firestore.Timestamp.now()
+            firstName, lastName, email, verified: false, isVerifying: false, verificationStatus: '', verifiedIdentity: false, isRegistered: false, timeStamp: admin.firestore.Timestamp.now()
         }
         
         const response = await this.db.create({
@@ -23,6 +28,11 @@ class Users {
 
 
         return response
+    }
+    
+    async get(id) {
+        const snapshot = await this.getReference(id).get().catch(err => { throw err })
+        return snapshot.data()
     }
 
     getReference(id) {

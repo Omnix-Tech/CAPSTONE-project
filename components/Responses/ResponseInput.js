@@ -22,7 +22,10 @@ export default function ResponseInput({ post, currentUser, showSuccess, showErro
             setResponseContent('')
             showSuccess({ message: 'Sent'})
         })
-        .catch( error => showError({message: 'Something went wrong'}))
+        .catch( error =>{
+            console.log(error)
+            showError({message: 'Something went wrong'})
+        })
     
     }
 

@@ -1,44 +1,13 @@
 import React from 'react';
 import { signInWithCustomToken } from '../../app/auth/auth.client';
-import { Grid, GridItem, Heading, VStack, Input, Box, Button, HStack, Image, Center, SimpleGrid, Text, Spinner } from '@chakra-ui/react';
+import { Heading, VStack, Box, Button, HStack, Image, Center, SimpleGrid, Text, Spinner } from '@chakra-ui/react';
 
 
 import { useRouter } from 'next/dist/client/router';
 import useRequestHandlers from '../../controller/handlers';
 import useFeedback from '../../controller/hooks/useFeedback';
+import AuthLayout from '../../components/layout/auth.layout';
 
-
-
-const MainContainerStyle = {
-    bg: 'rgba(0,0,0,0.5)',
-    backdropFilter: 'blur(10px)',
-    margin: { base: 0, lg: 0 },
-    borderLeftRadius: 0,
-    borderRightRadius: { base: 0, lg: 30 },
-    colSpan: { base: 12, lg: 7 }
-}
-
-
-function CommunityNameComponent({ community, setCommunity }) {
-    return (
-        <Box paddingX={{ base: 5, md: 40 }}>
-            <Heading size={'xl'} color={'yellow.500'} >We Connect Setup</Heading>
-
-            <Heading size={'lg'} color={'white'} >Where are you from?</Heading>
-            <Box w={'90%'} pt={10}>
-                <Box w={'full'} my={2}>
-                    <Input
-                        size={'lg'}
-                        onChange={(e) => setCommunity(e.target.value)}
-                        value={community}
-                        variant={'flushed'}
-                        placeholder={'Community Name'}
-                        textColor={'white'} />
-                </Box>
-            </Box>
-        </Box>
-    )
-}
 
 
 function SelectLocation({ locations, setlocationId, locationId }) {
@@ -71,13 +40,12 @@ function SelectLocation({ locations, setlocationId, locationId }) {
 }
 
 
-function Complete({ locationId, community, uid, setCurrentStep, setIsDone, isDone, showError, showSuccess, loading }) {
+function Complete({ locationId, uid, setCurrentStep, setIsDone, isDone, showError, showSuccess }) {
     const [isLoading, setIsLoading] = React.useState(true)
     const { Post } = useRequestHandlers()
 
     const handleSetUserLocation = async () => {
-        loading()
-        Post(`api/location/${locationId}`, { uid, community })
+        Post(`api/location/${locationId}`, { uid })
             .then(res => {
                 showSuccess({ message: 'Completed' })
                 setIsDone(true)
@@ -106,7 +74,8 @@ function Complete({ locationId, community, uid, setCurrentStep, setIsDone, isDon
                 </Center>
                 :
                 <>
-                    <Heading color={'white'} textAlign={'center'} p={10} size={'xl'} >All Done!</Heading>
+                    <Heading color={'white'} textAlign={'center'} p={10} size={'xl'} >Successfully Connected</Heading>
+                    <Text textAlign={'center'} color={'whiteAlpha.700'} fontWeight={'medium'}>Continue to Verification</Text>
                     <Center padding={5}>
                         <Image alt='' src='/images/img_2.png' w={'65%'} />
                     </Center>
@@ -119,17 +88,13 @@ function Complete({ locationId, community, uid, setCurrentStep, setIsDone, isDon
 
 
 export default function Setup({ user, locations }) {
-    const { showError, showSuccess, render, loading } = useFeedback()
+    const { showError, showSuccess, render } = useFeedback()
 
 
     const router = useRouter()
     const { token } = router.query
     const [currentStep, setCurrentStep] = React.useState(0)
-    const [community, setCommunity] = React.useState('')
     const [isDone, setIsDone] = React.useState(false)
-
-
-
 
     const [locationId, setlocationId] = React.useState(null)
 
@@ -148,64 +113,36 @@ export default function Setup({ user, locations }) {
 
     return (
         <>
-        { render() }
-            <Box bgRepeat={'no-repeat !important'} bgPosition={'unset'} bgSize={'cover !important'} bg={`url('/images/bg.jpg')`} >
-                <Grid bgColor={'rgba(0,0,0,0.2)'} templateColumns={'repeat(12,1fr)'} >
-                    <GridItem {...MainContainerStyle}  >
+            {render()}
+            <AuthLayout>
+                <VStack spacing={30} paddingY={10} h={'100vh'} justifyContent={'center'}>
+
+                    {currentStep === 0 ? <SelectLocation locations={locations} setlocationId={setlocationId} locationId={locationId} /> : <></>}
+                    {currentStep === 1 ? <Complete showError={showError} showSuccess={showSuccess} isDone={isDone} setIsDone={setIsDone} uid={user?.uid} locationId={locationId} setCurrentStep={setCurrentStep} /> : <></>}
+
+                    <Box w={'60%'} pt={5}>
+                        {currentStep === 0 ?
+                            <HStack spacing={5} mt={30} alignItems={'center'} >
+                                <Button disabled={locationId === null} onClick={() => setCurrentStep(1)} mt={30} width={'full'} borderRadius={'full'} size={'lg'}>
+                                    Select Connect
+                                </Button>
+                            </HStack>
+                            : <></>
+                        }
 
 
-                        <VStack spacing={30} paddingY={10} h={'100vh'} justifyContent={'center'}>
+                        {currentStep === 1 ?
+                            <HStack spacing={5} mt={30} alignItems={'center'} >
+                                <Button onClick={() => router.replace('/verify')} width={'full'} borderRadius={'full'} size={'lg'}>
+                                    Get Verified
+                                </Button>
+                            </HStack>
 
-                            {currentStep === 0 ? <CommunityNameComponent community={community} setCommunity={setCommunity} /> : <></>}
-                            {currentStep === 1 ? <SelectLocation locations={locations} setlocationId={setlocationId} locationId={locationId} /> : <></>}
-                            {currentStep === 2 ? <Complete showError={showError} showSuccess={showSuccess} loading={loading} community={community} isDone={isDone} setIsDone={setIsDone} uid={user?.uid} locationId={locationId} setCurrentStep={setCurrentStep} /> : <></>}
-
-                            <Box w={'60%'} pt={5}>
-                                {currentStep === 0 ?
-                                    <Button disabled={community === ''} onClick={() => setCurrentStep(1)} mt={30} width={'full'} borderRadius={'full'} size={'lg'}>
-                                        Continue
-                                    </Button>
-                                    : <></>
-                                }
-
-                                {currentStep === 1 ?
-                                    <HStack spacing={5} mt={30} alignItems={'center'} >
-                                        <Button onClick={() => setCurrentStep(0)} width={'full'} borderRadius={'full'} size={'lg'}>
-                                            Back
-                                        </Button>
-                                        <Button onClick={() => setCurrentStep(2)} width={'full'} borderRadius={'full'} size={'lg'}>
-                                            Connect
-                                        </Button>
-                                    </HStack>
-                                    : <></>
-                                }
-
-
-                                {currentStep === 2 ?
-                                    <HStack spacing={5} mt={30} alignItems={'center'} >
-                                        <Button onClick={() => setCurrentStep(1)} width={'full'} borderRadius={'full'} size={'lg'}>
-                                            Back
-                                        </Button>
-                                        <Button disabled={!isDone} onClick={() => router.replace('/')} width={'full'} borderRadius={'full'} size={'lg'}>
-                                            Done
-                                        </Button>
-                                    </HStack>
-
-                                    : <></>
-                                }
-
-                            </Box>
-                        </VStack>
-
-
-                    </GridItem>
-                    <GridItem colSpan={{ base: 12, md: 1 }} display={{ base: 'none', md: 'block' }}>
-                        <Box h={'full'} w={'full'} >
-
-                        </Box>
-                    </GridItem>
-                </Grid>
-            </Box>
+                            : <></>
+                        }
+                    </Box>
+                </VStack>
+            </AuthLayout>
         </>
 
     );

@@ -15,7 +15,7 @@ module.exports = {
             })
 
         all_articles = [...all_articles, ... (articles ? articles : [])]
-
+        console.log('Observer: ', all_articles.length)
         articles = null
         articles = await loop(limit)
             .catch(error => {
@@ -23,7 +23,7 @@ module.exports = {
             })
 
         all_articles = [...all_articles, ... (articles ? articles : [])]
-
+        console.log("Loop: ", all_articles.length)
         articles = null
         articles = await JCFNews(limit)
             .catch(error => {
@@ -31,7 +31,7 @@ module.exports = {
             })
 
         all_articles = [...all_articles, ... (articles ? articles : [])]
-
+        console.log("JCF: ", all_articles.length)
         articles = null
         articles = await jps()
             .catch(error => {
@@ -40,7 +40,7 @@ module.exports = {
 
         all_articles = [...all_articles, ... (articles ? articles : [])]
 
-
+        console.log("JPS: ", all_articles.length)
         articles = null
         articles = await JCF(true)
             .catch(error => {
@@ -48,7 +48,7 @@ module.exports = {
             })
 
         all_articles = [...all_articles, ... (articles ? articles : [])]
-
+        console.log("Wanted: ", all_articles.length)
 
         articles = null
         articles = await JCF(false)

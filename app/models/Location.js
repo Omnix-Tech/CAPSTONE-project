@@ -21,6 +21,10 @@ class Location {
         return { ... await this.db.update({ data, id, ref }).catch(error => { throw error }) }
     }
 
+    async get(id) {
+        const snapshot = await this.getReference(id).get().catch(err => { throw err })
+        return snapshot.data()
+    }
 
     getReference(id) {
         return this.db.getReference(id)

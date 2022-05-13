@@ -1,18 +1,22 @@
 const axios = require('axios')
 const uri = process.env.NEXT_PUBLIC_ORIGIN
 const server = () => axios.create({ baseURL: uri })
-// const server = () => axios
 
 const Post = async (url, data) => {
     return new Promise((resolve, reject) => {
-        server()
-            .post(url, data)
-            .then(res => {
-                const { data } = res
+        fetch(url, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'Application/json'
+            },
+            body: JSON.stringify(data)
+        })
+            .then(res => res.json())
+            .then(data => {
                 data.error ? reject(new Error(data.error)) : resolve(data)
             })
-            .catch(error => {
-                console.log(error)
+            .catch(err => {
+                console.log(err)
                 reject(new Error('Network Error'))
             })
     })
@@ -35,15 +39,20 @@ const Get = async (url) => {
 
 const Remove = async (url, data) => {
     return new Promise((resolve, reject) => {
-        server()
-            .delete(url, data)
-            .then(res => {
-                const { data } = res
-                data.error ? reject(data.error) : resolve(data)
+        fetch(url, {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'Application/json'
+            },
+            body: JSON.stringify(data)
+        })
+            .then(res => res.json())
+            .then(data => {
+                data.error ? reject(new Error(data.error)) : resolve(data)
             })
-            .catch(error => {
-                console.log(error)
-                reject('Network Error')
+            .catch(err => {
+                console.log(err)
+                reject(new Error('Network Error'))
             })
     })
 }

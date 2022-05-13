@@ -1,4 +1,5 @@
 import { UserLocationCollection } from "../../../app/models/Location";
+import { UserCollection } from "../../../app/models/User";
 
 
 export default async function handler(req, res) {
@@ -13,10 +14,11 @@ export default async function handler(req, res) {
 
             try {
 
-                const { uid, community } = req.body
+                const { uid } = req.body
+                
                 await UserLocationCollection.create({ uid, location_id: id })
-
-                res.status(200).json()
+                await UserCollection.update({ id: uid, data: { isRegistered: true }})
+                res.status(200).json({})
 
             } catch (error) {
 
