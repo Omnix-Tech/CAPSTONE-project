@@ -5,7 +5,7 @@ class Sentiment:
   def __init__(self):
     pass
   
-  def analyze(text):
+  def analyze(self, text):
     matches = TextBlob(text)
     if matches.sentiment.polarity < 0:
       return True

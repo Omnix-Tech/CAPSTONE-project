@@ -1,4 +1,5 @@
 
+import json
 from app import app
 from flask import jsonify, request
 
@@ -11,10 +12,10 @@ def index():
     return jsonify("We Connect Python API")
 
 
-@app.route('/sentiment', method = ['POST'])
+@app.route('/sentiment', methods = ['POST'])
 def sentiment():
-    data = request.get_json()
-    analysis = S_.analyze(data.article)
+    data = json.loads(request.data)
+    analysis = S_.analyze(data['article'])
     
     
     return jsonify(analysis = analysis)
