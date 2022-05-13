@@ -3,6 +3,7 @@ const uri = process.env.NEXT_PUBLIC_ORIGIN
 const server = () => axios.create({ baseURL: uri })
 
 const Post = async (url, data) => {
+    console.log(data)
     return new Promise((resolve, reject) => {
         fetch(url, {
             method: 'POST',
