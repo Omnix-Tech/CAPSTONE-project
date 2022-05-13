@@ -9,7 +9,7 @@ export default async function handler(req, res) {
     switch (method) {
         case 'POST':
 
-            const { uid, post, content } = req.body
+            const { uid, post, content } = JSON.parse(req.body)
 
             try {
                 await ResponseCollection.create({ uid, post, content })

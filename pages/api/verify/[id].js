@@ -33,7 +33,7 @@ export default async function handler(req, res) {
         case 'POST':
 
             try {
-                const { location } = req.body
+                const { location } = JSON.parse(req.body)
 
                 await UserCollection.update({
                     id, data: {
