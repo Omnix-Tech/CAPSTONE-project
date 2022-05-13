@@ -19,3 +19,4 @@ venv/
 # Environment Variables
 .env
 .flaskenv
+.vercel
