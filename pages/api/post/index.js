@@ -10,6 +10,7 @@ export default async function handler(req, res) {
         case 'POST':
 
             try {
+                console.log(req.body)
                 const { uid, content, privacy, files, forum, location } = req.body
                 await PostCollection.create({ uid, content, files, privacy, location, forum })
                 res.status(200).json({})

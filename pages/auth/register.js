@@ -58,7 +58,7 @@ export default function Register() {
     })
 
     const handleFormSubmit = async (data) => {
-        Post('api/register', data)
+        Post('/api/register', data)
             .then(res => {
                 const { token } = res
                 router.replace({
