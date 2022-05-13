@@ -3,6 +3,7 @@ import { PostCollection } from "../../../app/models/Post";
 
 export default async function handler(req, res) {
 
+    console.log(req)
 
     const { method } = req
 
@@ -10,8 +11,7 @@ export default async function handler(req, res) {
         case 'POST':
 
             try {
-                console.log(req.body)
-                const { uid, content, privacy, files, forum, location } = req.body
+                const { uid, content, privacy, files, forum, location } = JSON.parse(req.body)
                 await PostCollection.create({ uid, content, files, privacy, location, forum })
                 res.status(200).json({ message: 'OK' })
             } catch (error) {
@@ -23,6 +23,6 @@ export default async function handler(req, res) {
             break;
         default:
             console.log(new Error('Invalid Method: ', method))
-            res.status(404)
+            res.status(405)
     }
 }
