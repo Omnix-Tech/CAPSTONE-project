@@ -30,8 +30,6 @@ function MyApp({ Component, pageProps, ...props }) {
 
   const router = useRouter()
 
-  console.log(user, doc, loading)
-
   React.useEffect(() => {
     if (!loading) {
       if (user && doc) {
@@ -46,7 +44,7 @@ function MyApp({ Component, pageProps, ...props }) {
     }
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [doc, loading])
+  }, [doc, loading, user])
 
 
 

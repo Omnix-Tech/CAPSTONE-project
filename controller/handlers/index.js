@@ -24,16 +24,15 @@ const Post = async (url, data) => {
 
 const Get = async (url) => {
     return new Promise((resolve, reject) => {
-        server()
-            .get(url)
-            .then(res => {
-                const { data } = res
-                data.error ? reject(data.error) : resolve(data)
-            })
-            .catch(error => {
-                console.log(error)
-                reject('Network Error')
-            })
+        fetch(url)
+        .then(res => res.json())
+        .then(data => {
+            data.error ? reject(new Error(data.error)) : resolve(data)
+        })
+        .catch(error => {
+            console.log(error)
+            reject(new Error('Network Error'))
+        })  
     })
 }
 
@@ -42,7 +41,7 @@ const Remove = async (url, data) => {
         fetch(url, {
             method: 'DELETE',
             headers: {
-                'Content-Type': 'Application/json'
+                'Content-Type': 'application/json'
             },
             body: JSON.stringify(data)
         })

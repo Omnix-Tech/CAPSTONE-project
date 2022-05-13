@@ -12,7 +12,7 @@ export default async function handler(req, res) {
         case 'POST':
 
             try {
-                const { uid } = JSON.parse(req.body)
+                const { uid } = req.body
                 await UserForumCollection.create({ forum: ForumCollection.getReference(id), uid, status: 'member' })
                 res.status(200).json({})
             } catch (error) {
