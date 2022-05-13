@@ -1,6 +1,10 @@
 import { LocationCollection } from "../../../app/models/Location"
 import { UserCollection } from "../../../app/models/User"
-
+export const config = {
+    api: {
+        bodyParser: false
+    }
+}
 
 const getContent = require('../../../utils/verification').handler
 

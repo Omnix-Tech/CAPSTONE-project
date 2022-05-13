@@ -1,5 +1,11 @@
 const { getLocations } = require('../../../utils/locations/get.locations')
 
+export const config = {
+    api: {
+        bodyParser: false
+    }
+}
+
 export default async function handler(req, res) {
 
 

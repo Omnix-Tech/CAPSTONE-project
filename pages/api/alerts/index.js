@@ -1,8 +1,15 @@
 
+
 import { AlertsCollection } from "../../../app/models/Alerts";
 import { AppDataCollection } from "../../../app/models/System"
 const { v4: uuidv4 } = require('uuid');
 const refreshAlerts = require('../../../utils/alerts').handler
+
+export const config = {
+    api: {
+        bodyParser: false
+    }
+}
 
 
 const initializeAppData = async () => {
