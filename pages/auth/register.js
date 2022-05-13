@@ -3,10 +3,9 @@ import { Box, Heading, VStack, Button, Divider, HStack, FormLabel, Input } from 
 import { useRouter } from 'next/dist/client/router';
 import Link from 'next/link';
 
-
+import { Post } from '../../controller/handlers';
 import { useForm, Controller } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
-import useRequestHandlers from '../../controller/handlers';
 import useFeedback from '../../controller/hooks/useFeedback';
 import AuthLayout from '../../components/layout/auth.layout';
 
@@ -38,7 +37,6 @@ export default function Register() {
 
     const router = useRouter()
     const { registerForm } = require('../../forms')
-    const { Post } = useRequestHandlers()
     const { showError, render } = useFeedback()
 
     const {

@@ -1,5 +1,5 @@
 import React from 'react'
-import useRequestHandlers from '../handlers'
+import { Post } from '../handlers'
 import useFeedback from './useFeedback'
 
 
@@ -10,7 +10,6 @@ import { firestore } from '../../app/config/firebase.config'
 
 const useAlerts = ({ connect, parish, category }) => {
     const { showSuccess, showError, render } = useFeedback()
-    const { Post } = useRequestHandlers()
 
     const [alerts, setAlerts] = React.useState(null)
     const [refresh, setRefresh] = React.useState(false)

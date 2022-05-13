@@ -2,7 +2,7 @@ import { CloseButton, Modal, ModalBody, Box, Text, ModalContent, ModalFooter, Mo
 
 
 import { useDocumentData } from 'react-firebase-hooks/firestore'
-import useRequestHandlers from "../../../controller/handlers";
+import { Post } from "../../../controller/handlers";
 
 function Connects({ connectRef }) {
 
@@ -22,8 +22,7 @@ function Connects({ connectRef }) {
 
 
 export default function JoinModal({ isOpen, onClose, modalRef, forum, participants, connects, owner, showError, showSuccess, currentUser }) {
-    const { Post } = useRequestHandlers()
-
+    
     const handleJoinForum = () => {
         Post(`api/forum/user/${forum.id}`, { uid: currentUser.uid })
             .then(res => {

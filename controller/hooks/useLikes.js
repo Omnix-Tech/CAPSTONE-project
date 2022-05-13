@@ -4,14 +4,13 @@ import React from 'react'
 import { firestore } from '../../app/config/firebase.config'
 import { onSnapshot, query, collection, where, doc, limit } from 'firebase/firestore'
 import useFeedback from './useFeedback'
-import useRequestHandlers from '../handlers'
+import { Post, Remove } from '../handlers'
 
 
 
 
 
 const useLikes = ({ ref, currentUser }) => {
-    const { Post, Remove } = useRequestHandlers()
 
     const { showError, showSuccess, render } = useFeedback()
     const [liked, setLiked] = React.useState(false)

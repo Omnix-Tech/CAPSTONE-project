@@ -5,7 +5,7 @@ import TimeAgo from 'javascript-time-ago';
 import en from 'javascript-time-ago/locale/en.json'
 import React from 'react';
 import { firestore } from '../../app/config/firebase.config';
-import useRequestHandlers from '../../controller/handlers';
+import { Remove } from '../../controller/handlers'
 
 
 TimeAgo.setDefaultLocale(en)
@@ -26,7 +26,6 @@ const CardStyle = {
 export default function ReponseCard({ self, response }) {
     const timeago = new TimeAgo('en-US')
 
-    const { Remove } = useRequestHandlers()
     const [user, setUser] = React.useState(null)
 
 

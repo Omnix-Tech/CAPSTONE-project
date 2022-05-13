@@ -4,7 +4,7 @@ import React from 'react'
 import { Box, Text, Divider, HStack, ButtonGroup, Button, IconButton } from '@chakra-ui/react'
 import FeatherIcon from 'feather-icons-react'
 import { ConnectPopover } from './ConnectInfo'
-import useRequestHandlers from '../../controller/handlers'
+import { Post, Remove } from '../../controller/handlers'
 import useFeedback from '../../controller/hooks/useFeedback'
 
 
@@ -13,7 +13,6 @@ import useFeedback from '../../controller/hooks/useFeedback'
 
 
 export default function ConnectsContainer({ connectsDocs, otherLocations, currentUser, handleSetConnect }) {
-    const { Post, Remove } = useRequestHandlers()
     const { showError, showSuccess, render, loading } = useFeedback()
 
     const handleSetUserLocation = (locationId) => {

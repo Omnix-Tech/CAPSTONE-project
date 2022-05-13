@@ -2,11 +2,10 @@ import React, { useEffect, useState } from 'react'
 
 import { Text, HStack, Button, Image, VStack } from "@chakra-ui/react";
 import FeatherIcon from 'feather-icons-react'
-import useRequestHandlers from '../../controller/handlers';
+import { Post } from '../../controller/handlers';
 
 export default function CharacterVerification({ setStep, user, connect, userDoc }) {
 
-    const { Post } = useRequestHandlers()
     const [isVerified, setIsVerified] = useState()
     const [isComplete, setIsComplete] = useState()
 

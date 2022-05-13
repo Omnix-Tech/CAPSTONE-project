@@ -1,5 +1,6 @@
 import React from 'react'
-import useRequestHandlers from '../handlers'
+import { Get } from '../handlers';
+
 
 
 function getDistance(xlng, xlat, ylng, ylat) {
@@ -20,7 +21,6 @@ const useGeolocation = () => {
     const [error, setError] = React.useState(null)
     const [position, setPosition] = React.useState(null)
     const [locations, setLocations] = React.useState([])
-    const { Get } = useRequestHandlers()
 
 
     const watchPosition = currentPosition => {

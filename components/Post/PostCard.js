@@ -4,13 +4,15 @@ import TimeAgo from 'javascript-time-ago';
 import en from 'javascript-time-ago/locale/en.json'
 import React from 'react';
 
+import { Remove } from '../../controller/handlers';
+
 import { useDownloadURL } from 'react-firebase-hooks/storage'
 import { ref as storageRef } from 'firebase/storage'
 import { storage } from '../../app/config/firebase.config'
 import LikeButton from '../LikeButton';
 import ResponseInput from '../Responses/ResponseInput'
 import useFeedback from '../../controller/hooks/useFeedback';
-import useRequestHandlers from '../../controller/handlers';
+
 
 
 TimeAgo.addLocale(en)
@@ -66,7 +68,6 @@ export default function PostCard({ files, post, user, currentUser, loading, file
 
 
     const { showError, showSuccess, render } = useFeedback()
-    const { Remove } = useRequestHandlers()
 
 
     const handleDeletePost = () => {

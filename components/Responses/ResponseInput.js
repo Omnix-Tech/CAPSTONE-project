@@ -2,11 +2,10 @@ import { Text, Box, HStack, IconButton, Tooltip, InputGroup, InputAddon, Textare
 import FeatherIcon from 'feather-icons-react'
 import React from 'react';
 
-import useRequestHandlers from '../../controller/handlers';
+import { Post } from '../../controller/handlers';
 import useResponse from '../../controller/hooks/useResponse';
 
 export default function ResponseInput({ post, currentUser, showSuccess, showError }) {
-    const { Post } = useRequestHandlers()
     const { responses } = useResponse({ post })
 
     const [responseContent, setResponseContent] = React.useState('')

@@ -6,7 +6,7 @@ import en from 'javascript-time-ago/locale/en.json'
 import Forum from "..";
 import Link from "next/link";
 import useForums from "../../../controller/hooks/useForums";
-import useRequestHandlers from "../../../controller/handlers";
+import { Remove } from "../../../controller/handlers";
 import useFeedback from "../../../controller/hooks/useFeedback";
 
 
@@ -18,7 +18,6 @@ export default function JoinedForumCard({ forum, user, location, limit }) {
 
     const { showError, showSuccess, render } = useFeedback()
     const { forum: doc } = useForums({ forum_id: forum.forum.id })
-    const { Remove } = useRequestHandlers()
 
     const handleDeleteForum = () => {
         Remove(`api/forum/${forum.forum.id}`)

@@ -1,11 +1,10 @@
 import { Box, Divider, FormControl, FormLabel, Input, Textarea, Text, SimpleGrid, HStack, Tooltip, Button } from '@chakra-ui/react';
 import React from 'react';
-import useRequestHandlers from '../../controller/handlers';
+import { Post } from '../../controller/handlers';
 
 import useConnect from '../../controller/hooks/useConnect'
 
 export default function NewForum({ user, closeModal, showError, showSuccess }) {
-  const { Post } = useRequestHandlers()
   const { connectsDocs } = useConnect(user)
   const [disabled, setDisabled] = React.useState(false)
   const [forum_data, setForumData] = React.useState({

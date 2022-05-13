@@ -8,7 +8,7 @@ import { deleteObject, ref as storageRef } from 'firebase/storage';
 import { useUploadFile, useDownloadURL } from 'react-firebase-hooks/storage'
 
 import { v4 as uuidv4 } from 'uuid'
-import useRequestHandlers from '../../controller/handlers';
+import { Post } from '../../controller/handlers';
 
 const scrollCSS = {
     overflowX: 'auto',
@@ -154,8 +154,7 @@ function FileUploadContainer({ file, uid, handleSuccessiveFile, handleDeleteSucc
 
 
 export default function NewPost({ location, user, forum, closeModal, showError, showSuccess }) {
-    const { Post } = useRequestHandlers()
-
+    
     const { isOpen, onClose, onToggle } = useDisclosure()
     const [content, setContent] = React.useState('')
     const [privacy, setPrivacy] = React.useState(forum ? null : false)

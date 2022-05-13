@@ -1,6 +1,6 @@
 
 
-const Post = async (url, data) => {
+export const Post = async (url, data) => {
     return new Promise((resolve, reject) => {
         fetch(url, {
             method: 'POST',
@@ -17,7 +17,7 @@ const Post = async (url, data) => {
     })
 }
 
-const Get = async (url) => {
+export const Get = async (url) => {
     return new Promise((resolve, reject) => {
         fetch(url)
             .then(res => res.json())
@@ -31,7 +31,7 @@ const Get = async (url) => {
     })
 }
 
-const Remove = async (url, data) => {
+export const Remove = async (url, data) => {
     return new Promise((resolve, reject) => {
         fetch(url, {
             method: 'DELETE',
@@ -47,9 +47,3 @@ const Remove = async (url, data) => {
             })
     })
 }
-
-
-const useRequestHandlers = () => ({ Post, Remove, Get })
-
-
-export default useRequestHandlers;

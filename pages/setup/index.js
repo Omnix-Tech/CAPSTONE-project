@@ -2,9 +2,9 @@ import React from 'react';
 import { signInWithCustomToken } from '../../app/auth/auth.client';
 import { Heading, VStack, Box, Button, HStack, Image, Center, SimpleGrid, Text, Spinner } from '@chakra-ui/react';
 
-
 import { useRouter } from 'next/dist/client/router';
-import useRequestHandlers from '../../controller/handlers';
+
+import { Post } from '../../controller/handlers';
 import useFeedback from '../../controller/hooks/useFeedback';
 import AuthLayout from '../../components/layout/auth.layout';
 
@@ -42,7 +42,6 @@ function SelectLocation({ locations, setlocationId, locationId }) {
 
 function Complete({ locationId, uid, setCurrentStep, setIsDone, isDone, showError, showSuccess }) {
     const [isLoading, setIsLoading] = React.useState(true)
-    const { Post } = useRequestHandlers()
 
     const handleSetUserLocation = async () => {
         Post(`api/location/${locationId}`, { uid })
