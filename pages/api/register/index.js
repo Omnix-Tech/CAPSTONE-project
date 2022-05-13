@@ -15,7 +15,8 @@ export default async function handler(req, res) {
                 const { firstName, lastName, email, password } = req.body
                 const userRecord = await Auth.registerUser({ firstName, lastName, email, password })
                 await UserCollection.create({ uid: userRecord.uid, firstName, lastName, email })
-                res.status(200).json({ token: await Auth.getCustomToken(userRecord.uid) })
+                const token = await Auth.getCustomToken(userRecord.uid)
+                res.status(200).json({ token })
             } catch (error) {
                 console.log(error)
                 res.status(200).json({ error: error.message })

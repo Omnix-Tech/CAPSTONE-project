@@ -14,7 +14,7 @@ export default async function handler(req, res) {
             try {
 
                 await LikesCollection.remove(id)
-                res.status(200).json({})
+                res.status(200).json({ message: 'OK' })
 
             } catch (error) {
 

@@ -15,7 +15,7 @@ export default async function handler(req, res) {
                 const { uid, postId } = req.body
         
                 await LikesCollection.create({ uid, postId })
-                res.status(200).json({})
+                res.status(200).json({ message: 'OK' })
 
             } catch (error) {
 

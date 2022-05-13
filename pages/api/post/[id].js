@@ -13,7 +13,7 @@ export default async function handler(req, res) {
 
             try {
                 await PostCollection.remove(id)
-                res.status(200).json({})
+                res.status(200).json({ message: 'OK' })
             } catch (error) {
                 console.log(error)
                 res.status(200).json({ error: error.message })

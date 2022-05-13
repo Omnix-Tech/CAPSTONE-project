@@ -13,7 +13,7 @@ export default async function handler(req, res) {
                 const { uid, title, description, connects } = req.body
                 
                 await ForumCollection.create({ uid, title, description, connects })
-                res.status(200).json({})
+                res.status(200).json({ message: 'OK' })
             } catch (error) {
                 console.log(error)
                 res.status(200).json({ error: error.message })

@@ -14,7 +14,7 @@ export default async function handler(req, res) {
             try {
                 const { uid } = req.body
                 await UserForumCollection.create({ forum: ForumCollection.getReference(id), uid, status: 'member' })
-                res.status(200).json({})
+                res.status(200).json({ message: 'OK' })
             } catch (error) {
                 console.log(error)
                 res.status(200).json({ error: error.message })

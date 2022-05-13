@@ -18,7 +18,7 @@ export default async function handler(req, res) {
                 
                 await UserLocationCollection.create({ uid, location_id: id })
                 await UserCollection.update({ id: uid, data: { isRegistered: true }})
-                res.status(200).json({})
+                res.status(200).json({ message: 'OK' })
 
             } catch (error) {
 
