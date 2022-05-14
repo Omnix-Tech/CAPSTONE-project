@@ -5,7 +5,7 @@ export const Post = async (url, data) => {
         fetch(url, {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/json'
+                'content-type': 'application/json'
             },
             body: JSON.stringify(data)
         })
@@ -39,7 +39,7 @@ export const Remove = async (url, data) => {
         fetch(url, {
             method: 'DELETE',
             headers: {
-                'Content-Type': 'application/json'
+                'content-type': 'application/json'
             },
             body: JSON.stringify(data)
         })

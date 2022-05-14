@@ -6,7 +6,7 @@
     "start_url": "/",
     "name": "We Connect App",
     "short_name": "We Connect",
-    "description": "This is the we connect pwa",
+    "description": "Get Connected with We Connect, our mission is to keep you connected and informed",
     "icons": [
         {
             "src": "/icon-192x192.png",
