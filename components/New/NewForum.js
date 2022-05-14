@@ -24,7 +24,7 @@ export default function NewForum({ user, closeModal, showError, showSuccess }) {
 
   const handleSubmit = () => {
     setDisabled(true)
-    Post(`api/forum`, {
+    Post(`/api/forum`, {
       uid: user.uid,
       title: forum_data.title,
       description: forum_data.description,

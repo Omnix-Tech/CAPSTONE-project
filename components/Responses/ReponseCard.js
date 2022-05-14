@@ -30,7 +30,7 @@ export default function ReponseCard({ self, response }) {
 
 
     const handleDeleteResponse = async () => {
-       Remove(`api/response/${response.id}`)
+       Remove(`/api/response/${response.id}`)
        .then(res => {})
        .catch(error => console.log(error))
     }

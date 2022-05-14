@@ -184,7 +184,7 @@ export default function NewPost({ location, user, forum, closeModal, showError, 
     const handleSumbitPost = async () => {
         const post = { content, privacy, files: successFiles, uid: user.uid, forum: forum ? forum : null, location: forum ? null : location.place_id }
 
-        Post(`api/post`, post)
+        Post(`/api/post`, post)
             .then(res => {
                 showSuccess({ message: 'Posted' })
                 closeModal()

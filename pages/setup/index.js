@@ -44,7 +44,7 @@ function Complete({ locationId, uid, setCurrentStep, setIsDone, isDone, showErro
     const [isLoading, setIsLoading] = React.useState(true)
 
     const handleSetUserLocation = async () => {
-        Post(`api/location/${locationId}`, { uid })
+        Post(`/api/location/${locationId}`, { uid })
             .then(res => {
                 showSuccess({ message: 'Completed' })
                 setIsDone(true)

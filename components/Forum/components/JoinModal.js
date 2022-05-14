@@ -24,7 +24,7 @@ function Connects({ connectRef }) {
 export default function JoinModal({ isOpen, onClose, modalRef, forum, participants, connects, owner, showError, showSuccess, currentUser }) {
     
     const handleJoinForum = () => {
-        Post(`api/forum/user/${forum.id}`, { uid: currentUser.uid })
+        Post(`/api/forum/user/${forum.id}`, { uid: currentUser.uid })
             .then(res => {
                 showSuccess({ message: 'Success' })
                 onClose()

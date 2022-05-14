@@ -161,6 +161,5 @@ export default function Register() {
                 </Box>
             </AuthLayout>
         </>
-
     );
 }

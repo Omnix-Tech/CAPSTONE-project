@@ -72,7 +72,7 @@ const useAlerts = ({ connect, parish, category }) => {
         }
         console.log('running...', app_data)
 
-        Post('api/alerts', {
+        Post('/api/alerts', {
             currentBatch: app_data ? app_data.currentBatch : null,
             lastBatch: app_data ? app_data.lastBatch : null
         })
@@ -82,20 +82,6 @@ const useAlerts = ({ connect, parish, category }) => {
                 console.log(presentBatch)
             })
             .catch(error => showError({ message: `Something went wrong: ${error.message}` }))
-
-        // server().post('/api/refreshAlerts', {
-        //     currentBatch: app_data ? app_data.currentBatch : null,
-        //     lastBatch: app_data ? app_data.lastBatch : null
-        // })
-        //     .then(response => {
-        //         const { data } = response
-        //         if (data.error) {
-        //             console.log('Something went wrong: ', data.error)
-        //         }
-        //     })
-        //     .catch(error => {
-        //         console.log('Something went wrong: ', error.message)
-        //     })
     }
 
 

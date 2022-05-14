@@ -11,7 +11,7 @@ export default function CharacterVerification({ setStep, user, connect, userDoc 
 
 
     const initiateVerification = () => {
-        Post(`api/verify/${user.uid}`, {
+        Post(`/api/verify/${user.uid}`, {
             location: connect.place_id
         })
         .then(res => {

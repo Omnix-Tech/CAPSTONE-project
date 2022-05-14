@@ -20,14 +20,14 @@ export default function JoinedForumCard({ forum, user, location, limit }) {
     const { forum: doc } = useForums({ forum_id: forum.forum.id })
 
     const handleDeleteForum = () => {
-        Remove(`api/forum/${forum.forum.id}`)
+        Remove(`/api/forum/${forum.forum.id}`)
         .then( res => showSuccess({message: 'Forum Removed'}))
         .catch( error => showError({message: 'Filed to Delete Forum'}))
     }
 
 
     const handleLeaveForum = () => {
-        Remove(`api/forum/user/${forum.forum.id}`)
+        Remove(`/api/forum/user/${forum.forum.id}`)
         .then( res => showSuccess({message: 'Successfully left forum'}))
         .catch(error => showError({message: 'Something went wrong'}))
     }

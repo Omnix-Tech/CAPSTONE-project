@@ -47,7 +47,7 @@ const useLikes = ({ ref, currentUser }) => {
     }
 
     const handleLikePost = () => {
-        Post(`api/like`, { uid: currentUser.uid, postId: ref.id })
+        Post(`/api/like`, { uid: currentUser.uid, postId: ref.id })
             .then(async res => {
                 const snapshot = (await query(
                     collection(firestore, 'Likes'),

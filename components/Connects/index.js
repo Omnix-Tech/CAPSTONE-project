@@ -17,7 +17,7 @@ export default function ConnectsContainer({ connectsDocs, otherLocations, curren
 
     const handleSetUserLocation = (locationId) => {
         loading()
-        Post(`api/location/${locationId}`, { uid: currentUser.uid })
+        Post(`/api/location/${locationId}`, { uid: currentUser.uid })
             .then(res => {
                 showSuccess({ message: 'Connected' })
             })
@@ -27,7 +27,7 @@ export default function ConnectsContainer({ connectsDocs, otherLocations, curren
 
     const handleRemoveUserLocation = (locationId) => {
         loading()
-        Remove(`api/location/${locationId}`, { uid: currentUser.uid })
+        Remove(`/api/location/${locationId}`, { uid: currentUser.uid })
             .then(res => showSuccess({ message: 'Connect Removed' }))
             .catch(error => showError({ message: 'Something went wrong' }))
     }

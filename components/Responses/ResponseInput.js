@@ -12,7 +12,7 @@ export default function ResponseInput({ post, currentUser, showSuccess, showErro
 
 
     const handleResponseSubmit = () => {
-        Post(`api/response`, {
+        Post(`/api/response`, {
             uid: currentUser.uid,
             post: post.id,
             content: responseContent

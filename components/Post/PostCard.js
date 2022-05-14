@@ -71,7 +71,7 @@ export default function PostCard({ files, post, user, currentUser, loading, file
 
 
     const handleDeletePost = () => {
-        Remove(`api/post/${ref.id}`)
+        Remove(`/api/post/${ref.id}`)
         .then( () => showSuccess({ message: 'Post Deleted'}))
         .catch( () => showError({message: 'Something went wrong'}))
     }
