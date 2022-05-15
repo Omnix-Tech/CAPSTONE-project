@@ -3,6 +3,7 @@ import { LikesCollection } from "../../../app/models/Likes";
 
 export default async function handler(req, res) {
     const { method } = req
+    console.log('BYE: ', method, req)
 
     
     switch (method) {
