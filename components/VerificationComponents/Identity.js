@@ -1,12 +1,95 @@
-import { Button, HStack, Text, Box, Image, Grid, GridItem, Input, FormLabel, Spinner, Center } from "@chakra-ui/react";
+import { Button, HStack, Text, Box, Image, Grid, GridItem, Input, FormLabel, Spinner, Center, Tooltip, IconButton } from "@chakra-ui/react";
+
+import { useState, useEffect, useRef } from 'react'
 
 import FeatherIcon from 'feather-icons-react'
 import useCamera from "../../controller/hooks/useCamara";
 
 
+const blazeface = require('@tensorflow-models/blazeface')
+
 export default function NameVerification({ setStep, user, connect }) {
 
-    const { render, startCamera, photoRef } = useCamera()
+    const { render, onOpen, image, setImage } = useCamera()
+    const [photoID, setPhotoID] = useState(null)
+    const [model, setModel] = useState(null)
+
+
+    const [isValidating, setIsValidating] = useState(false)
+    const [validated, setIsValidated] = useState(false)
+
+
+    const photoReference = useRef(null)
+    const canvasReference = useRef(null)
+
+    const handleSetModel = () => {
+        blazeface.load().then(model => setModel(model)).catch(err => console.log(err))
+    }
+
+
+    const detectFaces = () => {
+        const photo = photoReference.current
+        const ctx = canvasReference.current.getContext("2d")
+
+        setIsValidating(true)
+        model.estimateFaces(photo, false)
+            .then(predictions => {
+
+                if (predictions.length > 0) {
+                    ctx.drawImage(photo, 0, 0, photo.width, photo.height)
+                    predictions.forEach(pred => {
+                        ctx.beginPath()
+                        ctx.lineWidth = "4"
+                        ctx.strokeStyle = "green"
+
+                        ctx.rect(
+                            pred.topLeft[0],
+                            pred.topLeft[1],
+                            pred.bottomRight[0] - pred.topLeft[0],
+                            pred.bottomRight[1] - pred.topLeft[1]
+                        )
+
+                        ctx.stroke()
+                    })
+
+
+                    
+                    setIsValidated(true)
+                }
+
+                alert('Invalid Photo')
+                setIsValidating(false)
+
+            })
+            .catch(err => {
+                console.log(err)
+                setIsValidating(false)
+            })
+    }
+
+
+    const handlePhotoUpload = (e) => {
+        const files = e.target.files
+        if (files.length === 0) return
+        const src = URL.createObjectURL(files[0])
+        setPhotoID(src)
+    }
+
+
+    useEffect(() => {
+        if (image) {
+            handleSetModel()
+        } else {
+            setModel(model)
+            setIsValidated(false)
+            if (canvasReference.current) {
+                const ctx = canvasReference.current.getContext("2d")
+                ctx.clearRect(0,0,0,0)
+            }
+        }
+    }, [image])
+
+    console.log(model, photoReference)
 
     return (
         <>
@@ -37,18 +120,50 @@ export default function NameVerification({ setStep, user, connect }) {
                             {true ?
                                 <>
                                     <Box>
-                                        <FormLabel>Upload Photo ID</FormLabel>
-                                        <Input type={'file'} />
+                                        <FormLabel>{photoID ? 'Uploaded' : 'Upload'} Photo ID</FormLabel>
+                                        {photoID ?
+                                            <Box position={'relative'}>
+                                                <Image my={5} src={photoID} alt='' />
+                                                <HStack top={0} p={2} position={'absolute'} justifyContent={'end'}>
+                                                    <Tooltip label={'Delete Photo'} >
+                                                        <IconButton borderRadius={'full'} colorScheme={'red'} onClick={() => setPhotoID(null)} icon={<FeatherIcon icon={'trash'} />} />
+                                                    </Tooltip>
+                                                </HStack>
+                                            </Box>
+                                            :
+                                            <>
+                                                <Input accept="image/*" onChange={handlePhotoUpload} type={'file'} />
+                                            </>}
+
                                     </Box>
 
                                     <Box mt={10}>
-                                        <FormLabel>Take Clear Face Photo</FormLabel>
-                                        <Button onClick={startCamera} cursor={'pointer'} colorScheme={'blackAlpha'} variant={'ghost'}>
-                                            <HStack>
-                                                <FeatherIcon icon={'camera'} />
-                                                <FormLabel>Camera</FormLabel>
-                                            </HStack>
-                                        </Button>
+                                        {image ?
+                                            <>
+                                                <canvas ref={canvasReference} />
+                                                <Image ref={photoReference} src={image} alt='' display={validated ? 'none' : 'unset'} />
+
+                                                <HStack py={5} justifyContent={'center'} >
+                                                    <Button onClick={detectFaces} isLoading={isValidating} disabled={(!(model && photoReference)) | validated} colorScheme={'blackAlpha'}>{ validated ? <FeatherIcon icon={'check'} /> : 'Validate Photo'}</Button>
+                                                    <Tooltip label={'Delete Photo'} >
+                                                        <IconButton borderRadius={'full'} colorScheme={'red'} onClick={() => setImage(null)} icon={<FeatherIcon icon={'trash'} />} />
+                                                    </Tooltip>
+                                                </HStack>
+
+
+
+                                            </>
+
+                                            :
+                                            <>
+                                                <FormLabel>Take Clear Face Photo</FormLabel>
+                                                <Button onClick={onOpen} cursor={'pointer'} colorScheme={'green'} variant={'ghost'}>
+                                                    <FeatherIcon icon={'camera'} />
+                                                    <Text pl={5}>Camera</Text>
+                                                </Button>
+                                            </>
+                                        }
+
                                     </Box>
 
 

@@ -1,96 +1,73 @@
-import React, { useRef, useState, useEffect } from 'react'
+import { Image, Box, HStack, IconButton, Modal, ModalContent, ModalOverlay, useDisclosure, Tooltip } from '@chakra-ui/react';
+import { useRef, useState } from 'react'
+import { Camera } from 'react-camera-pro';
 
-import { Box, HStack, IconButton, Modal, ModalContent, ModalOverlay, useDisclosure } from "@chakra-ui/react"
+
 import FeatherIcon from 'feather-icons-react'
 
 
+
+
+
 const useCamera = () => {
-    const [hasPhoto, setHasPhoto] = useState(false)
-    const [currentPhoto, setCurrentPhoto] = useState(null)
 
+    const { isOpen, onOpen, onClose } = useDisclosure()
+    const modal = useRef()
 
-    const { isOpen, onClose, onOpen } = useDisclosure()
-
-
-    const modalRef = useRef()
-    const cameraRef = useRef(null)
-    const photoRef = useRef(null)
-
-
-    const startCamera = () => {
-        isOpen ? null : onOpen()
-        navigator.mediaDevices.getUserMedia({
-            video: {
-                width: 1080,
-                height: 1920
-            }
-        })
-            .then(stream => {
-                const camera = cameraRef.current
-                camera.srcObject = stream
-                camera.play()
-            })
-            .catch(err => console.error(err))
-    }
-
-    const retakePhoto = () => {
-        setHasPhoto(false)
-        setCurrentPhoto(null)
-    }
-
-    const takePhoto = () => {
-        const width = 420
-        const height = width / (4 / 4)
-
-        const camera = cameraRef.current
-        const photo = photoRef.current
-
-        photo.width = width
-        photo.height = height
-
-        const context = photo.getContext('2d')
-        context.drawImage(camera, 0, 0, width, height)
-        // setCurrentPhoto(photoRef)
-        setHasPhoto(true)
-    }
-
-
-    useEffect(() => {
-        if (isOpen) startCamera()
-    }, [cameraRef])
-
-
+    const camera = useRef(null)
+    const [image, setImage] = useState(null)
 
     const render = () => (
-        <Modal size={'xl'} isOpen={isOpen} onClose={onClose} finalFocusRef={modalRef}>
+        <Modal size={'full'} isOpen={isOpen} onClose={onClose} finalFocusRef={modal} >
             <ModalOverlay />
-            <ModalContent>
-                <Box position={'relative'} >
-                <video ref={cameraRef} style={{ width: '100%', height: 'auto', display: hasPhoto ? 'none' : 'unset' }} />
-                <canvas ref={photoRef} style={{ width: '100%', height: 'auto', display: hasPhoto ? 'unset' : 'none' }} />
-                    
-                    <Box position={'absolute'} bottom={5} left={5} right={5}>
-                        {hasPhoto ?
-                            <HStack justifyContent={'space-between'} >
-                                <IconButton size={'lg'} borderRadius={'full'} colorScheme={'whiteAlpha'} onClick={retakePhoto} icon={<FeatherIcon icon={'arrow-left-circle'} />} />
-                                <IconButton size={'lg'} borderRadius={'full'} colorScheme={'whiteAlpha'} onClick={onClose} icon={<FeatherIcon icon={'check-circle'} />} />
-                            </HStack>
-                            :
-                            <HStack justifyContent={'space-between'} >
-                                <IconButton size={'lg'} borderRadius={'full'} colorScheme={'whiteAlpha'} onClick={onClose} icon={<FeatherIcon icon={'x-circle'} />} />
-                                <IconButton size={'lg'} borderRadius={'full'} colorScheme={'whiteAlpha'} onClick={takePhoto} icon={<FeatherIcon icon={'camera'} />} />
-                            </HStack>
-                        }
+            <ModalContent bgColor={'blackAlpha.500'} backdropFilter={'blur(10px)'} position={'relative'}>
+                {image ?
+                    <Image src={image} alt='' />
+                    :
+                    <Box h={'80vh'} position={'relative'}>
+                        <Camera ref={camera} />
+                        <Tooltip label={'Center your face within the circle'}>
+                        <HStack justifyContent={'center'} position={'absolute'} top={0} bottom={0} width='full'>
+                            <Image src='/images/face-cam.png' />
+                        </HStack>
+
+                        </Tooltip>
                     </Box>
-                </Box>
+                }
+                <HStack spacing={10} position={'absolute'} bottom={10} left={0} right={0} justifyContent={'center'}>
+                    {image ?
+                        <>
+                            <IconButton
+                                p={10}
+                                colorScheme={'green'}
+                                borderRadius={'full'}
+                                onClick={onClose}
+                                icon={<FeatherIcon icon={'check'} />} />
+
+                            <IconButton variant={'ghost'} colorScheme={'whiteAlpha'} onClick={() => setImage(null)} borderRadius={'full'} icon={<FeatherIcon icon={'x'} />} />
+                        </>
+                        :
+                        <>
+                            <IconButton
+                                p={10}
+                                borderRadius={'full'}
+                                colorScheme={'whiteAlpha'}
+                                onClick={() => setImage(camera.current.takePhoto())}
+                                icon={<FeatherIcon icon={'camera'} />} />
+
+                            <IconButton colorScheme={'whiteAlpha'} variant={'ghost'} onClick={onClose} borderRadius={'full'} icon={<FeatherIcon icon={'x'} />} />
+                        </>
+                    }
+
+
+                </HStack>
+
             </ModalContent>
         </Modal>
     )
 
 
-
-
-    return { render, startCamera, currentPhoto, hasPhoto, photoRef }
+    return { onOpen, onClose, modal, image, render, setImage }
 }
 
 
