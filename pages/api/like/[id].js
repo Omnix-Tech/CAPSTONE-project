@@ -2,10 +2,6 @@ import { LikesCollection } from "../../../app/models/Likes";
 
 
 export default async function handler(req, res) {
-
-    console.log('Hello: ', req.body, req)
-
-
     const { method } = req
     const { id } = req.query
 

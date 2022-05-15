@@ -3,7 +3,6 @@ import { LikesCollection } from "../../../app/models/Likes";
 
 export default async function handler(req, res) {
     const { method } = req
-    console.log('BYE: ', method, req)
 
     
     switch (method) {
@@ -11,7 +10,7 @@ export default async function handler(req, res) {
 
             try {
 
-                const { uid, postId } = JSON.parse(req.body)
+                const { uid, postId } = req.body
         
                 await LikesCollection.create({ uid, postId })
                 res.status(200).json({ message: 'OK' })

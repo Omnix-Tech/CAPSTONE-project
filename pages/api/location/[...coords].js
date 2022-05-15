@@ -7,8 +7,6 @@ export default async function handler(req, res) {
     const { method } = req
     const { coords: [latitude, longitude] } = req.query
 
-    console.log(method, latitude, longitude, req.body)
-
     switch (method) {
         case 'GET':
 
