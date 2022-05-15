@@ -72,7 +72,7 @@ export default async function handler(req, res) {
         case 'POST':
             try {
 
-                const { lastBatch, currentBatch } = req.body
+                const { lastBatch, currentBatch } = JSON.parse(req.body)
 
                 await initializeAppData()
 

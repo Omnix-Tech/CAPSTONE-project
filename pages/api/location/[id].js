@@ -14,7 +14,7 @@ export default async function handler(req, res) {
 
             try {
 
-                const { uid } = req.body
+                const { uid } = JSON.parse(req.body)
                 
                 await UserLocationCollection.create({ uid, location_id: id })
                 await UserCollection.update({ id: uid, data: { isRegistered: true }})
