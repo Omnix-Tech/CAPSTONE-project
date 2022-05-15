@@ -16,7 +16,7 @@ export default function NameVerification({ setStep, user, connect }) {
 
 
     const [isValidating, setIsValidating] = useState(false)
-    const [validated, setIsValidated] = useState(false)
+    const [validated, setIsValidated] = useState(null)
 
 
     const photoReference = useRef(null)
@@ -29,14 +29,17 @@ export default function NameVerification({ setStep, user, connect }) {
 
     const detectFaces = () => {
         const photo = photoReference.current
-        const ctx = canvasReference.current.getContext("2d")
+        const canvas = canvasReference.current
+        const ctx = canvas.getContext("2d")
 
         setIsValidating(true)
         model.estimateFaces(photo, false)
             .then(predictions => {
 
                 if (predictions.length > 0) {
-                    ctx.drawImage(photo, 0, 0, photo.width, photo.height)
+                    canvas.width = photo.width
+                    canvas.height = photo.height
+                    ctx.drawImage(photo, 0, 0, canvas.width, canvas.height)
                     predictions.forEach(pred => {
                         ctx.beginPath()
                         ctx.lineWidth = "4"
@@ -55,9 +58,10 @@ export default function NameVerification({ setStep, user, connect }) {
 
                     
                     setIsValidated(true)
+                } else {
+                    alert('Invalid Photo')
+                    setIsValidated(false)
                 }
-
-                alert('Invalid Photo')
                 setIsValidating(false)
 
             })
@@ -81,7 +85,7 @@ export default function NameVerification({ setStep, user, connect }) {
             handleSetModel()
         } else {
             setModel(model)
-            setIsValidated(false)
+            setIsValidated(null)
             if (canvasReference.current) {
                 const ctx = canvasReference.current.getContext("2d")
                 ctx.clearRect(0,0,0,0)
@@ -144,7 +148,7 @@ export default function NameVerification({ setStep, user, connect }) {
                                                 <Image ref={photoReference} src={image} alt='' display={validated ? 'none' : 'unset'} />
 
                                                 <HStack py={5} justifyContent={'center'} >
-                                                    <Button onClick={detectFaces} isLoading={isValidating} disabled={(!(model && photoReference)) | validated} colorScheme={'blackAlpha'}>{ validated ? <FeatherIcon icon={'check'} /> : 'Validate Photo'}</Button>
+                                                    <Button onClick={detectFaces} isLoading={isValidating} disabled={(!(model && photoReference)) | validated} colorScheme={'blackAlpha'}>{ validated ? <FeatherIcon icon={'check'} /> : validated === null ? 'Validate Photo' : <FeatherIcon icon={'x'} /> }</Button>
                                                     <Tooltip label={'Delete Photo'} >
                                                         <IconButton borderRadius={'full'} colorScheme={'red'} onClick={() => setImage(null)} icon={<FeatherIcon icon={'trash'} />} />
                                                     </Tooltip>
