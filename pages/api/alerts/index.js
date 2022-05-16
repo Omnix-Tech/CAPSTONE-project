@@ -1,10 +1,8 @@
-
-
 const { AlertsCollection } = require('../../../server/models/Alerts')
 const { AppDataCollection } = require('../../../server/models/System')
-
-
 const { v4: uuidv4 } = require('uuid')
+
+
 
 const initializeAppData = async () => {
     if (await AppDataCollection.exist()) {
