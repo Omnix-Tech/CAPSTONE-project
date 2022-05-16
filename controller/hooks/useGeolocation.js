@@ -34,7 +34,7 @@ const useGeolocation = () => {
 
     const handleSetLocations = async () => {
         if (position) {
-            Get(`api/location/${position.latitude}/${position.longitude}`)
+            Get(`/api/location/${position.latitude}/${position.longitude}`)
                 .then(res => {
                     const { locations } = res
                     setLocations(locations)
