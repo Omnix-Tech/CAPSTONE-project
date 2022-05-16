@@ -6,7 +6,8 @@ const styles = {
         borderWidth: '1px',
         borderColor: 'whiteAlpha.700',
         minH: { base: '100vh', lg: 'unset' },
-        p: 10
+        py: 10,
+        px: { base: 5, md: 10 }
     }
 }
 

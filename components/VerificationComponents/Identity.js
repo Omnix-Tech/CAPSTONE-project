@@ -1,103 +1,53 @@
-import { Button, HStack, Text, Box, Image, Grid, GridItem, Input, FormLabel, Spinner, Center, Tooltip, IconButton } from "@chakra-ui/react";
+import { Button, HStack, Text, Box, Image, Grid, GridItem, Spinner, Center, FormLabel } from "@chakra-ui/react";
+import { Post } from "../../controller/handlers";
 
-import { useState, useEffect, useRef } from 'react'
+import { useState } from 'react'
 
 import FeatherIcon from 'feather-icons-react'
-import useCamera from "../../controller/hooks/useCamara";
+import useUserPhotoValidation from "../../controller/hooks/useUserPhotoValidation";
+import usePhotoIDValidation from "../../controller/hooks/usePhotoIDValidation";
 
 
-const blazeface = require('@tensorflow-models/blazeface')
 
 export default function NameVerification({ setStep, user, connect }) {
+    const { validated: photo1Validated, render: photo1Render, photo: photo1 } = useUserPhotoValidation()
+    const { validated: photo2Validated, render: photo2Render, photo: photo2 } = useUserPhotoValidation()
+    const { validated: photo3Validated, render: photo3Render, photo: photo3 } = useUserPhotoValidation()
+    const { validated: photo4Validated, render: photo4Render, photo: photo4 } = useUserPhotoValidation()
 
-    const { render, onOpen, image, setImage } = useCamera()
-    const [photoID, setPhotoID] = useState(null)
-    const [model, setModel] = useState(null)
-
-
-    const [isValidating, setIsValidating] = useState(false)
-    const [validated, setIsValidated] = useState(null)
-
-
-    const photoReference = useRef(null)
-    const canvasReference = useRef(null)
-
-    const handleSetModel = () => {
-        blazeface.load().then(model => setModel(model)).catch(err => console.log(err))
-    }
+    const [isLoading, setIsLoading] = useState(false)
+    const [isError, setIsError] = useState(false)
 
 
-    const detectFaces = () => {
-        const photo = photoReference.current
-        const canvas = canvasReference.current
-        const ctx = canvas.getContext("2d")
-
-        setIsValidating(true)
-        model.estimateFaces(photo, false)
-            .then(predictions => {
-
-                if (predictions.length > 0) {
-                    canvas.width = photo.width
-                    canvas.height = photo.height
-                    ctx.drawImage(photo, 0, 0, canvas.width, canvas.height)
-                    predictions.forEach(pred => {
-                        ctx.beginPath()
-                        ctx.lineWidth = "4"
-                        ctx.strokeStyle = "green"
-
-                        ctx.rect(
-                            pred.topLeft[0],
-                            pred.topLeft[1],
-                            pred.bottomRight[0] - pred.topLeft[0],
-                            pred.bottomRight[1] - pred.topLeft[1]
-                        )
-
-                        ctx.stroke()
-                    })
+    const { render: photoIDValidation, validated: photoIDValidated, fileSrc } = usePhotoIDValidation(user?.displayName ? user.displayName : '')
 
 
-                    
-                    setIsValidated(true)
-                } else {
-                    alert('Invalid Photo')
-                    setIsValidated(false)
-                }
-                setIsValidating(false)
-
+    const handlePhotoIdentification = () => {
+        setIsLoading(true)
+        setIsError(false)
+        Post(`/api/verify/photo`, {
+            sampleBuffer: [
+                new Buffer.from(photo1, 'base64'),
+                new Buffer.from(photo2, 'base64'),
+                new Buffer.from(photo3, 'base64'),
+                new Buffer.from(photo4, 'base64'),
+            ],
+            officialBuffer: new Buffer.from(fileSrc, 'base64')
+        })
+            .then(data => {
+                console.log(data)
+                setIsLoading(false)
             })
             .catch(err => {
                 console.log(err)
-                setIsValidating(false)
+                setIsLoading(false)
+                setIsError(true)
             })
     }
 
 
-    const handlePhotoUpload = (e) => {
-        const files = e.target.files
-        if (files.length === 0) return
-        const src = URL.createObjectURL(files[0])
-        setPhotoID(src)
-    }
-
-
-    useEffect(() => {
-        if (image) {
-            handleSetModel()
-        } else {
-            setModel(model)
-            setIsValidated(null)
-            if (canvasReference.current) {
-                const ctx = canvasReference.current.getContext("2d")
-                ctx.clearRect(0,0,0,0)
-            }
-        }
-    }, [image])
-
-    console.log(model, photoReference)
-
     return (
         <>
-            {render()}
             <Box>
                 <Text fontSize={'3xl'} fontWeight={'bold'}>Identity Verification</Text>
                 <Text mt={5} color={'black'} fontSize={'xl'} fontWeight={'medium'} >Please Upload a Photo ID to verify your identity. Please ensure the image is clear.</Text>
@@ -121,74 +71,41 @@ export default function NameVerification({ setStep, user, connect }) {
                                     <Text fontWeight={'medium'}>{connect ? `${connect.area}, ${connect.parish}` : ""}</Text>
                                 </HStack>
                             </Box>
-                            {true ?
-                                <>
-                                    <Box>
-                                        <FormLabel>{photoID ? 'Uploaded' : 'Upload'} Photo ID</FormLabel>
-                                        {photoID ?
-                                            <Box position={'relative'}>
-                                                <Image my={5} src={photoID} alt='' />
-                                                <HStack top={0} p={2} position={'absolute'} justifyContent={'end'}>
-                                                    <Tooltip label={'Delete Photo'} >
-                                                        <IconButton borderRadius={'full'} colorScheme={'red'} onClick={() => setPhotoID(null)} icon={<FeatherIcon icon={'trash'} />} />
-                                                    </Tooltip>
-                                                </HStack>
-                                            </Box>
-                                            :
-                                            <>
-                                                <Input accept="image/*" onChange={handlePhotoUpload} type={'file'} />
-                                            </>}
+                            <>
+                                <Box>
+                                    {photoIDValidation()}
+                                </Box>
 
-                                    </Box>
-
-                                    <Box mt={10}>
-                                        {image ?
-                                            <>
-                                                <canvas ref={canvasReference} />
-                                                <Image ref={photoReference} src={image} alt='' display={validated ? 'none' : 'unset'} />
-
-                                                <HStack py={5} justifyContent={'center'} >
-                                                    <Button onClick={detectFaces} isLoading={isValidating} disabled={(!(model && photoReference)) | validated} colorScheme={'blackAlpha'}>{ validated ? <FeatherIcon icon={'check'} /> : validated === null ? 'Validate Photo' : <FeatherIcon icon={'x'} /> }</Button>
-                                                    <Tooltip label={'Delete Photo'} >
-                                                        <IconButton borderRadius={'full'} colorScheme={'red'} onClick={() => setImage(null)} icon={<FeatherIcon icon={'trash'} />} />
-                                                    </Tooltip>
-                                                </HStack>
-
-
-
-                                            </>
-
-                                            :
-                                            <>
-                                                <FormLabel>Take Clear Face Photo</FormLabel>
-                                                <Button onClick={onOpen} cursor={'pointer'} colorScheme={'green'} variant={'ghost'}>
-                                                    <FeatherIcon icon={'camera'} />
-                                                    <Text pl={5}>Camera</Text>
-                                                </Button>
-                                            </>
-                                        }
-
-                                    </Box>
+                                <FormLabel>Take four (4) photos to successfully verify your identity</FormLabel>
+                                <Grid mt={10} templateColumns={'repeat(12,1fr)'}>
+                                    {photo1Render()}
+                                    {photo2Render()}
+                                    {photo3Render()}
+                                    {photo4Render()}
+                                </Grid>
 
 
 
 
-                                    <Button mt={10} mb={3} w={'full'} variant={'ghost'} colorScheme={'green'} >Verify Identity</Button>
-
-
-
-
-                                    <Box mt={10}>
-                                        <Text textTransform={'uppercase'} fontWeight={'medium'} textAlign={'center'} color={'red'} >Please provide a clear photo</Text>
+                                <Button
+                                    // isLoading={isLoading}
+                                    onClick={handlePhotoIdentification}
+                                    disabled={!(photo1Validated && photo2Validated && photo3Validated && photo4Validated && photoIDValidated)}
+                                    mt={10}
+                                    mb={3}
+                                    w={'full'}
+                                    variant={'ghost'}
+                                    colorScheme={'green'} >Verify Identity</Button>
+                                <Box mt={10}>
+                                    {isError ?
                                         <Text textTransform={'uppercase'} fontWeight={'medium'} textAlign={'center'} color={'green'} >Identity Verified</Text>
-                                    </Box>
-                                </>
+                                        :
+                                        <Text textTransform={'uppercase'} fontWeight={'medium'} textAlign={'center'} color={'red'} >Please provide a clear photo</Text>
+                                    }
 
-                                :
-                                <Center p={20}>
-                                    <Spinner />
-                                </Center>
-                            }
+
+                                </Box>
+                            </>
 
                         </Box>
                     </GridItem>

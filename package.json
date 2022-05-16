@@ -21,6 +21,7 @@
     "cheerio": "^1.0.0-rc.10",
     "cookies-next": "^2.0.4",
     "dotenv": "^16.0.0",
+    "face-api.js": "^0.22.2",
     "feather-icons-react": "^0.5.0",
     "firebase": "^9.6.10",
     "firebase-admin": "^10.0.2",
@@ -40,6 +41,7 @@
     "react-responsive-carousel": "^3.2.23",
     "react-scroll": "^1.8.6",
     "styled-components": "^5.3.5",
+    "tesseract.js": "^2.1.5",
     "twit": "^2.2.11",
     "uuid": "^8.3.2",
     "yup": "^0.32.11"

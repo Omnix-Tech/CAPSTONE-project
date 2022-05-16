@@ -20,7 +20,7 @@ export default function AuthLayout({ children }) {
                     {children}
                 </GridItem>
 
-                <GridItem display={{basee: 'none', md: 'unset'}} colSpan={{ base: 0, md: 5 }}>
+                <GridItem display={{base: 'none', md: 'unset'}} colSpan={{ base: 0, md: 5 }}>
                     <Image src="/images/logo.png" />
                 </GridItem>
 
