@@ -63,11 +63,18 @@ const usePhotoIDValidation = (name) => {
 
 
     const initiatePhotoID = (e) => {
+        const reader = new FileReader()
         const files = e.target.files
 
         if (files.lenght === 0) return
         setFile(files[0])
-        setFileSrc(URL.createObjectURL(files[0]))
+        reader.readAsDataURL(files[0])
+
+        reader.onload = function () {
+            const src = reader.result
+            console.log(src)
+            setFileSrc(src)
+        }
     }
 
     const handleRetrieve = () => {
@@ -86,25 +93,24 @@ const usePhotoIDValidation = (name) => {
         setIsValidating(true)
         model.estimateFaces(photo, false)
             .then(predictions => {
-                if (predictions.length > 0) {
+                if (predictions.length === 1) {
+                    const pred = predictions[0]
                     canvas.width = photo.width
                     canvas.height = photo.height
                     ctx.drawImage(photo, 0, 0, photo.width, photo.height)
 
-                    predictions.forEach(pred => {
-                        ctx.beginPath()
-                        ctx.lineWidth = "4"
-                        ctx.strokeStyle = "green"
+                    ctx.beginPath()
+                    ctx.lineWidth = "4"
+                    ctx.strokeStyle = "green"
 
-                        ctx.rect(
-                            pred.topLeft[0],
-                            pred.topLeft[1],
-                            pred.bottomRight[0] - pred.topLeft[0],
-                            pred.bottomRight[1] - pred.topLeft[1]
-                        )
+                    ctx.rect(
+                        pred.topLeft[0],
+                        pred.topLeft[1],
+                        pred.bottomRight[0] - pred.topLeft[0],
+                        pred.bottomRight[1] - pred.topLeft[1]
+                    )
 
-                        ctx.stroke()
-                    })
+                    ctx.stroke()
 
 
                     setValidated(true)
@@ -113,7 +119,11 @@ const usePhotoIDValidation = (name) => {
                 }
                 setIsValidating(false)
             })
-            .catch(err => console.log(err))
+            .catch(err => {
+                setValidated(false)
+                setIsValidating(false)
+                console.log(err)
+            })
     }
 
 
@@ -123,8 +133,8 @@ const usePhotoIDValidation = (name) => {
                 <FormLabel>{file ? 'Uploaded' : 'Upload'} Photo ID</FormLabel>
                 {file ?
                     <Box position={'relative'}>
-                        <canvas ref={canvasRef} style={{ display: validated ? 'unset' : 'none' }} />
-                        <Image ref={photoRef} src={fileSrc} alt={''} display={validated ? 'none' : 'unset'} />
+                        <canvas ref={canvasRef} style={{ display: validated ? 'unset' : 'none', width: '100%' }} />
+                        <Image w={'100%'} ref={photoRef} src={fileSrc} alt={''} display={validated ? 'none' : 'unset'} />
 
 
                         <HStack top={0} p={2} position={'absolute'} justifyContent={'end'}>
@@ -192,8 +202,6 @@ const usePhotoIDValidation = (name) => {
     useEffect(() => {
         if (model) detectFace()
     }, [model])
-
-    console.log(isValidating, isOwned, validated)
 
 
     return { render, validated, file, fileSrc }

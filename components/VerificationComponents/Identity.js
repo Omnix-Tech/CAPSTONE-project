@@ -12,11 +12,9 @@ import usePhotoIDValidation from "../../controller/hooks/usePhotoIDValidation";
 export default function NameVerification({ setStep, user, connect }) {
     const { validated: photo1Validated, render: photo1Render, photo: photo1 } = useUserPhotoValidation()
     const { validated: photo2Validated, render: photo2Render, photo: photo2 } = useUserPhotoValidation()
-    const { validated: photo3Validated, render: photo3Render, photo: photo3 } = useUserPhotoValidation()
-    const { validated: photo4Validated, render: photo4Render, photo: photo4 } = useUserPhotoValidation()
 
     const [isLoading, setIsLoading] = useState(false)
-    const [isError, setIsError] = useState(false)
+    const [isVerified, setIsVerified] = useState(false)
 
 
     const { render: photoIDValidation, validated: photoIDValidated, fileSrc } = usePhotoIDValidation(user?.displayName ? user.displayName : '')
@@ -24,15 +22,10 @@ export default function NameVerification({ setStep, user, connect }) {
 
     const handlePhotoIdentification = () => {
         setIsLoading(true)
-        setIsError(false)
-        Post(`/api/verify/photo`, {
-            sampleBuffer: [
-                new Buffer.from(photo1, 'base64'),
-                new Buffer.from(photo2, 'base64'),
-                new Buffer.from(photo3, 'base64'),
-                new Buffer.from(photo4, 'base64'),
-            ],
-            officialBuffer: new Buffer.from(fileSrc, 'base64')
+
+        Post('api/verify/identity', {
+            sampleBuffer: [photo1, photo2],
+            idBuffer: fileSrc
         })
             .then(data => {
                 console.log(data)
@@ -41,8 +34,9 @@ export default function NameVerification({ setStep, user, connect }) {
             .catch(err => {
                 console.log(err)
                 setIsLoading(false)
-                setIsError(true)
             })
+
+
     }
 
 
@@ -80,27 +74,25 @@ export default function NameVerification({ setStep, user, connect }) {
                                 <Grid mt={10} templateColumns={'repeat(12,1fr)'}>
                                     {photo1Render()}
                                     {photo2Render()}
-                                    {photo3Render()}
-                                    {photo4Render()}
                                 </Grid>
 
 
 
 
                                 <Button
-                                    // isLoading={isLoading}
+                                    isLoading={isLoading}
                                     onClick={handlePhotoIdentification}
-                                    disabled={!(photo1Validated && photo2Validated && photo3Validated && photo4Validated && photoIDValidated)}
+                                    disabled={!(photo1Validated && photo2Validated  && photoIDValidated)}
                                     mt={10}
                                     mb={3}
                                     w={'full'}
                                     variant={'ghost'}
                                     colorScheme={'green'} >Verify Identity</Button>
                                 <Box mt={10}>
-                                    {isError ?
+                                    {isVerified ?
                                         <Text textTransform={'uppercase'} fontWeight={'medium'} textAlign={'center'} color={'green'} >Identity Verified</Text>
                                         :
-                                        <Text textTransform={'uppercase'} fontWeight={'medium'} textAlign={'center'} color={'red'} >Please provide a clear photo</Text>
+                                        <Text textTransform={'uppercase'} fontWeight={'medium'} textAlign={'center'} color={'red'} ></Text>
                                     }
 
 

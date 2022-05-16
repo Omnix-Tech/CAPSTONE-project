@@ -1,5 +1,3 @@
-
-
 import { AlertsCollection } from "../../../app/models/Alerts";
 import { AppDataCollection } from "../../../app/models/System"
 const { v4: uuidv4 } = require('uuid');

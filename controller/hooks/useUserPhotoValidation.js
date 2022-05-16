@@ -33,25 +33,24 @@ const useUserPhotoValidation = () => {
         setIsValidating(true)
         model.estimateFaces(photo, false)
             .then(predictions => {
-                if (predictions.length > 0) {
+                if (predictions.length === 1) {
+                    const pred = predictions[0]
                     canvas.width = photo.width
                     canvas.height = photo.height
                     ctx.drawImage(photo, 0, 0, photo.width, photo.height)
 
-                    predictions.forEach(pred => {
-                        ctx.beginPath()
-                        ctx.lineWidth = "4"
-                        ctx.strokeStyle = "green"
+                    ctx.beginPath()
+                    ctx.lineWidth = "4"
+                    ctx.strokeStyle = "green"
 
-                        ctx.rect(
-                            pred.topLeft[0],
-                            pred.topLeft[1],
-                            pred.bottomRight[0] - pred.topLeft[0],
-                            pred.bottomRight[1] - pred.topLeft[1]
-                        )
+                    ctx.rect(
+                        pred.topLeft[0],
+                        pred.topLeft[1],
+                        pred.bottomRight[0] - pred.topLeft[0],
+                        pred.bottomRight[1] - pred.topLeft[1]
+                    )
 
-                        ctx.stroke()
-                    })
+                    ctx.stroke()
 
 
                     setIsValidated(true)
@@ -68,39 +67,39 @@ const useUserPhotoValidation = () => {
 
 
     const render = () => (
-        <GridItem colSpan={{base:12, md:6}} >
+        <GridItem colSpan={{ base: 12, md: 6 }} >
             <Box p={2}>
-            {cameraRender()}
-            {photo ?
-                <>
-                    <canvas ref={canvasRef} style={{ display: validated ? 'unset' : 'none' }} />
-                    <Image ref={photoRef} src={photo} alt='' display={validated ? 'none' : 'unset'} />
+                {cameraRender()}
+                {photo ?
+                    <>
+                        <canvas ref={canvasRef} style={{ display: validated ? 'unset' : 'none', width: '100%' }} />
+                        <Image w={'full'} ref={photoRef} src={photo} alt='' display={validated ? 'none' : 'unset'} />
 
-                    <HStack py={5} justifyContent={'center'} >
-                        <Button
-                            onClick={validateImage}
-                            isLoading={isValidating}
-                            disabled={(!(model && photoRef)) | validated}
-                            colorScheme={'blackAlpha'}
-                        >
-                            {validated ? <FeatherIcon icon={'check'} /> : validated === null ? 'Validate Photo' : <FeatherIcon icon={'x'} />}
-                        </Button>
-                        <Tooltip label={'Delete Photo'} >
-                            <IconButton borderRadius={'full'} colorScheme={'red'} onClick={() => setPhoto(null)} icon={<FeatherIcon icon={'trash'} />} />
-                        </Tooltip>
-                    </HStack>
+                        <HStack py={5} justifyContent={'center'} >
+                            <Button
+                                onClick={validateImage}
+                                isLoading={isValidating}
+                                disabled={(!(model && photoRef)) | validated}
+                                colorScheme={'blackAlpha'}
+                            >
+                                {validated ? <FeatherIcon icon={'check'} /> : validated === null ? 'Validate Photo' : <FeatherIcon icon={'x'} />}
+                            </Button>
+                            <Tooltip label={'Delete Photo'} >
+                                <IconButton borderRadius={'full'} colorScheme={'red'} onClick={() => setPhoto(null)} icon={<FeatherIcon icon={'trash'} />} />
+                            </Tooltip>
+                        </HStack>
 
-                    <Text fontSize={'xs'} color={'red'} >
-                        {errors.map(error => error)}
-                    </Text>
-                </>
-                :
+                        <Text fontSize={'xs'} color={'red'} >
+                            {errors.map(error => error)}
+                        </Text>
+                    </>
+                    :
 
-                <>
-                    <HStack onClick={onOpen} cursor={'pointer'} alignItems={'center'} justifyContent={'center'} border={'dashed'} borderColor={'blackAlpha.300'} p={5} >
-                        <FeatherIcon icon={'camera'} />
-                    </HStack>
-                </>}
+                    <>
+                        <HStack onClick={onOpen} cursor={'pointer'} alignItems={'center'} justifyContent={'center'} border={'dashed'} borderColor={'blackAlpha.300'} p={5} >
+                            <FeatherIcon icon={'camera'} />
+                        </HStack>
+                    </>}
 
             </Box>
         </GridItem>

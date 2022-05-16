@@ -1,4 +1,7 @@
 const recognize = require('../../../utils/verification/face-identify').handler
+
+
+
 export default async function handler(req, res) {
 
 
@@ -8,19 +11,17 @@ export default async function handler(req, res) {
         case 'POST':
             try {
 
-                const { sampleBuffer, officialBuffer } = JSON.parse(req.body)
-                
-                const res = await recognize(sampleBuffer, officialBuffer)
+                const { sampleBuffer, idBuffer } = JSON.parse(req.body)
+                const response = await recognize(sampleBuffer, idBuffer)
 
-                console.log(res)
-
-                res.status(200).json({ message: res })
+                console.log(response)
+                res.status(200).json({ message: response })
 
 
             } catch (error) {
 
                 console.log(error)
-                res.status(500)
+                res.status(200).json({ error: error.message })
 
             }
 
@@ -28,6 +29,6 @@ export default async function handler(req, res) {
 
         default:
             console.log(new Error('Invalid Method: ', method))
-            res.status(404)
+            res.status(405)
     }
 }

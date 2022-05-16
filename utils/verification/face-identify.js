@@ -1,11 +1,15 @@
-const faceapi = require('face-api.js')
-const { Blob } = require('buffer')
+const faceapi = require('./face-api.min.js')
+const canvas = require('canvas')
+
+const { Canvas, Image, ImageData } = canvas
+faceapi.env.monkeyPatch({ Canvas, Image, ImageData })
+
 
 const initializeModel = () => {
     return Promise.all([
-        faceapi.nets.faceRecognitionNet.loadFromDisk('./utils/verification/models').catch(err => { throw err }),
-        faceapi.nets.faceLandmark68Net.loadFromDisk('./utils/verification/models').catch(err => { throw err }),
-        faceapi.nets.ssdMobilenetv1.loadFromDisk('./utils/verification/models').catch(err => { throw err })
+        faceapi.nets.faceRecognitionNet.loadFromDisk('./utils/verification/models'),
+        faceapi.nets.faceLandmark68Net.loadFromDisk('./utils/verification/models'),
+        faceapi.nets.ssdMobilenetv1.loadFromDisk('./utils/verification/models')
     ])
 }
 
@@ -13,21 +17,23 @@ const recognize = async (resolve, reject, samples, official) => {
 
     try {
         const labeledFaceDescriptors = await loadLabeledImages(samples)
-        const faceMatcher = new faceapi.FaceMatcher(labeledFaceDescriptors, 0.6)
 
-        console.log(official)
-        const blob = new Blob(official.data)
-        const image = await faceapi.bufferToImage(official)
-        const detections = await faceapi.detectAllFaces(image)
-            .withFaceLandmarks()
-            .withFaceDescriptors()
+        if (labeledFaceDescriptors) {
+            const faceMatcher = new faceapi.FaceMatcher(labeledFaceDescriptors, 0.6)
+            const image = await canvas.loadImage(official)
+            const detections = await faceapi.detectAllFaces(image).withFaceLandmarks().withFaceDescriptors()
 
-        console.log(detections)
-        const results = detections.map(d => faceMatcher.matchDescriptor(d))
+            if (detections) {
+                const results = detections.map(d => faceMatcher.matchDescriptor(d))
+                console.log(results)
+                resolve(results)
+            } else {
+                throw new Error('Low Quality ID Picture')
+            }
+        } else {
+            throw new Error('Low Quality Photos')
+        }
 
-        console.log(results)
-
-        resolve(results)
 
     } catch (err) {
 
@@ -41,36 +47,48 @@ const recognize = async (resolve, reject, samples, official) => {
 }
 
 
-const loadLabeledImages = (samples) => {
-    const labels = ['match']
-    return Promise.all(
-        labels.map(async label => {
-            const descriptions = []
+const loadLabeledImages = async (samples) => {
+    const descriptions = []
 
-            for (var sampleIndex = 1; sampleIndex < samples.length; sampleIndex++) {
+    for (var sampleIndex = 0; sampleIndex < samples.length; sampleIndex++) {
+        const image = await canvas.loadImage(samples[sampleIndex])
 
-                // console.log()
-                const image = await faceapi.bufferToImage(samples[sampleIndex])
-                const detections = await faceapi.detectSingleFace(image)
-                    .withFaceLandmarks()
-                    .withFaceDescriptor()
 
-                descriptions.push(detections.descriptor)
-            }
+        console.log(sampleIndex)
+        const detections = await faceapi.detectSingleFace(image).withFaceLandmarks().withFaceDescriptor()
 
-            return new faceapi.LabeledFaceDescriptors(label, descriptions)
-        })
-    )
+        detections ? descriptions.push(detections.descriptor) : console.log('LOW QUALITY')
+
+    }
+
+    return descriptions.length === 0 ? null : [new faceapi.LabeledFaceDescriptors('match', descriptions)]
 }
 
 
 module.exports = {
     handler: async (samples, official) => {
 
-        return new Promise((resolve, reject) => {
-            initializeModel()
-                .then(() => recognize(resolve, reject, samples, official))
-                .catch((err) => reject(err))
-        })
+        try {
+            await initializeModel().catch(err => { throw err })
+
+            const labeledFaceDescriptors = await loadLabeledImages([samples[0]])
+
+            if (!labeledFaceDescriptors) throw new Error('Image is too blurry')
+            const faceMatcher = new faceapi.FaceMatcher(labeledFaceDescriptors, 0.6)
+            const image = await canvas.loadImage(official)
+            const detections = await faceapi.detectSingleFace(image).withFaceLandmarks().withFaceDescriptor()
+
+
+            if (!detections) throw new Error('Image is too blurry')
+
+            const results = faceMatcher.matchDescriptor(detections)
+
+            return results
+        } catch (error) {
+
+            throw error
+        }
+
+
     }
 }
