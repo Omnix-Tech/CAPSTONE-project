@@ -35,6 +35,7 @@ const useForumHit = ({ forumObj, connect, user }) => {
 
     React.useEffect(() => {
         if (forum && forums && joinedForums) handleSetIsJoined()
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [forum, forums, joinedForums])
 
 

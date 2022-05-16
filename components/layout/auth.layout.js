@@ -1,5 +1,5 @@
 
-import { Box, Grid, GridItem, Image, VStack } from "@chakra-ui/react"
+import { Box, Grid, GridItem, Image } from "@chakra-ui/react"
 
 const styles = {
     MainContainer: {
@@ -21,7 +21,7 @@ export default function AuthLayout({ children }) {
                 </GridItem>
 
                 <GridItem display={{base: 'none', md: 'unset'}} colSpan={{ base: 0, md: 5 }}>
-                    <Image src="/images/logo.png" />
+                    <Image alt="" src="/images/logo.png" />
                 </GridItem>
 
             </Grid>

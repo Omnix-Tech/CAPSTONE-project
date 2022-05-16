@@ -50,7 +50,7 @@ export default function NameVerification({ setStep, user, connect }) {
                 <Grid my={10} templateColumns={'repeat(12,1fr)'} >
                     <GridItem colSpan={{ base: 12, md: 4 }} >
                         <HStack w={'full'} justifyContent={'center'} >
-                            <Image width={{ base: '60%', md: '100%' }} src='/images/photoid.png' />
+                            <Image alt="" width={{ base: '60%', md: '100%' }} src='/images/photoid.png' />
                         </HStack>
                     </GridItem>
                     <GridItem colSpan={{ base: 12, md: 8 }} >

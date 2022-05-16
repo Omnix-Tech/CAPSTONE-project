@@ -7,7 +7,7 @@ export default function PeerVerification({ setStep }) {
         <VStack>
             <Text fontSize={'3xl'} fontWeight={'bold'}>Peer Verification</Text>
             <Box w={"50%"} p={2} borderRadius={5} borderWidth={8} borderColor={'blackAlpha.400'}>
-                <Image src="/images/qr.png" />
+                <Image src="/images/qr.png" alt="" />
             </Box>
 
             <Text fontSize={'xl'} fontWeight={'bold'} >Share This</Text>

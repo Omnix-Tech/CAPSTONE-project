@@ -4,7 +4,7 @@ import { Text, HStack, Button, Image, VStack } from "@chakra-ui/react";
 import FeatherIcon from 'feather-icons-react'
 import { Post } from '../../controller/handlers';
 
-export default function CharacterVerification({ setStep, user, connect, userDoc }) {
+export default function CharacterVerification({ user, connect, userDoc }) {
 
     const [isVerified, setIsVerified] = useState()
     const [isComplete, setIsComplete] = useState()
@@ -29,6 +29,8 @@ export default function CharacterVerification({ setStep, user, connect, userDoc 
 
     useEffect( () => {
         if (connect && user ) initiateVerification()
+
+        
     }, [connect, user] )
 
     useEffect(() => {
@@ -67,7 +69,7 @@ export default function CharacterVerification({ setStep, user, connect, userDoc 
                     </Text>
 
                     <HStack>
-                        <Image w={200} src={'/images/loading.gif'} />
+                        <Image alt='' w={200} src={'/images/loading.gif'} />
                     </HStack>
                 </VStack>
             }

@@ -27,6 +27,7 @@ export default function Verification({ user, userDoc }) {
 
     useEffect(() => {
         if (userDoc) handleSetCurrentStep()
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [userDoc])
 
 

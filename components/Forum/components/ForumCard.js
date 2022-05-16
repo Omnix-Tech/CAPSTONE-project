@@ -25,9 +25,8 @@ export default function ForumCard({ forum, currentUser }) {
     }
 
     React.useEffect(() => {
-        if (forumDoc) {
-            handleSetUser()
-        }
+        if (forumDoc)  handleSetUser()
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [forumDoc])
 
 

@@ -26,19 +26,19 @@ export default function Verify({ setStep, user }) {
                 <Grid templateColumns={'repeat(12,1fr)'} >
                     <GridItem colSpan={{ base: 12, md: 4 }}>
                         <VStack p={10} justifyContent={'center'}>
-                            <Image src='/images/communicate.png' h={100} />
+                            <Image alt="" src='/images/communicate.png' h={100} />
                             <Text {...styles.Subtitle}>Communicate Better</Text>
                         </VStack>
                     </GridItem>
                     <GridItem p={10} colSpan={{ base: 12, md: 4 }}>
                         <VStack justifyContent={'center'}>
-                            <Image src='/images/security.png' h={100} />
+                            <Image alt="" src='/images/security.png' h={100} />
                             <Text {...styles.Subtitle}>Stay Secure, Stay Vigilant</Text>
                         </VStack>
                     </GridItem>
                     <GridItem p={10} flexDirection={'column'} justifyContent={'center'} colSpan={{ base: 12, md: 4 }}>
                         <VStack justifyContent={'center'}>
-                            <Image src='/images/info.png' h={100} />
+                            <Image alt="" src='/images/info.png' h={100} />
                             <Text {...styles.Subtitle}>Stay Informed</Text>
                         </VStack>
                     </GridItem>
