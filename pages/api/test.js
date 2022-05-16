@@ -1,4 +1,4 @@
-const { AlertsCollection } = require('../../../server/models/Alerts')
+const { AlertsCollection } = require('../../server/models/Alerts')
 
 
 
