@@ -1,5 +1,8 @@
-import { AlertsCollection } from '../../../server/models/Alerts'
-import { AppDataCollection } from "../../../server/models/System"
+
+
+const { AlertsCollection } = require('../../../server/models/Alerts')
+const { AppDataCollection } = require('../../../server/models/System')
+
 
 const { v4: uuidv4 } = require('uuid')
 
@@ -60,6 +63,7 @@ const cancelAppDataSession = async () => {
 
 
 export default async function handler(req, res) {
+
     const { method } = req
 
 
@@ -68,7 +72,7 @@ export default async function handler(req, res) {
             try {
 
 
-                const { lastBatch, currentBatch } = JSON.parse(req.body)
+                const { lastBatch, currentBatch } = req.body
 
                 await initializeAppData()
 
