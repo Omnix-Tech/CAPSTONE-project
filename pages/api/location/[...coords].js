@@ -1,4 +1,4 @@
-const { getLocations } = require('../../../app/utils/locations/get.locations')
+const { getLocations } = require('../../../server/utils/locations/get.locations')
 
 export default async function handler(req, res) {
 

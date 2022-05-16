@@ -1,4 +1,4 @@
-import { LikesCollection } from "../../../app/models/Likes";
+import { LikesCollection } from "../../../server/models/Likes";
 
 
 export default async function handler(req, res) {

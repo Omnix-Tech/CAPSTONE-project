@@ -1,4 +1,4 @@
-import { ResponseCollection } from "../../../app/models/Responses"
+import { ResponseCollection } from "../../../server/models/Responses"
 
 export default async function handler(req, res) {
 

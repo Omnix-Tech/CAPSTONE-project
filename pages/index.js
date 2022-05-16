@@ -1,6 +1,6 @@
 
 export default function Home() {
   return (
-    <>Hello World</>
+    <>WE CONNECT APIS</>
   )
 }

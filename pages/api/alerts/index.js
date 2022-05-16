@@ -1,6 +1,7 @@
-import { AlertsCollection } from '../../../app/models/Alerts'
-import { AppDataCollection } from "../../../app/models/System"
+import { AlertsCollection } from '../../../server/models/Alerts'
+import { AppDataCollection } from "../../../server/models/System"
 
+const { v4: uuidv4 } = require('uuid')
 
 const initializeAppData = async () => {
     if (await AppDataCollection.exist()) {

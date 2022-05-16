@@ -1,5 +1,5 @@
 
-import { ForumCollection } from "../../../../app/models/Forums"
+import { ForumCollection } from "../../../../server/models/Forums"
 
 
 export default async function handler(req, res) {

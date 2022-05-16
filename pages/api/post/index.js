@@ -1,4 +1,4 @@
-import { PostCollection } from "../../../app/models/Posts"
+import { PostCollection } from "../../../server/models/Posts"
 
 export default async function handler(req, res) {
 

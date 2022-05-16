@@ -1,4 +1,4 @@
-import { UserCollection } from "../../../app/models/Users"
+import { UserCollection } from "../../../server/models/Users"
 
 export default async function handler(req, res) {
 

@@ -1,6 +1,6 @@
-import { registerUser, getCustomToken } from "../../../app/auth/auth.admin";
+import { registerUser, getCustomToken } from "../../../server/auth/auth.admin";
 
-import { UserCollection } from "../../../app/models/Users";
+import { UserCollection } from "../../../server/models/Users";
 
 export default async function handler(req, res) {
     const { method } = req
