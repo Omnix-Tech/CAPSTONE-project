@@ -1,0 +1,10 @@
+{
+	"functions": {
+		"api/verify/[id].js": {
+			"maxDuration": 500
+		},
+        "api/alerts.js": {
+			"maxDuration": 500
+		}
+	}
+}
