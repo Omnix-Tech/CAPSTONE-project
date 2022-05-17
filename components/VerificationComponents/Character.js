@@ -81,6 +81,12 @@ export default function CharacterVerification({ user, connect, userDoc }) {
                         <FeatherIcon icon={'arrow-right-circle'} />
                     </HStack>
                 </Button>
+                <Button onClick={initiateVerification} disabled={isVerified} colorScheme={'green'} variant={'ghost'} >
+                    <HStack alignItems={'center'}>
+                        <Text fontWeight={'medium'}>Retry</Text>
+                        <FeatherIcon icon={'repeat'} />
+                    </HStack>
+                </Button>
             </HStack>
         </VStack>
     )
