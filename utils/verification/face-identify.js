@@ -73,13 +73,13 @@ module.exports = {
 
             const labeledFaceDescriptors = await loadLabeledImages([samples[0]])
 
-            if (!labeledFaceDescriptors) throw new Error('Image is too blurry')
+            if (!labeledFaceDescriptors) throw new Error('Photo is too blurry')
             const faceMatcher = new faceapi.FaceMatcher(labeledFaceDescriptors, 0.6)
             const image = await canvas.loadImage(official)
             const detections = await faceapi.detectSingleFace(image).withFaceLandmarks().withFaceDescriptor()
 
 
-            if (!detections) throw new Error('Image is too blurry')
+            if (!detections) throw new Error('Photo ID is too blurry')
 
             const results = faceMatcher.matchDescriptor(detections)
 

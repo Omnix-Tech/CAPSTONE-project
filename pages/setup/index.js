@@ -114,14 +114,14 @@ export default function Setup({ user, locations }) {
         <>
             {render()}
             <AuthLayout>
-                <VStack spacing={30} paddingY={10} h={'100vh'} justifyContent={'center'}>
+                <VStack spacing={30} paddingY={40} h={'100vh'} justifyContent={'center'}>
 
                     {currentStep === 0 ? <SelectLocation locations={locations} setlocationId={setlocationId} locationId={locationId} /> : <></>}
                     {currentStep === 1 ? <Complete showError={showError} showSuccess={showSuccess} isDone={isDone} setIsDone={setIsDone} uid={user?.uid} locationId={locationId} setCurrentStep={setCurrentStep} /> : <></>}
 
-                    <Box w={'60%'} pt={5}>
+                    <Box w={'60%'}>
                         {currentStep === 0 ?
-                            <HStack spacing={5} mt={30} alignItems={'center'} >
+                            <HStack spacing={5} alignItems={'center'} >
                                 <Button disabled={locationId === null} onClick={() => setCurrentStep(1)} mt={30} width={'full'} borderRadius={'full'} size={'lg'}>
                                     Select Connect
                                 </Button>

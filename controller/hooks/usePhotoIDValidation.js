@@ -1,6 +1,7 @@
 import { Box, FormLabel, HStack, Image, Input, Progress, Tooltip, IconButton, Text } from '@chakra-ui/react'
 
 import FeatherIcon from 'feather-icons-react'
+import { resolve } from 'path'
 
 import { useState, useEffect, useRef } from 'react'
 
@@ -19,7 +20,26 @@ const search = (name, content) => {
 const T = require('tesseract.js')
 const blazeface = require('@tensorflow-models/blazeface')
 
+
+const crop = (src, startX, startY, width, height) => {
+    const originalImage = document.createElement('img')
+    originalImage.src = src
+    
+    const canvas = document.createElement('canvas')
+    const ctx = canvas.getContext('2d')
+
+    canvas.width = width
+    canvas.height = height
+
+    ctx.drawImage(originalImage, startX, startY, width, height, 0, 0, width, height)
+
+    return canvas.toDataURL("image/jpeg", 0.9)
+}
+
+
 const usePhotoIDValidation = (name) => {
+
+    const [finalImage, setFinalImage] = useState()
 
     const [file, setFile] = useState()
     const [fileSrc, setFileSrc] = useState()
@@ -34,9 +54,10 @@ const usePhotoIDValidation = (name) => {
 
 
     const [model, setModel] = useState()
-
     const canvasRef = useRef()
     const photoRef = useRef()
+
+
 
     const clearPhoto = () => {
         setFile(null)
@@ -49,17 +70,11 @@ const usePhotoIDValidation = (name) => {
         setModel()
     }
 
-
     const initializeModel = () => {
         blazeface.load()
             .then(model => setModel(model))
             .catch(err => console.log(err))
     }
-
-
-
-
-    const [error, setError] = useState('')
 
 
     const initiatePhotoID = (e) => {
@@ -72,7 +87,6 @@ const usePhotoIDValidation = (name) => {
 
         reader.onload = function () {
             const src = reader.result
-            console.log(src)
             setFileSrc(src)
         }
     }
@@ -82,7 +96,7 @@ const usePhotoIDValidation = (name) => {
             .then(out => {
                 setImageContent(out.data.text.toUpperCase().replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g, ""))
             })
-            .catch(err => setError(err.message))
+            .catch(err => console.log(err.message))
     }
 
     const detectFace = () => {
@@ -112,8 +126,14 @@ const usePhotoIDValidation = (name) => {
 
                     ctx.stroke()
 
+                    const length = (pred.bottomRight[0] - pred.topLeft[0]) > (pred.bottomRight[1] - pred.topLeft[1]) ? (pred.bottomRight[0] - pred.topLeft[0]) : (pred.bottomRight[1] - pred.topLeft[1])
 
+
+                    const dataSrc = crop(photo.src, pred.topLeft[0], pred.topLeft[1], length, length)
+                    setFinalImage(dataSrc)
                     setValidated(true)
+
+
                 } else {
                     setValidated(false)
                 }
@@ -132,47 +152,51 @@ const usePhotoIDValidation = (name) => {
             <>
                 <FormLabel>{file ? 'Uploaded' : 'Upload'} Photo ID</FormLabel>
                 {file ?
-                    <Box position={'relative'}>
-                        <canvas ref={canvasRef} style={{ display: validated ? 'unset' : 'none', width: '100%' }} />
-                        <Image w={'100%'} ref={photoRef} src={fileSrc} alt={''} display={validated ? 'none' : 'unset'} />
+                    <>
+                        <Box position={'relative'}>
+                            <canvas ref={canvasRef} style={{ display: validated ? 'unset' : 'none', width: '100%' }} />
+                            <Image w={'100%'} ref={photoRef} src={fileSrc} alt={''} display={validated ? 'none' : 'unset'} />
 
 
-                        <HStack top={0} p={2} position={'absolute'} justifyContent={'end'}>
-                            <Tooltip label={'Delete Photo'} >
-                                <IconButton borderRadius={'full'} colorScheme={'red'} onClick={clearPhoto} icon={<FeatherIcon icon={'trash'} />} />
-                            </Tooltip>
-                        </HStack>
-                        {imageContent ? <>{
-                            isOwned ?
-                                <>{
-                                    isValidating ? <Progress isIndeterminate />
-                                        :
-                                        <>
-                                            {validated ?
-                                                <HStack justifyContent={'center'} alignItems={'center'}>
-                                                    <FeatherIcon icon={'check'} />
-                                                    <Text fontWeight={'medium'} fontSize={'sm'} color={'green'} >Valid</Text>
-                                                </HStack>
-                                                :
-                                                validated === null ?
-                                                    <Progress isIndeterminate />
-                                                    :
+                            <HStack top={0} p={2} position={'absolute'} justifyContent={'end'}>
+                                <Tooltip label={'Delete Photo'} >
+                                    <IconButton borderRadius={'full'} colorScheme={'red'} onClick={clearPhoto} icon={<FeatherIcon icon={'trash'} />} />
+                                </Tooltip>
+                            </HStack>
+                            {imageContent ? <>{
+                                isOwned ?
+                                    <>{
+                                        isValidating ? <Progress isIndeterminate />
+                                            :
+                                            <>
+                                                {validated ?
                                                     <HStack justifyContent={'center'} alignItems={'center'}>
-                                                        <FeatherIcon icon={'x'} />
-                                                        <Text fontWeight={'medium'} fontSize={'sm'} color={'red'} >Invalid - No Face Detected</Text>
+                                                        <FeatherIcon icon={'check'} />
+                                                        <Text fontWeight={'medium'} fontSize={'sm'} color={'green'} >Valid</Text>
                                                     </HStack>
+                                                    :
+                                                    validated === null ?
+                                                        <Progress isIndeterminate />
+                                                        :
+                                                        <HStack justifyContent={'center'} alignItems={'center'}>
+                                                            <FeatherIcon icon={'x'} />
+                                                            <Text fontWeight={'medium'} fontSize={'sm'} color={'red'} >Invalid - No Face Detected</Text>
+                                                        </HStack>
 
-                                            }
-                                        </>
-                                }</> :
-                                <HStack justifyContent={'center'} alignItems={'center'}>
-                                    <FeatherIcon icon={'x'} />
-                                    <Text fontWeight={'medium'} fontSize={'sm'} color={'red'} >{'Please upload a valid photo ID, name does NOT match registered name'}</Text>
-                                </HStack>
-                        }</>
-                            :
-                            <Progress value={contentProgress * 100} />}
-                    </Box>
+                                                }
+                                            </>
+                                    }
+                                    </> :
+                                    <HStack justifyContent={'center'} alignItems={'center'}>
+                                        <FeatherIcon icon={'x'} />
+                                        <Text fontWeight={'medium'} fontSize={'sm'} color={'red'} >{'Please upload a valid photo ID, name does NOT match registered name'}</Text>
+                                    </HStack>
+                            }</>
+                                :
+                                <Progress size={'xs'} value={contentProgress * 100} />}
+                        </Box>
+                    </>
+
                     :
                     <Input accept="image/*" onChange={initiatePhotoID} type={'file'} />
                 }
@@ -204,7 +228,7 @@ const usePhotoIDValidation = (name) => {
     }, [model])
 
 
-    return { render, validated, file, fileSrc }
+    return { render, validated, file, fileSrc, finalImage }
 }
 
 

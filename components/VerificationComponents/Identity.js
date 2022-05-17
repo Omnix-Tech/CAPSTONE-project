@@ -16,8 +16,10 @@ export default function NameVerification({ setStep, user, connect }) {
     const [isLoading, setIsLoading] = useState(false)
     const [isVerified, setIsVerified] = useState(false)
 
+    const [errorMessage, setErrorMessage] = useState('')
 
-    const { render: photoIDValidation, validated: photoIDValidated, fileSrc } = usePhotoIDValidation(user?.displayName ? user.displayName : '')
+
+    const { render: photoIDValidation, validated: photoIDValidated, finalImage } = usePhotoIDValidation(user?.displayName ? user.displayName : '')
 
 
     const handlePhotoIdentification = () => {
@@ -25,15 +27,15 @@ export default function NameVerification({ setStep, user, connect }) {
 
         Post('api/verify/identity', {
             sampleBuffer: [photo1, photo2],
-            idBuffer: fileSrc
+            idBuffer: finalImage
         })
             .then(data => {
-                console.log(data)
                 setIsLoading(false)
+                setIsVerified(true)
             })
             .catch(err => {
-                console.log(err)
                 setIsLoading(false)
+
             })
 
 
@@ -44,7 +46,10 @@ export default function NameVerification({ setStep, user, connect }) {
         <>
             <Box>
                 <Text fontSize={'3xl'} fontWeight={'bold'}>Identity Verification</Text>
-                <Text mt={5} color={'black'} fontSize={'xl'} fontWeight={'medium'} >Please Upload a Photo ID to verify your identity. Please ensure the image is clear.</Text>
+                <Text mt={5} color={'black'} fontSize={'xl'} fontWeight={'medium'} >
+                    To complete the verify your identity, you are required to provide and {`(jpg/png)`} copy of
+                    photo ID and to take clear pictures of yourself, showing all your clearly showing your facial features.
+                </Text>
 
 
                 <Grid my={10} templateColumns={'repeat(12,1fr)'} >
@@ -70,7 +75,7 @@ export default function NameVerification({ setStep, user, connect }) {
                                     {photoIDValidation()}
                                 </Box>
 
-                                <FormLabel>Take four (4) photos to successfully verify your identity</FormLabel>
+                                <FormLabel mt={5}>Take two (2) photos clearly demonstrating your facial features.</FormLabel>
                                 <Grid mt={10} templateColumns={'repeat(12,1fr)'}>
                                     {photo1Render()}
                                     {photo2Render()}
@@ -82,7 +87,7 @@ export default function NameVerification({ setStep, user, connect }) {
                                 <Button
                                     isLoading={isLoading}
                                     onClick={handlePhotoIdentification}
-                                    disabled={!(photo1Validated && photo2Validated  && photoIDValidated)}
+                                    disabled={!(photo1Validated && photo2Validated && photoIDValidated)}
                                     mt={10}
                                     mb={3}
                                     w={'full'}
@@ -92,7 +97,7 @@ export default function NameVerification({ setStep, user, connect }) {
                                     {isVerified ?
                                         <Text textTransform={'uppercase'} fontWeight={'medium'} textAlign={'center'} color={'green'} >Identity Verified</Text>
                                         :
-                                        <Text textTransform={'uppercase'} fontWeight={'medium'} textAlign={'center'} color={'red'} ></Text>
+                                        <Text textTransform={'uppercase'} fontWeight={'medium'} textAlign={'center'} color={'red'} >{ errorMessage }</Text>
                                     }
 
 
@@ -110,7 +115,7 @@ export default function NameVerification({ setStep, user, connect }) {
                             <Text fontWeight={'medium'}>Back</Text>
                         </HStack>
                     </Button>
-                    <Button onClick={() => setStep(2)} colorScheme={'blackAlpha'} variant={'ghost'} >
+                    <Button disabled={!isVerified} onClick={() => setStep(2)} colorScheme={'blackAlpha'} variant={'ghost'} >
                         <HStack alignItems={'center'}>
                             <Text fontWeight={'medium'}>Next</Text>
                             <FeatherIcon icon={'arrow-right-circle'} />
