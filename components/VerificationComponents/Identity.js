@@ -125,7 +125,8 @@ export default function IdentityVerification({ setStep, user, connect }) {
                             <Text fontWeight={'medium'}>Back</Text>
                         </HStack>
                     </Button>
-                    <Button disabled={!isVerified} onClick={() => setStep(2)} colorScheme={'blackAlpha'} variant={'ghost'} >
+                    {/*disabled={!isVerified}} */}
+                    <Button onClick={() => setStep(2)} colorScheme={'blackAlpha'} variant={'ghost'} >
                         <HStack alignItems={'center'}>
                             <Text fontWeight={'medium'}>Next</Text>
                             <FeatherIcon icon={'arrow-right-circle'} />
