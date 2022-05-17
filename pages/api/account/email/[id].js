@@ -1,22 +1,24 @@
-const recognize = require('../../../utils/verification/face-identify').handler
 
+import { Auth } from "../../../../app/auth/auth.server"
 
 
 export default async function handler(req, res) {
 
-
     const { method } = req
+    const { id } = req.query
 
     switch (method) {
         case 'POST':
             try {
 
-                const { sampleBuffer, idBuffer } = JSON.parse(req.body)
-                const response = await recognize(sampleBuffer, idBuffer)
+                const { email } = req.body
+                console.log(email)
+                const data = await Auth.updateAccount(id, { email })
 
-                console.log(response)
-                res.status(200).json({ message: response })
+                console.log(data)
 
+
+                res.status(200).json({ message: 'OK' })
 
             } catch (error) {
 
@@ -24,11 +26,11 @@ export default async function handler(req, res) {
                 res.status(200).json({ error: error.message })
 
             }
-
-            break;
+            break
 
         default:
             console.log(new Error('Invalid Method: ', method))
             res.status(405)
+            break
     }
 }

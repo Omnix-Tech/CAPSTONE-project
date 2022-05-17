@@ -1,10 +1,12 @@
+import Script from 'next/script';
+
 import { Center, Spinner } from '@chakra-ui/react';
 import { useState, useEffect } from 'react'
 import VerificationLayout from "../../components/layout/verification.layout";
-import Script from 'next/script';
+
 import Verify from '../../components/VerificationComponents';
 import CharacterVerification from '../../components/VerificationComponents/Character';
-import NameVerification from '../../components/VerificationComponents/Identity'
+import IdentityVerification from '../../components/VerificationComponents/Identity'
 import useConnect from '../../controller/hooks/useConnect';
 
 
@@ -32,17 +34,17 @@ export default function Verification({ user, userDoc }) {
 
 
     return (
-        <>
-        <Script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-core"></Script>
-        <Script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-converter"></Script>
-        <Script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-backend-webgl"></Script>
-            
+        <>  <Script src='https://cdn.jsdelivr.net/npm/@vladmandic/face-api/dist/face-api.js' ></Script>
+            <Script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-core"></Script>
+            <Script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-converter"></Script>
+            <Script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-backend-webgl"></Script>
+            <Script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/handpose"></Script>
             <VerificationLayout>
                 {step === -1 ? <Center p={40}><Spinner size={'xl'} /></Center> : <></>}
 
                 {step === 0 ? <Verify setStep={setStep} user={user} /> : <></>}
 
-                {step === 1 ? <NameVerification setStep={setStep} user={user} connect={connect} userDoc={userDoc} /> : <></>}
+                {step === 1 ? <IdentityVerification setStep={setStep} user={user} connect={connect} userDoc={userDoc} /> : <></>}
 
                 {step === 2 ? <CharacterVerification setStep={setStep} user={user} connect={connect} userDoc={userDoc} /> : <></>}
             </VerificationLayout>

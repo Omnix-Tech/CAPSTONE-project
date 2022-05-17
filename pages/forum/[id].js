@@ -63,7 +63,7 @@ export default function ForumPage({ user }) {
                     </Box>
 
                     <Box mt={5} boxShadow={'0px 0px 10px 0px rgba(0,0,0,0.14)'} bgColor={'white'}>
-                        <Grid templateColumns={'repeat(3,1fr)'}>
+                        <Grid templateColumns={'repeat(2,1fr)'}>
                             <GridItem py={2} colSpan={{ base: 1, lg: 1 }} >
                                 <Tooltip label={'Forums'}>
                                     <HStack onClick={() => setSelectedContent(0)} color={selectedContent === 0 ? 'green.500' : 'teal.500'} {...ButtonStyle}>
@@ -78,13 +78,6 @@ export default function ForumPage({ user }) {
                                     </HStack>
                                 </Tooltip>
                             </GridItem>
-                            <GridItem py={2} colSpan={{ base: 1, lg: 1 }} >
-                                <Tooltip label={'Alerts'}>
-                                    <HStack onClick={() => setSelectedContent(2)} color={selectedContent === 1 ? 'green.500' : 'teal.500'} {...ButtonStyle}>
-                                        <FeatherIcon icon={'alert-circle'} />
-                                    </HStack>
-                                </Tooltip>
-                            </GridItem>
                         </Grid>
                     </Box>
 
@@ -93,8 +86,6 @@ export default function ForumPage({ user }) {
                         {selectedContent === 1 ? <UserForums user={user} location={connect} setSelectedContent={setSelectedContent} /> : <></>}
 
                         {selectedContent === 0 ? <Forums location={connect} user={user} currentForum={id} /> : <></>}
-
-                        {selectedContent === 2 ? <>Alerts</> : <></>}
 
                     </Box>
 

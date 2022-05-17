@@ -1,7 +1,6 @@
 import { Box, FormLabel, HStack, Image, Input, Progress, Tooltip, IconButton, Text } from '@chakra-ui/react'
 
 import FeatherIcon from 'feather-icons-react'
-import { resolve } from 'path'
 
 import { useState, useEffect, useRef } from 'react'
 
@@ -21,19 +20,21 @@ const T = require('tesseract.js')
 const blazeface = require('@tensorflow-models/blazeface')
 
 
-const crop = (src, startX, startY, width, height) => {
+const crop = (src, startX, startY, width, height, setFinalImage) => {
     const originalImage = document.createElement('img')
     originalImage.src = src
-    
+
     const canvas = document.createElement('canvas')
     const ctx = canvas.getContext('2d')
 
-    canvas.width = width
-    canvas.height = height
+    originalImage.onload = () => {
+        canvas.width = width
+        canvas.height = height
 
-    ctx.drawImage(originalImage, startX, startY, width, height, 0, 0, width, height)
-
-    return canvas.toDataURL("image/jpeg", 0.9)
+        ctx.drawImage(originalImage, startX, startY, width, height, 0, 0, width, height)
+        const src = canvas.toDataURL("image/jpeg", 0.9)
+        setFinalImage(src)
+    }
 }
 
 
@@ -68,6 +69,7 @@ const usePhotoIDValidation = (name) => {
         setImageContent(null)
         setContentProgress(0)
         setModel()
+        setFinalImage(null)
     }
 
     const initializeModel = () => {
@@ -126,11 +128,14 @@ const usePhotoIDValidation = (name) => {
 
                     ctx.stroke()
 
-                    const length = (pred.bottomRight[0] - pred.topLeft[0]) > (pred.bottomRight[1] - pred.topLeft[1]) ? (pred.bottomRight[0] - pred.topLeft[0]) : (pred.bottomRight[1] - pred.topLeft[1])
+                    const width = pred.bottomRight[0] - pred.topLeft[0]
+                    const height = pred.bottomRight[1] - pred.topLeft[1]
 
 
-                    const dataSrc = crop(photo.src, pred.topLeft[0], pred.topLeft[1], length, length)
-                    setFinalImage(dataSrc)
+                    const length = width > height ? width : height
+
+
+                    crop(photo.src, pred.topLeft[0], pred.topLeft[1], length, length, setFinalImage)
                     setValidated(true)
 
 
@@ -226,7 +231,6 @@ const usePhotoIDValidation = (name) => {
     useEffect(() => {
         if (model) detectFace()
     }, [model])
-
 
     return { render, validated, file, fileSrc, finalImage }
 }

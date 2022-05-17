@@ -16,6 +16,16 @@ class Authentication {
         return record
     }
 
+    async updateAccount(uid, { email, password }) {
+        console.log(uid, email, password)
+        return email ? await auth.updateUser(uid, { email }) : await auth.updateUser(uid, { password })
+    }
+
+
+    async deleteAccount(uid) {
+        return await auth.deleteUser(uid)
+    }
+
     async getCustomToken(uid) {
         return await auth.createCustomToken(uid).catch(error => { throw error })
     }

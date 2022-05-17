@@ -4,7 +4,10 @@ export const Post = async (url, data) => {
     return new Promise((resolve, reject) => {
         fetch(url, {
             method: 'POST',
-            body: JSON.stringify(data)
+            body: JSON.stringify(data),
+            headers: {
+                "Content-Type": "application/json"
+            }
         })
             .then(res => res.json())
             .then(data => {
@@ -35,7 +38,10 @@ export const Remove = async (url, data) => {
     return new Promise((resolve, reject) => {
         fetch(url, {
             method: 'DELETE',
-            body: JSON.stringify(data)
+            body: JSON.stringify(data),
+            headers: {
+                "Content-Type": "application/json"
+            }
         })
             .then(res => res.json())
             .then(data => {

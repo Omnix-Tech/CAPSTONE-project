@@ -8,7 +8,7 @@ const { auth } = require('../../app/config/firebase.config')
 
 
 function DrawerContainer({ isOpen, onClose, toggleRef, user }) {
-  const notifications = [1, 1, 1]
+  const notifications = []
   return (
     <Drawer
       isOpen={isOpen}
@@ -50,7 +50,9 @@ function DrawerContainer({ isOpen, onClose, toggleRef, user }) {
         <DrawerFooter>
           <HStack width={'full'} justifyContent={'space-between'}>
             <IconButton onClick={() => auth.signOut()} variant={'ghost'} icon={<FeatherIcon icon={'log-out'} />} />
-            <IconButton variant={'ghost'} icon={<FeatherIcon icon={'settings'} />} />
+            <Link passHref href={'/account'}>
+              <IconButton as={'a'} variant={'ghost'} icon={<FeatherIcon icon={'settings'} />} />
+            </Link>
           </HStack>
         </DrawerFooter>
       </DrawerContent>

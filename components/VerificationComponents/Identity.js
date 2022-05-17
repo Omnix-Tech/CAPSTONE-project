@@ -1,5 +1,4 @@
-import { Button, HStack, Text, Box, Image, Grid, GridItem, Spinner, Center, FormLabel } from "@chakra-ui/react";
-import { Post } from "../../controller/handlers";
+import { Button, HStack, Text, Box, Image, Grid, GridItem, FormLabel } from "@chakra-ui/react";
 
 import { useState } from 'react'
 
@@ -8,8 +7,10 @@ import useUserPhotoValidation from "../../controller/hooks/useUserPhotoValidatio
 import usePhotoIDValidation from "../../controller/hooks/usePhotoIDValidation";
 
 
+const recognize = require("../../utils/verification/face-identify").handler
 
-export default function NameVerification({ setStep, user, connect }) {
+
+export default function IdentityVerification({ setStep, user, connect }) {
     const { validated: photo1Validated, render: photo1Render, photo: photo1 } = useUserPhotoValidation()
     const { validated: photo2Validated, render: photo2Render, photo: photo2 } = useUserPhotoValidation()
 
@@ -19,23 +20,32 @@ export default function NameVerification({ setStep, user, connect }) {
     const [errorMessage, setErrorMessage] = useState('')
 
 
-    const { render: photoIDValidation, validated: photoIDValidated, finalImage } = usePhotoIDValidation(user?.displayName ? user.displayName : '')
+    const { render: photoIDValidation, validated: photoIDValidated, finalImage, fileSrc } = usePhotoIDValidation(user?.displayName ? user.displayName : '')
 
 
     const handlePhotoIdentification = () => {
         setIsLoading(true)
 
-        Post('api/verify/identity', {
-            sampleBuffer: [photo1, photo2],
-            idBuffer: finalImage
-        })
+        const sample1 = document.createElement('img')
+        const sample2 = document.createElement('img')
+        const photoId = document.createElement('img')
+
+        sample1.src = photo1
+        sample2.src = photo2
+        photoId.src = finalImage
+
+        console.log(finalImage)
+
+
+        recognize([sample1, sample2], photoId)
             .then(data => {
+                console.log(data)
                 setIsLoading(false)
                 setIsVerified(true)
             })
             .catch(err => {
                 setIsLoading(false)
-
+                setErrorMessage(err.message)
             })
 
 
@@ -47,8 +57,8 @@ export default function NameVerification({ setStep, user, connect }) {
             <Box>
                 <Text fontSize={'3xl'} fontWeight={'bold'}>Identity Verification</Text>
                 <Text mt={5} color={'black'} fontSize={'xl'} fontWeight={'medium'} >
-                    To complete the verify your identity, you are required to provide and {`(jpg/png)`} copy of
-                    photo ID and to take clear pictures of yourself, showing all your clearly showing your facial features.
+                    To verify your identity, you are required to provide and {`(jpg/png)`} copy of a
+                    photo ID and to take clear pictures of yourself, clearly showing your facial features.
                 </Text>
 
 
@@ -97,7 +107,7 @@ export default function NameVerification({ setStep, user, connect }) {
                                     {isVerified ?
                                         <Text textTransform={'uppercase'} fontWeight={'medium'} textAlign={'center'} color={'green'} >Identity Verified</Text>
                                         :
-                                        <Text textTransform={'uppercase'} fontWeight={'medium'} textAlign={'center'} color={'red'} >{ errorMessage }</Text>
+                                        <Text textTransform={'uppercase'} fontWeight={'medium'} textAlign={'center'} color={'red'} >{errorMessage}</Text>
                                     }
 
 

@@ -1,11 +1,18 @@
-// import * as faceapi from '@vladmandic/face-api'
+const tf = require('@tensorflow/tfjs-core')
+const faceapi = require('@vladmandic/face-api')
+const canvas = require('canvas')
+
+
+const { Canvas, Image, ImageData } = canvas
+faceapi.env.monkeyPatch({ Canvas, Image, ImageData })
+
 
 
 const initializeModel = () => {
     return Promise.all([
-        faceapi.nets.faceRecognitionNet.loadFromUri('/models'),
-        faceapi.nets.faceLandmark68Net.loadFromUri('/models'),
-        faceapi.nets.ssdMobilenetv1.loadFromUri('/models')
+        faceapi.nets.faceRecognitionNet.loadFromDisk('./utils/verification/models'),
+        faceapi.nets.faceLandmark68Net.loadFromDisk('./utils/verification/models'),
+        faceapi.nets.ssdMobilenetv1.loadFromDisk('./utils/verification/models')
     ])
 }
 
@@ -15,7 +22,8 @@ const loadLabeledImages = async (samples) => {
 
     for (const sampleIndex = 0; sampleIndex < samples.length; sampleIndex++) {
 
-        const detections = await faceapi.detectSingleFace(samples[sampleIndex])
+        const image = await canvas.loadImage(samples[sampleIndex])
+        const detections = await faceapi.detectSingleFace(image)
             .withFaceLandmarks()
             .withFaceDescriptor()
 
@@ -38,16 +46,13 @@ module.exports = {
 
             if (!labeledFaceDescriptors) throw new Error('Photo is too blurry')
 
-            console.log(labeledFaceDescriptors)
             const faceMatcher = new faceapi.FaceMatcher(labeledFaceDescriptors, 0.5)
-            const detections = await faceapi.detectSingleFace(official)
+            const image = await canvas.loadImage(official)
+            const detections = await faceapi.detectSingleFace(image)
                 .withFaceLandmarks()
                 .withFaceDescriptor()
 
-
-            console.log(detections)
-
-            if (!detections) throw new Error('Photo Id is too blurry')
+            if (!detections) throw new Error('Photo ID is tii blurry')
             const results = faceMatcher.matchDescriptor(detections)
 
             console.log(results)
