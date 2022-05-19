@@ -1,24 +1,28 @@
 # CAPSTONE-project
 
-A subtitle that describes your project  
+We Connect - Connecting Communities 
 
 
 ## Mission
 
-This should contain a brief (3-5 sentences) description of the mission of your project. 
-The goal is to state what you are planning to work on and help external contributors understand roughly which types of features will likely be welcome for this project.
+Our app provides a central medium for Jamaicans to access community based information that is reliable and relevant. Users are allowed to share information. Also, information is sourced from reputable local sources on a regular basis. Only verified users are allowed access. It rejects known criminals and others of bad repute from joining the app. Additionally, the app provides a friendly interface that is just as easy to use as popular social apps.
+
 
 
 ## Running instructions
 
-Explain to potential users how to run/replicate your workflow. If necessary, touch upon the required input data, which secret credentials are required (and how to obtain them), which software tools are needed to run the workflow (including links to the installation instructions), and how to run the workflow.
+`yarn install
+yarn dev` development
 
+`yarn build` Building a Production
+`yarn start` Running Production build locally
 
-## More resources
-
-Point interested users to any related literature and/or documentation.
 
 
 ## About
 
-Explain who has contributed to the repository. You can say it has been part of a class you've taken at Tilburg University.
+This was a CAPSTONE PROJECT by a team of students from the University of the West Indies, Mona Campus Jamaica. Listed below are the following team members:
+- Joel Henry
+- Anna-Kay Graham
+- Abygayle Ivey
+- Michaela Wright
