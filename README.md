@@ -11,11 +11,11 @@ Our app provides a central medium for Jamaicans to access community based inform
 
 ## Running instructions
 
-`yarn install
-yarn dev` development
+`yarn install` or `npm install`
+`yarn dev` or `npm run dev` development
 
-`yarn build` Building a Production
-`yarn start` Running Production build locally
+`yarn build` or `npm run build` Building a Production
+`yarn start` or `npm run start` Running Production build locally
 
 
 
