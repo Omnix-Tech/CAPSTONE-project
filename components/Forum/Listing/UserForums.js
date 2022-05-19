@@ -14,10 +14,15 @@ export default function UserForums({ user, location, setSelectedContent }) {
                     {createdForums.length === 0 ?
                         <>
                             <Center py={10}>
-                                <Box>
-                                    <Text fontWeight={'medium'} fontSize={'xs'} >{`You haven't created any forums`}</Text>
-                                    <Button isFullWidth variant={'ghost'} colorScheme={'teal'} onClick={() => setSelectedContent(0)} my={2} size={'sm'}>Join / Visit a Forum</Button>
-                                </Box>
+                                {setSelectedContent ?
+                                    <Box>
+                                        <Text fontWeight={'medium'} fontSize={'xs'} >{`You haven't created any forums`}</Text>
+                                        <Button isFullWidth variant={'ghost'} colorScheme={'teal'} onClick={() => setSelectedContent(0)} my={2} size={'sm'}>Join / Visit a Forum</Button>
+                                    </Box>
+                                    :
+                                    <Text fontWeight={'medium'} fontSize={'xs'} >No Forums</Text>
+                                }
+
                             </Center>
                         </>
                         :
